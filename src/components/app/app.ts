@@ -4,8 +4,13 @@ type Routes = {
   [key: string]: () => void,
 };
 
+function clearPage() {
+  document.body.innerHTML = '';
+}
+
 const routes: Routes = {
   '/': () => {
+    clearPage();
     Controller.drawHomePage();
   },
   '/about': () => {

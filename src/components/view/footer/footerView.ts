@@ -1,6 +1,7 @@
 export default class FooterView {
   draw(): void {
     const footer = document.createElement('footer');
+    footer.classList.add('main-background');
     footer.innerHTML = this.getFooterHTML();
     document.body.append(footer);
   }
@@ -8,7 +9,7 @@ export default class FooterView {
   // eslint-disable-next-line class-methods-use-this
   private getFooterHTML(): string {
     return `<div class="container">
-      <div class="footer-wrapper main-background">
+      <div class="footer-wrapper">
         <span class="footer__year">© 2023</span>
         <div class="footer__authors">
           <a class="footer__author" href="https://github.com/TerebinovSergey">Terebinov Sergey</a> | 
