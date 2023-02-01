@@ -1,0 +1,19 @@
+.footer-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.footer__authors {
+  display: flex;
+}
+
+.footer__rs-logo {
+  width: 100px;
+  height: 30px;
+}
+
+.footer__author {
+  margin: 0 10px;
+}

@@ -1,0 +1,127 @@
+.main-header {
+  display: flex;
+  justify-content: center;
+}
+
+.main-header {
+  padding: 50px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  font-weight: bold;
+  font-size: 1rem;
+  line-height: 1.7;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.main-header-title {
+  font-size: 4rem;
+  letter-spacing: 10px;
+}
+
+.main-header-brain {
+  font-weight: 300;
+}
+
+.main-header-trenagors,
+.main-header-brain {
+  color: white;
+}
+
+.train-brain {
+  margin: 10px;
+  padding: 5px 20px;
+  border: 2px solid #fff;
+  width: 200px;
+  text-transform: uppercase;
+  cursor: pointer;
+  background-color: #111c3e;
+  transition: all .25s;
+}
+
+.train-brain:hover {
+  box-shadow: 7px 7px 12px 2px #0000004d;
+}
+
+.about-us {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-us-categories {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.about-us-title {
+  margin: 40px 0 0;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-weight: 500;
+  font-size: 2.3rem;
+}
+
+.under-img {
+  display: block;
+  margin: 0 auto;
+  width: 50%;
+}
+
+.about-us-description {
+  text-align: center;
+  line-height: 1.8;
+}
+
+.category {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 30%;
+  max-width: 300px;
+}
+
+.category-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.category-item__point {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #2b3a65 0%, #314377 34%, #3e75a7 75%);
+  box-shadow: 0 10px 10px #0000004d;
+}
+
+.category__link {
+  display: flex;
+}
+
+.category-item__img {
+  width: 55px;
+  height: 55px;
+}
+
+.category-item__paragraph {
+  font-size: 1rem;
+  text-align: center;
+  line-height: 1.8;
+}
+
+.category-item__title {
+  margin: 0;
+  padding: 20px 0 5px;
+  font-size: 2rem;
+  font-weight: 300;
+  letter-spacing: 2px;
+}

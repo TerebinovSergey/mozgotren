@@ -1,0 +1,33 @@
+@import url('./components/_header.css');
+@import url('./components/_footer.css');
+@import url('../../pages/home.css');
+
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+ul {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.main-background {
+  background: linear-gradient(90deg, #2b3a65 0%, #314377 34%, #3e75a7 75%);
+  color: white;
+}
+
+.paragraph {
+  margin: 1rem 0;
+  color: #7b7b7b;
+  font-size: 1.1rem;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1280px;
+}
