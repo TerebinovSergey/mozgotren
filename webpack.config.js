@@ -36,13 +36,15 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: '[name].[contenthash].css'
     }),
-    new CopyWebpackPlugin( { patterns: [
-      {
-        from: './src/assets/img',
-        to: './assets',
-        noErrorOnMissing: true
-      }
-    ]})
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: './src/assets/img',
+          to: './assets',
+          noErrorOnMissing: true
+        }
+      ]
+    })
   ],
   module: {
     rules: [
@@ -59,7 +61,7 @@ module.exports = {
       {
         test: /\.css$/i,
         use: [
-          devMode ? "style-loader" : MiniCssExtractPlugin.loader, 
+          devMode ? "style-loader" : MiniCssExtractPlugin.loader,
           "css-loader",
           {
             loader: 'postcss-loader',
