@@ -1,3 +1,4 @@
+import { loginPage } from '../../pages/login';
 import Controller from '../controller/controller';
 
 type Routes = {
@@ -21,6 +22,9 @@ const routes: Routes = {
   },
   '/trenagors': () => {
     document.body.innerHTML = 'Trenagors';
+  },
+  '/login': () => {
+    loginPage();
   },
 };
 

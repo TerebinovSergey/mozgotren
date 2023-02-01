@@ -10,3 +10,6 @@ export function getElement(
 }
 
 export const test: number = 0;
+
+export const baseUrl = `https://api.leoniuk.dev`;
+
