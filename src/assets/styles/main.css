@@ -1,7 +1,39 @@
-@import url(https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
+@import url('./components/header.css');
+@import url('./components/footer.css');
+@import url('../../pages/home.css');
 
 * {
-  margin: 0;
   padding: 0;
+  margin: 0;
   box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+ul {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.main-background {
+  background: linear-gradient(90deg, #2b3a65 0%, #314377 34%, #3e75a7 75%);
+  color: white;
+}
+
+.paragraph {
+  margin: 1rem 0;
+  color: #7b7b7b;
+  font-size: 1.1rem;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1280px;
 }

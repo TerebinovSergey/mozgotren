@@ -23,13 +23,11 @@ const routes: Routes = {
   },
 };
 
-// Listen to URL changes
 window.addEventListener('popstate', () => {
   const path = window.location.pathname;
   routes[path]();
 });
 
-// Function to navigate
 type State = {
   link: string;
 };
@@ -37,8 +35,6 @@ type State = {
 function navigate(state: State, path: string) {
   window.history.pushState(state, path, window.location.origin + path);
   routes[path]();
-  // eslint-disable-next-line no-restricted-globals
-  console.log(history.state);
 }
 
 // Add click listeners to navigation links
@@ -50,5 +46,4 @@ document.querySelectorAll('.nav a').forEach((a) => {
   });
 });
 
-// Load the current route
 routes[window.location.pathname]();
