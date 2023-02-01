@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "noImplicitAny": true,
+    "module": "es6",
+    "target": "ES2017",
+    "allowJs": true,
+    "sourceMap": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": "./",
+    "paths": {
+      "*": ["./src/*"]
+    },
+  },
+  "include": ["src", ".eslintrc.cjs"],
+  "exclude": ["node_modules", "dist"]
+}
