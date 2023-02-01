@@ -1,7 +1,7 @@
 export default class HeaderView {
   draw(): void {
     const header = document.createElement('header');
-    header.classList.add('header main-background');
+    header.classList.add('header', 'main-background');
     header.innerHTML = this.getHeaderHTML();
     document.body.prepend(header);
   }
@@ -11,14 +11,14 @@ export default class HeaderView {
     return `<div class="container">
       <div class="nav-wrapper">
         <a class="logo" href="/"
-          ><img class="logo-img" src="./logo.png" alt="Mozgotren" />
+          ><img class="logo-img" src="./assets/logo.png" alt="Mozgotren" />
           <span class="logo-title">MOZGOTREN</span></a
         >
         <nav class="nav">
           <ul class="nav-ul">
             <li class="nav-li">
               <a class="nav-item" href="/"
-                ><img class="home-img" src="./home-icon.svg" alt=""
+                ><img class="home-img" src="./assets/home-icon.svg" alt=""
               /></a>
             </li>
             <li class="nav-li">

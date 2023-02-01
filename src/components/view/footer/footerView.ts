@@ -16,7 +16,7 @@ export default class FooterView {
           <a class="footer__author" href="https://github.com/alexbrestby">Alexander Leoniuk</a>
         </div>
         <a href="https://rs.school/js/" class="footer__link">
-          <img class="footer__rs-logo" src="./rs_school_logo.svg" alt="rs school">
+          <img class="footer__rs-logo" src="./assets/rs_school_logo.svg" alt="rs school">
         </a>
       </div>
     </div>`;
