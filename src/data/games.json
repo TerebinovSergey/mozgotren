@@ -2,26 +2,105 @@
   "games": [
 {
       "id": "1",
-      "title": "Арифметика",
-      "description-small": "Увеличивает скорость мышления, Концентрирует внимание, Логическое мышление",
-      "difficult": 48,
+      "title": "Сортировчик цветов",
+      "check1": "Кратковременная память",
+      "check2": "Наблюдательность",
+      "check3": "Образное мышление",
+      "difficult": 46,
       "koefficient": 1,
-      "category": "Мышление",
-      "levels": "8",
-      "time": "60",
-      "image": "https://mozgotren.netlify.app/assets/thumb_arifmetika.jpg/"
+      "category": "Память",
+      "levels": "5",
+      "image": "https://mozgotren.netlify.app/assets/thumb_sortirovshchik-cvetov.jpg/"
       
 },
 {
   "id": "2",
+  "title": "Ход конем",
+  "check1": "Кратковременная память",
+  "check2": "Наблюдательность",
+  "check3": "Образное мышление",
+  "difficult": 32,
+  "koefficient": 1,
+  "category": "Память",
+  "levels": "7",
+  "image": "https://mozgotren.netlify.app/assets/thumb_hod-konem.jpg/"
+},
+{
+  "id": "3",
+  "title": "Шульте-алфавит",
+  "check1": "Развивает внимание",
+  "check2": "Ускоряет реакцию",
+  "check3": "Расширяет угол восприятия",
+  "difficult": 22,
+  "koefficient": 1,
+  "category": "Внимание",
+  "levels": "4",
+  "image": "https://mozgotren.netlify.app/assets/thumb_shulte-alfavit.jpg/"
+},
+{
+  "id": "4",
+  "title": "Таблица Шульте",
+  "check1": "Развивает внимание",
+  "check2": "Ускоряет реакцию",
+  "check3": "Расширяет угол восприятия",
+  "difficult": 20,
+  "koefficient": 1,
+  "category": "Внимание",
+  "levels": "4",
+  "image": "https://mozgotren.netlify.app/assets/thumb_tablica-shulte.jpg/"
+},
+{
+  "id": "5",
+  "title": "Арифметика",
+  "check1": "Увеличивает скорость мышления",
+  "check2": "Концентрирует внимание",
+  "check3": "Логическое мышление",
+  "difficult": 48,
+  "koefficient": 1,
+  "category": "Мышление",
+  "levels": "8",
+  "time": "60",
+  "image": "https://mozgotren.netlify.app/assets/thumb_arifmetika.jpg/"
+  
+},
+{
+  "id": "6",
   "title": "Сложение",
-  "description-small": "Увеличивает скорость мышления, Концентрирует внимание, Логическое мышление",
+  "check1": "Увеличивает скорость мышления",
+  "check2": "Концентрирует внимание",
+  "check3": "Логическое мышление",
   "difficult": 44,
   "koefficient": 1,
   "category": "Мышление",
   "levels": "7",
   "time": "60",
   "image": "https://mozgotren.netlify.app/assets/thumb_slozhenie.jpg/"
+},
+{
+  "id": "7",
+  "title": "Пара: Страна - Столица",
+  "check1": "Повышает эрудицию",
+  "check2": "Развивает интуицию",
+  "check3": "Скорость мышления",
+  "difficult": 150,
+  "koefficient": 1,
+  "category": "Эрудиция",
+  "levels": "1",
+  "image": "https://mozgotren.netlify.app/assets/thumb_strana-stolica.jpg/"
+  
+},
+{
+  "id": "8",
+  "title": "Пара: Страна - Валюта",
+  "check1": "Повышает эрудицию",
+  "check2": "Развивает интуицию",
+  "check3": "Скорость мышления",
+  "difficult": 160,
+  "koefficient": 1,
+  "category": "Эрудиция",
+  "levels": "1",
+  "image": "https://mozgotren.netlify.app/assets/thumb_strana-valyta.jpg/"
+  
 }
 ]
 }
