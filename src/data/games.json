@@ -9,7 +9,7 @@
       "category": "Мышление",
       "levels": "8",
       "time": "60",
-      "image": "./assets/img/thumb_arifmetika.jpg"
+      "image": "https://mozgotren.netlify.app/assets/thumb_arifmetika.jpg/"
       
 },
 {
@@ -21,7 +21,7 @@
   "category": "Мышление",
   "levels": "7",
   "time": "60",
-  "image": "./assets/img/thumb_slozhenie.jpg"
+  "image": "https://mozgotren.netlify.app/assets/thumb_slozhenie.jpg/"
 }
 ]
 }
