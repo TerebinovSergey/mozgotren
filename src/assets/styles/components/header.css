@@ -22,7 +22,7 @@
 }
 
 .logo-title:hover {
-  color: #5485df;
+  color: var(--light-blue-color);
 }
 
 .nav {

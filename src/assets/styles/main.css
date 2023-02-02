@@ -7,6 +7,7 @@
 :root {
   --border-color: #c9c9c9;
   --main-background-color: #ececec;
+  --light-blue-color: #95abd4;
 }
 
 body {
@@ -33,8 +34,3 @@ a {
   margin: 0 auto;
   max-width: 1280px;
 }
-
-/*@import url('./components/header.css');
-@import url('./components/footer.css');
-@import url('../../pages/home.css');
-@import url('../../pages/trenagors.css');*/
