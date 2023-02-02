@@ -7,6 +7,11 @@
 
 .footer__authors {
   display: flex;
+  text-align: center;
+}
+
+.footer__year {
+  min-width: 55px;
 }
 
 .footer__rs-logo {
@@ -16,4 +21,27 @@
 
 .footer__author {
   margin: 0 10px;
+  transition: all .3s;
+}
+
+.footer__author:hover {
+  color: var(--light-blue-color);
+}
+
+@media screen and (max-width: 490px) {
+  .footer__authors {
+    flex-direction: column;
+  }
+  .footer__author {
+    margin: 1px 10px;
+  }
+
+  .footer-wrapper {
+    font-size: 14px;
+  }
+
+  .footer__rs-logo {
+    width: 70px;
+    height: 30px;
+  }
 }

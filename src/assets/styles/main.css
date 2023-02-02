@@ -1,20 +1,17 @@
-@import url('./components/header.css');
-@import url('./components/footer.css');
-@import url('../../pages/home.css');
-
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 
-body {
-  margin: 0;
-  font-family: 'Montserrat', sans-serif;
+:root {
+  --border-color: #c9c9c9;
+  --main-background-color: #ececec;
+  --light-blue-color: #95abd4;
 }
 
-ul {
-  margin: 0;
+body {
+  font-family: 'Montserrat', sans-serif;
 }
 
 a {
