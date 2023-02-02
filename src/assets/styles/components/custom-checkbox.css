@@ -1,0 +1,52 @@
+.check__input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.check__box {
+  margin-left: -0.2em;
+  width: 1.7em;
+  height: 1.7em;
+  background-image: url(https://cdn.glitch.com/d6162378-5823-4160-a555-3d9789bd2b92%2Foff.svg?1550563355034);
+}
+
+/* Checked */
+
+.check__input:checked+.check__box {
+  background-image: url(https://cdn.glitch.com/d6162378-5823-4160-a555-3d9789bd2b92%2Fon.svg?1550563355439);
+}
+
+/* Active */
+.check__input:active+.check__box {
+  opacity: .8;
+}
+
+/* Focused (only on keyup) */
+
+/* :focus-visible JS Polyfill */
+.check__input.focus-visible+.check__box {
+  background-image: url(https://cdn.glitch.com/d6162378-5823-4160-a555-3d9789bd2b92%2Foff-focused.svg?1550563355021);
+}
+
+.check__input.focus-visible:checked+.check__box {
+  background-image: url(https://cdn.glitch.com/d6162378-5823-4160-a555-3d9789bd2b92%2Fon-focused.svg?1550563355063);
+}
+
+.check__input:focus-visible+.check__box {
+  background-image: url(https://cdn.glitch.com/d6162378-5823-4160-a555-3d9789bd2b92%2Foff-focused.svg?1550563355021);
+}
+
+.check__input:focus-visible:checked+.check__box {
+  background-image: url(https://cdn.glitch.com/d6162378-5823-4160-a555-3d9789bd2b92%2Fon-focused.svg?1550563355063);
+}
+
+/* Disabled */
+
+.check__input:disabled+.check__box {
+  background-image: url(https://cdn.glitch.com/d6162378-5823-4160-a555-3d9789bd2b92%2Foff-disabled.svg?1550563354916);
+}
+
+.check__input:checked:disabled+.check__box {
+  background-image: url(https://cdn.glitch.com/d6162378-5823-4160-a555-3d9789bd2b92%2Fon-disabled.svg?1550563354883);
+}

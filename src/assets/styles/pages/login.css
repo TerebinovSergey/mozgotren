@@ -1,38 +1,135 @@
-.login-page {
+@import url('https://fonts.cdnfonts.com/css/source-sans-pro');
+
+.login-page,
+.register-page {
   display: flex;
   justify-content: center;
   background-color: #d2d6de;
-  height: calc(100vh - 35px);
-  /* height: auto; */
+  height: 100vh;
 }
 
-.login-box {
+.login-box,
+.register-box {
   width: 360px;
   margin: 7% auto;
 }
 
 @media (max-width: 768px) {
-  .login-box {
+
+  .login-box,
+  .register-box {
     width: 90%;
   }
 }
 
-.login-logo {
+.login-logo,
+.register-logo {
   font-size: 35px;
   text-align: center;
   margin-bottom: 25px;
 }
 
-.login-logo h3 a {
+.login-logo h3 a,
+.register-logo h3 a {
   text-decoration: none;
   text-transform: uppercase;
   color: #000000;
+  font-weight: 700;
 }
 
-.login-logo img {
+.login-logo h3 a:hover,
+.resiger-logo h3 a:hover {
+  cursor: pointer;
+  color: #444444;
+}
+
+.login-logo img,
+.register-logo img {
   width: 100px;
 }
 
-.login-logo h3 {
-  font-family: 'Poppins', sans-serif;
+.login-logo h3,
+.register-logo h3 {
+  font-size: 24px;
+  font-weight: 500;
+  color: #444444;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.row-login {
+  align-items: center;
+  justify-content: space-between;
+}
+
+.checkbox-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox-wrapper label {
+  font-family: 'Source Sans Pro', sans-serif;
+  margin-left: 10px;
+  color: #555555;
+  font-size: 14px;
+}
+
+.login-checkbox {
+  border: 1px solid #cccccc;
+  padding: 7px;
+}
+
+.login-button,
+.register-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #01579b;
+  color: #ffffff;
+  font-size: 14px;
+  cursor: pointer;
+  width: 100%;
+  padding: 6px 12px;
+  font-weight: 400;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.login-button:hover,
+.register-button:hover {
+  background-color: #043765;
+}
+
+.register-button {
+  width: 66%;
+}
+
+.login-button {
+  width: 33%;
+}
+
+.login-link,
+.register-link {
+  margin-top: 20px;
+  height: 30px;
+}
+
+.login-link a,
+.register-link a {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: #01579b;
+  font-size: 14px;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.login-link a:hover,
+.register-link a:hover {
+  color: #043765;
+}
+
+.login-link i,
+.register-link i {
+  margin-right: 5px;
+  color: #555555;
+  min-height: 100%;
 }
