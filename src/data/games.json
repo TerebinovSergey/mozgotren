@@ -6,7 +6,7 @@
       "description-small": "Увеличивает скорость мышления, Концентрирует внимание, Логическое мышление",
       "difficult": 48,
       "koefficient": 1,
-      "category": "smartphones",
+      "category": "Мышление",
       "levels": "8",
       "time": "60",
       "image": "./assets/img/thumb_arifmetika.jpg"
@@ -18,7 +18,7 @@
   "description-small": "Увеличивает скорость мышления, Концентрирует внимание, Логическое мышление",
   "difficult": 44,
   "koefficient": 1,
-  "category": "smartphones",
+  "category": "Мышление",
   "levels": "7",
   "time": "60",
   "image": "./assets/img/thumb_slozhenie.jpg"
