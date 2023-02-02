@@ -21,7 +21,8 @@ const routes: Routes = {
     document.body.innerHTML = 'Contact';
   },
   '/trenagors': () => {
-    document.body.innerHTML = 'Trenagors';
+    clearPage();
+    Controller.drawTrenagorsPage();
   },
   '/login': () => {
     loginPage();

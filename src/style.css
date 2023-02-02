@@ -1,1 +1,5 @@
 @import url('./assets/styles/main.css');
+@import url('./assets/styles/components/header.css');
+@import url('./assets/styles/components/footer.css');
+@import url('./pages/home.css');
+@import url('./pages/trenagors.css');

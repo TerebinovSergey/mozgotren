@@ -6,7 +6,6 @@ export default class FooterView {
     document.body.append(footer);
   }
 
-  // eslint-disable-next-line class-methods-use-this
   private getFooterHTML(): string {
     return `<div class="container">
       <div class="footer-wrapper">
