@@ -1,4 +1,3 @@
-
 import '../../../assets/styles/components/login-form.css';
 
 const loginForm = (param: string, state?: { username: string, email: string }) => {
