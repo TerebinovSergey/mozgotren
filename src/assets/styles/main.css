@@ -3,6 +3,13 @@
   margin: 0;
   box-sizing: border-box;
 }
+html {
+  scroll-behavior: smooth;
+  cursor: crosshair;
+  transition: 1s;
+  overflow-x: hidden;
+  font-size: 10px;
+ }
 
 :root {
   --border-color: #c9c9c9;
@@ -12,6 +19,7 @@
 
 body {
   font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
 }
 
 a {
@@ -26,9 +34,9 @@ a {
 
 @media screen and (max-width: 900px) {
 
-  .body-background-shaddow {
+.body-background-shaddow {
 display: none; 
-  }
+}
 
 }
 .paragraph {

@@ -1,6 +1,6 @@
 .header {
   position: absolute;
-  width: 100vw;
+ width: 100%;
 }
 .logo {
   padding: 15px;
@@ -40,7 +40,18 @@
   width: 100%;
   transition: 0.6s ease-out;
 }
+.nav__title-aside .header__underline2 {
+  display: block;
+  width: 0px;
+  height: 2px;
+  background-color: white;
+  transition: .3s;
+}
 
+.nav__title-aside:hover .header__underline2 {
+  width: 100%;
+  transition: 0.3s ease-out;
+}
 .nav {
   display: flex;
   align-items: center;
@@ -106,22 +117,27 @@
     display: block;
   }
   .burger-menu {
-    width: 27px;
-    height: 24px;
+   
     display: flex;
-    margin: 10px;
     z-index: 1200;
   }
 .open {
+  width: 27px;
+  height: 24px;
+  margin: 10px;
   background-image: url("../../svg/menu-mobile.svg");
   z-index: 1200;
 }
 .close {
+  width: 20px;
+  height: 20px;
+  Right: 0px;
+  margin-top: 10px;
+  margin-right: 10px;
   background-image: url("../../svg/x.svg");
   position: fixed;
   z-index: 1200;
 }
-
 .nav-aside {
   display: flex;
   flex-direction: column;
@@ -163,16 +179,35 @@ height: 100vh;
 background-color: rgba(0,0,0,0.5);
 z-index: 900;
 }
+.hidden1 {
+  display: none;
+}
+.nav__aside-logo {
+  width: 94%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-bottom: 1px solid grey;
+  margin: 0 1rem;
+  margin-top: 15px;
+  padding-bottom: 25px;
+}
 .nav__mozgotren-big {
+  margin: auto;
   width: 120px;
   height: 120px;
   background-size:  100%;
   background-image: url("../../img/logo_aside.png");
 }
 .nav__title-aside {
+    width: 50%;
+    margin: auto;
     position: relative;
+    margin-top: 20px;
+    margin-bottom: 10px;
     overflow: hidden;
     font-weight: 500;
+    text-align: center;
     color: inherit;
     text-transform: uppercase;
     font-size: 1.5rem;
@@ -184,12 +219,15 @@ z-index: 900;
   align-items: flex-start;
   list-style-type: none;
   height: 100%;
+  width: 100%;
 }
 
 .nav-li-aside {
+  width: 100%;
   height: 48px;
   line-height: 48px;
-  padding: 0 32px;
+  /* padding: 0 32px; */
+
 }
 
 .nav-item-aside {
@@ -201,10 +239,11 @@ z-index: 900;
   letter-spacing: 1px;
   height: 100%;
   transition: all .25s;
+  border-bottom: 1px solid grey;
+  margin: 0 1rem;
 }
 
 }
-
 
 @media screen and (max-width: 630px) {
 

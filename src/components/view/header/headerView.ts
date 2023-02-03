@@ -10,8 +10,14 @@ export default class HeaderView {
     return `<div class="header_container">
       <div class="nav-wrapper">
       <nav class="nav-aside">
-      <div class="nav__mozgotren-big"></div>
-      <p class="nav__title-aside">MOZGOTREN</p>
+      <a href="/" class="nav__aside-logo">
+        <div class="nav__mozgotren-big"></div>
+        <span class="nav__title-aside">
+          <span class="header__underline2"></span>
+            MOZGOTREN
+          <span class="header__underline2"></span>
+        </span>
+      </a>
       <ul class="nav-ul-aside">
         <li class="nav-li-aside">
           <a class="nav-item-aside" href="/"
@@ -41,10 +47,13 @@ export default class HeaderView {
           </span>
         </a>
 
-        <div class="burger-menu" onclick="
-          document.querySelector('.nav-aside')?.classList.toggle('active');
-          document.querySelector('.body-background-shaddow')?.classList.toggle('hidden');">
+        <div class="burger-menu" onclick="document.querySelector('.nav-aside')?.classList.toggle('active'); 
+        document.querySelector('.body-background-shaddow')?.classList.toggle('hidden');
+        document.querySelector('.open')?.classList.toggle('hidden1');
+        document.querySelector('.close')?.classList.toggle('hidden1');
+        ">
            <svg class="open" alt="open"></svg>
+           <svg class="close hidden1" alt="close"></svg>
         </div>
         <nav class="nav">
           <ul class="nav-ul">
