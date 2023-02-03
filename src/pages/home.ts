@@ -20,8 +20,23 @@ export default class HomePage {
 
   static getMainHTML() {
     return `<section class="main-header main-background">
+      
       <div class="container">
-        <h1 class="main-header-title">MOZGOTREN</h1>
+        <h1 class="main-header-title">
+        <span class="underline"></span>
+        <div class="title-link title-main">
+          <span>M</span>
+          <span>O</span>
+          <span>Z</span>
+          <span>G</span>
+          <span>O</span>
+          <span>T</span>
+          <span>R</span>
+          <span>E</span>
+          <span>N</span>
+        </div>
+        <span class="underline"></span>
+        </h1>
         <p class="main-header-trenagors paragraph">
           Тренажеры для мозга.<br />Тренировка памяти,<br />внимания и
           мышления.

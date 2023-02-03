@@ -81,5 +81,5 @@ export const loginForm = (param: string) => {
   loginBoxBodyForm.append(...formElements);
   loginBoxBody.append(loginBoxBodyForm);
   return loginBoxBody;
-}
+};
 // loginBoxBody.innerHTML = '<i class="fa-solid fa-envelope"></i><i class="fa-solid fa-lock"></i>';

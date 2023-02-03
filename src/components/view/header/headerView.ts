@@ -12,7 +12,12 @@ export default class HeaderView {
       <div class="nav-wrapper">
         <a class="logo" href="/"
           ><img class="logo-img" src="./assets/logo.png" alt="Mozgotren" />
-          <span class="logo-title">MOZGOTREN</span></a
+          <span class="logo-title">
+          <span class="underline"></span>
+          MOZGOTREN
+          <span class="underline"></span>
+          </span>
+          </a
         >
         <nav class="nav">
           <ul class="nav-ul">
