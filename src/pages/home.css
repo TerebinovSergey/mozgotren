@@ -14,15 +14,14 @@
   line-height: 1.7;
   letter-spacing: 1px;
   text-align: center;
-  
+  padding-top: 60px;
 }
-
 
 .main-header-title {
   font-size: 4rem;
   letter-spacing: 10px;
   display: block;
-  width: 120%;
+  width: 100%;
 }
 
 .main-header .main-header-title .underline {
@@ -46,9 +45,11 @@
   font-weight: 500;
   color: inherit;
   text-transform: uppercase;
-  font-size: 4rem; }
+  font-size: 2rem; 
+  letter-spacing: 2px;
+}
 
-.title-link.title-main {}
+.title-link .title-main {}
   .title-link::before {
     content: '';
     position: absolute;
@@ -204,3 +205,13 @@
   font-weight: 300;
   letter-spacing: 2px;
 }
+
+@media screen and (max-width: 1100px) {
+
+.title-link {
+  font-size: 2rem;
+  letter-spacing: 2px;
+}
+
+}
+

@@ -19,7 +19,9 @@ export default class HomePage {
   }
 
   static getMainHTML() {
-    return `<section class="main-header main-background">
+    return `
+    <div class="body-background-shaddow"></div>
+    <section class="main-header  main-background">
       
       <div class="container">
         <h1 class="main-header-title">

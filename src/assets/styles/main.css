@@ -24,16 +24,23 @@ a {
   color: white;
 }
 
+@media screen and (max-width: 900px) {
+
+  .body-background-shaddow {
+display: none; 
+  }
+
+}
 .paragraph {
   margin: 1rem 0;
   color: #7b7b7b;
   font-size: 1.1rem;
 }
 
-.container {
+/* .container {
   margin: 0 auto;
   max-width: 1280px;
-}
+} */
 
 .row {
   display: flex;
