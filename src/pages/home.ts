@@ -29,7 +29,7 @@ export default class HomePage {
       <p class="main-header-brain paragraph">
         ЗАСТАВЬ СВОЙ МОЗГ РАБОТАТЬ БЫСТРЕЕ!
       </p>
-      <a class="train-brain" href="/trening">Тренировать мозг</a>
+      <a class="train-brain" href="/trenagors">Тренировать мозг</a>
     </div>
   </section>
   <div class="container">
@@ -98,6 +98,7 @@ export default class HomePage {
   </div>
   <div id="features"></div>
   <section class="benefits-trenagors">
+    <div class="container">
     <div class="main-container">
       <div class="title-wrapper">
         <h2 class="sub-title sub-title__white benefits__sub-title">ПРЕИМУЩЕСТВА ТРЕНАЖЕРОВ</h2>
@@ -177,6 +178,7 @@ export default class HomePage {
           </div>
         </div>
       </div>
+    </div>
     </div>
   </section>
   <div class="container">
