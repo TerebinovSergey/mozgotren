@@ -18,6 +18,7 @@
 
 .main-header-title {
   font-size: 4rem;
+  font-size: max(min(4rem, 8vw), 1.8rem);
   letter-spacing: 10px;
 }
 
@@ -45,7 +46,8 @@
   box-shadow: 7px 7px 12px 2px #0000004d;
 }
 
-.about-us {
+.about-us,
+.trenagors-for-brain {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -54,7 +56,7 @@
 
 .about-us-categories {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   width: 100%;
 }
 
@@ -69,7 +71,7 @@
 .under-img {
   display: block;
   margin: 0 auto;
-  width: 50%;
+  width: min(20vw, 150px);
 }
 
 .about-us-description {
@@ -122,6 +124,202 @@
   margin: 0;
   padding: 20px 0 5px;
   font-size: 2rem;
-  font-weight: 300;
+  font-size: max(min(2rem, 8vw), 1.3rem);
   letter-spacing: 2px;
+  font-weight: 400;
+}
+
+.main-container {
+  margin: 0 auto;
+  width: 80%;
+}
+
+.gradient-color {
+  background: linear-gradient(135deg, #000428, #0074da);
+} 
+
+blockquote {
+  margin: 20px 0;
+  padding-left: 1.5rem;
+  border-left: 5px solid #ee6e73;
+  text-align: justify;
+}
+
+.category-item__paragraph,
+.improve-description__paragraph,
+.info-description__paragraph {
+  text-align: justify;
+}
+
+.section-improve {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.improve-description {
+  width: 50%;
+}
+
+.improve__img {
+  width: 80%;
+}
+
+.improve-wpapper-img {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  width: 50%;
+}
+
+.improve-description__info {
+  display: flex;
+  margin-top: 10px;
+}
+
+.info__img {
+  margin-right: 10px;
+}
+
+.fa::before {
+  color:  #3e75a7;
+  font-size: 24px;
+}
+
+.improve-description__title,
+.info-description__title {
+  font-size: 1.5rem;
+  letter-spacing: 3px;
+  line-height: 1.1;
+  font-weight: 400;
+}
+
+.info-description__title {
+  font-size: 1.2rem;
+}
+
+.benefits-trenagors {
+  padding: 20px 0 40px;
+  background: linear-gradient(135deg, #2b3a65 0%, #314377 34%, #3e75a7 75%);
+  color: #ffffff;
+}
+
+.sub-title {
+  padding: 40px 0 10px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-weight: 500;
+  font-size: max(min(2rem, 7vw), 1.5rem);
+  color: var(--black-text-color);
+}
+
+.sub-title__white {
+  color: white;
+}
+
+.benefits-img-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: max(min(20px, 4vw), 10px);
+  min-width:  max(min(4rem, 7vw), 3rem);
+  height: max(min(4rem, 7vw), 3rem);
+  border-radius: 50%;
+  box-shadow: 0 10px 10px #0000004d;
+  background: #0000006b;
+}
+
+.benefits-wrapper {
+  margin-top: 40px;
+  padding-bottom: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+  justify-items: center;
+  align-items: start;
+  transition: all .5s;
+}
+
+.benefits-item {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  transition: all .3s;
+  cursor: pointer;
+}
+
+.benefits-item:hover {
+  box-shadow: 0 8px 17px 0 #00000033, 0 6px 20px 0 #00000030;
+}
+
+.fa-white::before {
+  font-size: 2rem;
+  color: #ffffff;
+}
+
+.benefits-paragraph {
+  font-size: 1rem;
+  color: #ffffff;
+  text-align: justify;
+}
+
+.benefits-title {
+  font-size: 1.3rem;
+  letter-spacing: 0.1em;
+  font-weight: 400;
+}
+
+#about-us,
+#features {
+  position: relative;
+  top: -66px
+}
+
+@media screen and (max-width: 800px) {
+  .benefits-wrapper {
+    grid-template-columns: 1fr;
+    transition: all 2s;
+  }
+
+  .about-us-categories {
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: stretch;
+  }
+
+  .category {
+    width: 100%;
+    max-width: 1000px;
+  }
+
+  .section-improve {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .improve-memory,
+  .improve-your-thinking {
+    flex-direction: column-reverse;
+  }
+
+  .improve-description {
+    width: 100%;
+  }
+
+  .improve-wpapper-img {
+    margin-bottom: 30px;
+  }
+}
+
+@media screen and (max-width: 370px) {
+  .main-container {
+    width: 92%;
+  }
+
+  .benefits__sub-title {
+    font-size: 1.2rem;
+  }
 }
