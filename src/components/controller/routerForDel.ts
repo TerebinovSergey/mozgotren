@@ -1,5 +1,4 @@
 import { getElement } from '../../utils/utils';
-import { loginPage } from '../../pages/login';
 
 type Routes = {
   [key: string]: () => void,
@@ -17,9 +16,6 @@ const routes: Routes = {
   },
   '/trenagors': () => {
     getElement('#content').innerHTML = 'Trenagors';
-  },
-  '/login': () => {
-    loginPage();
   },
 };
 

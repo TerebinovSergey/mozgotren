@@ -6,6 +6,8 @@
 .login-box__msg {
   text-align: center;
   padding: 0 20px 20px;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 12px;
 }
 
 .form-group {
@@ -39,6 +41,21 @@
 
 .form-control__icon {
   position: absolute;
+  display: flex;
+  justify-content: center;
   right: 10px;
   top: 25%;
+  width: 16px;
+}
+
+.form-control__icon i {
+  color: #555555;
+  text-shadow: 1px 1px 1px #ccc;
+}
+
+.form-warning {
+  position: absolute;
+  font-size: 0.7em;
+  color: #ff0000;
+  font-family: 'Source Sans Pro', sans-serif;
 }
