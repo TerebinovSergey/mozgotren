@@ -1,9 +1,12 @@
+import formValidation from '../components/view/login-form/form-validation';
 import '../assets/styles/pages/login.css';
-import { loginForm } from '../components/view/login-form/loginForm';
+import loginForm from '../components/view/login-form/loginForm';
 
-export const registrationPage = () => {
+const registrationPage = () => {
   const body = document.querySelector('body');
-  !!document.querySelector('.register-page') && document.querySelector('.register-page')?.remove();
+  if (document.querySelector('.register-page')) {
+    document.querySelector('.register-page')?.remove();
+  }
 
   const registerPageWrapper = document.createElement('div');
   registerPageWrapper.classList.add('register-page');
@@ -36,13 +39,16 @@ export const registrationPage = () => {
   const registerBoxBodyButton = document.createElement('div');
   registerBoxBodyButton.classList.add('register-button');
   registerBoxBodyButton.innerHTML = 'Зарегистрироваться';
+  registerBoxBodyButton.addEventListener('click', (e: Event) => {
+    formValidation(e);
+  });
 
   const loginPageLinkWrapper = document.createElement('div');
   loginPageLinkWrapper.classList.add('login-link');
 
   const loginPageLink = document.createElement('a');
   loginPageLink.href = './login';
-  loginPageLink.innerHTML = `<i class="fa-solid fa-right-to-bracket"></i> Вход`;
+  loginPageLink.innerHTML = '<i class="fa fa-sign-in" aria-hidden="true"></i> Вход';
   loginPageLinkWrapper.append(loginPageLink);
 
   registerBoxBodyRow.append(registerBoxBodyButton);
@@ -53,4 +59,12 @@ export const registrationPage = () => {
   registerBox.append(registerLogo, registerBoxBody);
   registerPageWrapper.append(registerBox);
   body?.append(registerPageWrapper);
-}
+
+  [...document.querySelectorAll('.form-control')].forEach((item) => {
+    item.addEventListener('change', (e: Event) => {
+      formValidation(e);
+    });
+  });
+};
+
+export default registrationPage;

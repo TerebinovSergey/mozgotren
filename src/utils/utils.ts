@@ -11,5 +11,16 @@ export function getElement(
 
 export const test: number = 0;
 
-export const baseUrl = `https://api.leoniuk.dev`;
+// export const baseUrl = 'http://localhost:5000';
+export const baseUrl = 'https://api.leoniuk.dev';
 
+export const submitForm = async (objValues: any) => {
+  const result = await fetch(`${baseUrl}/users/registration`, {
+    method: 'POST',
+    body: JSON.stringify(objValues),
+    headers: {
+      'Content-type': 'application/json',
+    },
+  });
+  return result;
+};

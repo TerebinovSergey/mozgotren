@@ -1,11 +1,13 @@
+import formValidation from '../components/view/login-form/form-validation';
 import '../assets/styles/pages/login.css';
-import { loginForm } from '../components/view/login-form/loginForm';
+import loginForm from '../components/view/login-form/loginForm';
 import { baseUrl } from '../utils/utils';
 
-export const loginPage = async () => {
-
+const loginPage = async () => {
   const body = document.querySelector('body');
-  !!document.querySelector('.login-page') && document.querySelector('.login-page')?.remove();
+  if (document.querySelector('.login-page')) {
+    document.querySelector('.login-page')?.remove();
+  }
 
   const loginPageWrapper = document.createElement('div');
   loginPageWrapper.classList.add('login-page');
@@ -30,10 +32,10 @@ export const loginPage = async () => {
   loginBoxLink.href = '/';
   loginBoxLink.innerHTML = 'Mozgotren';
 
-  const loginBoxBody = loginForm('login');
+  const loginBoxBody = loginForm('login', window.history.state);
 
   const result = await fetch(`${baseUrl}/users`, {
-    method: 'GET'
+    method: 'GET',
   });
   const users = await result.json();
   console.log(users);
@@ -44,9 +46,9 @@ export const loginPage = async () => {
   const loginBoxBodyCheckboxWrapper = document.createElement('div');
   loginBoxBodyCheckboxWrapper.classList.add('checkbox-wrapper');
 
-  const loginBoxBodyLabel = document.createElement("Label");
-  loginBoxBodyLabel.setAttribute("for", "login-checkbox");
-  loginBoxBodyLabel.innerHTML = "Запомнить меня";
+  const loginBoxBodyLabel = document.createElement('Label');
+  loginBoxBodyLabel.setAttribute('for', 'login-checkbox');
+  loginBoxBodyLabel.innerHTML = 'Запомнить меня';
 
   const loginBoxBodyCheckbox = document.createElement('input');
   loginBoxBodyCheckbox.classList.add('login-checkbox');
@@ -58,13 +60,16 @@ export const loginPage = async () => {
   const loginBoxBodyButton = document.createElement('div');
   loginBoxBodyButton.classList.add('login-button');
   loginBoxBodyButton.innerHTML = 'Войти';
+  loginBoxBodyButton.addEventListener('click', (e: Event) => {
+    formValidation(e);
+  });
 
   const loginPageLinkWrapper = document.createElement('div');
   loginPageLinkWrapper.classList.add('login-link');
 
   const loginPageLink = document.createElement('a');
   loginPageLink.href = './register';
-  loginPageLink.innerHTML = `<i class="fa-solid fa-address-card"></i> Регистрация`;
+  loginPageLink.innerHTML = '<i class="fa fa-id-card" aria-hidden="true"></i> Регистрация';
   loginPageLinkWrapper.append(loginPageLink);
 
   loginBoxBodyRow.append(loginBoxBodyCheckboxWrapper, loginBoxBodyButton);
@@ -76,4 +81,12 @@ export const loginPage = async () => {
   loginBox.append(loginLogo, loginBoxBody);
   loginPageWrapper.append(loginBox);
   body?.append(loginPageWrapper);
-}
+
+  [...document.querySelectorAll('.form-control')].forEach((item) => {
+    item.addEventListener('change', (e: Event) => {
+      formValidation(e);
+    });
+  });
+};
+
+export default loginPage;

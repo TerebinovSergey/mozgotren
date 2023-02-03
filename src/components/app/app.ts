@@ -1,5 +1,5 @@
-import { loginPage } from '../../pages/login';
-import { registrationPage } from '../../pages/registration';
+import loginPage from '../../pages/login';
+import registrationPage from '../../pages/registration';
 import Controller from '../controller/controller';
 
 type Routes = {
