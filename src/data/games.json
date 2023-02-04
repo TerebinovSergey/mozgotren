@@ -10,7 +10,7 @@
       "koefficient": "1",
       "category": "Память",
       "levels": "5",
-      "image": "https://mozgotren.netlify.app/assets/thumb_sortirovshchik-cvetov.jpg/"
+      "image": "https://mozgotren-clone.netlify.app/assets/thumb_sortirovshchik-cvetov.jpg/"
       
 },
 {
@@ -23,7 +23,7 @@
   "koefficient": "1",
   "category": "Память",
   "levels": "7",
-  "image": "https://mozgotren.netlify.app/assets/thumb_hod-konem.jpg/"
+  "image": "https://mozgotren-clone.netlify.app/assets/thumb_hod-konem.jpg/"
 },
 {
   "id": "3",
@@ -35,7 +35,7 @@
   "koefficient": "1",
   "category": "Внимание",
   "levels": "4",
-  "image": "https://mozgotren.netlify.app/assets/thumb_shulte-alfavit.jpg/"
+  "image": "https://mozgotren-clone.netlify.app/assets/thumb_shulte-alfavit.jpg/"
 },
 {
   "id": "4",
@@ -47,7 +47,7 @@
   "koefficient": "1",
   "category": "Внимание",
   "levels": "4",
-  "image": "https://mozgotren.netlify.app/assets/thumb_tablica-shulte.jpg/"
+  "image": "https://mozgotren-clone.netlify.app/assets/thumb_tablica-shulte.jpg/"
 },
 {
   "id": "5",
@@ -60,7 +60,7 @@
   "category": "Мышление",
   "levels": "8",
   "time": "60",
-  "image": "https://mozgotren.netlify.app/assets/thumb_arifmetika.jpg/"
+  "image": "https://mozgotren-clone.netlify.app/assets/thumb_arifmetika.jpg/"
   
 },
 {
@@ -74,7 +74,7 @@
   "category": "Мышление",
   "levels": "7",
   "time": "60",
-  "image": "https://mozgotren.netlify.app/assets/thumb_slozhenie.jpg/"
+  "image": "https://mozgotren-clone.netlify.app/assets/thumb_slozhenie.jpg/"
 },
 {
   "id": "7",
@@ -86,7 +86,7 @@
   "koefficient": "1",
   "category": "Эрудиция",
   "levels": "1",
-  "image": "https://mozgotren.netlify.app/assets/thumb_strana-stolica.jpg/"
+  "image": "https://mozgotren-clone.netlify.app/assets/thumb_strana-stolica.jpg/"
   
 },
 {
@@ -99,7 +99,7 @@
   "koefficient": "1",
   "category": "Эрудиция",
   "levels": "1",
-  "image": "https://mozgotren.netlify.app/assets/thumb_strana-valyta.jpg/"
+  "image": "https://mozgotren-clone.netlify.app/assets/thumb_strana-valyta.jpg/"
   
 }
 ]

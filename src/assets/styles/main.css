@@ -40,3 +40,12 @@ a {
   display: flex;
   width: 100%;
 }
+
+
+@media screen and (max-width: 900px) {
+
+  .body-background-shaddow {
+  display: none; 
+  }
+  
+  }
