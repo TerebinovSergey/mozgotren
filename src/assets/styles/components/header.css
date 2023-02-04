@@ -106,15 +106,13 @@
   .nav {
     display: none;
   }
-  
-    .nav__mozgotren-big, .nav__title-aside {
-      display: block;
-    }
-    .burger-menu {
-     
-      display: flex;
-      z-index: 1200;
-    }
+  .nav__mozgotren-big, .nav__title-aside {
+    display: block;
+  }
+  .burger-menu {
+    display: flex;
+    z-index: 1200;
+  }
   .open {
     width: 40px;
     height: 40px;
