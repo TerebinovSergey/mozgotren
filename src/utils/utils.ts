@@ -19,6 +19,9 @@ export const submitForm = async (objValues: any) => {
   const result = await fetch(`${baseUrl}/users/${path}`, {
     method: 'POST',
     body: JSON.stringify(objValues),
+    headers: {
+      'Content-type': 'application/json',
+    },
   });
   return result;
 };
