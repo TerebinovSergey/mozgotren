@@ -44,8 +44,21 @@
   height: 100%;
 }
 
+.nav-li:last-child {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
 .nav-li {
   height: 100%;
+}
+
+.nav-li span {
+  position: absolute;
+  bottom: 12px;
+  font-size: 12px;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 .nav-item {

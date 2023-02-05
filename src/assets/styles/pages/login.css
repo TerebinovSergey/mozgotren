@@ -124,8 +124,9 @@
   align-items: center;
   cursor: pointer;
   color: #01579b;
-  font-size: 14px;
+  font-size: 16px;
   font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 500;
 }
 
 .login-link a:hover,
@@ -133,9 +134,8 @@
   color: #043765;
 }
 
-.login-link i,
-.register-link i {
+.login-link i::before,
+.register-link i::before {
   margin-right: 5px;
-  color: #555555;
   text-shadow: 1px 1px 1px #ccc;
 }
