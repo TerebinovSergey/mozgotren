@@ -20,7 +20,13 @@ export default class TrenagorsPage {
   }
 
   static getMainHTML() {
-    return `<div class="container">
+    return `
+    <div class="body-background-shaddow" onclick="document.querySelector('.nav-aside')?.classList.toggle('active'); 
+document.querySelector('.body-background-shaddow')?.classList.toggle('hidden');
+document.querySelector('.open')?.classList.toggle('hidden1');
+document.querySelector('.close')?.classList.toggle('hidden1');
+"></div>
+    <div class="container">
       <div class="trenagors-title-wrapper">
         <h2 class="trenagors-title">Тренажеры для ума</h2>
         <img
@@ -70,11 +76,11 @@ export default class TrenagorsPage {
           </div>
         </aside>
         <div class="trenagors-container">
-          <div class="game-wrapper">game 1</div>
-          <div class="game-wrapper">game 2</div>
-          <div class="game-wrapper">game 3</div>
-          <div class="game-wrapper">game 4</div>
-          <div class="game-wrapper">game 5</div>
+          <a href="/game" class="game-page"><div class="game-wrapper">game 1</div></a>
+          <a href="/game" class="game-page"><div class="game-wrapper">game 2</div></a>
+          <a href="/game" class="game-page"><div class="game-wrapper">game 3</div></a>
+          <a href="/game" class="game-page"><div class="game-wrapper">game 4</div></a>
+          <a href="/game" class="game-page"><div class="game-wrapper">game 5</div></a>
         </div>
       </section>
     </div>`;

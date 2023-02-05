@@ -1,0 +1,138 @@
+.game-container {
+    flex: 1 1 auto;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: auto;
+    max-width: 100%;
+    height: 87.2vh;
+    position: relative;
+    padding: 5px;
+    background: rgb(245, 245, 245);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.game-container-wrapper {
+  background: #fff;
+  border: thin solid rgba(0,0,0,.12);
+  height: 630px;
+  margin: 5px;
+  width: 730px;
+}
+.button {
+  background-color: rgb(0, 57, 105);
+  border-color: rgb(0, 57, 105);
+  text-transform: uppercase;
+  color: white;
+  height: 44px;
+  min-width: 78px;
+  padding: 0 19.5555555556px;
+  box-shadow: 0 2px 4px -1px rgb(0 0 0 / 20%), 0 4px 5px 0 rgb(0 0 0 / 14%), 0 1px 10px 0 rgb(0 0 0 / 12%);
+}
+.button-navigation {
+  background: transparent;
+ 
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: all .6s;
+}
+.button-navigation:hover {
+  background: rgba(214, 214, 214, 0.3);
+}
+.navigation {
+  background-color: #2e2e2e;
+  padding: 0px 10px 0px 10px;
+  color: #fff;
+  box-shadow: 0 2px 4px -1px rgb(0 0 0 / 20%), 0 4px 5px 0 rgb(0 0 0 / 14%), 0 1px 10px 0 rgb(0 0 0 / 12%);
+  display: flex;
+  flex-direction: row;
+  height: 35px;
+  z-index: 2000000;
+  justify-content: space-between;
+}
+.information {
+  text-align: center;
+  border-bottom: 1px solid #e0e0e0;
+  
+  background: #eee;
+  color: rgba(0,0,0,.6);
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+}
+.information-container {
+  padding: 35px 20px 35px 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.game-logo {
+  width: 50px;
+  height: 50px;
+  background-size: cover;
+  background-position: center center;
+  background-image: url("../assets/img/thumb_arifmetika.jpg");
+  border-radius: 50px;
+}
+.title-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.shadow {
+  box-shadow: 0 2px 4px -1px rgb(0 0 0 / 20%), 0 4px 5px 0 rgb(0 0 0 / 14%), 0 1px 10px 0 rgb(0 0 0 / 12%);
+width: 100%;
+height: 1px;
+margin: 0;
+}
+.check-container {
+  display: flex;
+  flex-direction: column;
+}
+.check {
+  width: 16px;
+  height: 16px;
+  margin-right: 10px;
+  background-size: cover;
+  background-position: center center;
+  background-image: url("../assets/svg/checkbox.svg");
+}
+.check-item {
+  display: flex;
+  flex-direction: row;
+}
+.form-container {
+  display: flex;
+  flex-direction: column;
+  height: 50%;
+  justify-content: space-around;
+  align-items: center;
+}
+
+@media screen and (max-width: 950px) {
+
+  .game-container {
+    padding: 0;
+  }
+  .game-container-wrapper {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    margin-bottom: 10px;
+  }
+  .navigation{
+    margin-top: -0.8px;
+    box-shadow: 0 2px 4px -1px rgb(0 0 0 / 20%), 0 4px 5px 0 rgb(0 0 0 / 14%), 0 1px 10px 0 rgb(0 0 0 / 12%);
+  }
+
+}
+
+@media screen and (max-width: 600px) {
+
+  .check-container {
+    display: none;
+  }
+
+}
