@@ -31,12 +31,15 @@ export default class GamePage {
       <div class="game-container-wrapper">
         <div class="navigation">
           <button type="button" class="button-navigation">
+            <div class="check-mark"></div>
             <span class=""><span><span  class="">Очки:</span><b><span> 0 </span></b></span></span>
           </button>
           <button type="button" class="button-navigation">
+            <div class="flag"></div>
             <span class=""><span><span class="hide-xs">Уровень: </span><b>1</b> / 8 </span>
           </button>
           <button type="button" class="button-navigation">
+            <div class="stopwatch"></div>
             <span class=""><span><span class="hide-xs">Время: </span><b>60</b></span>
           </button>
         </div>
@@ -44,19 +47,20 @@ export default class GamePage {
         <div class="information">
           <hr class="shadow">
           <div class="information-container">
-            <div class="game-logo"></div>
-            <div class="title-container">
-              <h2 class="game-title">Мемори</h2>
-              <h5 class="game-difficult"> Коэффициент сложности: <b>64</b></h5>
+            <div class="info-title-container">
+              <div class="game-logo"></div>
+              <div class="title-container">
+                <h2 class="game-title">Мемори</h2>
+                <h5 class="game-difficult"> Коэффициент сложности: <b>64</b></h5>
+              </div>
             </div>
             <ul class="check-container">
-              <li class="check-item"><div class="check" alt="check"></div><h5>Кратковременная память</h5></li>
-              <li class="check-item"><div class="check" alt="check"></div><h5>Наблюдательность</h5></li>
-              <li class="check-item"><div class="check" alt="check"></div><h5>Образное мышление</h5></li>
+              <li class="check-item"><div class="check check1"></div><h5>Кратковременная память</h5></li>
+              <li class="check-item"><div class="check check2"></div><h5>Наблюдательность</h5></li>
+              <li class="check-item"><div class="check check3"></div><h5>Образное мышление</h5></li>
             </ul>
           </div>
         </div>
-        
         <div class="form-container">
           <hr class="separator">
           <form action="/game-start">
@@ -64,8 +68,17 @@ export default class GamePage {
               <span class="">Начать тренировку</span>
             </button>
           </form>
+          <div class="game-difficult-container">
+            <h5 class="game-difficult-id"> Cложность тренажера: </h5>
+            <div class="container-game-difficult-id"></div>
+          </div>
           <a href="/game-rules"><h5>Правила игры</h5></a>
           <h5> Пригласите друзей на тренировку: </h5>
+          <ul class="link-container">
+            <li class="link-item"><a href="/https://www.facebook.com/"><div class="facebook"></div></a></li>
+            <li class="link-item"><a href="/https://ok.ru/"><div class="odnoklassniki"></div></a></li>
+            <li class="link-item"><a href="/https://https://login.microsoftonline.com/"><div class="open-letter"></div></a></li>
+          </ul>
         </div>
       </div>
     </div>`;
