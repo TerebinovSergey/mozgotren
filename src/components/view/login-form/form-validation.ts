@@ -75,7 +75,27 @@ const formValidation = async (e: Event) => {
       (inputTypesAndValuesArray[1] as HTMLInputElement).id,
     );
     if ([...document.querySelectorAll('.form-warning')].length === 0) {
-      submitForm('login');
+      const formValues = {
+        email: (getElement('#email') as HTMLInputElement).value,
+        password: (getElement('#password') as HTMLInputElement).value,
+      };
+      try {
+        const result = await submitForm(formValues);
+        const responseObj = await result.json();
+        if (!result.ok) {
+          (document.querySelector('.login-box__msg') as HTMLElement).style.color = '#ff0000';
+          (document.querySelector('.login-box__msg') as HTMLElement).innerHTML = responseObj.message;
+        } else {
+          (document.querySelector('.login-box__msg') as HTMLElement).style.color = '#008000';
+          (document.querySelector('.login-box__msg') as HTMLElement).innerHTML = `Добро пожаловать, <span style="text-transform:uppercase">${responseObj.user}</span>!`;
+          sessionStorage.setItem('userName', responseObj.user);
+          setTimeout(() => {
+            window.location.href = '/';
+          }, 2000);
+        }
+      } catch (err) {
+        console.log(err);
+      }
     }
   } else {
     checkName((inputTypesAndValuesArray[0] as HTMLInputElement).value);
@@ -97,7 +117,6 @@ const formValidation = async (e: Event) => {
       try {
         const result = await submitForm(formValues);
         const responseObj = await result.json();
-        console.log(responseObj);
         if (!result.ok) {
           (document.querySelector('.login-box__msg') as HTMLElement).style.color = '#ff0000';
           (document.querySelector('.login-box__msg') as HTMLElement).innerHTML = responseObj.message;

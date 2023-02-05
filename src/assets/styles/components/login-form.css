@@ -39,6 +39,18 @@
   box-shadow: none;
 }
 
+.visibility-switch {
+  position: absolute;
+  right: 8px;
+  top: 18%;
+  cursor: pointer;
+}
+
+.visibility-switch i::before {
+  color: #555555;
+  font-size: 20px;
+}
+
 .form-control__icon {
   position: absolute;
   display: flex;
@@ -48,7 +60,8 @@
   width: 16px;
 }
 
-.form-control__icon i {
+.form-control__icon i::before {
+  font-size: 18px;
   color: #555555;
   text-shadow: 1px 1px 1px #ccc;
 }

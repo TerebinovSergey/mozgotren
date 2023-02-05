@@ -1,7 +1,6 @@
-import formValidation from '../components/view/login-form/form-validation';
 import '../assets/styles/pages/login.css';
+import formValidation from '../components/view/login-form/form-validation';
 import loginForm from '../components/view/login-form/loginForm';
-import { baseUrl } from '../utils/utils';
 
 const loginPage = async () => {
   const body = document.querySelector('body');
@@ -33,12 +32,6 @@ const loginPage = async () => {
   loginBoxLink.innerHTML = 'Mozgotren';
 
   const loginBoxBody = loginForm('login', window.history.state);
-
-  const result = await fetch(`${baseUrl}/users`, {
-    method: 'GET',
-  });
-  const users = await result.json();
-  console.log(users);
 
   const loginBoxBodyRow = document.createElement('div');
   loginBoxBodyRow.classList.add('row', 'row-login');

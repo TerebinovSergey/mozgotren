@@ -1,3 +1,4 @@
+import { isUserCheck } from '../../utils/utils';
 import loginPage from '../../pages/login';
 import registrationPage from '../../pages/registration';
 import Controller from '../controller/controller';
@@ -12,6 +13,7 @@ function clearPage() {
 
 const routes: Routes = {
   '/': () => {
+    isUserCheck();
     clearPage();
     Controller.drawHomePage();
   },
@@ -22,6 +24,7 @@ const routes: Routes = {
     document.body.innerHTML = 'Contact';
   },
   '/trenagors': () => {
+    isUserCheck();
     clearPage();
     Controller.drawTrenagorsPage();
   },
