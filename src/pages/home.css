@@ -16,11 +16,6 @@
   text-align: center;
 }
 
-/* .main-header-title {
-  font-size: 4rem;
-  font-size: max(min(4rem, 8vw), 1.8rem);
-  letter-spacing: 10px;
-} */
 .main-header-title {
   font-size: 4rem;
   font-size: max(min(4rem, 8vw), 1.8rem);
