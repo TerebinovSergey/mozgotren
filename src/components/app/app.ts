@@ -36,6 +36,10 @@ const routes: Routes = {
     clearPage();
     Controller.drawGameStartPage();
   },
+  '/game-result': () => {
+    clearPage();
+    Controller.drawGameResultPage();
+  },
   '/login': () => {
     loginPage();
   },

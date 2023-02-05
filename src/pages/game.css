@@ -39,20 +39,24 @@
   border: none;
   cursor: pointer;
   transition: all .6s;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 .button-navigation:hover {
   background: rgba(214, 214, 214, 0.3);
 }
 .navigation {
   background-color: #2e2e2e;
-  padding: 0px 10px 0px 10px;
-  color: #fff;
   box-shadow: 0 2px 4px -1px rgb(0 0 0 / 20%), 0 4px 5px 0 rgb(0 0 0 / 14%), 0 1px 10px 0 rgb(0 0 0 / 12%);
   display: flex;
   flex-direction: row;
   height: 35px;
-  z-index: 2000000;
   justify-content: space-between;
+}
+.navigation-block {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
 }
 .information {
   text-align: center;
@@ -69,6 +73,22 @@
   flex-direction: row;
   justify-content: space-between;
 }
+.game-rules {
+  display: flex;
+  flex-direction: row;
+  transition: all 0.6s;
+}
+.game-rules:hover {
+  color: #e62525d5;
+}
+.white {
+  color: white;
+  margin-left: 10px;
+}
+.grey {
+  color: #e0e0e0;
+  margin-left: 5px;
+}
 .game-logo {
   width: 50px;
   height: 50px;
@@ -78,7 +98,7 @@
   border-radius: 50px;
   margin-right: 10px;
 }
-.stopwatch, .flag, .check-mark {
+.stopwatch, .flag, .check-mark, .question {
   width: 16px;
   height: 16px;
   margin-right: 10px;
@@ -93,6 +113,10 @@
 }
 .check-mark {
   background-image: url("../assets/svg/check-mark.svg");
+}
+.question {
+  background-image: url("../assets/svg/question.svg");
+  margin-left: 10px;
 }
 .title-container {
   display: flex;
@@ -193,6 +217,14 @@ margin: 0;
     margin-top: -0.8px;
     box-shadow: 0 2px 4px -1px rgb(0 0 0 / 20%), 0 4px 5px 0 rgb(0 0 0 / 14%), 0 1px 10px 0 rgb(0 0 0 / 12%);
   }
+
+}
+
+@media screen and (max-width: 600px) {
+
+.text {
+  display: none;
+}
 
 }
 

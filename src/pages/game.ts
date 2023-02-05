@@ -32,18 +32,22 @@ export default class GamePage {
         <div class="navigation">
           <button type="button" class="button-navigation">
             <div class="check-mark"></div>
-            <span class=""><span><span  class="">Очки:</span><b><span> 0 </span></b></span></span>
+            <span  class="grey text">Очки: </span>
+            <span><b class="white"> 0 </b></span>
           </button>
-          <button type="button" class="button-navigation">
-            <div class="flag"></div>
-            <span class=""><span><span class="hide-xs">Уровень: </span><b>1</b> / 8 </span>
-          </button>
-          <button type="button" class="button-navigation">
-            <div class="stopwatch"></div>
-            <span class=""><span><span class="hide-xs">Время: </span><b>60</b></span>
-          </button>
+          <div class="navigation-block">
+            <button type="button" class="button-navigation">
+              <div class="flag"></div>
+                <span class="grey text">Уровень: </span>
+                <span><b class="white">1 / </b></span>
+                <span><b class="grey"> 8</b> </span>
+            </button>
+            <button type="button" class="button-navigation">
+              <div class="stopwatch"></div>
+              <span class="grey text">Время: </span><span><b class="white">60</b></span>
+            </button>
+          </div>
         </div>
-        
         <div class="information">
           <hr class="shadow">
           <div class="information-container">
@@ -72,7 +76,10 @@ export default class GamePage {
             <h5 class="game-difficult-id"> Cложность тренажера: </h5>
             <div class="container-game-difficult-id"></div>
           </div>
-          <a href="/game-rules"><h5>Правила игры</h5></a>
+          <a class="game-rules" href="#">
+            <h5>Правила игры</h5>
+            <div class="question"></div>
+          </a>
           <h5> Пригласите друзей на тренировку: </h5>
           <ul class="link-container">
             <li class="link-item"><a href="/https://www.facebook.com/"><div class="facebook"></div></a></li>
