@@ -61,11 +61,24 @@ const loginForm = (param: string, state?: { username: string, email: string }) =
   inputPassword.type = 'password';
   inputPassword.placeholder = 'Пароль';
 
+  const inputPasswordVisibilitySwitch = document.createElement('div');
+  inputPasswordVisibilitySwitch.classList.add('visibility-switch');
+  inputPasswordVisibilitySwitch.innerHTML = '<i class="fa fa-eye-slash" aria-hidden="true"></i>';
+  inputPasswordVisibilitySwitch.addEventListener('click', (e) => {
+    if ((e.target as HTMLElement).classList.contains('fa-eye-slash')) {
+      inputPasswordVisibilitySwitch.innerHTML = '<i class="fa fa-eye" aria-hidden="true"></i>';
+      inputPassword.type = 'text';
+    } else {
+      inputPasswordVisibilitySwitch.innerHTML = '<i class="fa fa-eye-slash" aria-hidden="true"></i>';
+      inputPassword.type = 'password';
+    }
+  });
+
   const inputPasswordIcon = document.createElement('div');
   inputPasswordIcon.classList.add('form-control__icon');
   inputPasswordIcon.innerHTML = '<i class="fa fa-lock" aria-hidden="true"></i>';
 
-  formGroupPassword.append(inputPassword, inputPasswordIcon);
+  formGroupPassword.append(inputPassword, inputPasswordVisibilitySwitch);
   formElements.push(formGroupPassword);
 
   const formGroupPasswordConfirm = document.createElement('div');

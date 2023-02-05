@@ -11,11 +11,12 @@ export function getElement(
 
 export const test: number = 0;
 
-// export const baseUrl = 'http://localhost:5000';
-export const baseUrl = 'https://api.leoniuk.dev';
+export const baseUrl = 'http://localhost:5000';
+// export const baseUrl = 'https://api.leoniuk.dev';
 
 export const submitForm = async (objValues: any) => {
-  const result = await fetch(`${baseUrl}/users/registration`, {
+  const path = (Object.keys(objValues).length === 2) ? 'login' : 'registration';
+  const result = await fetch(`${baseUrl}/users/${path}`, {
     method: 'POST',
     body: JSON.stringify(objValues),
     headers: {
@@ -24,3 +25,5 @@ export const submitForm = async (objValues: any) => {
   });
   return result;
 };
+
+export const isUserCheck = () => sessionStorage.getItem('userName');

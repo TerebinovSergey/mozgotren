@@ -1,5 +1,6 @@
 import HomePage from '../../pages/home';
 import TrenagorsPage from '../../pages/trenagors';
+import ProfilePage from '../../pages/profile';
 
 export default class Controller {
   static drawHomePage() {
@@ -8,5 +9,9 @@ export default class Controller {
 
   static drawTrenagorsPage() {
     TrenagorsPage.draw();
+  }
+
+  static drawProfilePage() {
+    ProfilePage.draw();
   }
 }
