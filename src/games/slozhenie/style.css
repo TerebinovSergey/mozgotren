@@ -1,0 +1,33 @@
+.game-container {
+  margin: 0 auto;
+  width: 50%;
+  min-width: 300px;
+}
+
+.game-state,
+.game-info,
+.game-answer-options {
+  display: flex;
+  justify-content: space-between;
+}
+
+.game-task {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  background-color: aliceblue;
+}
+
+.btn-answer {
+  width: 23%;
+  max-width: 100px;
+}
+
+.wrong-answer {
+  background-color: #eb6464;
+}
+
+.rigth-answer {
+  background-color: #1f9b1b;
+}
