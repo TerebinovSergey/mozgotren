@@ -86,3 +86,4 @@ document.querySelector('.close')?.classList.toggle('hidden1');
     </div>`;
   }
 }
+

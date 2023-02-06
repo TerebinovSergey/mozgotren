@@ -40,6 +40,14 @@ const routes: Routes = {
     clearPage();
     Controller.drawGameResultPage();
   },
+  '/profile': () => {
+    if (isUserCheck() === null) {
+      window.location.href = '/';
+    } else {
+      clearPage();
+      Controller.drawProfilePage();
+    }
+  },
   '/login': () => {
     loginPage();
   },

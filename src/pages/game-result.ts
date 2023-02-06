@@ -78,7 +78,7 @@ export default class GamePageResult {
       <div class="form-container">
         <hr class="separator">
         <form action="/game-start">
-          <button type="submit" class="button"">
+          <button type="submit" class="button">
             <span class="">Начать тренировку</span>
           </button>
         </form>
