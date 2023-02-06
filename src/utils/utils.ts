@@ -27,3 +27,5 @@ export const submitForm = async (objValues: any) => {
 };
 
 export const isUserCheck = () => sessionStorage.getItem('userName');
+
+export const isUserEmail = () => sessionStorage.getItem('userEmail');
