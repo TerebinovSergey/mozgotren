@@ -3,15 +3,15 @@
 }
 
 .game-container {
-    max-width: 100vw;
-    min-height: calc(100vh - 66px - 54px);
-    background: rgb(245, 245, 245);
-    display: flex;
-    padding: 0;
-    margin: 0;
-    border: none;
-    align-items: center;
-    justify-content: center;
+  max-width: 100vw;
+  min-height: calc(100vh - 66px - 54px);
+  background: #f5f5f5;
+  display: flex;
+  padding: 0;
+  margin: 0;
+  border: none;
+  align-items: center;
+  justify-content: center;
 }
 
 .game-container-wrapper {
@@ -73,7 +73,7 @@
 
 .information {
   text-align: center;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid var(--gray-color);
   background: #eee;
   color: rgba(0,0,0,.6);
   display: flex;
@@ -104,7 +104,7 @@
 }
 
 .grey {
-  color: #e0e0e0;
+  color: var(--gray-color);
   margin-left: 5px;
 }
 
@@ -198,7 +198,7 @@ margin: 0;
 }
 
 .container-game-difficult-id {
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid var(--gray-color);
   background: #eee;
   width: 100%;
   height: 50px;

@@ -1,47 +1,32 @@
 import Slozhenie from './Slozhenie';
 import SlozhenieView from './SlozhenieView';
-import { BaseGameParameters } from '../BaseGame';
 import { getElement } from '../../utils/utils';
 import { GameState } from '../../types/types';
 
-export default class SlozhenieConroller {
+export default class SlozhenieController {
   game: Slozhenie;
   view: SlozhenieView;
-  timeoutState!: NodeJS.Timeout;
 
-  constructor(parameters: BaseGameParameters) {
+  constructor() {
     this.view = new SlozhenieView();
-    this.game = new Slozhenie(parameters);
+    this.game = new Slozhenie();
   }
 
-  draw(): void {
+  start() {
     this.view.draw();
-    this.view.updateState({ ...this.game });
+    this.game.start();
+    this.updateState();
+    this.addAnswerListeners();
     this.addListeners();
   }
 
   stop(): void {
     this.game.stop();
-    clearInterval(this.timeoutState);
-    this.updateState();
-    if ((this.game.rightAnswers + this.game.wrongAnswers) > 0) {
-      //draw finish page
-    } else {
-      //draw start page
-    }
   }
 
   private addListeners(): void {
     const gameContainer = getElement('.game-container-slozhenie');
-    const start = getElement('.game-start', gameContainer);
-    start.addEventListener('click', () => {
-      this.game.start();
-      this.updateState();
-      this.addAnswerListeners();
-      this.timeoutState = setInterval(() => this.view.updateState({ ...this.game }), 330);
-    });
-
-    const stop = getElement('.game-stop', gameContainer);
+    const stop = getElement('.button-close', gameContainer);
     stop.addEventListener('click', () => this.stop());
   }
 
@@ -60,14 +45,10 @@ export default class SlozhenieConroller {
   }
 
   private async updateState(): Promise<void> {
-    this.view.updateState({ ...this.game });
-    console.log('time');
     if (this.game.gameState === GameState.Play) {
       const task = this.game.getTask();
       this.view.updateTask(task.task);
       this.view.updateAnswers(task.answers);
-    } else {
-      clearInterval(this.timeoutState);
     }
   }
 }

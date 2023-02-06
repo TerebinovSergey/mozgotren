@@ -1,14 +1,7 @@
-.game-container {
+.game-slozhenier {
   margin: 0 auto;
-  width: 50%;
+  width: 100%;
   min-width: 300px;
-}
-
-.game-state,
-.game-info,
-.game-answer-options {
-  display: flex;
-  justify-content: space-between;
 }
 
 .game-task {
@@ -16,18 +9,30 @@
   align-items: center;
   justify-content: center;
   min-height: 300px;
-  background-color: aliceblue;
+  font-size:max(min(3rem, 8vw), 1.2rem);;
+}
+
+.game-answer-options {
+  display: flex;
+  justify-content: space-between;
 }
 
 .btn-answer {
+  margin: 5px;
   width: 23%;
-  max-width: 100px;
+  max-width: 200px;
+  height: 52px;
+  font-size:  max(min(1.3rem, 5vw), 1rem);
+  background-color: var(--blue-color);
+  border-color: var(--blue-color);
+  color: #ffffff;
+  cursor: pointer;
 }
 
 .wrong-answer {
-  background-color: #eb6464;
+  background-color: #c44343;
 }
 
 .rigth-answer {
-  background-color: #1f9b1b;
+  background-color: #4aa147;
 }

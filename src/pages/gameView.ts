@@ -2,11 +2,24 @@ import HeaderView from '../components/view/header/headerView';
 import FooterView from '../components/view/footer/footerView';
 import { getElement } from '../utils/utils';
 
+type Parameters = {
+  nameGame: string,
+  improves: string[],
+  complexity: number,
+  nameGameRu: string,
+};
+
 export default class GamePage {
   nameGame: string;
+  improves: string[];
+  complexity: number;
+  nameGameRu: string;
 
-  constructor(nameGame: string) {
-    this.nameGame = nameGame;
+  constructor(param: Parameters) {
+    this.nameGame = param.nameGame;
+    this.improves = param.improves;
+    this.complexity = param.complexity;
+    this.nameGameRu = param.nameGameRu;
   }
 
   draw(): void {
@@ -25,7 +38,7 @@ export default class GamePage {
       ${this.getGameWrapperHTML()}`;
   }
 
-  drawGemeResult() {
+  drawGameResult() {
     const gameContainer = getElement(`.game-container-${this.nameGame}`);
     const gameWrapper = getElement('.game-container-wrapper', gameContainer);
     gameWrapper.innerHTML = `
@@ -68,14 +81,14 @@ export default class GamePage {
         <div class="info-title-container">
           <div class="game-logo"></div>
           <div class="title-container">
-            <h2 class="game-title">Мемори</h2>
-            <h5 class="game-difficult"> Коэффициент сложности: <b>64</b></h5>
+            <h2 class="game-title">${this.nameGameRu}</h2>
+            <h5 class="game-difficult"> Коэффициент сложности: <b>${this.complexity}</b></h5>
           </div>
         </div>
         <ul class="check-container">
-          <li class="check-item"><div class="check check1"></div><h5>Кратковременная память</h5></li>
-          <li class="check-item"><div class="check check2"></div><h5>Наблюдательность</h5></li>
-          <li class="check-item"><div class="check check3"></div><h5>Образное мышление</h5></li>
+          <li class="check-item"><div class="check check1"></div><h5>${this.improves[0]}</h5></li>
+          <li class="check-item"><div class="check check2"></div><h5>${this.improves[1]}</h5></li>
+          <li class="check-item"><div class="check check3"></div><h5>${this.improves[2]}</h5></li>
         </ul>
       </div>
     </div>`;
@@ -109,12 +122,12 @@ export default class GamePage {
     return `
     <div class="result-container">
       <cicle class="percentages-circle">
-        <div class="percentages"><h5>100%</h5></div>
+        <div class="percentages"><h5 class="score-percent">100%</h5></div>
       </cicle>
       <div class="result-container-block">
-        <h5 class="results-title">РЕЗУЛЬТАТ:</h5><span class="number big">90</span>
-        <div class="result-row"><h6 class="results-success">Правильных:</h6><span class="number green">9</span></div>
-        <div class="result-row"><h6 class="results-errors">Неправильных:</h6><span class="number red">0</span></div>
+        <h5 class="results-title">РЕЗУЛЬТАТ:</h5><span class="number big game-total-score">90</span>
+        <div class="result-row"><h6 class="results-success">Правильных:</h6><span class="number green rigth-answers">9</span></div>
+        <div class="result-row"><h6 class="results-errors">Неправильных:</h6><span class="number red wrong-answers">0</span></div>
       </div>
     </div>`;
   }
@@ -131,7 +144,7 @@ export default class GamePage {
     </div>
     <div class="time-ruler-red"></div>
     <div class="time-ruler"></div>
-    <div class="game"></div>`;
+    <div class="game-${this.nameGame}"></div>`;
   }
 
   getNavigationHTML(): string {
@@ -140,18 +153,18 @@ export default class GamePage {
       <button type="button" class="button-navigation">
         <div class="check-mark"></div>
         <span  class="grey text">Очки: </span>
-        <span><b class="white"> 0 </b></span>
+        <span><b class="white game-score-title"> 0 </b></span>
       </button>
       <div class="navigation-block">
         <button type="button" class="button-navigation">
           <div class="flag"></div>
             <span class="grey text">Уровень: </span>
-            <span><b class="white">1 / </b></span>
-            <span><b class="grey"> 8</b> </span>
+            <span><b class="white game-level-title">1 / </b></span>
+            <span><b class="grey game-max-level-title"> 8</b> </span>
         </button>
         <button type="button" class="button-navigation">
           <div class="stopwatch"></div>
-          <span class="grey text">Время: </span><span><b class="white">60</b></span>
+          <span class="grey text">Время: </span><span><b class="white game-time-title">60</b></span>
         </button>
       </div>
     </div>`;

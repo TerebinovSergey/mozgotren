@@ -1,5 +1,5 @@
 .info-bar {
-  background-color: #e0e0e0;
+  background-color: var(--gray-color);
   display: flex;
   flex-direction: row;
   height: 35px;

@@ -4,6 +4,9 @@ export type BaseGameParameters = {
   id: number,
   maxLevel: number,
   basicComplexity: number,
+  improves: string[],
+  nameGame: string,
+  nameGameRu: string,
 };
 
 export class BaseGame {
@@ -19,6 +22,9 @@ export class BaseGame {
   wrongAnswers: number;
   gameState: GameState;
   timeoutTimer!: NodeJS.Timeout;
+  improves: string[];
+  nameGame: string;
+  nameGameRu: string;
 
   constructor(parameters: BaseGameParameters) {
     this.id = parameters.id;
@@ -28,10 +34,13 @@ export class BaseGame {
     this.currentLevel = 1;
     this.score = 0;
     this.time = 60;
-    this.timeLeft = 0;
+    this.timeLeft = this.time;
     this.rightAnswers = 0;
     this.wrongAnswers = 0;
     this.gameState = GameState.Waiting;
+    this.improves = parameters.improves;
+    this.nameGame = parameters.nameGame;
+    this.nameGameRu = parameters.nameGameRu;
   }
 
   start(): void {

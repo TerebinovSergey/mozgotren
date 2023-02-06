@@ -12,6 +12,18 @@ type Range = {
 };
 
 export default class Slozhenie extends BaseGame {
+  constructor() {
+    super(
+      {
+        id: 1,
+        maxLevel: 7,
+        basicComplexity: 44,
+        improves: [' Увеличивает скорость мышления ', ' Концентрирует внимание ', ' Логическое мышление '],
+        nameGame: 'slozhenie',
+        nameGameRu: 'Сложение',
+      },
+    );
+  }
   currentAnswer: number = 0;
   countAnswers = 4;
 
