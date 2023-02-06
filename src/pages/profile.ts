@@ -30,12 +30,14 @@ export default class ProfilePage {
         </div> 
         <hr class="vertical-line" > 
         <div class="profile-info">
-          <h6 class="profile-text">Возраст:</h6><span>1</span>
-          <h6 class="profile-text">Сфера деятельности:</h6><label for="job">1</label>
-          <h6 class="profile-text">Страна:</h6><label for="country">1</label>
+          <div class="profile-text-c"><h6 class="profile-text">Возраст:</h6><span class="age">${document.querySelector('#country')?.innerHTML}</span></div>
+          <div class="profile-text-c"><h6 class="profile-text">Сфера деятельности:</h6><span class="job">${document.querySelector('#job')?.textContent}</span></div>
+          <div class="profile-text-c"><h6 class="profile-text">Страна:</h6><span class="country">${document.querySelector('#country')?.textContent}</span></div>
         </div>
         <button class="button-profile">Редактировать</button>
       </div>
+      <div class="toolbar"></div>
+      <h4 class="birth-title">Персональная информация:</h4>
       <div class="input-box">
         <label>Имя</label>
         <input type="text">
@@ -46,7 +48,7 @@ export default class ProfilePage {
       </div>
       <div class="input-box">
         <label><h5>Сфера деятельности:</h5></label>
-        <select>
+        <select id="job" value="3">
           <option></option>
           <option>ИТ</option>
           <option>Бухгалтерия</option>
@@ -54,9 +56,10 @@ export default class ProfilePage {
           <option>Образование</option>
         </select>
       </div>
+      
       <div class="input-box">
         <label><h5>Страна:</h5></label>
-        <select>
+        <select id="country" autofocus="true">
           <option></option>
           <option>Армения</option>
           <option>Россия</option>
@@ -104,7 +107,37 @@ export default class ProfilePage {
             <option>2010</option>
           </select>
         </div>
-      </г>
+      </div>
+      <h4 class="birth-title v">Изображение профиля:</h4>
+      <form method="post" enctype="multipart/form-data">
+      
+        <label class="input-file">
+          <div class="input-box">
+            <span class="input-file-text" type="text"></span>
+            <label>Загрузить фото</label>
+	   	      <input class="input-file" type="file" name="file">
+             <span class="input-file-text-1">Максимум 5мб</span>
+          </div>        
+ 	      </label>
+      </form>
+      <div class="profile-image"></div>
+      <button class="button-profile">Сохранить</button>
+      <h4 class="birth-title v">Настройки</h4>
+      <label class="checkbox-ios">
+      <input type="checkbox" checked disabled>
+      <span class="checkbox-ios-switch"></span>
+    </label>
+    <h4 class="birth-title v">звук в тренажерах</h4>
+      <h4 class="birth-title">Изменить пароль:</h4>
+      <div class="input-box">
+        <label>Новый пароль</label>
+        <input type="password">
+      </div>
+      <div class="input-box">
+      <label>Повторите пароль</label>
+       <input type="password">
+    </div>
+    <button class="button-profile">Сохранить пароль</button>
     </div>`;
   }
 }
