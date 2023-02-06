@@ -1,9 +1,7 @@
 import HomePage from '../../pages/home';
 import TrenagorsPage from '../../pages/trenagors';
 import ProfilePage from '../../pages/profile';
-import GamePage from '../../pages/game';
-import GamePageStart from '../../pages/game-start';
-import GamePageResult from '../../pages/game-result';
+import GameController from '../../pages/gameController';
 
 export default class Controller {
   static drawHomePage() {
@@ -19,14 +17,7 @@ export default class Controller {
   }
 
   static drawGamePage() {
-    GamePage.draw();
-  }
-
-  static drawGameStartPage() {
-    GamePageStart.draw();
-  }
-
-  static drawGameResultPage() {
-    GamePageResult.draw();
+    const gameController = new GameController('slozhenie');
+    gameController.draw();
   }
 }
