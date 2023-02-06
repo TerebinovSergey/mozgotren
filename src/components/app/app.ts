@@ -28,6 +28,18 @@ const routes: Routes = {
     clearPage();
     Controller.drawTrenagorsPage();
   },
+  '/game': () => {
+    clearPage();
+    Controller.drawGamePage();
+  },
+  '/game-start': () => {
+    clearPage();
+    Controller.drawGameStartPage();
+  },
+  '/game-result': () => {
+    clearPage();
+    Controller.drawGameResultPage();
+  },
   '/profile': () => {
     if (isUserCheck() === null) {
       window.location.href = '/';

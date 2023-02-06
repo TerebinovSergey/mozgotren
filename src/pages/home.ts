@@ -21,10 +21,10 @@ export default class HomePage {
   static getMainHTML() {
     return `
     <div class="body-background-shaddow" onclick="document.querySelector('.nav-aside')?.classList.toggle('active'); 
-    document.querySelector('.body-background-shaddow')?.classList.toggle('hidden');
-    document.querySelector('.open')?.classList.toggle('hidden1');
-    document.querySelector('.close')?.classList.toggle('hidden1');
-    "></div>
+document.querySelector('.body-background-shaddow')?.classList.toggle('hidden');
+document.querySelector('.open')?.classList.toggle('hidden1');
+document.querySelector('.close')?.classList.toggle('hidden1');
+"></div>
     <section class="main-header main-background">
     <div class="container">
     <h1 class="main-header-title">

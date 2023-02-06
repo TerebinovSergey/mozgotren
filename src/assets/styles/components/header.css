@@ -217,7 +217,7 @@
   }
 
   .nav__aside-logo {
-    width: 94%;
+    width: 90%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -312,18 +312,17 @@
   }
 }
 
-@media screen and (max-width: 560px) {
-  .logo {
-    display: none;
-  }
+/* @media screen and (max-width: 560px) { */
 
-  .nav-wrapper,
+  /* .nav-wrapper,
   .nav-ul {
     justify-content: end;
-  }
-}
+  } */
+
+/* } */
 
 @media screen and (max-width: 400px) {
+
   .nav-ul {
     flex-wrap: wrap;
     height: auto;
@@ -332,4 +331,5 @@
   .nav-item {
     padding: 4px;
   }
+
 }
