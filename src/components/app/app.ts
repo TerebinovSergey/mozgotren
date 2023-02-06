@@ -11,6 +11,12 @@ function clearPage() {
   document.body.innerHTML = '';
 }
 
+function drawGamePage(nameGame: string) {
+  clearPage();
+  console.log(nameGame);
+  Controller.drawGamePage(nameGame);
+}
+
 const routes: Routes = {
   '/': () => {
     isUserCheck();
@@ -28,10 +34,6 @@ const routes: Routes = {
     clearPage();
     Controller.drawTrenagorsPage();
   },
-  '/game': () => {
-    clearPage();
-    Controller.drawGamePage();
-  },
   '/profile': () => {
     if (isUserCheck() === null) {
       window.location.href = '/';
@@ -46,6 +48,7 @@ const routes: Routes = {
   '/register': () => {
     registrationPage();
   },
+  '/trenagor': () => drawGamePage('slozhenie'),
 };
 
 export default class App {

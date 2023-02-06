@@ -9,7 +9,10 @@ export function getElement(
   return element;
 }
 
-export const test: number = 0;
+export function randomInteger(min: number, max: number): number {
+  const rand = min + Math.random() * (max + 1 - min);
+  return Math.floor(rand);
+}
 
 // export const baseUrl = 'http://localhost:5000';
 export const baseUrl = 'https://api.leoniuk.dev';

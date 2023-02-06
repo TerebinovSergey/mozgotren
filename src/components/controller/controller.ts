@@ -16,8 +16,8 @@ export default class Controller {
     TrenagorsPage.draw();
   }
 
-  static drawGamePage() {
-    const gameController = new GameController('slozhenie');
+  static drawGamePage(nameGame: string) {
+    const gameController = new GameController(nameGame);
     gameController.draw();
   }
 }
