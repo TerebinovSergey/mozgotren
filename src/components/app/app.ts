@@ -13,6 +13,11 @@ function clearPage() {
   document.body.innerHTML = '';
 }
 
+function drawGamePage(nameGame: string) {
+  clearPage();
+  Controller.drawGamePage(nameGame);
+}
+
 const routes: Routes = {
   '/': () => {
     clearPage();
@@ -32,18 +37,6 @@ const routes: Routes = {
     clearPage();
     Controller.drawTrenagorsPage();
   },
-  '/game': () => {
-    clearPage();
-    Controller.drawGamePage();
-  },
-  '/game-start': () => {
-    clearPage();
-    Controller.drawGameStartPage();
-  },
-  '/game-result': () => {
-    clearPage();
-    Controller.drawGameResultPage();
-  },
   '/profile': () => {
     if (!isUser.status) {
       window.location.href = '/';
@@ -58,6 +51,7 @@ const routes: Routes = {
   '/register': () => {
     registrationPage();
   },
+  '/trenagor': () => drawGamePage('slozhenie'),
 };
 
 export default class App {
@@ -68,6 +62,11 @@ export default class App {
 
   static handleLocation() {
     const path = window.location.pathname;
-    routes[path]();
+    const paths = path.split('/');
+    if (paths.length > 2) {
+      if (paths[1] === 'trenagor') drawGamePage(paths[2]);
+    } else {
+      routes[path]();
+    }
   }
 }
