@@ -76,14 +76,13 @@ document.querySelector('.close')?.classList.toggle('hidden1');
           </div>
         </aside>
         <div class="trenagors-container">
-          <a href="/game" class="game-page"><div class="game-wrapper">game 1</div></a>
-          <a href="/game" class="game-page"><div class="game-wrapper">game 2</div></a>
-          <a href="/game" class="game-page"><div class="game-wrapper">game 3</div></a>
-          <a href="/game" class="game-page"><div class="game-wrapper">game 4</div></a>
-          <a href="/game" class="game-page"><div class="game-wrapper">game 5</div></a>
+          <a href="/trenagor" class="game-page"><div class="game-wrapper">game 1</div></a>
+          <a href="/trenagor" class="game-page"><div class="game-wrapper">game 2</div></a>
+          <a href="/trenagor" class="game-page"><div class="game-wrapper">game 3</div></a>
+          <a href="/trenagor" class="game-page"><div class="game-wrapper">game 4</div></a>
+          <a href="/trenagor" class="game-page"><div class="game-wrapper">game 5</div></a>
         </div>
       </section>
     </div>`;
   }
 }
-
