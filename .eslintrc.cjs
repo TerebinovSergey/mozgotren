@@ -26,5 +26,6 @@ module.exports = {
     'import/no-cycle': 'off',
     'class-methods-use-this': 'off',
     'no-console': 'off',
+    '@typescript-eslint/lines-between-class-members': ['error', 'newer'],
   },
 };
