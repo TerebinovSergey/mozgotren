@@ -1,17 +1,22 @@
-import { isUserCheck } from '../../../utils/utils';
-
 export default class HeaderView {
-  draw(): void {
+  draw(user: any): void {
     const header = document.createElement('header');
     header.classList.add('header', 'main-background');
-    header.innerHTML = this.getHeaderHTML();
+    header.innerHTML = this.getHeaderHTML(user);
     document.body.prepend(header);
   }
 
   // eslint-disable-next-line class-methods-use-this
-  private getHeaderHTML(): string {
-    const isUser = isUserCheck() === null ? 'Войти' : 'Кабинет';
-    const isUserLink = isUserCheck() === null ? '/login' : '/profile';
+  private getHeaderHTML(
+    user: {
+      message: string,
+      status: boolean,
+      user: { username: string }
+    },
+  ): string {
+    console.log(user);
+    const isUser = !user.status ? 'Войти' : 'Кабинет';
+    const isUserLink = !user.status ? '/login' : '/profile';
     return `
     <div class="container">
     <div class="nav-wrapper">
@@ -39,7 +44,7 @@ export default class HeaderView {
         <li class="nav-li-aside">
           <a class="nav-item-aside" href="/trenagors">Тренажеры</a>
         </li>
-        <li class="nav-li-aside"><span>${isUserCheck() !== null ? isUserCheck() : ''}</span>
+        <li class="nav-li-aside"><span>${user.status ? user.user.username : ''}</span>
           <a class="nav-item" href="${isUserLink}">${isUser}</a>
         </li>         
       </ul>
@@ -77,7 +82,7 @@ export default class HeaderView {
             <li class="nav-li">
               <a class="nav-item" href="/trenagors">Тренажеры</a>
             </li>
-            <li class="nav-li"><span>${isUserCheck() !== null ? isUserCheck() : ''}</span>
+            <li class="nav-li"><span>${user.status ? user.user.username : ''}</span>
               <a class="nav-item" href="${isUserLink}">${isUser}</a>
             </li>
           </ul>

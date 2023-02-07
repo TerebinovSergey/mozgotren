@@ -1,11 +1,13 @@
 import HeaderView from '../components/view/header/headerView';
 import FooterView from '../components/view/footer/footerView';
-import { getElement } from '../utils/utils';
+import { getElement, isAuthenticated } from '../utils/utils';
+
+const isUser: { message: string, status: boolean, user: string } = await isAuthenticated();
 
 export default class TrenagorsPage {
   static draw(): void {
     const header = new HeaderView();
-    header.draw();
+    header.draw(isUser);
     TrenagorsPage.drawMain();
     const footer = new FooterView();
     footer.draw();
@@ -86,4 +88,3 @@ document.querySelector('.close')?.classList.toggle('hidden1');
     </div>`;
   }
 }
-

@@ -1,7 +1,9 @@
-import { isUserCheck } from '../../utils/utils';
+import { isAuthenticated } from '../../utils/utils';
 import loginPage from '../../pages/login';
 import registrationPage from '../../pages/registration';
 import Controller from '../controller/controller';
+
+const isUser: { message: string, status: boolean, user: string } = await isAuthenticated();
 
 type Routes = {
   [key: string]: () => void,
@@ -13,7 +15,6 @@ function clearPage() {
 
 const routes: Routes = {
   '/': () => {
-    isUserCheck();
     clearPage();
     Controller.drawHomePage();
   },
@@ -24,7 +25,10 @@ const routes: Routes = {
     document.body.innerHTML = 'Contact';
   },
   '/trenagors': () => {
-    isUserCheck();
+    clearPage();
+    Controller.drawTrenagorsPage();
+  },
+  '/trenagors/1': () => {
     clearPage();
     Controller.drawTrenagorsPage();
   },
@@ -41,7 +45,7 @@ const routes: Routes = {
     Controller.drawGameResultPage();
   },
   '/profile': () => {
-    if (isUserCheck() === null) {
+    if (!isUser.status) {
       window.location.href = '/';
     } else {
       clearPage();

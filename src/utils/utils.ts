@@ -11,14 +11,15 @@ export function getElement(
 
 export const test: number = 0;
 
-// export const baseUrl = 'http://localhost:5000';
-export const baseUrl = 'https://api.leoniuk.dev';
+export const baseUrl = 'http://localhost:5000';
+// export const baseUrl = 'https://api.leoniuk.dev';
 
 export const submitForm = async (objValues: any) => {
   const path = (Object.keys(objValues).length === 2) ? 'login' : 'registration';
-  const result = await fetch(`${baseUrl}/users/${path}`, {
+  const result = await fetch(`${baseUrl}/${path}`, {
     method: 'POST',
     body: JSON.stringify(objValues),
+    credentials: 'include',
     headers: {
       'Content-type': 'application/json',
     },
@@ -27,3 +28,10 @@ export const submitForm = async (objValues: any) => {
 };
 
 export const isUserCheck = () => sessionStorage.getItem('userName');
+export const isAuthenticated = async () => {
+  const result = await fetch(`${baseUrl}/check-registration`, {
+    method: 'GET',
+    credentials: 'include',
+  });
+  return result.json();
+};
