@@ -14,10 +14,14 @@ module.exports = {
   devtool,
   entry: path.resolve(__dirname, 'src', 'index.ts'),
   output: {
+    publicPath: '/', // this is the fix
     path: path.resolve(__dirname, 'dist'),
     clean: true,
     filename: '[name].[contenthash].js',
     assetModuleFilename: 'assets/[name][ext]'
+  },
+  experiments: {
+    topLevelAwait: true
   },
   devServer: {
     static: {
