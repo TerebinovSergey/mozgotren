@@ -13,7 +13,6 @@ function clearPage() {
 
 function drawGamePage(nameGame: string) {
   clearPage();
-  console.log(nameGame);
   Controller.drawGamePage(nameGame);
 }
 
@@ -59,6 +58,11 @@ export default class App {
 
   static handleLocation() {
     const path = window.location.pathname;
-    routes[path]();
+    const paths = path.split('/');
+    if (paths.length > 2) {
+      if (paths[1] === 'trenagor') drawGamePage(paths[2]);
+    } else {
+      routes[path]();
+    }
   }
 }

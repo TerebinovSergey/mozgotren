@@ -1,3 +1,8 @@
+import { DataGame, DataGames } from '../types/types';
+
+// eslint-disable-next-line global-require
+const json = require('../data/games.json') as DataGames;
+
 export function getElement(
   selector: string,
   parent: Element | Document = document,
@@ -12,6 +17,12 @@ export function getElement(
 export function randomInteger(min: number, max: number): number {
   const rand = min + Math.random() * (max + 1 - min);
   return Math.floor(rand);
+}
+
+export function getDataGame(id: number): DataGame {
+  const data = json.games.find((el) => el.id === id);
+  if (data === undefined) throw new Error('Invalid game id');
+  return data;
 }
 
 // export const baseUrl = 'http://localhost:5000';

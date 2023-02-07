@@ -13,16 +13,7 @@ type Range = {
 
 export default class Slozhenie extends BaseGame {
   constructor() {
-    super(
-      {
-        id: 1,
-        maxLevel: 7,
-        basicComplexity: 44,
-        improves: [' Увеличивает скорость мышления ', ' Концентрирует внимание ', ' Логическое мышление '],
-        nameGame: 'slozhenie',
-        nameGameRu: 'Сложение',
-      },
-    );
+    super(6);
   }
   currentAnswer: number = 0;
   countAnswers = 4;
@@ -45,13 +36,27 @@ export default class Slozhenie extends BaseGame {
 
   private getRandomAnswers() {
     const answers = new Set<number>();
-    answers.add(this.currentAnswer);
     const range = this.getRangeAnswers();
-    while (answers.size < this.countAnswers) {
-      answers.add(randomInteger(range.min, range.max));
+    let arr: number[];
+    if (this.currentLevel < 3) {
+      while (answers.size < this.countAnswers - 1) {
+        answers.add(randomInteger(range.min, range.max));
+      }
+      arr = Array.from(answers);
+    } else {
+      const step = 10;
+      let start = this.currentAnswer - 4 * step;
+      for (start; start < this.currentAnswer + 4 * step; start += step) {
+        if (start !== this.currentAnswer) answers.add(start);
+      }
+      arr = Array.from(answers);
+      arr = arr.filter((num) => num >= range.min && num <= range.max);
+      while (arr.length > 3) {
+        const indexDel = randomInteger(0, arr.length - 1);
+        arr.splice(indexDel, 1);
+      }
     }
-    answers.delete(this.currentAnswer);
-    const arr = Array.from(answers);
+
     const positionRigthAnswer = randomInteger(1, this.countAnswers);
     arr.splice(positionRigthAnswer - 1, 0, this.currentAnswer);
     return arr;
@@ -95,26 +100,14 @@ export default class Slozhenie extends BaseGame {
       case 2:
         return { min: 1, max: 18 };
       case 3:
-        return {
-          min: Math.max(11, this.currentAnswer - 20),
-          max: Math.min(108, this.currentAnswer + 20),
-        };
+        return { min: 11, max: 108 };
       case 4:
       case 5:
-        return {
-          min: Math.max(20, this.currentAnswer - 30),
-          max: Math.min(198, this.currentAnswer + 30),
-        };
+        return { min: 20, max: 198 };
       case 6:
-        return {
-          min: Math.max(110, this.currentAnswer - 50),
-          max: Math.min(1098, this.currentAnswer + 50),
-        };
+        return { min: 110, max: 1098 };
       case 7:
-        return {
-          min: Math.max(200, this.currentAnswer - 100),
-          max: Math.min(1998, this.currentAnswer + 100),
-        };
+        return { min: 200, max: 1998 };
       default:
         return { min: 0, max: 0 };
     }

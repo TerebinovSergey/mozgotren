@@ -2,17 +2,19 @@ import Slozhenie from './Slozhenie';
 import SlozhenieView from './SlozhenieView';
 import { getElement } from '../../utils/utils';
 import { GameState } from '../../types/types';
+import BaseGameController from '../BaseGameController';
 
-export default class SlozhenieController {
+export default class SlozhenieController extends BaseGameController {
   game: Slozhenie;
   view: SlozhenieView;
 
   constructor() {
+    super();
     this.view = new SlozhenieView();
     this.game = new Slozhenie();
   }
 
-  start() {
+  start(): void {
     this.view.draw();
     this.game.start();
     this.updateState();
@@ -37,7 +39,6 @@ export default class SlozhenieController {
       if (this.game.gameState !== GameState.Play) return;
       const { target } = event;
       if (!(target instanceof HTMLButtonElement)) return;
-      console.dir(target.dataset.answer);
       const result = this.game.checkAnswer(Number(target.dataset.answer));
       target.classList.add((result) ? 'rigth-answer' : 'wrong-answer');
       setTimeout(() => this.updateState(), 200);

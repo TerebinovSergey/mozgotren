@@ -4,22 +4,31 @@ import { getElement } from '../utils/utils';
 
 type Parameters = {
   nameGame: string,
-  improves: string[],
+  check1: string,
+  check2: string,
+  check3: string,
   complexity: number,
   nameGameRu: string,
+  logo: string,
 };
 
 export default class GamePage {
   nameGame: string;
-  improves: string[];
+  check1: string;
+  check2: string;
+  check3: string;
   complexity: number;
   nameGameRu: string;
+  logo: string;
 
   constructor(param: Parameters) {
     this.nameGame = param.nameGame;
-    this.improves = param.improves;
+    this.check1 = param.check1;
+    this.check2 = param.check2;
+    this.check3 = param.check3;
     this.complexity = param.complexity;
     this.nameGameRu = param.nameGameRu;
+    this.logo = param.logo;
   }
 
   draw(): void {
@@ -79,16 +88,16 @@ export default class GamePage {
       <hr class="shadow">
       <div class="information-container">
         <div class="info-title-container">
-          <div class="game-logo"></div>
+          <div class="game-logo" style="background-image: url(${this.logo})"></div>
           <div class="title-container">
             <h2 class="game-title">${this.nameGameRu}</h2>
             <h5 class="game-difficult"> Коэффициент сложности: <b>${this.complexity}</b></h5>
           </div>
         </div>
         <ul class="check-container">
-          <li class="check-item"><div class="check check1"></div><h5>${this.improves[0]}</h5></li>
-          <li class="check-item"><div class="check check2"></div><h5>${this.improves[1]}</h5></li>
-          <li class="check-item"><div class="check check3"></div><h5>${this.improves[2]}</h5></li>
+          <li class="check-item"><div class="check check1"></div><h5>${this.check1}</h5></li>
+          <li class="check-item"><div class="check check2"></div><h5>${this.check2}</h5></li>
+          <li class="check-item"><div class="check check3"></div><h5>${this.check3}</h5></li>
         </ul>
       </div>
     </div>`;

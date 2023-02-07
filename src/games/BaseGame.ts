@@ -1,19 +1,12 @@
-import { GameState } from '../types/types';
+import { GameState, DataGame } from '../types/types';
+import { getDataGame } from '../utils/utils';
 
-export type BaseGameParameters = {
-  id: number,
-  maxLevel: number,
-  basicComplexity: number,
-  improves: string[],
-  nameGame: string,
-  nameGameRu: string,
-};
-
+// eslint-disable-next-line import/prefer-default-export
 export class BaseGame {
   id: number;
   complexity: number;
   basicComplexity: number;
-  maxLevel: number;
+  levels: number;
   currentLevel: number;
   score: number;
   time: number;
@@ -22,15 +15,15 @@ export class BaseGame {
   wrongAnswers: number;
   gameState: GameState;
   timeoutTimer!: NodeJS.Timeout;
-  improves: string[];
   nameGame: string;
   nameGameRu: string;
+  logo: string;
+  check1: string;
+  check2: string;
+  check3: string;
 
-  constructor(parameters: BaseGameParameters) {
-    this.id = parameters.id;
-    this.basicComplexity = parameters.basicComplexity;
-    this.complexity = parameters.basicComplexity;
-    this.maxLevel = parameters.maxLevel;
+  constructor(id: number) {
+    this.id = id;
     this.currentLevel = 1;
     this.score = 0;
     this.time = 60;
@@ -38,9 +31,16 @@ export class BaseGame {
     this.rightAnswers = 0;
     this.wrongAnswers = 0;
     this.gameState = GameState.Waiting;
-    this.improves = parameters.improves;
-    this.nameGame = parameters.nameGame;
-    this.nameGameRu = parameters.nameGameRu;
+    const data: DataGame = getDataGame(this.id);
+    this.basicComplexity = data.basicComplexity;
+    this.complexity = data.basicComplexity;
+    this.levels = data.levels;
+    this.check1 = data.check1;
+    this.check2 = data.check2;
+    this.check3 = data.check3;
+    this.nameGameRu = data.nameGameRu;
+    this.logo = data.logoImg ?? '';
+    this.nameGame = data.nameGame ?? '';
   }
 
   start(): void {
@@ -75,7 +75,7 @@ export class BaseGame {
 
   updateLevel(increase: boolean): void {
     this.currentLevel = (increase)
-      ? Math.min(this.currentLevel + 1, this.maxLevel)
+      ? Math.min(this.currentLevel + 1, this.levels)
       : Math.max(this.currentLevel - 1, 1);
   }
 

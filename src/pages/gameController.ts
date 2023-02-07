@@ -7,18 +7,20 @@ type UpdateStateParameters = {
   score: number,
   timeLeft: number,
   currentLevel: number,
-  maxLevel: number,
+  levels: number,
 };
 
 export default class GameController {
-  view: GamePage;
+  view!: GamePage;
   nameGame: string;
-  gameController: SlozhenieController;
+  gameController!: SlozhenieController;
   timeoutState!: NodeJS.Timeout;
 
   constructor(nameGame: string) {
     this.nameGame = nameGame;
-    this.gameController = new SlozhenieController();
+    if (this.nameGame === 'slozhenie') {
+      this.gameController = new SlozhenieController();
+    }
     this.view = new GamePage({ ...this.gameController.game });
   }
 
@@ -71,7 +73,7 @@ export default class GameController {
     const levelElement = getElement('.game-level-title', gameContainer);
     const maxLevelElement = getElement('.game-max-level-title', gameContainer);
     levelElement.textContent = `${parameters.currentLevel} /`;
-    maxLevelElement.textContent = ` ${parameters.maxLevel}`;
+    maxLevelElement.textContent = ` ${parameters.levels}`;
 
     if (this.gameController.game.gameState !== GameState.Play) {
       clearInterval(this.timeoutState);
