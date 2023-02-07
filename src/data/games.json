@@ -144,7 +144,8 @@
       "levels": 7,
       "time": 60,
       "image": "https://mozgotren-clone.netlify.app/assets/thumb_slozhenie.jpg/",
-      "logoImg": "assets/thumb_slozhenie.jpg"
+      "logoImg": "assets/thumb_slozhenie.jpg",
+      "taskDescription": "Решите пример"
     },
 
     {

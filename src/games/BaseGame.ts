@@ -21,17 +21,18 @@ export class BaseGame {
   check1: string;
   check2: string;
   check3: string;
+  taskDescription: string;
 
   constructor(id: number) {
     this.id = id;
     this.currentLevel = 1;
     this.score = 0;
-    this.time = 60;
-    this.timeLeft = this.time;
     this.rightAnswers = 0;
     this.wrongAnswers = 0;
     this.gameState = GameState.Waiting;
     const data: DataGame = getDataGame(this.id);
+    this.time = data.time;
+    this.timeLeft = this.time;
     this.basicComplexity = data.basicComplexity;
     this.complexity = data.basicComplexity;
     this.levels = data.levels;
@@ -41,6 +42,7 @@ export class BaseGame {
     this.nameGameRu = data.nameGameRu;
     this.logo = data.logoImg ?? '';
     this.nameGame = data.nameGame ?? '';
+    this.taskDescription = data.taskDescription ?? '';
   }
 
   start(): void {

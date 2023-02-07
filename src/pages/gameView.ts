@@ -10,6 +10,7 @@ type Parameters = {
   complexity: number,
   nameGameRu: string,
   logo: string,
+  taskDescription: string,
 };
 
 export default class GamePage {
@@ -20,6 +21,7 @@ export default class GamePage {
   complexity: number;
   nameGameRu: string;
   logo: string;
+  taskDescription: string;
 
   constructor(param: Parameters) {
     this.nameGame = param.nameGame;
@@ -29,6 +31,7 @@ export default class GamePage {
     this.complexity = param.complexity;
     this.nameGameRu = param.nameGameRu;
     this.logo = param.logo;
+    this.taskDescription = param.taskDescription;
   }
 
   draw(): void {
@@ -144,7 +147,7 @@ export default class GamePage {
   getGameWrapperHTML(): string {
     return `
     <div class="info-bar">
-      <h5 class="intro-p">Найдите логическую пару</h5>
+      <h5 class="intro-p">${this.taskDescription}</h5>
       <div class="button-close-start">
         <button class="button-close">
           <div class="close-small"></div>

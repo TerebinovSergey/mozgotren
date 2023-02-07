@@ -35,6 +35,7 @@ export default class GameController {
     this.gameController.start();
     this.timeoutState = setInterval(() => {
       this.renderState({ ...this.gameController.game });
+      this.checkGame();
     }, 330);
     this.addListenerClose();
   }
@@ -46,6 +47,13 @@ export default class GameController {
     this.renderState({ ...this.gameController.game });
     this.gameController.stop();
     this.addListenerStart();
+  }
+
+  checkGame() {
+    if (this.gameController.game.gameState === GameState.Finished) {
+      clearInterval(this.timeoutState);
+      this.stop();
+    }
   }
 
   addEventListeners(): void {
@@ -74,10 +82,6 @@ export default class GameController {
     const maxLevelElement = getElement('.game-max-level-title', gameContainer);
     levelElement.textContent = `${parameters.currentLevel} /`;
     maxLevelElement.textContent = ` ${parameters.levels}`;
-
-    if (this.gameController.game.gameState !== GameState.Play) {
-      clearInterval(this.timeoutState);
-    }
   }
 
   renderResults() {

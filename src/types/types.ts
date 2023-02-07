@@ -22,4 +22,5 @@ export type DataGame = {
   image: string,
   logoImg?: string,
   nameGame?: string,
+  taskDescription?: string,
 };
