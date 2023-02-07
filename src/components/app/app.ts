@@ -2,6 +2,7 @@ import { isUserCheck } from '../../utils/utils';
 import loginPage from '../../pages/login';
 import registrationPage from '../../pages/registration';
 import Controller from '../controller/controller';
+import { GameNames } from '../../types/types';
 
 type Routes = {
   [key: string]: () => void,
@@ -11,7 +12,7 @@ function clearPage() {
   document.body.innerHTML = '';
 }
 
-function drawGamePage(nameGame: string) {
+function drawGamePage(nameGame: GameNames) {
   clearPage();
   Controller.drawGamePage(nameGame);
 }
@@ -47,7 +48,7 @@ const routes: Routes = {
   '/register': () => {
     registrationPage();
   },
-  '/trenagor': () => drawGamePage('slozhenie'),
+  '/trenagor': () => drawGamePage(GameNames.Vychitanie),
 };
 
 export default class App {
@@ -60,7 +61,7 @@ export default class App {
     const path = window.location.pathname;
     const paths = path.split('/');
     if (paths.length > 2) {
-      if (paths[1] === 'trenagor') drawGamePage(paths[2]);
+      if (paths[1] === 'trenagor') drawGamePage(paths[2] as GameNames);
     } else {
       routes[path]();
     }

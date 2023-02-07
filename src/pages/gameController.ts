@@ -1,7 +1,8 @@
 import GamePage from './gameView';
 import SlozhenieController from '../games/slozhenie/SlozhenieController';
+import VychitanieController from '../games/vychitanie/VychitanieController';
 import { getElement } from '../utils/utils';
-import { GameState } from '../types/types';
+import { GameState, GameNames } from '../types/types';
 
 type UpdateStateParameters = {
   score: number,
@@ -12,14 +13,16 @@ type UpdateStateParameters = {
 
 export default class GameController {
   view!: GamePage;
-  nameGame: string;
-  gameController!: SlozhenieController;
+  nameGame: GameNames;
+  gameController!: SlozhenieController | VychitanieController;
   timeoutState!: NodeJS.Timeout;
 
-  constructor(nameGame: string) {
+  constructor(nameGame: GameNames) {
     this.nameGame = nameGame;
-    if (this.nameGame === 'slozhenie') {
+    if (this.nameGame === GameNames.Slozhenie) {
       this.gameController = new SlozhenieController();
+    } else if (this.nameGame === GameNames.Vychitanie) {
+      this.gameController = new VychitanieController();
     }
     this.view = new GamePage({ ...this.gameController.game });
   }

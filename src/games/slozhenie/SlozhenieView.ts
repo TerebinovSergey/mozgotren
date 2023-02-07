@@ -1,9 +1,14 @@
 import { getElement } from '../../utils/utils';
+import { GameNames } from '../../types/types';
 
 export default class SlozhenieView {
+  nameGame: GameNames;
+  constructor(nameGame: GameNames) {
+    this.nameGame = nameGame;
+  }
   draw(): void {
-    const state = getElement('.game-container-slozhenie');
-    const gameElement = getElement('.game-slozhenie', state);
+    const state = getElement(`.game-container-${this.nameGame}`);
+    const gameElement = getElement(`.game-${this.nameGame}`, state);
     gameElement.innerHTML = this.getHTML();
   }
 
@@ -14,13 +19,13 @@ export default class SlozhenieView {
   }
 
   updateTask(task: string): void {
-    const state = getElement('.game-container-slozhenie');
+    const state = getElement(`.game-container-${this.nameGame}`);
     const taskElement = getElement('.game-task', state);
     taskElement.textContent = task;
   }
 
   updateAnswers(answers: number[]): void {
-    const state = getElement('.game-container-slozhenie');
+    const state = getElement(`.game-container-${this.nameGame}`);
     const answersElement = getElement('.game-answer-options', state);
     answersElement.innerHTML = '';
     answers.forEach((answer) => {

@@ -1,19 +1,26 @@
 import { BaseGame } from '../BaseGame';
 import { randomInteger } from '../../utils/utils';
 
-type ArithmeticTask = {
+export type ArithmeticTask = {
   task: string,
   answers: number[],
 };
 
-type Range = {
+export type Range = {
   min: number,
   max: number,
 };
 
-export default class Slozhenie extends BaseGame {
-  constructor() {
-    super(6);
+type Operation = '+' | '-' | '*' | '/';
+
+export class Slozhenie extends BaseGame {
+  operation: Operation;
+  digitСapacity: number;
+  constructor(operation?: Operation, id?: number) {
+    const gameId = id ?? 6;
+    super(gameId);
+    this.operation = operation ?? '+';
+    this.digitСapacity = 2;
   }
   currentAnswer: number = 0;
   countAnswers = 4;
@@ -25,16 +32,18 @@ export default class Slozhenie extends BaseGame {
     };
   }
 
-  private getRandomTask(): string {
-    let range = this.getRangeOperand(1);
-    const operand1 = randomInteger(range.min, range.max);
-    range = this.getRangeOperand(2);
-    const operand2 = randomInteger(range.min, range.max);
-    this.currentAnswer = operand1 + operand2;
-    return `${operand1} + ${operand2}`;
+  getRandomTask(): string {
+    const numbers: number[] = [];
+    while (numbers.length < this.digitСapacity) {
+      const range = this.getRangeOperand(1);
+      const operand = randomInteger(range.min, range.max);
+      numbers.push(operand);
+    }
+    this.currentAnswer = this.getCurrentAnswer(numbers);
+    return numbers.join(` ${this.operation} `);
   }
 
-  private getRandomAnswers() {
+  getRandomAnswers() {
     const answers = new Set<number>();
     const range = this.getRangeAnswers();
     let arr: number[];
@@ -67,6 +76,30 @@ export default class Slozhenie extends BaseGame {
     this.updateScore(result);
     this.updateLevel(result);
     return result;
+  }
+
+  getCurrentAnswer(numbers: number[]) {
+    return numbers.reduce((acc, num, i) => {
+      console.log(acc, num);
+      if (i === 0) return num;
+      let result: number;
+      // eslint-disable-next-line default-case
+      switch (this.operation) {
+        case '+':
+          result = acc + num;
+          break;
+        case '-':
+          result = acc - num;
+          break;
+        case '*':
+          result = acc * num;
+          break;
+        case '/':
+          result = acc / num;
+          break;
+      }
+      return result;
+    }, 0);
   }
 
   getRangeOperand(numberOperand: number): Range {

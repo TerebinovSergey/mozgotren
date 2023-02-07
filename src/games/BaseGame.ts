@@ -1,4 +1,4 @@
-import { GameState, DataGame } from '../types/types';
+import { GameState, DataGame, GameNames } from '../types/types';
 import { getDataGame } from '../utils/utils';
 
 // eslint-disable-next-line import/prefer-default-export
@@ -15,7 +15,7 @@ export class BaseGame {
   wrongAnswers: number;
   gameState: GameState;
   timeoutTimer!: NodeJS.Timeout;
-  nameGame: string;
+  nameGame: GameNames;
   nameGameRu: string;
   logo: string;
   check1: string;
@@ -40,8 +40,8 @@ export class BaseGame {
     this.check2 = data.check2;
     this.check3 = data.check3;
     this.nameGameRu = data.nameGameRu;
+    this.nameGame = data.nameGame;
     this.logo = data.logoImg ?? '';
-    this.nameGame = data.nameGame ?? '';
     this.taskDescription = data.taskDescription ?? '';
   }
 

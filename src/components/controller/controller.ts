@@ -2,6 +2,7 @@ import HomePage from '../../pages/home';
 import TrenagorsPage from '../../pages/trenagors';
 import ProfilePage from '../../pages/profile';
 import GameController from '../../pages/gameController';
+import { GameNames } from '../../types/types';
 
 export default class Controller {
   static drawHomePage() {
@@ -16,7 +17,7 @@ export default class Controller {
     TrenagorsPage.draw();
   }
 
-  static drawGamePage(nameGame: string) {
+  static drawGamePage(nameGame: GameNames) {
     const gameController = new GameController(nameGame);
     gameController.draw();
   }

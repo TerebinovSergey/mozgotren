@@ -1,17 +1,17 @@
-import { Slozhenie } from './Slozhenie';
-import SlozhenieView from './SlozhenieView';
+import Vychitanie from './Vychitanie';
+import SlozhenieView from '../slozhenie/SlozhenieView';
 import { getElement } from '../../utils/utils';
 import { GameState, GameNames } from '../../types/types';
 import BaseGameController from '../BaseGameController';
 
-export default class SlozhenieController extends BaseGameController {
-  game: Slozhenie;
+export default class VychitanieController extends BaseGameController {
+  game: Vychitanie;
   view: SlozhenieView;
 
   constructor() {
     super();
-    this.view = new SlozhenieView(GameNames.Slozhenie);
-    this.game = new Slozhenie();
+    this.view = new SlozhenieView(GameNames.Vychitanie);
+    this.game = new Vychitanie();
   }
 
   start(): void {
@@ -27,13 +27,13 @@ export default class SlozhenieController extends BaseGameController {
   }
 
   private addListeners(): void {
-    const gameContainer = getElement('.game-container-slozhenie');
+    const gameContainer = getElement('.game-container-vychitanie');
     const stop = getElement('.button-close', gameContainer);
     stop.addEventListener('click', () => this.stop());
   }
 
   private addAnswerListeners(): void {
-    const gameContainer = getElement('.game-container-slozhenie');
+    const gameContainer = getElement('.game-container-vychitanie');
     const answers = getElement('.game-answer-options', gameContainer);
     answers.addEventListener('click', (event) => {
       if (this.game.gameState !== GameState.Play) return;
