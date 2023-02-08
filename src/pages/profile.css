@@ -320,46 +320,46 @@ font-size: 0.7rem;
   align-items: flex-start;
 }
 .pen {
-  background-image: url("../assets/svg/pen.svg");
+  background-image: url("../assets/img/svg/pen.svg");
 }
 .earth {
-  background-image: url("../assets/svg/earth.svg");
+  background-image: url("../assets/img/svg/earth.svg");
 }
 .bag {
-  background-image: url("../assets/svg/briefcase.svg");
+  background-image: url("../assets/img/svg/briefcase.svg");
 }
 .null {
   background-image: url("../assets/img/null.jpg");
 }
 .paperclip {
-  background-image: url("../assets/svg/paperclip-vertical.svg");
+  background-image: url("../assets/img/svg/paperclip-vertical.svg");
 }
 .date {
-  background-image: url("../assets/svg/calendar-month.svg");
+  background-image: url("../assets/img/svg/calendar-month.svg");
 }
 .birth {
-  background-image: url("../assets/svg/birthday-cake-filled.svg");
+  background-image: url("../assets/img/svg/birthday-cake-filled.svg");
 }
 .star {
-  background-image: url("../assets/svg/star.svg");
+  background-image: url("../assets/img/svg/star.svg");
 }
 .like {
-  background-image: url("../assets/svg/heart.svg");
+  background-image: url("../assets/img/svg/heart.svg");
 }
 .letter {
-  background-image: url("../assets/svg/letter.svg");
+  background-image: url("../assets/img/svg/letter.svg");
 }
 .lift {
-  background-image: url("../assets/svg/lift.svg");
+  background-image: url("../assets/img/svg/lift.svg");
 }
 .exit {
-  background-image: url("../assets/svg/");
+  background-image: url("../assets/img/svg/exit.svg");
 }
 .photo {
   justify-self: flex-end;
   align-self: flex-end;
   margin-top: -30px;
-  background-image: url("../assets/svg/camera.svg");
+  background-image: url("../assets/img/svg/camera.svg");
 }
 .dark-grey {
   color: #999999;
