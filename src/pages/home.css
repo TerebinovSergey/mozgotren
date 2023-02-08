@@ -50,7 +50,7 @@
 .main-header-trenagors {
   margin-top: 65px;
 }
-.title-link .title-main {}
+/* .title-link .title-main {} */
   .title-link::before {
     content: '';
     /* position: absolute; */

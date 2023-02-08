@@ -2,8 +2,6 @@ import HeaderView from '../components/view/header/headerView';
 import FooterView from '../components/view/footer/footerView';
 import { getElement } from '../utils/utils';
 
-// const isUser: { message: string, status: boolean, user: string } = await isAuthenticated();
-
 type Parameters = {
   nameGame: string,
   check1: string,
@@ -12,6 +10,7 @@ type Parameters = {
   complexity: number,
   nameGameRu: string,
   logo: string,
+  levels: number;
   taskDescription: string,
 };
 
@@ -23,6 +22,7 @@ export default class GamePage {
   complexity: number;
   nameGameRu: string;
   logo: string;
+  levels: number;
   taskDescription: string;
 
   constructor(param: Parameters) {
@@ -33,6 +33,7 @@ export default class GamePage {
     this.complexity = param.complexity;
     this.nameGameRu = param.nameGameRu;
     this.logo = param.logo;
+    this.levels = param.levels;
     this.taskDescription = param.taskDescription;
   }
 
@@ -125,9 +126,9 @@ export default class GamePage {
       </a>
       <h5> Пригласите друзей на тренировку: </h5>
       <ul class="link-container">
-        <li class="link-item"><a href="/https://www.facebook.com/"><div class="facebook"></div></a></li>
-        <li class="link-item"><a href="/https://ok.ru/"><div class="odnoklassniki"></div></a></li>
-        <li class="link-item"><a href="/https://https://login.microsoftonline.com/"><div class="open-letter"></div></a></li>
+        <li class="link-item"><a href="https://www.facebook.com/"><div class="facebook"></div></a></li>
+        <li class="link-item"><a href="https://ok.ru/"><div class="odnoklassniki"></div></a></li>
+        <li class="link-item"><a href="https://https://login.microsoftonline.com/"><div class="open-letter"></div></a></li>
       </ul>
     </div>`;
   }
@@ -174,7 +175,7 @@ export default class GamePage {
           <div class="flag"></div>
             <span class="grey text">Уровень: </span>
             <span><b class="white game-level-title">1 / </b></span>
-            <span><b class="grey game-max-level-title"> 8</b> </span>
+            <span><b class="grey game-max-level-title">${this.levels}</b> </span>
         </button>
         <button type="button" class="button-navigation">
           <div class="stopwatch"></div>

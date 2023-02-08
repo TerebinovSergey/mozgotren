@@ -127,18 +127,18 @@
 }
 
 .stopwatch {
-  background-image: url("../assets/svg/stopwatch.svg");
+  background-image: url("../assets/img/svg/stopwatch.svg");
 }
 .flag {
-  background-image: url("../assets/svg/flag.svg");
+  background-image: url("../assets/img/svg/flag.svg");
 }
 
 .check-mark {
-  background-image: url("../assets/svg/check-mark.svg");
+  background-image: url("../assets/img/svg/check-mark.svg");
 }
 
 .question {
-  background-image: url("../assets/svg/question.svg");
+  background-image: url("../assets/img/svg/question.svg");
   margin-left: 10px;
 }
 
@@ -159,7 +159,7 @@
 }
 
 .shadow {
-  box-shadow: 0 2px 4px -1px rgb(0 0 0 / 20%), 0 4px 5px 0 rgb(0 0 0 / 14%), 0 1px 10px 0 rgb(0 0 0 / 12%);
+box-shadow: 0 2px 4px -1px rgb(0 0 0 / 20%), 0 4px 5px 0 rgb(0 0 0 / 14%), 0 1px 10px 0 rgb(0 0 0 / 12%);
 width: 100%;
 height: 1px;
 margin: 0;
@@ -176,7 +176,7 @@ margin: 0;
   margin-right: 10px;
   background-size: cover;
   background-position: center center;
-  background-image: url("../assets/svg/checkbox.svg");
+  background-image: url("../assets/img/svg/checkbox.svg");
 }
 
 .check-item {
@@ -220,7 +220,7 @@ margin: 0;
   margin-right: 10px;
   background-size: cover;
   background-position: center center;
-  background-image: url("../assets/svg/facebook.svg");
+  background-image: url("../assets/img/svg/facebook.svg");
 }
 
 .odnoklassniki {
@@ -229,7 +229,7 @@ margin: 0;
   margin-right: 10px;
   background-size: cover;
   background-position: center center;
-  background-image: url("../assets/svg/odnoklassniki.svg");
+  background-image: url("../assets/img/svg/odnoklassniki.svg");
 }
 
 .open-letter {
@@ -238,10 +238,11 @@ margin: 0;
   margin-right: 10px;
   background-size: cover;
   background-position: center center;
-  background-image: url("../assets/svg/open-letter.svg");
+  background-image: url("../assets/img/svg/open-letter.svg");
 }
 
 @media screen and (max-width: 900px) {
+
   .game-container {
     padding: 0;
     align-items: flex-start;
@@ -257,9 +258,11 @@ margin: 0;
     margin-top: -0.8px;
     box-shadow: 0 2px 4px -1px rgb(0 0 0 / 20%), 0 4px 5px 0 rgb(0 0 0 / 14%), 0 1px 10px 0 rgb(0 0 0 / 12%);
   }
+
 }
 
 @media screen and (max-width: 600px) {
+
   .text {
     display: none;
   }
@@ -269,4 +272,6 @@ margin: 0;
   .check-container {
     display: none;
   }
+
 }
+
