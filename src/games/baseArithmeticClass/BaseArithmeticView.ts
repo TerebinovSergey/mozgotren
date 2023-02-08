@@ -1,7 +1,7 @@
 import { getElement } from '../../utils/utils';
 import { GameNames } from '../../types/types';
 
-export default class SlozhenieView {
+export default class BaseArithmeticView {
   nameGame: GameNames;
   constructor(nameGame: GameNames) {
     this.nameGame = nameGame;
