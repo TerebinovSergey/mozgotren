@@ -79,9 +79,9 @@ export default class GameController {
     const scoreElement = getElement('.game-score-title', gameContainer);
     scoreElement.textContent = String(parameters.score);
     const levelElement = getElement('.game-level-title', gameContainer);
-    const maxLevelElement = getElement('.game-max-level-title', gameContainer);
+    // const maxLevelElement = getElement('.game-max-level-title', gameContainer);
     levelElement.textContent = `${parameters.currentLevel} /`;
-    maxLevelElement.textContent = ` ${parameters.levels}`;
+    // maxLevelElement.textContent = ` ${parameters.levels}`;
   }
 
   renderResults() {
