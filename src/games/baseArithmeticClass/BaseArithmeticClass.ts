@@ -11,14 +11,14 @@ export type Range = {
   max: number,
 };
 
-type Operation = '+' | '-' | '×' | '/';
+type Operation = '+' | '-' | '×' | '÷';
 
 export class BaseArithmeticClass extends BaseGame {
-  private operation: Operation;
-  private digitСapacity: number;
-  private currentAnswer: number = 0;
-  private countAnswers = 4;
-  private stepAnswers: number;
+  readonly operation: Operation;
+  readonly digitСapacity: number;
+  currentAnswer: number = 0;
+  readonly countAnswers = 4;
+  readonly stepAnswers: number;
   constructor(operation: Operation, id: number, stepAnswers: number = 10) {
     const gameId = id;
     super(gameId);
@@ -70,7 +70,6 @@ export class BaseArithmeticClass extends BaseGame {
     for (start; start < this.currentAnswer + 4 * this.stepAnswers; start += this.stepAnswers) {
       if (start !== this.currentAnswer) answers.add(start);
     }
-    console.log(answers, range, 'here 1');
     arr = Array.from(answers);
     arr = this.filterAnswers(arr, range);
     while (arr.length > 3) {
@@ -83,7 +82,6 @@ export class BaseArithmeticClass extends BaseGame {
   addRightAnswer(arr: number[]) {
     const positionRigthAnswer = randomInteger(1, this.countAnswers);
     arr.splice(positionRigthAnswer - 1, 0, this.currentAnswer);
-    console.log(arr, this.currentAnswer, positionRigthAnswer);
     return arr;
   }
 
@@ -113,7 +111,7 @@ export class BaseArithmeticClass extends BaseGame {
         case '×':
           result = acc * num;
           break;
-        case '/':
+        case '÷':
           result = acc / num;
           break;
       }

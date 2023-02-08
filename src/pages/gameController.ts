@@ -2,6 +2,7 @@ import GamePage from './gameView';
 import SlozhenieController from '../games/slozhenie/SlozhenieController';
 import VychitanieController from '../games/vychitanie/VychitanieController';
 import UmnozhenieController from '../games/umnozhenie/UmnozhenieController';
+import DelenieController from '../games/delenie/DelenieController';
 import { getElement } from '../utils/utils';
 import { GameState, GameNames } from '../types/types';
 
@@ -12,7 +13,10 @@ type UpdateStateParameters = {
   levels: number,
 };
 
-type GamesControllers = SlozhenieController | VychitanieController | UmnozhenieController;
+type GamesControllers = SlozhenieController |
+VychitanieController |
+UmnozhenieController |
+DelenieController;
 
 export default class GameController {
   view!: GamePage;
@@ -28,6 +32,8 @@ export default class GameController {
       this.gameController = new VychitanieController();
     } else if (this.nameGame === GameNames.Umnozhenie) {
       this.gameController = new UmnozhenieController();
+    } else if (this.nameGame === GameNames.Delenie) {
+      this.gameController = new DelenieController();
     }
     this.view = new GamePage({ ...this.gameController.game });
   }
