@@ -58,12 +58,11 @@ export default class App {
   }
 
   static handleLocation() {
-    const path = window.location.pathname;
-    const paths = path.split('/');
-    if (paths.length > 2) {
-      if (paths[1] === 'trenagor') drawGamePage(paths[2] as GameNames);
+    const { pathname, hash } = window.location;
+    if (hash.length > 0) {
+      if (pathname === '/trenagor') drawGamePage(hash.slice(1) as GameNames);
     } else {
-      routes[path]();
+      routes[pathname]();
     }
   }
 }
