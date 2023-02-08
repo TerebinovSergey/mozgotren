@@ -89,8 +89,10 @@ const formValidation = async (e: Event) => {
           (document.querySelector('.login-box__msg') as HTMLElement).style.color = '#008000';
           (document.querySelector('.login-box__msg') as HTMLElement).innerHTML = `Добро пожаловать, <span style="text-transform:uppercase">${responseObj.user}</span>!`;
           sessionStorage.setItem('userName', responseObj.user);
+          console.log(Object.keys(responseObj)[2], responseObj.ssid);
+          document.cookie = `${Object.keys(responseObj)[2]}=${responseObj.ssid}`;
           setTimeout(() => {
-            window.location.href = '/';
+            // window.location.href = '/';
           }, 2000);
         }
       } catch (err) {

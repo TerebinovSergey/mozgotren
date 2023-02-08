@@ -2,6 +2,8 @@ import HeaderView from '../components/view/header/headerView';
 import FooterView from '../components/view/footer/footerView';
 import { getElement } from '../utils/utils';
 
+// const isUser: { message: string, status: boolean, user: string } = await isAuthenticated();
+
 type Parameters = {
   nameGame: string,
   check1: string,
@@ -36,7 +38,7 @@ export default class GamePage {
 
   draw(): void {
     const header = new HeaderView();
-    header.draw();
+    header.draw({});
     this.drawMain();
     const footer = new FooterView();
     footer.draw();

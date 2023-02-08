@@ -1,9 +1,9 @@
-import { isAuthenticated } from '../../utils/utils';
+import { isUserCheck } from '../../utils/utils';
 import loginPage from '../../pages/login';
 import registrationPage from '../../pages/registration';
 import Controller from '../controller/controller';
 
-const isUser: { message: string, status: boolean, user: string } = await isAuthenticated();
+const ssid: { message: string, status: boolean, user: string } = await isUserCheck;
 
 type Routes = {
   [key: string]: () => void,
@@ -21,7 +21,7 @@ function drawGamePage(nameGame: string) {
 const routes: Routes = {
   '/': () => {
     clearPage();
-    Controller.drawHomePage();
+    Controller.drawHomePage(ssid);
   },
   '/about': () => {
     document.body.innerHTML = 'About';
@@ -31,18 +31,18 @@ const routes: Routes = {
   },
   '/trenagors': () => {
     clearPage();
-    Controller.drawTrenagorsPage();
+    Controller.drawTrenagorsPage(ssid);
   },
   '/trenagors/1': () => {
     clearPage();
-    Controller.drawTrenagorsPage();
+    Controller.drawTrenagorsPage(ssid);
   },
   '/profile': () => {
-    if (!isUser.status) {
+    if (!ssid.status) {
       window.location.href = '/';
     } else {
       clearPage();
-      Controller.drawProfilePage();
+      Controller.drawProfilePage(ssid);
     }
   },
   '/login': () => {

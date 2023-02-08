@@ -41,11 +41,22 @@ export const submitForm = async (objValues: any) => {
   return result;
 };
 
-export const isUserCheck = () => sessionStorage.getItem('userName');
 export const isAuthenticated = async () => {
+  const cookieArray: any = [];
+  document.cookie.split('=').join().replace(/ /g, '').split(';')
+    .forEach((element) => {
+      cookieArray.push(element.split(','));
+    });
+  const ssid = cookieArray.filter((item: any) => item[0] === 'ssid');
   const result = await fetch(`${baseUrl}/check-registration`, {
-    method: 'GET',
+    method: 'POST',
+    body: JSON.stringify(Object.fromEntries(ssid)),
     credentials: 'include',
+    headers: {
+      'Content-type': 'application/json',
+    },
   });
   return result.json();
 };
+
+export const isUserCheck = await isAuthenticated();
