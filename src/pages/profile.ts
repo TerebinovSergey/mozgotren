@@ -1,42 +1,34 @@
 import HeaderView from '../components/view/header/headerView';
 import FooterView from '../components/view/footer/footerView';
-<<<<<<< HEAD
 import { getElement } from '../utils/utils';
-=======
-import { getElement, isUserCheck, isUserEmail } from '../utils/utils';
->>>>>>> develop
 
 export default class ProfilePage {
   static draw(status: any): void {
     const header = new HeaderView();
     header.draw(status);
-    ProfilePage.drawMain();
+    ProfilePage.drawMain(status);
     const footer = new FooterView();
     footer.draw();
   }
 
-  static drawMain() {
+  static drawMain(status: any) {
     const main = document.createElement('main');
     main.classList.add('profile-main');
-    main.innerHTML = this.getMainHTML();
+    main.innerHTML = this.getMainHTML(status);
     const header = getElement('header');
     header.after(main);
   }
 
-  static getMainHTML() {
+  static getMainHTML(status: any) {
     return `
     <div class="container-profile">
       <div class="profile-title-wrapper">
-<<<<<<< HEAD
-        <h2 class="profile-title">Добро пожаловать,</h2>
-        <p>Это профиль пользователя.<br>Что сюда можно записать (рейтинг, сыгранные игры, прогресс итд.) - думаем, предлагаем...</p>
-=======
       <div class="profile-container">
         <div class="profile-info-container ">
           <div class="profile-image"></div>
           <div class="profile-info">
-            <h2 class="profile-title">${isUserCheck()}</h2>
-            <h6 class="profile-text">${isUserEmail()}</h6>
+            <h2 class="profile-title">${status.user}</h2>
+            <h6 class="profile-text">${status.user}</h6>
           </div> 
           <hr class="vertical-line" > 
           <div class="profile-info">
@@ -51,7 +43,6 @@ export default class ProfilePage {
           <button class="button-profile-toolbar" onclick="document.querySelector('.page2')?.classList.toggle('hidden4');document.querySelector('.page1')?.classList.toggle('hidden3');">НАСТРОЙКИ</button>
           <button class="button-profile-toolbar svg-container"><div class="exit svg"></div></button>
         </div>
->>>>>>> develop
       </div>
       <div class="profile-info-form-container page1">
         <h4 class="dark-grey">Персональная информация</h4>
