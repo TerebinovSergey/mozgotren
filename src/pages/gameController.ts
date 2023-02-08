@@ -1,6 +1,7 @@
 import GamePage from './gameView';
 import SlozhenieController from '../games/slozhenie/SlozhenieController';
 import VychitanieController from '../games/vychitanie/VychitanieController';
+import UmnozhenieController from '../games/umnozhenie/UmnozhenieController';
 import { getElement } from '../utils/utils';
 import { GameState, GameNames } from '../types/types';
 
@@ -11,10 +12,12 @@ type UpdateStateParameters = {
   levels: number,
 };
 
+type GamesControllers = SlozhenieController | VychitanieController | UmnozhenieController;
+
 export default class GameController {
   view!: GamePage;
   nameGame: GameNames;
-  gameController!: SlozhenieController | VychitanieController;
+  gameController!: GamesControllers;
   timeoutState!: NodeJS.Timeout;
 
   constructor(nameGame: GameNames) {
@@ -23,6 +26,8 @@ export default class GameController {
       this.gameController = new SlozhenieController();
     } else if (this.nameGame === GameNames.Vychitanie) {
       this.gameController = new VychitanieController();
+    } else if (this.nameGame === GameNames.Umnozhenie) {
+      this.gameController = new UmnozhenieController();
     }
     this.view = new GamePage({ ...this.gameController.game });
   }

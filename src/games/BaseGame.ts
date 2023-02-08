@@ -3,25 +3,25 @@ import { getDataGame } from '../utils/utils';
 
 // eslint-disable-next-line import/prefer-default-export
 export class BaseGame {
-  id: number;
+  readonly id: number;
   complexity: number;
-  basicComplexity: number;
-  levels: number;
+  readonly basicComplexity: number;
+  readonly levels: number;
   currentLevel: number;
   score: number;
-  time: number;
+  readonly time: number;
   timeLeft: number;
   rightAnswers: number;
   wrongAnswers: number;
   gameState: GameState;
   timeoutTimer!: NodeJS.Timeout;
-  nameGame: GameNames;
-  nameGameRu: string;
-  logo: string;
-  check1: string;
-  check2: string;
-  check3: string;
-  taskDescription: string;
+  readonly nameGame: GameNames;
+  readonly nameGameRu: string;
+  readonly logo: string;
+  readonly check1: string;
+  readonly check2: string;
+  readonly check3: string;
+  readonly taskDescription: string;
 
   constructor(id: number) {
     this.id = id;

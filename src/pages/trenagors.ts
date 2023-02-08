@@ -78,7 +78,7 @@ document.querySelector('.close')?.classList.toggle('hidden1');
         <div class="trenagors-container">
           <a href="/trenagor#slozhenie" class="game-page"><div class="game-wrapper">game slozhenie</div></a>
           <a href="/trenagor#vychitanie" class="game-page"><div class="game-wrapper">game vychitanie</div></a>
-          <a href="/trenagor" class="game-page"><div class="game-wrapper">game 3</div></a>
+          <a href="/trenagor#umnozhenie" class="game-page"><div class="game-wrapper">game umnozhenie</div></a>
           <a href="/trenagor" class="game-page"><div class="game-wrapper">game 4</div></a>
           <a href="/trenagor" class="game-page"><div class="game-wrapper">game 5</div></a>
         </div>

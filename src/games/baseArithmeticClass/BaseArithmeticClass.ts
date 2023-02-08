@@ -11,18 +11,20 @@ export type Range = {
   max: number,
 };
 
-type Operation = '+' | '-' | '*' | '/';
+type Operation = '+' | '-' | '×' | '/';
 
 export class BaseArithmeticClass extends BaseGame {
-  operation: Operation;
-  digitСapacity: number;
-  currentAnswer: number = 0;
-  countAnswers = 4;
-  constructor(operation?: Operation, id?: number) {
-    const gameId = id ?? 6;
+  private operation: Operation;
+  private digitСapacity: number;
+  private currentAnswer: number = 0;
+  private countAnswers = 4;
+  private stepAnswers: number;
+  constructor(operation: Operation, id: number, stepAnswers: number = 10) {
+    const gameId = id;
     super(gameId);
-    this.operation = operation ?? '+';
+    this.operation = operation;
     this.digitСapacity = 2;
+    this.stepAnswers = stepAnswers;
   }
 
   getTask(): ArithmeticTask {
@@ -44,31 +46,44 @@ export class BaseArithmeticClass extends BaseGame {
   }
 
   getRandomAnswers() {
+    let arr: number[];
+    if (this.currentLevel < 3) {
+      const answers = new Set<number>();
+      const range = this.getRangeAnswers();
+      while (answers.size < this.countAnswers - 1) {
+        const randomAnswer = randomInteger(range.min, range.max);
+        if (randomAnswer !== this.currentAnswer) answers.add(randomAnswer);
+      }
+      arr = Array.from(answers);
+      arr = this.filterAnswers(arr, range);
+    } else {
+      arr = this.getRandomAnswersByStep();
+    }
+    return this.addRightAnswer(arr);
+  }
+
+  getRandomAnswersByStep(): number[] {
     const answers = new Set<number>();
     const range = this.getRangeAnswers();
     let arr: number[];
-    if (this.currentLevel < 3) {
-      while (answers.size < this.countAnswers - 1) {
-        answers.add(randomInteger(range.min, range.max));
-      }
-      arr = Array.from(answers);
-    } else {
-      const step = 10;
-      let start = this.currentAnswer - 4 * step;
-      for (start; start < this.currentAnswer + 4 * step; start += step) {
-        if (start !== this.currentAnswer) answers.add(start);
-      }
-      console.log(answers, range);
-      arr = Array.from(answers);
-      arr = this.filterAnswers(arr, range);
-      while (arr.length > 3) {
-        const indexDel = randomInteger(0, arr.length - 1);
-        arr.splice(indexDel, 1);
-      }
+    let start = this.currentAnswer - 4 * this.stepAnswers;
+    for (start; start < this.currentAnswer + 4 * this.stepAnswers; start += this.stepAnswers) {
+      if (start !== this.currentAnswer) answers.add(start);
     }
-    console.log(arr, this.currentAnswer);
+    console.log(answers, range, 'here 1');
+    arr = Array.from(answers);
+    arr = this.filterAnswers(arr, range);
+    while (arr.length > 3) {
+      const indexDel = randomInteger(0, arr.length - 1);
+      arr.splice(indexDel, 1);
+    }
+    return arr;
+  }
+
+  addRightAnswer(arr: number[]) {
     const positionRigthAnswer = randomInteger(1, this.countAnswers);
     arr.splice(positionRigthAnswer - 1, 0, this.currentAnswer);
+    console.log(arr, this.currentAnswer, positionRigthAnswer);
     return arr;
   }
 
@@ -95,7 +110,7 @@ export class BaseArithmeticClass extends BaseGame {
         case '-':
           result = acc - num;
           break;
-        case '*':
+        case '×':
           result = acc * num;
           break;
         case '/':

@@ -11,7 +11,7 @@ export default class BaseArithmeticController extends BaseGameController {
   constructor(nameGame: GameNames) {
     super();
     this.view = new BaseArithmeticView(nameGame);
-    this.game = new BaseArithmeticClass();
+    this.game = new BaseArithmeticClass('+', 6);
   }
 
   start(): void {
