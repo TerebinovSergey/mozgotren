@@ -42,8 +42,8 @@ export default class GameController {
     this.view = new GamePage({ ...this.gameController.game });
   }
 
-  draw(): void {
-    this.view.draw();
+  draw(status: SessionData): void {
+    this.view.draw(status);
     this.renderState({ ...this.gameController.game });
     this.addEventListeners();
   }

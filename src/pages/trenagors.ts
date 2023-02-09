@@ -3,9 +3,9 @@ import FooterView from '../components/view/footer/footerView';
 import { getElement } from '../utils/utils';
 
 export default class TrenagorsPage {
-  static draw(): void {
+  static draw(status: SessionData): void {
     const header = new HeaderView();
-    header.draw();
+    header.draw(status);
     TrenagorsPage.drawMain();
     const footer = new FooterView();
     footer.draw();

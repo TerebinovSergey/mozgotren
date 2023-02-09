@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+<svg width="800px" height="800px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <clipPath id="clip-book">
+      <rect width="32" height="32"/>
+    </clipPath>
+  </defs>
+  <g id="book" clip-path="url(#clip-book)">
+    <g id="Group_2974" data-name="Group 2974" transform="translate(-364 -156)">
+      <g id="Group_2957" data-name="Group 2957">
+        <g id="Group_2956" data-name="Group 2956">
+          <g id="Group_2955" data-name="Group 2955">
+            <path id="Path_3956" data-name="Path 3956" d="M395.292,182.842H381.541a.5.5,0,0,1,0-1h13.251v-17.5h-2.146a.5.5,0,0,1,0-1h2.646a.5.5,0,0,1,.5.5v18.5A.5.5,0,0,1,395.292,182.842Z" fill="#344952"/>
+          </g>
+        </g>
+      </g>
+      <g id="Group_2960" data-name="Group 2960">
+        <g id="Group_2959" data-name="Group 2959">
+          <g id="Group_2958" data-name="Group 2958">
+            <path id="Path_3957" data-name="Path 3957" d="M378.375,182.842H364.708a.5.5,0,0,1-.5-.5v-18.5a.5.5,0,0,1,.5-.5h2.625a.5.5,0,0,1,0,1h-2.125v17.5h13.167a.5.5,0,0,1,0,1Z" fill="#344952"/>
+          </g>
+        </g>
+      </g>
+      <g id="Group_2967" data-name="Group 2967">
+        <g id="Group_2963" data-name="Group 2963">
+          <g id="Group_2962" data-name="Group 2962">
+            <g id="Group_2961" data-name="Group 2961">
+              <path id="Path_3958" data-name="Path 3958" d="M393.083,180.967a1,1,0,0,1-.323-.053c-9.285-3.172-12.009-.331-12.036-.3a1.009,1.009,0,0,1-.742.33h0a1,1,0,0,1-.743-.328c-.027-.03-2.754-2.87-12.038.3a1,1,0,0,1-1.323-.947v-18.25a1,1,0,0,1,.7-.952c.347-.11,8.267-2.594,13.409-.18,5.143-2.416,13.063.07,13.409.18a1,1,0,0,1,.7.952v18.25a1,1,0,0,1-1,1ZM374.877,177.4a9.073,9.073,0,0,1,5.1,1.253c1.429-.951,4.913-2.24,12.1-.058V162.472c-2.03-.541-8.025-1.875-11.62.111a1,1,0,0,1-.967,0c-3.6-1.986-9.591-.652-11.621-.111v16.122A24.346,24.346,0,0,1,374.877,177.4Z" fill="#344952"/>
+            </g>
+          </g>
+        </g>
+        <g id="Group_2966" data-name="Group 2966">
+          <g id="Group_2965" data-name="Group 2965">
+            <g id="Group_2964" data-name="Group 2964">
+              <path id="Path_3959" data-name="Path 3959" d="M380,180.967h-.042a1,1,0,0,1-.744-1.667,1.064,1.064,0,0,1,.77-.344,1.007,1.007,0,0,1,.76.344,1.018,1.018,0,0,1,.152,1.077A1,1,0,0,1,380,180.967Z" fill="#344952"/>
+            </g>
+          </g>
+        </g>
+      </g>
+      <g id="Group_2970" data-name="Group 2970">
+        <g id="Group_2969" data-name="Group 2969">
+          <g id="Group_2968" data-name="Group 2968">
+            <path id="Path_3960" data-name="Path 3960" d="M379.979,180.444a.5.5,0,0,1-.5-.5V161.708a.5.5,0,0,1,1,0v18.236A.5.5,0,0,1,379.979,180.444Z" fill="#344952"/>
+          </g>
+        </g>
+      </g>
+      <g id="Group_2973" data-name="Group 2973">
+        <g id="Group_2972" data-name="Group 2972">
+          <g id="Group_2971" data-name="Group 2971">
+            <path id="Path_3961" data-name="Path 3961" d="M381.542,183.967h-3.167a.5.5,0,0,1-.5-.5c0-1.542.915-2.75,2.083-2.75s2.084,1.208,2.084,2.75A.5.5,0,0,1,381.542,183.967Zm-2.62-1h2.073c-.137-.714-.557-1.25-1.037-1.25S379.059,182.253,378.922,182.967Z" fill="#344952"/>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -32,3 +32,15 @@ export type DataGame = {
   logoImg?: string,
   taskDescription?: string,
 };
+
+export type SessionData = {
+  message: string,
+  status: boolean,
+  user: string,
+};
+
+export type AuthData = {
+  username?: string,
+  email: string,
+  password: string,
+};
