@@ -5,7 +5,7 @@ import UmnozhenieController from '../games/umnozhenie/UmnozhenieController';
 import DelenieController from '../games/delenie/DelenieController';
 import ArifmetikaController from '../games/arifmetika/ArifmetikaController';
 import { getElement } from '../utils/utils';
-import { GameState, GameNames } from '../types/types';
+import { GameState, GameNames, SessionData } from '../types/types';
 
 type UpdateStateParameters = {
   score: number,

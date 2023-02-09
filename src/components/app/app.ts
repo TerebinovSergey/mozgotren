@@ -2,8 +2,7 @@ import { isUserCheck } from '../../utils/utils';
 import loginPage from '../../pages/login';
 import registrationPage from '../../pages/registration';
 import Controller from '../controller/controller';
-import { GameNames } from '../../types/types';
-import { SessionData } from '../../types/types';
+import { GameNames, SessionData } from '../../types/types';
 
 const ssid: SessionData = await isUserCheck;
 
@@ -40,7 +39,7 @@ const routes: Routes = {
     Controller.drawTrenagorsPage(ssid);
   },
   '/profile': () => {
-    if (!ssid.status) {
+    if (!(ssid.status)) {
       window.location.href = '/';
     } else {
       clearPage();
