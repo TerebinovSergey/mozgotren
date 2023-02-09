@@ -2,6 +2,9 @@ import { isUserCheck } from '../../utils/utils';
 import loginPage from '../../pages/login';
 import registrationPage from '../../pages/registration';
 import Controller from '../controller/controller';
+import { SessionData } from '../../types/types';
+
+const ssid: SessionData = await isUserCheck;
 
 type Routes = {
   [key: string]: () => void,
@@ -13,14 +16,13 @@ function clearPage() {
 
 function drawGamePage(nameGame: string) {
   clearPage();
-  Controller.drawGamePage(nameGame);
+  Controller.drawGamePage(nameGame, ssid);
 }
 
 const routes: Routes = {
   '/': () => {
-    isUserCheck();
     clearPage();
-    Controller.drawHomePage();
+    Controller.drawHomePage(ssid);
   },
   '/about': () => {
     document.body.innerHTML = 'About';
@@ -29,16 +31,19 @@ const routes: Routes = {
     document.body.innerHTML = 'Contact';
   },
   '/trenagors': () => {
-    isUserCheck();
     clearPage();
-    Controller.drawTrenagorsPage();
+    Controller.drawTrenagorsPage(ssid);
+  },
+  '/trenagors/1': () => {
+    clearPage();
+    Controller.drawTrenagorsPage(ssid);
   },
   '/profile': () => {
-    if (isUserCheck() === null) {
+    if (!ssid.status) {
       window.location.href = '/';
     } else {
       clearPage();
-      Controller.drawProfilePage();
+      Controller.drawProfilePage(ssid);
     }
   },
   '/login': () => {

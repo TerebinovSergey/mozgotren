@@ -25,14 +25,15 @@ export function getDataGame(id: number): DataGame {
   return data;
 }
 
-// export const baseUrl = 'http://localhost:5000';
-export const baseUrl = 'https://api.leoniuk.dev';
+export const baseUrl = 'http://localhost:5000';
+// export const baseUrl = 'https://api.leoniuk.dev';
 
 export const submitForm = async (objValues: any) => {
   const path = (Object.keys(objValues).length === 2) ? 'login' : 'registration';
-  const result = await fetch(`${baseUrl}/users/${path}`, {
+  const result = await fetch(`${baseUrl}/${path}`, {
     method: 'POST',
     body: JSON.stringify(objValues),
+    credentials: 'include',
     headers: {
       'Content-type': 'application/json',
     },
@@ -40,6 +41,23 @@ export const submitForm = async (objValues: any) => {
   return result;
 };
 
-export const isUserCheck = () => sessionStorage.getItem('userName');
+export const isAuthenticated = async () => {
+  const cookiesArray: Array<string[]> = [];
+  document.cookie.split('=').join().replace(/ /g, '').split(';')
+    .forEach((element: string) => {
+      cookiesArray.push(element.split(','));
+    });
+  console.log('cookiesArray: ', cookiesArray);
+  const ssid = cookiesArray.filter((item: any) => item[0] === 'ssid');
+  const result = await fetch(`${baseUrl}/check-registration`, {
+    method: 'POST',
+    body: JSON.stringify(Object.fromEntries(ssid)),
+    credentials: 'include',
+    headers: {
+      'Content-type': 'application/json',
+    },
+  });
+  return result.json();
+};
 
-export const isUserEmail = () => sessionStorage.getItem('userEmail');
+export const isUserCheck = await isAuthenticated();

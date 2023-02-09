@@ -1,6 +1,7 @@
 import HeaderView from '../components/view/header/headerView';
 import FooterView from '../components/view/footer/footerView';
 import { getElement } from '../utils/utils';
+import { SessionData } from '../types/types';
 
 type Parameters = {
   nameGame: string,
@@ -37,9 +38,9 @@ export default class GamePage {
     this.taskDescription = param.taskDescription;
   }
 
-  draw(): void {
+  draw(status: SessionData): void {
     const header = new HeaderView();
-    header.draw();
+    header.draw(status);
     this.drawMain();
     const footer = new FooterView();
     footer.draw();

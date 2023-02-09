@@ -1,25 +1,26 @@
 import HeaderView from '../components/view/header/headerView';
 import FooterView from '../components/view/footer/footerView';
-import { getElement, isUserCheck, isUserEmail } from '../utils/utils';
+import { getElement } from '../utils/utils';
+import { SessionData } from '../types/types';
 
 export default class ProfilePage {
-  static draw(): void {
+  static draw(status: SessionData): void {
     const header = new HeaderView();
-    header.draw();
-    ProfilePage.drawMain();
+    header.draw(status);
+    ProfilePage.drawMain(status);
     const footer = new FooterView();
     footer.draw();
   }
 
-  static drawMain() {
+  static drawMain(status: SessionData) {
     const main = document.createElement('main');
     main.classList.add('profile-main');
-    main.innerHTML = this.getMainHTML();
+    main.innerHTML = this.getMainHTML(status);
     const header = getElement('header');
     header.after(main);
   }
 
-  static getMainHTML() {
+  static getMainHTML(status: SessionData) {
     return `
     <div class="container-profile">
       <div class="profile-title-wrapper">
@@ -27,8 +28,8 @@ export default class ProfilePage {
         <div class="profile-info-container ">
           <div class="profile-image"></div>
           <div class="profile-info">
-            <h2 class="profile-title">${isUserCheck()}</h2>
-            <h6 class="profile-text">${isUserEmail()}</h6>
+            <h2 class="profile-title">${status.user}</h2>
+            <h6 class="profile-text">${status.user}</h6>
           </div> 
           <hr class="vertical-line" > 
           <div class="profile-info">
