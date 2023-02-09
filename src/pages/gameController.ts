@@ -1,7 +1,11 @@
 import GamePage from './gameView';
 import SlozhenieController from '../games/slozhenie/SlozhenieController';
+import VychitanieController from '../games/vychitanie/VychitanieController';
+import UmnozhenieController from '../games/umnozhenie/UmnozhenieController';
+import DelenieController from '../games/delenie/DelenieController';
+import ArifmetikaController from '../games/arifmetika/ArifmetikaController';
 import { getElement } from '../utils/utils';
-import { GameState, SessionData } from '../types/types';
+import { GameState, GameNames } from '../types/types';
 
 type UpdateStateParameters = {
   score: number,
@@ -10,16 +14,30 @@ type UpdateStateParameters = {
   levels: number,
 };
 
+type GamesControllers = SlozhenieController |
+VychitanieController |
+UmnozhenieController |
+DelenieController |
+ArifmetikaController;
+
 export default class GameController {
   view!: GamePage;
-  nameGame: string;
-  gameController!: SlozhenieController;
+  nameGame: GameNames;
+  gameController!: GamesControllers;
   timeoutState!: NodeJS.Timeout;
 
-  constructor(nameGame: string) {
+  constructor(nameGame: GameNames) {
     this.nameGame = nameGame;
-    if (this.nameGame === 'slozhenie') {
+    if (this.nameGame === GameNames.Slozhenie) {
       this.gameController = new SlozhenieController();
+    } else if (this.nameGame === GameNames.Vychitanie) {
+      this.gameController = new VychitanieController();
+    } else if (this.nameGame === GameNames.Umnozhenie) {
+      this.gameController = new UmnozhenieController();
+    } else if (this.nameGame === GameNames.Delenie) {
+      this.gameController = new DelenieController();
+    } else if (this.nameGame === GameNames.Arifmetika) {
+      this.gameController = new ArifmetikaController();
     }
     this.view = new GamePage({ ...this.gameController.game });
   }
@@ -79,9 +97,9 @@ export default class GameController {
     const scoreElement = getElement('.game-score-title', gameContainer);
     scoreElement.textContent = String(parameters.score);
     const levelElement = getElement('.game-level-title', gameContainer);
-    // const maxLevelElement = getElement('.game-max-level-title', gameContainer);
+    const maxLevelElement = getElement('.game-max-level-title', gameContainer);
     levelElement.textContent = `${parameters.currentLevel} /`;
-    // maxLevelElement.textContent = ` ${parameters.levels}`;
+    maxLevelElement.textContent = ` ${parameters.levels}`;
   }
 
   renderResults() {
@@ -94,7 +112,7 @@ export default class GameController {
     errors.textContent = String(this.gameController.game.wrongAnswers);
     const percent = getElement('.score-percent', gameContainer);
     let scorePercent = this.gameController.game.wrongAnswers
-      + this.gameController.game.rightAnswers;
+    + this.gameController.game.rightAnswers;
     if (scorePercent > 0) {
       scorePercent = Math.ceil((this.gameController.game.rightAnswers
         / (this.gameController.game.wrongAnswers + this.gameController.game.rightAnswers)) * 100);

@@ -2,6 +2,7 @@ import HomePage from '../../pages/home';
 import TrenagorsPage from '../../pages/trenagors';
 import ProfilePage from '../../pages/profile';
 import GameController from '../../pages/gameController';
+import { GameNames } from '../../types/types';
 import { SessionData } from '../../types/types';
 
 export default class Controller {
@@ -20,7 +21,7 @@ export default class Controller {
     console.log('response from API: ', status);
   }
 
-  static drawGamePage(nameGame: string, status: SessionData) {
+  static drawGamePage(nameGame: GameNames, status: SessionData) {
     const gameController = new GameController(nameGame);
     gameController.draw(status);
     console.log('response from API: ', status);

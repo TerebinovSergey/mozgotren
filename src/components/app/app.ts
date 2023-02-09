@@ -2,6 +2,7 @@ import { isUserCheck } from '../../utils/utils';
 import loginPage from '../../pages/login';
 import registrationPage from '../../pages/registration';
 import Controller from '../controller/controller';
+import { GameNames } from '../../types/types';
 import { SessionData } from '../../types/types';
 
 const ssid: SessionData = await isUserCheck;
@@ -14,7 +15,7 @@ function clearPage() {
   document.body.innerHTML = '';
 }
 
-function drawGamePage(nameGame: string) {
+function drawGamePage(nameGame: GameNames) {
   clearPage();
   Controller.drawGamePage(nameGame, ssid);
 }
@@ -52,7 +53,7 @@ const routes: Routes = {
   '/register': () => {
     registrationPage();
   },
-  '/trenagor': () => drawGamePage('slozhenie'),
+  '/trenagor': () => drawGamePage(GameNames.Vychitanie),
 };
 
 export default class App {
@@ -62,12 +63,11 @@ export default class App {
   }
 
   static handleLocation() {
-    const path = window.location.pathname;
-    const paths = path.split('/');
-    if (paths.length > 2) {
-      if (paths[1] === 'trenagor') drawGamePage(paths[2]);
+    const { pathname, hash } = window.location;
+    if (hash.length > 0) {
+      if (pathname === '/trenagor') drawGamePage(hash.slice(1) as GameNames);
     } else {
-      routes[path]();
+      routes[pathname]();
     }
   }
 }

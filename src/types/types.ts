@@ -4,6 +4,14 @@ export enum GameState {
   Waiting,
 }
 
+export enum GameNames {
+  Slozhenie = 'slozhenie',
+  Vychitanie = 'vychitanie',
+  Delenie = 'delenie',
+  Umnozhenie = 'umnozhenie',
+  Arifmetika = 'arifmetika',
+}
+
 export type DataGames = {
   games: DataGame[],
 };
@@ -20,8 +28,8 @@ export type DataGame = {
   levels: number,
   time: number,
   image: string,
+  nameGame: GameNames,
   logoImg?: string,
-  nameGame?: string,
   taskDescription?: string,
 };
 
