@@ -1,6 +1,7 @@
 import HeaderView from '../components/view/header/headerView';
 import FooterView from '../components/view/footer/footerView';
 import { getElement } from '../utils/utils';
+import { SessionData } from '../types/types';
 
 export default class TrenagorsPage {
   static draw(status: SessionData): void {
