@@ -1,9 +1,10 @@
 import HeaderView from '../components/view/header/headerView';
 import FooterView from '../components/view/footer/footerView';
 import { getElement } from '../utils/utils';
+import { SessionData } from '../types/types';
 
 export default class ProfilePage {
-  static draw(status: any): void {
+  static draw(status: SessionData): void {
     const header = new HeaderView();
     header.draw(status);
     ProfilePage.drawMain(status);
@@ -11,7 +12,7 @@ export default class ProfilePage {
     footer.draw();
   }
 
-  static drawMain(status: any) {
+  static drawMain(status: SessionData) {
     const main = document.createElement('main');
     main.classList.add('profile-main');
     main.innerHTML = this.getMainHTML(status);
@@ -19,7 +20,7 @@ export default class ProfilePage {
     header.after(main);
   }
 
-  static getMainHTML(status: any) {
+  static getMainHTML(status: SessionData) {
     return `
     <div class="container-profile">
       <div class="profile-title-wrapper">

@@ -2,8 +2,9 @@ import { isUserCheck } from '../../utils/utils';
 import loginPage from '../../pages/login';
 import registrationPage from '../../pages/registration';
 import Controller from '../controller/controller';
+import { SessionData } from '../../types/types';
 
-const ssid: { message: string, status: boolean, user: string } = await isUserCheck;
+const ssid: SessionData = await isUserCheck;
 
 type Routes = {
   [key: string]: () => void,
@@ -15,7 +16,7 @@ function clearPage() {
 
 function drawGamePage(nameGame: string) {
   clearPage();
-  Controller.drawGamePage(nameGame);
+  Controller.drawGamePage(nameGame, ssid);
 }
 
 const routes: Routes = {

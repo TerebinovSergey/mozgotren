@@ -1,5 +1,7 @@
+import { SessionData } from '../../../types/types';
+
 export default class HeaderView {
-  draw(user: any): void {
+  draw(user: SessionData): void {
     const header = document.createElement('header');
     header.classList.add('header', 'main-background');
     header.innerHTML = this.getHeaderHTML(user);

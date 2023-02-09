@@ -1,7 +1,7 @@
 import GamePage from './gameView';
 import SlozhenieController from '../games/slozhenie/SlozhenieController';
 import { getElement } from '../utils/utils';
-import { GameState } from '../types/types';
+import { GameState, SessionData } from '../types/types';
 
 type UpdateStateParameters = {
   score: number,
@@ -24,8 +24,8 @@ export default class GameController {
     this.view = new GamePage({ ...this.gameController.game });
   }
 
-  draw(): void {
-    this.view.draw();
+  draw(status: SessionData): void {
+    this.view.draw(status);
     this.renderState({ ...this.gameController.game });
     this.addEventListeners();
   }
@@ -94,7 +94,7 @@ export default class GameController {
     errors.textContent = String(this.gameController.game.wrongAnswers);
     const percent = getElement('.score-percent', gameContainer);
     let scorePercent = this.gameController.game.wrongAnswers
-    + this.gameController.game.rightAnswers;
+      + this.gameController.game.rightAnswers;
     if (scorePercent > 0) {
       scorePercent = Math.ceil((this.gameController.game.rightAnswers
         / (this.gameController.game.wrongAnswers + this.gameController.game.rightAnswers)) * 100);

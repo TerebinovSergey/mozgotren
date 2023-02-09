@@ -1,11 +1,12 @@
 import HeaderView from '../components/view/header/headerView';
 import FooterView from '../components/view/footer/footerView';
 import { getElement } from '../utils/utils';
+import { SessionData } from '../types/types';
 
 export default class GamePageStart {
-  static draw(): void {
+  static draw(status: SessionData): void {
     const header = new HeaderView();
-    header.draw({});
+    header.draw(status);
     GamePageStart.drawMain();
     const footer = new FooterView();
     footer.draw();

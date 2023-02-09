@@ -42,12 +42,13 @@ export const submitForm = async (objValues: any) => {
 };
 
 export const isAuthenticated = async () => {
-  const cookieArray: any = [];
+  const cookiesArray: Array<string[]> = [];
   document.cookie.split('=').join().replace(/ /g, '').split(';')
-    .forEach((element) => {
-      cookieArray.push(element.split(','));
+    .forEach((element: string) => {
+      cookiesArray.push(element.split(','));
     });
-  const ssid = cookieArray.filter((item: any) => item[0] === 'ssid');
+  console.log('cookiesArray: ', cookiesArray);
+  const ssid = cookiesArray.filter((item: any) => item[0] === 'ssid');
   const result = await fetch(`${baseUrl}/check-registration`, {
     method: 'POST',
     body: JSON.stringify(Object.fromEntries(ssid)),

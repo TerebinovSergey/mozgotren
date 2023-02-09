@@ -1,4 +1,5 @@
 import { getElement, submitForm } from '../../../utils/utils';
+import { AuthData } from '../../../types/types';
 
 const formValidation = async (e: Event) => {
   const inputType = (e.target as HTMLInputElement).name;
@@ -75,7 +76,7 @@ const formValidation = async (e: Event) => {
       (inputTypesAndValuesArray[1] as HTMLInputElement).id,
     );
     if ([...document.querySelectorAll('.form-warning')].length === 0) {
-      const formValues = {
+      const formValues: AuthData = {
         email: (getElement('#email') as HTMLInputElement).value,
         password: (getElement('#password') as HTMLInputElement).value,
       };
@@ -89,10 +90,10 @@ const formValidation = async (e: Event) => {
           (document.querySelector('.login-box__msg') as HTMLElement).style.color = '#008000';
           (document.querySelector('.login-box__msg') as HTMLElement).innerHTML = `Добро пожаловать, <span style="text-transform:uppercase">${responseObj.user}</span>!`;
           sessionStorage.setItem('userName', responseObj.user);
-          console.log(Object.keys(responseObj)[2], responseObj.ssid);
+          console.log('response from API: ', Object.keys(responseObj)[2], responseObj.ssid);
           document.cookie = `${Object.keys(responseObj)[2]}=${responseObj.ssid}`;
           setTimeout(() => {
-            // window.location.href = '/';
+            window.location.href = '/';
           }, 2000);
         }
       } catch (err) {
@@ -111,7 +112,7 @@ const formValidation = async (e: Event) => {
       (inputTypesAndValuesArray[3] as HTMLInputElement).id,
     );
     if ([...document.querySelectorAll('.form-warning')].length === 0) {
-      const formValues = {
+      const formValues: AuthData = {
         username: (getElement('#name') as HTMLInputElement).value,
         email: (getElement('#email') as HTMLInputElement).value,
         password: (getElement('#password') as HTMLInputElement).value,

@@ -1,11 +1,10 @@
 import HeaderView from '../components/view/header/headerView';
 import FooterView from '../components/view/footer/footerView';
 import { getElement } from '../utils/utils';
-
-// const isUser: { message: string, status: boolean, user: string } = await isAuthenticated();
+import { SessionData } from '../types/types';
 
 export default class HomePage {
-  static draw(status: any): void {
+  static draw(status: SessionData): void {
     const header = new HeaderView();
     header.draw(status);
     HomePage.drawMain();
