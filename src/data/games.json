@@ -102,7 +102,7 @@
     {
       "id": 5,
       "nameGameRu": "Арифметика",
-      "nameGame": "",
+      "nameGame": "arifmetika",
       "check1": "Увеличивает скорость мышления",
       "check2": "Концентрирует внимание",
       "check3": "Логическое мышление",
@@ -122,7 +122,9 @@
       "category": "Мышление",
       "levels": 8,
       "time": 60,
-      "image": "https://mozgotren-clone.netlify.app/assets/thumb_arifmetika.jpg/"
+      "image": "https://mozgotren-clone.netlify.app/assets/thumb_arifmetika.jpg/",
+      "logoImg": "assets/thumb_arifmetika.jpg",
+      "taskDescription": "Решите пример"
     },
 
     {

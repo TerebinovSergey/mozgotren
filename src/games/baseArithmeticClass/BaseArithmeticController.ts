@@ -3,9 +3,10 @@ import BaseArithmeticView from './BaseArithmeticView';
 import { getElement } from '../../utils/utils';
 import { GameState, GameNames } from '../../types/types';
 import BaseGameController from '../BaseGameController';
+import Arifmetika from '../arifmetika/Arifmetika';
 
 export default class BaseArithmeticController extends BaseGameController {
-  game: BaseArithmeticClass;
+  game: BaseArithmeticClass | Arifmetika;
   view: BaseArithmeticView;
 
   constructor(nameGame: GameNames) {

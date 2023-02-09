@@ -80,7 +80,7 @@ document.querySelector('.close')?.classList.toggle('hidden1');
           <a href="/trenagor#vychitanie" class="game-page"><div class="game-wrapper">game vychitanie</div></a>
           <a href="/trenagor#umnozhenie" class="game-page"><div class="game-wrapper">game umnozhenie</div></a>
           <a href="/trenagor#delenie" class="game-page"><div class="game-wrapper">game delenie</div></a>
-          <a href="/trenagor" class="game-page"><div class="game-wrapper">game 5</div></a>
+          <a href="/trenagor#arifmetika" class="game-page"><div class="game-wrapper">game arifmetika</div></a>
         </div>
       </section>
     </div>`;
