@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/indent */
 import GamePage from './gameView';
 import SlozhenieController from '../games/slozhenie/SlozhenieController';
 import VychitanieController from '../games/vychitanie/VychitanieController';
@@ -5,7 +6,7 @@ import UmnozhenieController from '../games/umnozhenie/UmnozhenieController';
 import DelenieController from '../games/delenie/DelenieController';
 import ArifmetikaController from '../games/arifmetika/ArifmetikaController';
 import { getElement } from '../utils/utils';
-import { GameState, GameNames } from '../types/types';
+import { GameState, GameNames, SessionData } from '../types/types';
 
 type UpdateStateParameters = {
   score: number,
@@ -15,10 +16,10 @@ type UpdateStateParameters = {
 };
 
 type GamesControllers = SlozhenieController |
-VychitanieController |
-UmnozhenieController |
-DelenieController |
-ArifmetikaController;
+  VychitanieController |
+  UmnozhenieController |
+  DelenieController |
+  ArifmetikaController;
 
 export default class GameController {
   view!: GamePage;
@@ -112,7 +113,7 @@ export default class GameController {
     errors.textContent = String(this.gameController.game.wrongAnswers);
     const percent = getElement('.score-percent', gameContainer);
     let scorePercent = this.gameController.game.wrongAnswers
-    + this.gameController.game.rightAnswers;
+      + this.gameController.game.rightAnswers;
     if (scorePercent > 0) {
       scorePercent = Math.ceil((this.gameController.game.rightAnswers
         / (this.gameController.game.wrongAnswers + this.gameController.game.rightAnswers)) * 100);
