@@ -90,10 +90,10 @@ export class BaseArithmeticClass extends BaseGame {
   }
 
   checkAnswer(answer: number): boolean {
-    const result = this.currentAnswer === answer;
-    this.updateScore(result);
-    this.updateLevel(result);
-    return result;
+    const rightAnswer = this.currentAnswer === answer;
+    this.updateScore(rightAnswer);
+    this.updateLevel(rightAnswer);
+    return rightAnswer;
   }
 
   getCurrentAnswer(numbers: number[]) {
