@@ -41,7 +41,7 @@ export default class BaseArithmeticController extends BaseGameController {
       const { target } = event;
       if (!(target instanceof HTMLButtonElement)) return;
       const result = this.game.checkAnswer(Number(target.dataset.answer));
-      target.classList.add((result) ? 'rigth-answer' : 'wrong-answer');
+      target.classList.add((result) ? 'right-answer' : 'wrong-answer');
       setTimeout(() => this.updateState(), 200);
     });
   }

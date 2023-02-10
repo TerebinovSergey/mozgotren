@@ -1,1 +1,18 @@
 @import url('./baseArithmeticClass/style.css');
+@import url('./schulte-table/style.css');
+
+.wrong-answer {
+  background-color: var(--wrong-answer);
+}
+
+.wrong-answer:hover {
+  background-color: var(--wrong-answer);
+}
+
+.right-answer {
+  background-color: var(--right-answer);
+}
+
+.right-answer:hover {
+  background-color: var(--right-answer);
+}

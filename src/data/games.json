@@ -70,13 +70,15 @@
       "basicComplexity": 22,
       "category": "Внимание",
       "levels": 4,
-      "image": "https://mozgotren-clone.netlify.app/assets/thumb_shulte-alfavit.jpg/"
+      "image": "https://mozgotren-clone.netlify.app/assets/thumb_shulte-alfavit.jpg/",
+      "logoImg": "assets/thumb_shulte-alfavit.jpg",
+      "taskDescription": "Нажимайте на буквы"
     },
 
     {
       "id": 4,
       "nameGameRu": "Таблица Шульте",
-      "nameGame": "",
+      "nameGame": "tablica-shulte",
       "check1": "Развивает внимание",
       "check2": "Ускоряет реакцию",
       "check3": "Расширяет угол восприятия",
@@ -96,7 +98,10 @@
       "basicComplexity": 20,
       "category": "Внимание",
       "levels": 4,
-      "image": "https://mozgotren-clone.netlify.app/assets/thumb_tablica-shulte.jpg/"
+      "time": 60,
+      "image": "https://mozgotren-clone.netlify.app/assets/thumb_tablica-shulte.jpg/",
+      "logoImg": "assets/thumb_tablica-shulte.jpg",
+      "taskDescription": "Нажимайте на числа"
     },
 
     {
