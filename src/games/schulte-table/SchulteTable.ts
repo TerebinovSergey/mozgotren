@@ -1,5 +1,4 @@
 import { BaseGame } from '../BaseGame';
-// import { randomInteger } from '../../utils/utils';
 
 export default class SchulteTable extends BaseGame {
   table: string[] | undefined;
@@ -14,20 +13,23 @@ export default class SchulteTable extends BaseGame {
     this.currentIndex = 0;
     this.errorFreeLevel = true;
     this.countAnswers = (this.currentLevel + 2) ** 2;
-    const numbers: number[] = [];
-    for (let i = 1; i <= this.countAnswers; i += 1) {
-      numbers.push(i);
-    }
-    this.table = numbers.map((val) => String(val));
+    const numbers = this.getRightShulteTable();
+    this.table = numbers.map((val) => val);
     numbers.sort(() => Math.random() - 0.5);
-    const numbersToString = numbers.map((val) => String(val));
-    return numbersToString;
+    return numbers;
+  }
+
+  getRightShulteTable(): string[] {
+    const numbers: string[] = [];
+    for (let i = 1; i <= this.countAnswers; i += 1) {
+      numbers.push(String(i));
+    }
+    return numbers;
   }
 
   checkAnswer(answer: string): boolean {
     if (this.table === undefined) throw Error('Empty table in Schulte table.');
     const result = this.table[this.currentIndex] === answer;
-    console.log(result);
     if (result) {
       if (this.isLevelComplete()) {
         if (this.errorFreeLevel) this.updateLevel(result);

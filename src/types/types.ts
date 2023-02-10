@@ -11,6 +11,7 @@ export enum GameNames {
   Umnozhenie = 'umnozhenie',
   Arifmetika = 'arifmetika',
   TablicaShulte = 'tablica-shulte',
+  ShulteAlfavit = 'shulte-alfavit',
 }
 
 export type DataGames = {

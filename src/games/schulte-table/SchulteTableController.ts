@@ -3,9 +3,10 @@ import SchulteTableView from './SchulteTableView';
 import { getElement } from '../../utils/utils';
 import { GameState, GameNames } from '../../types/types';
 import BaseGameController from '../BaseGameController';
+import ShulteAlfavit from '../shulte-alfavit/ShulteAlfavit';
 
 export default class SchulteTableController extends BaseGameController {
-  game: SchulteTable;
+  game: SchulteTable | ShulteAlfavit;
   view: SchulteTableView;
 
   constructor(nameGame: GameNames) {
@@ -19,6 +20,7 @@ export default class SchulteTableController extends BaseGameController {
     this.game.start();
     this.game.isNewTask = true;
     this.view.updateTask(this.game.getTask());
+    this.view.renderFindValue(this.game.getFindValue());
     this.addAnswerListeners();
     this.addListeners();
   }
