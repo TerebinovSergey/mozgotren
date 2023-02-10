@@ -7,6 +7,8 @@
 }
 
 .tablica-shulte__title {
+  display: flex;
+  align-items: center;
   font-weight: 400;
 }
 
@@ -41,4 +43,23 @@
 
 .tablica-shulte__title {
   margin: 10px 0 20px;
+}
+
+.game-tab-shulte_color-answer {
+  margin-left: 15px;
+  width: 25px;
+  height: 25px;
+  background-color: black;
+  transition: all .3s;
+}
+
+.fa-for-game-answer::before {
+  color: #ffffff;
+  font-size: max(min(1.4rem, 5vw), 0.8rem);
+  visibility: hidden;
+}
+
+.right-answer >
+.fa-for-game-answer::before {
+  visibility: visible;
 }

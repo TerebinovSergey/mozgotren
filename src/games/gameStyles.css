@@ -2,17 +2,17 @@
 @import url('./schulte-table/style.css');
 
 .wrong-answer {
-  background-color: var(--wrong-answer);
+  background-color: var(--wrong-answer) !important;
 }
 
 .wrong-answer:hover {
-  background-color: var(--wrong-answer);
+  background-color: var(--wrong-answer) !important;
 }
 
 .right-answer {
-  background-color: var(--right-answer);
+  background-color: var(--right-answer) !important;
 }
 
 .right-answer:hover {
-  background-color: var(--right-answer);
+  background-color: var(--right-answer) !important;
 }

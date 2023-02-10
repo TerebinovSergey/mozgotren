@@ -8,6 +8,7 @@ import DelenieController from '../games/delenie/DelenieController';
 import ArifmetikaController from '../games/arifmetika/ArifmetikaController';
 import SchulteTableController from '../games/schulte-table/SchulteTableController';
 import ShulteAlfavitController from '../games/shulte-alfavit/ShulteAlfavitController';
+import ShulteCvetController from '../games/shulte-cvet/ShulteCvetController';
 
 type UpdateStateParameters = {
   score: number,
@@ -22,7 +23,8 @@ UmnozhenieController |
 DelenieController |
 ArifmetikaController |
 SchulteTableController |
-ShulteAlfavitController;
+ShulteAlfavitController |
+ShulteCvetController;
 
 export default class GameController {
   view!: GamePage;
@@ -46,6 +48,8 @@ export default class GameController {
       this.gameController = new SchulteTableController(GameNames.TablicaShulte);
     } else if (this.nameGame === GameNames.ShulteAlfavit) {
       this.gameController = new ShulteAlfavitController(GameNames.ShulteAlfavit);
+    } else if (this.nameGame === GameNames.ShulteCvet) {
+      this.gameController = new ShulteCvetController(GameNames.ShulteCvet);
     }
     this.view = new GamePage({ ...this.gameController.game });
   }
