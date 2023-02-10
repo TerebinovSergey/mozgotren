@@ -28,11 +28,3 @@
   color: #ffffff;
   cursor: pointer;
 }
-
-.wrong-answer {
-  background-color: #c44343;
-}
-
-.rigth-answer {
-  background-color: #4aa147;
-}

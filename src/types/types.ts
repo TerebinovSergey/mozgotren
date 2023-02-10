@@ -10,6 +10,9 @@ export enum GameNames {
   Delenie = 'delenie',
   Umnozhenie = 'umnozhenie',
   Arifmetika = 'arifmetika',
+  TablicaShulte = 'tablica-shulte',
+  ShulteAlfavit = 'shulte-alfavit',
+  ShulteCvet = 'shulte-cvet',
 }
 
 export type DataGames = {

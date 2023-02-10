@@ -1,11 +1,14 @@
 import GamePage from './gameView';
+import { getElement } from '../utils/utils';
+import { GameState, GameNames, SessionData } from '../types/types';
 import SlozhenieController from '../games/slozhenie/SlozhenieController';
 import VychitanieController from '../games/vychitanie/VychitanieController';
 import UmnozhenieController from '../games/umnozhenie/UmnozhenieController';
 import DelenieController from '../games/delenie/DelenieController';
 import ArifmetikaController from '../games/arifmetika/ArifmetikaController';
-import { getElement } from '../utils/utils';
-import { GameState, GameNames, SessionData } from '../types/types';
+import SchulteTableController from '../games/schulte-table/SchulteTableController';
+import ShulteAlfavitController from '../games/shulte-alfavit/ShulteAlfavitController';
+import ShulteCvetController from '../games/shulte-cvet/ShulteCvetController';
 
 type UpdateStateParameters = {
   score: number,
@@ -18,7 +21,10 @@ type GamesControllers = SlozhenieController |
 VychitanieController |
 UmnozhenieController |
 DelenieController |
-ArifmetikaController;
+ArifmetikaController |
+SchulteTableController |
+ShulteAlfavitController |
+ShulteCvetController;
 
 export default class GameController {
   view!: GamePage;
@@ -38,6 +44,12 @@ export default class GameController {
       this.gameController = new DelenieController();
     } else if (this.nameGame === GameNames.Arifmetika) {
       this.gameController = new ArifmetikaController();
+    } else if (this.nameGame === GameNames.TablicaShulte) {
+      this.gameController = new SchulteTableController(GameNames.TablicaShulte);
+    } else if (this.nameGame === GameNames.ShulteAlfavit) {
+      this.gameController = new ShulteAlfavitController(GameNames.ShulteAlfavit);
+    } else if (this.nameGame === GameNames.ShulteCvet) {
+      this.gameController = new ShulteCvetController(GameNames.ShulteCvet);
     }
     this.view = new GamePage({ ...this.gameController.game });
   }

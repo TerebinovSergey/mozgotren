@@ -1,0 +1,65 @@
+.game-task-tablica-shulte {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-size: max(min(1.2rem, 8vw), 1rem);
+}
+
+.tablica-shulte__title {
+  display: flex;
+  align-items: center;
+  font-weight: 400;
+}
+
+.game-table-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: flex-start;
+  gap: max(1%, 2px);
+  width: 80vw;
+  height: 80vw;
+  max-height: 480px;
+  max-width: 480px;
+  user-select: none;
+}
+
+.game-tab-shulte__answer {
+  flex-basis: 22%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 22%;
+  font-size: max(min(1.4rem, 5vw), 0.8rem);
+  background-color: var(--main-background-color);
+  transition: all 0.4s;
+  cursor: pointer;
+}
+
+.game-tab-shulte__answer:hover {
+  background-color: var(--gray-color);
+}
+
+.tablica-shulte__title {
+  margin: 10px 0 20px;
+}
+
+.game-tab-shulte_color-answer {
+  margin-left: 15px;
+  width: 25px;
+  height: 25px;
+  background-color: black;
+  transition: all .3s;
+}
+
+.fa-for-game-answer::before {
+  color: #ffffff;
+  font-size: max(min(1.4rem, 5vw), 0.8rem);
+  visibility: hidden;
+}
+
+.right-answer >
+.fa-for-game-answer::before {
+  visibility: visible;
+}
