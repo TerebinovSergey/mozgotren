@@ -16,6 +16,8 @@ html {
   --light-blue-color: #95abd4;
   --gray-color: #e0e0e0;
   --blue-color: #01579b;
+  --right-answer: #4aa147;
+  --wrong-answer: #c44343;
 }
 
 body {
