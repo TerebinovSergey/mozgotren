@@ -1,8 +1,12 @@
 import HomePage from '../../pages/home';
 import TrenagorsPage from '../../pages/trenagors';
-import ProfilePage from '../../pages/profile';
 import GameController from '../../pages/gameController';
+import ProfilePage from '../../pages/profile';
 import { GameNames, SessionData } from '../../types/types';
+import { getUserData, httpGetAsync } from '../../utils/utils';
+
+const userData = await getUserData();
+const userCountry = (await httpGetAsync()).country;
 
 export default class Controller {
   static drawHomePage(status: SessionData) {
@@ -10,9 +14,9 @@ export default class Controller {
     console.log('response from API: ', status);
   }
 
-  static drawProfilePage(status: SessionData) {
-    ProfilePage.draw(status);
-    console.log('response from API: ', status);
+  static drawProfilePage(ssid: SessionData) {
+    ProfilePage.draw(ssid, userData, userCountry);
+    console.log('response from API: ', ssid, userData, userCountry);
   }
 
   static drawTrenagorsPage(status: SessionData) {
