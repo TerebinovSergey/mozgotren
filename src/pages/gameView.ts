@@ -117,10 +117,6 @@ export default class GamePage {
       <button class="button btn-start-game">
         <span class="">Начать тренировку</span>
       </button>
-      <div class="game-difficult-container">
-        <h5 class="game-difficult-id"> Cложность тренажера: </h5>
-        <div class="container-game-difficult-id"></div>
-      </div>
       <a class="game-rules" href="#">
         <h5>Правила игры</h5>
         <div class="question"></div>
