@@ -1,4 +1,4 @@
-import { DataGame, DataGames } from '../types/types';
+import { AuthData, DataGame, DataGames } from '../types/types';
 
 // eslint-disable-next-line global-require
 const json = require('../data/games.json') as DataGames;
@@ -28,17 +28,23 @@ export function getDataGame(id: number): DataGame {
 export const baseUrl = 'http://localhost:5000';
 // export const baseUrl = 'https://api.leoniuk.dev';
 
-export const submitForm = async (objValues: any) => {
+export const submitForm = async (objValues: AuthData) => {
   const path = (Object.keys(objValues).length === 2) ? 'login' : 'registration';
-  const result = await fetch(`${baseUrl}/${path}`, {
-    method: 'POST',
-    body: JSON.stringify(objValues),
-    credentials: 'include',
-    headers: {
-      'Content-type': 'application/json',
-    },
-  });
-  return result;
+  try {
+    const result = await fetch(`${baseUrl}/${path}`, {
+      method: 'POST',
+      body: JSON.stringify(objValues),
+      credentials: 'include',
+      headers: {
+        'Content-type': 'application/json',
+      },
+    });
+    // console.log(result);
+    return result;
+  } catch (error) {
+    console.log({ message: 'server connection error' });
+  }
+  return new Response();
 };
 
 export const isAuthenticated = async () => {
@@ -47,17 +53,22 @@ export const isAuthenticated = async () => {
     .forEach((element: string) => {
       cookiesArray.push(element.split(','));
     });
-  console.log('cookiesArray: ', cookiesArray);
-  const ssid = cookiesArray.filter((item: any) => item[0] === 'ssid');
-  const result = await fetch(`${baseUrl}/check-registration`, {
-    method: 'POST',
-    body: JSON.stringify(Object.fromEntries(ssid)),
-    credentials: 'include',
-    headers: {
-      'Content-type': 'application/json',
-    },
-  });
-  return result.json();
+  // console.log('cookiesArray: ', cookiesArray);
+  const ssid = cookiesArray.filter((item: string[]) => item[0] === 'ssid');
+  try {
+    const result = await fetch(`${baseUrl}/check-registration`, {
+      method: 'POST',
+      body: JSON.stringify(Object.fromEntries(ssid)),
+      credentials: 'include',
+      headers: {
+        'Content-type': 'application/json',
+      },
+    });
+    return await result.json();
+  } catch (error) {
+    console.log({ message: 'server connection error' });
+  }
+  return JSON.stringify({ message: 'server connection error' });
 };
 
 export const isUserCheck = await isAuthenticated();

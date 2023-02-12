@@ -56,9 +56,11 @@
   font-family: 'Source Sans Pro', sans-serif;
 }
 
-.row-login {
+.row-login,
+.row-register {
   align-items: center;
   justify-content: space-between;
+  margin: 0;
 }
 
 .checkbox-wrapper {
@@ -67,6 +69,7 @@
 }
 
 .checkbox-wrapper label {
+  position: static;
   font-family: 'Source Sans Pro', sans-serif;
   margin-left: 10px;
   color: #555555;
@@ -77,6 +80,7 @@
 .login-checkbox {
   border: 1px solid #cccccc;
   padding: 7px;
+  width: min-content;
 }
 
 .login-button,

@@ -2,8 +2,7 @@ import HomePage from '../../pages/home';
 import TrenagorsPage from '../../pages/trenagors';
 import ProfilePage from '../../pages/profile';
 import GameController from '../../pages/gameController';
-import { GameNames } from '../../types/types';
-import { SessionData } from '../../types/types';
+import { GameNames, SessionData } from '../../types/types';
 
 export default class Controller {
   static drawHomePage(status: SessionData) {
