@@ -18,13 +18,13 @@ type UpdateStateParameters = {
 };
 
 type GamesControllers = SlozhenieController |
-VychitanieController |
-UmnozhenieController |
-DelenieController |
-ArifmetikaController |
-SchulteTableController |
-ShulteAlfavitController |
-ShulteCvetController;
+  VychitanieController |
+  UmnozhenieController |
+  DelenieController |
+  ArifmetikaController |
+  SchulteTableController |
+  ShulteAlfavitController |
+  ShulteCvetController;
 
 export default class GameController {
   view!: GamePage;
@@ -124,7 +124,7 @@ export default class GameController {
     errors.textContent = String(this.gameController.game.wrongAnswers);
     const percent = getElement('.score-percent', gameContainer);
     let scorePercent = this.gameController.game.wrongAnswers
-    + this.gameController.game.rightAnswers;
+      + this.gameController.game.rightAnswers;
     if (scorePercent > 0) {
       scorePercent = Math.ceil((this.gameController.game.rightAnswers
         / (this.gameController.game.wrongAnswers + this.gameController.game.rightAnswers)) * 100);

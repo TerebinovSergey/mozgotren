@@ -82,22 +82,27 @@ const formValidation = async (e: Event) => {
       };
       try {
         const result = await submitForm(formValues);
-        const responseObj = await result.json();
-        if (!result.ok) {
-          (document.querySelector('.login-box__msg') as HTMLElement).style.color = '#ff0000';
-          (document.querySelector('.login-box__msg') as HTMLElement).innerHTML = responseObj.message;
+        // console.log(result);
+        if (result.type === 'cors') {
+          const responseObj = await result.json();
+          if (!result.ok) {
+            (document.querySelector('.login-box__msg') as HTMLElement).style.color = '#ff0000';
+            (document.querySelector('.login-box__msg') as HTMLElement).innerHTML = responseObj.message;
+          } else {
+            (document.querySelector('.login-box__msg') as HTMLElement).style.color = '#008000';
+            (document.querySelector('.login-box__msg') as HTMLElement).innerHTML = `Добро пожаловать, <span style="text-transform:uppercase">${responseObj.user}</span>!`;
+            // sessionStorage.setItem('userName', responseObj.user);
+            document.cookie = `${Object.keys(responseObj)[2]}=${responseObj.ssid}`;
+            setTimeout(() => {
+              window.location.href = '/';
+            }, 2000);
+          }
         } else {
-          (document.querySelector('.login-box__msg') as HTMLElement).style.color = '#008000';
-          (document.querySelector('.login-box__msg') as HTMLElement).innerHTML = `Добро пожаловать, <span style="text-transform:uppercase">${responseObj.user}</span>!`;
-          sessionStorage.setItem('userName', responseObj.user);
-          console.log('response from API: ', Object.keys(responseObj)[2], responseObj.ssid);
-          document.cookie = `${Object.keys(responseObj)[2]}=${responseObj.ssid}`;
-          setTimeout(() => {
-            window.location.href = '/';
-          }, 2000);
+          (document.querySelector('.login-box__msg') as HTMLElement).style.color = '#ff0000';
+          (document.querySelector('.login-box__msg') as HTMLElement).innerHTML = 'Нет соединения с сервером';
         }
       } catch (err) {
-        console.log(err);
+        console.log({ message: 'server don\'t send data' });
       }
     }
   } else {
@@ -119,17 +124,22 @@ const formValidation = async (e: Event) => {
       };
       try {
         const result = await submitForm(formValues);
-        const responseObj = await result.json();
-        if (!result.ok) {
-          (document.querySelector('.login-box__msg') as HTMLElement).style.color = '#ff0000';
-          (document.querySelector('.login-box__msg') as HTMLElement).innerHTML = responseObj.message;
+        if (result.type === 'cors') {
+          const responseObj = await result.json();
+          if (!result.ok) {
+            (document.querySelector('.login-box__msg') as HTMLElement).style.color = '#ff0000';
+            (document.querySelector('.login-box__msg') as HTMLElement).innerHTML = responseObj.message;
+          } else {
+            (document.querySelector('.login-box__msg') as HTMLElement).style.color = '#008000';
+            (document.querySelector('.login-box__msg') as HTMLElement).innerHTML = responseObj.message;
+            setTimeout(() => {
+              window.history.pushState(formValues, '', '/login');
+              window.location.href = '/login';
+            }, 2000);
+          }
         } else {
-          (document.querySelector('.login-box__msg') as HTMLElement).style.color = '#008000';
-          (document.querySelector('.login-box__msg') as HTMLElement).innerHTML = responseObj.message;
-          setTimeout(() => {
-            window.history.pushState(formValues, '', '/login');
-            window.location.href = '/login';
-          }, 2000);
+          (document.querySelector('.login-box__msg') as HTMLElement).style.color = '#ff0000';
+          (document.querySelector('.login-box__msg') as HTMLElement).innerHTML = 'Нет соединения с сервером';
         }
       } catch (err) {
         console.log(err);
