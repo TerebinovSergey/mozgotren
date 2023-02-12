@@ -112,10 +112,10 @@ document.querySelector('.close')?.classList.toggle('hidden1');
     gameCard.setAttribute('data-game-id', String(data.id));
     gameCard.innerHTML = `
       <div class="card__img_block">
-        <img class="card__img" alt="Умножение" src="${data.logoImg}">
+        <img onclick="document.location.href = '/trenagor#${data.nameGame}';" class="card__img" alt="Умножение" src="${data.logoImg}">
       </div>
       <p class="card__difficult">Сложность: ${data.basicComplexity}</p>
-      <h2 class="card__title">${data.nameGameRu}</h2>
+      <h2 onclick="document.location.href = '/trenagor#${data.nameGame}';" class="card__title">${data.nameGameRu}</h2>
       <p class="card__description">${data.check1}, ${data.check2}, ${data.check3}</p>
       <div class="wrapper_butt">
         <button onclick="document.location.href = '/trenagor#${data.nameGame}';" class="button button_trane">Тренироваться</button>

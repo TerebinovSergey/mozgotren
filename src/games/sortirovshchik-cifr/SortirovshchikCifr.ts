@@ -1,26 +1,31 @@
 import { BaseGame } from '../BaseGame';
 import { randomInteger } from '../../utils/utils';
 
+function shuffle(array: string[]) {
+  for (let i = array.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(randomInteger(0, i - 1)); // случайный индекс от 0 до i
+    // eslint-disable-next-line no-param-reassign
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+}
+
 export default class SortirovshchikCifr extends BaseGame {
   currenAnswer: string[] | undefined;
   countAnswers: number = 0;
   mixAnswers: string[] | undefined;
 
   getTask(): void {
-    console.log(this.currentLevel);
     this.countAnswers = (this.currentLevel + 2);
-    const rightAnswers = this.getRightAnswer();
-    this.currenAnswer = rightAnswers.map((el) => String(el));
-    const mixAnswers = rightAnswers.map((val) => val);
-    mixAnswers.sort(() => Math.random() - 0.5);
-    this.mixAnswers = mixAnswers.map((el) => String(el));
+    this.currenAnswer = this.getRightAnswer();
+    this.mixAnswers = this.currenAnswer.map((val) => val);
+    shuffle(this.mixAnswers);
     console.log(this.currenAnswer, this.mixAnswers);
   }
 
-  getRightAnswer(): number[] {
-    const set = new Set<number>();
+  getRightAnswer(): string[] {
+    const set = new Set<string>();
     while (set.size < this.countAnswers) {
-      set.add(randomInteger(1, 9));
+      set.add(String(randomInteger(1, 9)));
     }
     return Array.from(set);
   }

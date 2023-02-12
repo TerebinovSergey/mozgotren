@@ -94,16 +94,26 @@
 }
 
 .trenagors-card-game {
-  padding: 0 15px;
+  padding: 0 15px 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   width: 45%;
 }
 
+.trenagors-card-game > * {
+  margin-bottom: 15px;
+}
+
 .card__img {
   width: 100%;
 }
+
+.card__img_block,
+.card__title {
+  cursor: pointer;
+}
+
 
 @media screen and (max-width: 800px) {
   .trenagors {

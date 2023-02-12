@@ -49,7 +49,6 @@ export default class SortirovshchikCifrController extends BaseGameController {
       setTimeout(() => {
         this.game.getTask();
         this.renderRightAnswers();
-        this.view.draggable(false);
       }, 200);
     }
     this.view.toggleInfo(!start);

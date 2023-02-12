@@ -60,7 +60,7 @@ export class BaseGame {
     this.score = 0;
     this.rightAnswers = 0;
     this.wrongAnswers = 0;
-    this.currentLevel = 1;
+    this.currentLevel = 2;
     clearInterval(this.timeoutTimer);
   }
 
