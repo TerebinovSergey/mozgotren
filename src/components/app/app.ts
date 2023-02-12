@@ -63,6 +63,7 @@ export default class App {
 
   static handleLocation() {
     const { pathname, hash } = window.location;
+    console.log(pathname);
     if (hash.length > 0) {
       if (pathname === '/trenagor') drawGamePage(hash.slice(1) as GameNames);
     } else {

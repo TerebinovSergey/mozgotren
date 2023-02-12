@@ -78,10 +78,11 @@
 }
 
 .trenagors-container {
-  padding: 0 10px;
+  padding: 0 10px 20px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: space-between;
+  row-gap: 30px;
 }
 
 .game-wrapper {
@@ -92,6 +93,18 @@
   background-color: var( --main-background-color);
 }
 
+.trenagors-card-game {
+  padding: 0 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 45%;
+}
+
+.card__img {
+  width: 100%;
+}
+
 @media screen and (max-width: 800px) {
   .trenagors {
     flex-direction: column;
@@ -100,5 +113,15 @@
   .trenagors-container {
     margin: 10px 0 0 0;
     padding: 0;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .trenagors-card-game {
+    width: 90%;
+  }
+
+  .trenagors-container {
+    justify-content: center;
   }
 }
