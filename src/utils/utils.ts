@@ -72,3 +72,17 @@ export const isAuthenticated = async () => {
 };
 
 export const isUserCheck = await isAuthenticated();
+
+export const createElemDOM = (
+  typeElem: string,
+  classes: string,
+  inner = '',
+) => {
+  const node: HTMLElement = document.createElement(typeElem);
+  if (classes.length > 0) {
+    node.className = classes;
+  }
+
+  if (inner.length > 0) node.innerHTML = inner;
+  return node;
+};
