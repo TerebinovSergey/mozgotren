@@ -2,8 +2,8 @@
   "games": [
     {
       "id": 1,
-      "nameGameRu": "Сортировчик цветов",
-      "nameGame": "",
+      "nameGameRu": "Сортировщик цветов",
+      "nameGame": "sortirovshchik-cvetov",
       "check1": "Развивает кратковременную память",
       "check2": "Концентрирует внимание",
       "check3": "Развивает образную память",
@@ -23,6 +23,7 @@
       "category": "Память",
       "categoryId": 1,
       "levels": 5,
+      "time": 60,
       "image": "https://mozgotren-clone.netlify.app/assets/thumb_sortirovshchik-cvetov.jpg/",
       "logoImg": "assets/thumb_sortirovshchik-cvetov.jpg",
       "taskDescription": "Отсортируйте цвета"
@@ -338,7 +339,7 @@
       "categoryId": 1,
       "levels": 5,
       "image": "https://mozgotren-clone.netlify.app/assets/thumb_sortirovshchik-cifr.jpg/",
-      "time": 260,
+      "time": 60,
       "logoImg": "assets/thumb_sortirovshchik-cifr.jpg",
       "taskDescription": "Отсортируйте числа"
     }

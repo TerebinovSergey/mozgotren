@@ -1,13 +1,5 @@
 import { BaseGame } from '../BaseGame';
-import { randomInteger } from '../../utils/utils';
-
-function shuffle(array: string[]) {
-  for (let i = array.length - 1; i > 0; i -= 1) {
-    const j = Math.floor(randomInteger(0, i - 1)); // случайный индекс от 0 до i
-    // eslint-disable-next-line no-param-reassign
-    [array[i], array[j]] = [array[j], array[i]];
-  }
-}
+import { randomInteger, shuffle } from '../../utils/utils';
 
 export default class SortirovshchikCifr extends BaseGame {
   currenAnswer: string[] | undefined;

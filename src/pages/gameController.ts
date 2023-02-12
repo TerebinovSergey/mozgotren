@@ -10,6 +10,7 @@ import SchulteTableController from '../games/schulte-table/SchulteTableControlle
 import ShulteAlfavitController from '../games/shulte-alfavit/ShulteAlfavitController';
 import ShulteCvetController from '../games/shulte-cvet/ShulteCvetController';
 import SortirovshchikCifrController from '../games/sortirovshchik-cifr/SortirovshchikCifrController';
+import SortirovshchikCvetovController from '../games/sortirovshchik-cvetov/SortirovshchikCvetovController';
 
 type UpdateStateParameters = {
   score: number,
@@ -26,7 +27,8 @@ ArifmetikaController |
 SchulteTableController |
 ShulteAlfavitController |
 ShulteCvetController |
-SortirovshchikCifrController;
+SortirovshchikCifrController |
+SortirovshchikCvetovController;
 
 export default class GameController {
   view!: GamePage;
@@ -54,6 +56,8 @@ export default class GameController {
       this.gameController = new ShulteCvetController(GameNames.ShulteCvet);
     } else if (this.nameGame === GameNames.SortirovshchikCifr) {
       this.gameController = new SortirovshchikCifrController(GameNames.SortirovshchikCifr);
+    } else if (this.nameGame === GameNames.SortirovshchikCvetov) {
+      this.gameController = new SortirovshchikCvetovController(GameNames.SortirovshchikCvetov);
     }
     this.view = new GamePage({ ...this.gameController.game });
   }

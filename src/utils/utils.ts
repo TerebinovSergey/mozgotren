@@ -25,6 +25,23 @@ export function getDataGame(id: number): DataGame {
   return data;
 }
 
+export function shuffle<T>(array: T[]) {
+  for (let i = array.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(randomInteger(0, i - 1)); // случайный индекс от 0 до i
+    // eslint-disable-next-line no-param-reassign
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+}
+
+export function getRandomColor(): string {
+  const letters = '0123456789ABCDEF';
+  let color = '';
+  for (let i = 0; i < 6; i += 1) {
+    color += letters[randomInteger(0, 15)];
+  }
+  return `#${color}`;
+}
+
 export const baseUrl = 'http://localhost:5000';
 // export const baseUrl = 'https://api.leoniuk.dev';
 

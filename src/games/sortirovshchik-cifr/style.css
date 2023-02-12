@@ -3,7 +3,8 @@
   flex-direction: column;
 }
 
-.game-sortirovshchik-cifr {
+.game-sortirovshchik-cifr,
+.game-sortirovshchik-cvetov {
   display: flex;
   flex-direction: column;
   flex: 1;

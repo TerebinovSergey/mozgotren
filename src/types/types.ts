@@ -14,6 +14,7 @@ export enum GameNames {
   ShulteAlfavit = 'shulte-alfavit',
   ShulteCvet = 'shulte-cvet',
   SortirovshchikCifr = 'sortirovshchik-cifr',
+  SortirovshchikCvetov = 'sortirovshchik-cvetov',
 }
 
 export type DataGames = {
