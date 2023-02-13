@@ -29,10 +29,10 @@ export default class SchulteTable extends BaseGame {
 
   checkAnswer(answer: string): boolean {
     if (this.table === undefined) throw Error('Empty table in Schulte table.');
-    const result = this.table[this.currentIndex] === answer;
-    if (result) {
+    const rightAnswer = this.table[this.currentIndex] === answer;
+    if (rightAnswer) {
       if (this.isLevelComplete()) {
-        if (this.errorFreeLevel) this.updateLevel(result);
+        if (this.errorFreeLevel) this.updateLevel(rightAnswer);
         this.isNewTask = true;
       } else {
         this.currentIndex += 1;
@@ -40,8 +40,8 @@ export default class SchulteTable extends BaseGame {
     } else {
       this.errorFreeLevel = false;
     }
-    this.updateScore(result);
-    return result;
+    this.updateScore(rightAnswer);
+    return rightAnswer;
   }
 
   getFindValue(): string {

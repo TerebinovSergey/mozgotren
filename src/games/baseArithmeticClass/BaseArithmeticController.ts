@@ -36,14 +36,16 @@ export default class BaseArithmeticController extends BaseGameController {
   private addAnswerListeners(): void {
     const gameContainer = getElement(`.game-container-${this.game.nameGame}`);
     const answers = getElement('.game-answer-options', gameContainer);
-    answers.addEventListener('click', (event) => {
-      if (this.game.gameState !== GameState.Play) return;
-      const { target } = event;
-      if (!(target instanceof HTMLButtonElement)) return;
-      const result = this.game.checkAnswer(Number(target.dataset.answer));
-      target.classList.add((result) ? 'right-answer' : 'wrong-answer');
-      setTimeout(() => this.updateState(), 200);
-    });
+    answers.addEventListener('click', (event) => this.checkAnswer(event));
+  }
+
+  private checkAnswer(event: MouseEvent): void {
+    if (this.game.gameState !== GameState.Play) return;
+    const { target } = event;
+    if (!(target instanceof HTMLButtonElement)) return;
+    const result = this.game.checkAnswer(Number(target.dataset.answer));
+    target.classList.add((result) ? 'right-answer' : 'wrong-answer');
+    setTimeout(() => this.updateState(), 200);
   }
 
   private async updateState(): Promise<void> {

@@ -9,6 +9,7 @@ import ArifmetikaController from '../games/arifmetika/ArifmetikaController';
 import SchulteTableController from '../games/schulte-table/SchulteTableController';
 import ShulteAlfavitController from '../games/shulte-alfavit/ShulteAlfavitController';
 import ShulteCvetController from '../games/shulte-cvet/ShulteCvetController';
+import SortirovshchikCifrController from '../games/sortirovshchik-cifr/SortirovshchikCifrController';
 
 type UpdateStateParameters = {
   score: number,
@@ -18,13 +19,14 @@ type UpdateStateParameters = {
 };
 
 type GamesControllers = SlozhenieController |
-  VychitanieController |
-  UmnozhenieController |
-  DelenieController |
-  ArifmetikaController |
-  SchulteTableController |
-  ShulteAlfavitController |
-  ShulteCvetController;
+VychitanieController |
+UmnozhenieController |
+DelenieController |
+ArifmetikaController |
+SchulteTableController |
+ShulteAlfavitController |
+ShulteCvetController |
+SortirovshchikCifrController;
 
 export default class GameController {
   view!: GamePage;
@@ -50,6 +52,8 @@ export default class GameController {
       this.gameController = new ShulteAlfavitController(GameNames.ShulteAlfavit);
     } else if (this.nameGame === GameNames.ShulteCvet) {
       this.gameController = new ShulteCvetController(GameNames.ShulteCvet);
+    } else if (this.nameGame === GameNames.SortirovshchikCifr) {
+      this.gameController = new SortirovshchikCifrController(GameNames.SortirovshchikCifr);
     }
     this.view = new GamePage({ ...this.gameController.game });
   }
@@ -124,7 +128,7 @@ export default class GameController {
     errors.textContent = String(this.gameController.game.wrongAnswers);
     const percent = getElement('.score-percent', gameContainer);
     let scorePercent = this.gameController.game.wrongAnswers
-      + this.gameController.game.rightAnswers;
+    + this.gameController.game.rightAnswers;
     if (scorePercent > 0) {
       scorePercent = Math.ceil((this.gameController.game.rightAnswers
         / (this.gameController.game.wrongAnswers + this.gameController.game.rightAnswers)) * 100);
