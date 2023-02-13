@@ -35,7 +35,7 @@ export class StranaStolica extends BaseGame {
     return contry.country;
   }
 
-  private isTaskWas(countryIndex: number): boolean {
+  isTaskWas(countryIndex: number): boolean {
     if (this.taskStack.length === 0) return false;
     const findInd = this.taskStack.findIndex((el) => el === countryIndex);
     return findInd > 0;
@@ -52,7 +52,6 @@ export class StranaStolica extends BaseGame {
     answers.delete(this.currentAnswer);
     const arrAnswers = Array.from(answers);
     this.addRightAnswer(arrAnswers);
-    console.log(arrAnswers, this.currentAnswer);
     return arrAnswers;
   }
 
