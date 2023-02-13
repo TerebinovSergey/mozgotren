@@ -55,3 +55,13 @@ export type AuthData = {
   email: string,
   password: string,
 };
+
+export type UserData = {
+  userId: string,
+  oldEmail: string,
+  age: string,
+  regTime: Date,
+  birdthDate?: string,
+  profession?: string
+  accStatus: string,
+};
