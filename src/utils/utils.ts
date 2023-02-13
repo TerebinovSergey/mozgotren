@@ -1,7 +1,7 @@
 import { AuthData, DataGame, DataGames } from '../types/types';
 
 // eslint-disable-next-line global-require
-const json = require('../data/games.json') as DataGames;
+const dataGames = require('../data/games.json') as DataGames;
 
 const getUserIdFromCookie = () => {
   const cookiesArray: Array<string[]> = [];
@@ -30,13 +30,35 @@ export function randomInteger(min: number, max: number): number {
 }
 
 export function getDataGame(id: number): DataGame {
-  const data = json.games.find((el) => el.id === id);
+  const data = dataGames.games.find((el) => el.id === id);
   if (data === undefined) throw new Error('Invalid game id');
   return data;
 }
 
-export const baseUrl = 'http://localhost:5000';
-// export const baseUrl = 'https://api.leoniuk.dev';
+export function shuffle<T>(array: T[]) {
+  if (array.length === 3) {
+    const arraySort = array.sort(() => Math.random() - 0.5);
+    // eslint-disable-next-line no-param-reassign
+    array = Array.from(arraySort);
+  }
+  for (let i = array.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(randomInteger(0, i - 1));
+    // eslint-disable-next-line no-param-reassign
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+}
+
+export function getRandomColor(): string {
+  const letters = '0123456789ABCDEF';
+  let color = '';
+  for (let i = 0; i < 6; i += 1) {
+    color += letters[randomInteger(0, 15)];
+  }
+  return `#${color}`;
+}
+
+// export const baseUrl = 'http://localhost:5000';
+export const baseUrl = 'https://api.leoniuk.dev';
 
 export const submitForm = async (objValues: AuthData) => {
   const path = (Object.keys(objValues).length === 2) ? 'login' : 'registration';
