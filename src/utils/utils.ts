@@ -114,11 +114,13 @@ export const getUserData = async () => {
   return JSON.stringify({ message: 'getting user-data error' });
 };
 
+const url = https://ipgeolocation.abstractapi.com/v1/?api_key=27bfb85db8cf4689be8261415948b3dd';
+
 export const httpGetAsync = async () => {
   const apiEndpoint = process.env.API_URL;
   const secretKey = process.env.API_KEY;
   try {
-    const result = fetch(`${apiEndpoint}?api_key=${secretKey}`, {});
+    const result = fetch(url, {});
     const response = await result;
     return await response.json();
   } catch (error) {
@@ -126,7 +128,5 @@ export const httpGetAsync = async () => {
   }
   return JSON.stringify({ message: 'IP server no respond' });
 };
-
-// const url = 'https://ipgeolocation.abstractapi.com/v1/?api_key=27bfb85db8cf4689be8261415948b3dd';
 
 export const isUserCheck = await isAuthenticated();
