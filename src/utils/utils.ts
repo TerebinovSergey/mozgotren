@@ -26,8 +26,13 @@ export function getDataGame(id: number): DataGame {
 }
 
 export function shuffle<T>(array: T[]) {
+  if (array.length === 3) {
+    const arraySort = array.sort(() => Math.random() - 0.5);
+    // eslint-disable-next-line no-param-reassign
+    array = Array.from(arraySort);
+  }
   for (let i = array.length - 1; i > 0; i -= 1) {
-    const j = Math.floor(randomInteger(0, i - 1)); // случайный индекс от 0 до i
+    const j = Math.floor(randomInteger(0, i - 1));
     // eslint-disable-next-line no-param-reassign
     [array[i], array[j]] = [array[j], array[i]];
   }
