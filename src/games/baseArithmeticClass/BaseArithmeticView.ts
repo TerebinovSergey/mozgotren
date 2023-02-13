@@ -14,8 +14,11 @@ export default class BaseArithmeticView {
 
   getHTML(): string {
     return `
-    <div class="game-task"></div>
-    <div class="game-answer-options"></div>`;
+    <div class="arithmetic-game-wrapper">
+      <div></div>
+      <div class="game-task"></div>
+      <div class="game-answer-options"></div>
+    </div>`;
   }
 
   updateTask(task: string): void {

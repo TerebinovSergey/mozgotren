@@ -11,6 +11,7 @@ import ShulteAlfavitController from '../games/shulte-alfavit/ShulteAlfavitContro
 import ShulteCvetController from '../games/shulte-cvet/ShulteCvetController';
 import SortirovshchikCifrController from '../games/sortirovshchik-cifr/SortirovshchikCifrController';
 import SortirovshchikCvetovController from '../games/sortirovshchik-cvetov/SortirovshchikCvetovController';
+import SortirovshchikSlovController from '../games/sortirovshchik-slov/SortirovshchikSlovController';
 
 type UpdateStateParameters = {
   score: number,
@@ -28,7 +29,38 @@ SchulteTableController |
 ShulteAlfavitController |
 ShulteCvetController |
 SortirovshchikCifrController |
-SortirovshchikCvetovController;
+SortirovshchikCvetovController |
+SortirovshchikSlovController;
+
+function getGameConstroller(nameGame: GameNames): GamesControllers {
+  let gameController: GamesControllers;
+  if (nameGame === GameNames.Slozhenie) {
+    gameController = new SlozhenieController();
+  } else if (nameGame === GameNames.Vychitanie) {
+    gameController = new VychitanieController();
+  } else if (nameGame === GameNames.Umnozhenie) {
+    gameController = new UmnozhenieController();
+  } else if (nameGame === GameNames.Delenie) {
+    gameController = new DelenieController();
+  } else if (nameGame === GameNames.Arifmetika) {
+    gameController = new ArifmetikaController();
+  } else if (nameGame === GameNames.TablicaShulte) {
+    gameController = new SchulteTableController(GameNames.TablicaShulte);
+  } else if (nameGame === GameNames.ShulteAlfavit) {
+    gameController = new ShulteAlfavitController(GameNames.ShulteAlfavit);
+  } else if (nameGame === GameNames.ShulteCvet) {
+    gameController = new ShulteCvetController(GameNames.ShulteCvet);
+  } else if (nameGame === GameNames.SortirovshchikCifr) {
+    gameController = new SortirovshchikCifrController(GameNames.SortirovshchikCifr);
+  } else if (nameGame === GameNames.SortirovshchikCvetov) {
+    gameController = new SortirovshchikCvetovController(GameNames.SortirovshchikCvetov);
+  } else if (nameGame === GameNames.SortirovshchikSlov) {
+    gameController = new SortirovshchikSlovController(GameNames.SortirovshchikSlov);
+  } else {
+    gameController = new SlozhenieController();
+  }
+  return gameController;
+}
 
 export default class GameController {
   view!: GamePage;
@@ -38,27 +70,7 @@ export default class GameController {
 
   constructor(nameGame: GameNames) {
     this.nameGame = nameGame;
-    if (this.nameGame === GameNames.Slozhenie) {
-      this.gameController = new SlozhenieController();
-    } else if (this.nameGame === GameNames.Vychitanie) {
-      this.gameController = new VychitanieController();
-    } else if (this.nameGame === GameNames.Umnozhenie) {
-      this.gameController = new UmnozhenieController();
-    } else if (this.nameGame === GameNames.Delenie) {
-      this.gameController = new DelenieController();
-    } else if (this.nameGame === GameNames.Arifmetika) {
-      this.gameController = new ArifmetikaController();
-    } else if (this.nameGame === GameNames.TablicaShulte) {
-      this.gameController = new SchulteTableController(GameNames.TablicaShulte);
-    } else if (this.nameGame === GameNames.ShulteAlfavit) {
-      this.gameController = new ShulteAlfavitController(GameNames.ShulteAlfavit);
-    } else if (this.nameGame === GameNames.ShulteCvet) {
-      this.gameController = new ShulteCvetController(GameNames.ShulteCvet);
-    } else if (this.nameGame === GameNames.SortirovshchikCifr) {
-      this.gameController = new SortirovshchikCifrController(GameNames.SortirovshchikCifr);
-    } else if (this.nameGame === GameNames.SortirovshchikCvetov) {
-      this.gameController = new SortirovshchikCvetovController(GameNames.SortirovshchikCvetov);
-    }
+    this.gameController = getGameConstroller(nameGame);
     this.view = new GamePage({ ...this.gameController.game });
   }
 

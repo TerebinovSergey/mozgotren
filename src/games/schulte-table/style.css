@@ -8,6 +8,7 @@
 
 .tablica-shulte__title {
   display: flex;
+  column-gap: 10px;
   align-items: center;
   font-weight: 400;
 }

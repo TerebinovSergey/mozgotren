@@ -1,7 +1,6 @@
 import SortirovshchikCifrController from '../sortirovshchik-cifr/SortirovshchikCifrController';
 import SortirovshchikCvetovView from './SortirovshchikCvetovView';
 import SortirovshchikCvetov from './SortirovshchikCvetov';
-// import { getElement } from '../../utils/utils';
 import { GameNames } from '../../types/types';
 
 export default class SortirovshchikCvetovController extends SortirovshchikCifrController {
