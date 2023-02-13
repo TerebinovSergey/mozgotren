@@ -4,9 +4,10 @@ import { getElement } from '../../utils/utils';
 import { GameState, GameNames } from '../../types/types';
 import BaseGameController from '../BaseGameController';
 import Arifmetika from '../arifmetika/Arifmetika';
+import { StranaStolica } from '../strana-stolica/StranaStolica';
 
 export default class BaseArithmeticController extends BaseGameController {
-  game: BaseArithmeticClass | Arifmetika;
+  game: BaseArithmeticClass | Arifmetika | StranaStolica;
   view: BaseArithmeticView;
 
   constructor(nameGame: GameNames) {
@@ -39,16 +40,16 @@ export default class BaseArithmeticController extends BaseGameController {
     answers.addEventListener('click', (event) => this.checkAnswer(event));
   }
 
-  private checkAnswer(event: MouseEvent): void {
+  checkAnswer(event: MouseEvent): void {
     if (this.game.gameState !== GameState.Play) return;
     const { target } = event;
     if (!(target instanceof HTMLButtonElement)) return;
-    const result = this.game.checkAnswer(Number(target.dataset.answer));
+    const result = this.game.checkAnswer(target.dataset.answer ?? '');
     target.classList.add((result) ? 'right-answer' : 'wrong-answer');
     setTimeout(() => this.updateState(), 200);
   }
 
-  private async updateState(): Promise<void> {
+  async updateState(): Promise<void> {
     if (this.game.gameState === GameState.Play) {
       const task = this.game.getTask();
       this.view.updateTask(task.task);

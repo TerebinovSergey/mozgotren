@@ -168,6 +168,7 @@
       "category": "Эрудиция",
       "categoryId": 4,
       "levels": 1,
+      "time": 60,
       "image": "https://mozgotren-clone.netlify.app/assets/thumb_strana-stolica.jpg/",
       "logoImg": "assets/thumb_strana-stolica.jpg",
       "taskDescription": "Найдите логическую пару"

@@ -30,14 +30,10 @@ export default class SortirovshchikCifr extends BaseGame {
       const rightAnswer = this.currenAnswer[i] === answer[i];
       check.push(rightAnswer);
       this.updateScore(rightAnswer);
-      // this.updateAnswerCount(rightAnswer);
       if (!rightAnswer) mistakes = true;
     }
     console.log(this.rightAnswers, this.wrongAnswers);
-    // this.updateScore(!mistakes);
-    // if (!mistakes) this.updateScore(true);
     this.updateLevel(!mistakes);
-    // this.updateScore(!mistakes);
     return check;
   }
 }

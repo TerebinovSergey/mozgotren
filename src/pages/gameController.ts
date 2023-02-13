@@ -12,6 +12,7 @@ import ShulteCvetController from '../games/shulte-cvet/ShulteCvetController';
 import SortirovshchikCifrController from '../games/sortirovshchik-cifr/SortirovshchikCifrController';
 import SortirovshchikCvetovController from '../games/sortirovshchik-cvetov/SortirovshchikCvetovController';
 import SortirovshchikSlovController from '../games/sortirovshchik-slov/SortirovshchikSlovController';
+import StranaStolicaController from '../games/strana-stolica/StranaStolicaController';
 
 type UpdateStateParameters = {
   score: number,
@@ -30,7 +31,8 @@ ShulteAlfavitController |
 ShulteCvetController |
 SortirovshchikCifrController |
 SortirovshchikCvetovController |
-SortirovshchikSlovController;
+SortirovshchikSlovController |
+StranaStolicaController;
 
 function getGameConstroller(nameGame: GameNames): GamesControllers {
   let gameController: GamesControllers;
@@ -56,9 +58,12 @@ function getGameConstroller(nameGame: GameNames): GamesControllers {
     gameController = new SortirovshchikCvetovController(GameNames.SortirovshchikCvetov);
   } else if (nameGame === GameNames.SortirovshchikSlov) {
     gameController = new SortirovshchikSlovController(GameNames.SortirovshchikSlov);
+  } else if (nameGame === GameNames.StranaStolica) {
+    gameController = new StranaStolicaController(GameNames.StranaStolica);
   } else {
     gameController = new SlozhenieController();
   }
+
   return gameController;
 }
 
