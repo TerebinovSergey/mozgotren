@@ -3,6 +3,16 @@ import { AuthData, DataGame, DataGames } from '../types/types';
 // eslint-disable-next-line global-require
 const dataGames = require('../data/games.json') as DataGames;
 
+const getUserIdFromCookie = () => {
+  const cookiesArray: Array<string[]> = [];
+  document.cookie.split('=').join().replace(/ /g, '').split(';')
+    .forEach((element: string) => {
+      cookiesArray.push(element.split(','));
+    });
+  const userId = cookiesArray.filter((item: string[]) => item[0] === 'ssid');
+  return userId;
+};
+
 export function getElement(
   selector: string,
   parent: Element | Document = document,
@@ -61,7 +71,6 @@ export const submitForm = async (objValues: AuthData) => {
         'Content-type': 'application/json',
       },
     });
-    // console.log(result);
     return result;
   } catch (error) {
     console.log({ message: 'server connection error' });
@@ -70,17 +79,11 @@ export const submitForm = async (objValues: AuthData) => {
 };
 
 export const isAuthenticated = async () => {
-  const cookiesArray: Array<string[]> = [];
-  document.cookie.split('=').join().replace(/ /g, '').split(';')
-    .forEach((element: string) => {
-      cookiesArray.push(element.split(','));
-    });
-  // console.log('cookiesArray: ', cookiesArray);
-  const ssid = cookiesArray.filter((item: string[]) => item[0] === 'ssid');
+  const userId = getUserIdFromCookie();
   try {
     const result = await fetch(`${baseUrl}/check-registration`, {
       method: 'POST',
-      body: JSON.stringify(Object.fromEntries(ssid)),
+      body: JSON.stringify(Object.fromEntries(userId)),
       credentials: 'include',
       headers: {
         'Content-type': 'application/json',
@@ -92,5 +95,38 @@ export const isAuthenticated = async () => {
   }
   return JSON.stringify({ message: 'server connection error' });
 };
+
+export const getUserData = async () => {
+  const userId = getUserIdFromCookie();
+  try {
+    const result = await fetch(`${baseUrl}/get-user`, {
+      method: 'POST',
+      body: JSON.stringify(Object.fromEntries(userId)),
+      credentials: 'include',
+      headers: {
+        'Content-type': 'application/json',
+      },
+    });
+    return await result.json();
+  } catch (error) {
+    console.log({ message: 'getting user-data error' });
+  }
+  return JSON.stringify({ message: 'getting user-data error' });
+};
+
+export const httpGetAsync = async () => {
+  const apiEndpoint = process.env.API_URL;
+  const secretKey = process.env.API_KEY;
+  try {
+    const result = fetch(`${apiEndpoint}?api_key=${secretKey}`, {});
+    const response = await result;
+    return await response.json();
+  } catch (error) {
+    console.error(`Fetch error:, ${error}`);
+  }
+  return JSON.stringify({ message: 'IP server no respond' });
+};
+
+// const url = 'https://ipgeolocation.abstractapi.com/v1/?api_key=27bfb85db8cf4689be8261415948b3dd';
 
 export const isUserCheck = await isAuthenticated();
