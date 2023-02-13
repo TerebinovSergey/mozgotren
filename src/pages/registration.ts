@@ -34,7 +34,7 @@ const registrationPage = () => {
   const registerBoxBody = loginForm('register');
 
   const registerBoxBodyRow = document.createElement('div');
-  registerBoxBodyRow.classList.add('row');
+  registerBoxBodyRow.classList.add('row', 'row-register');
 
   const registerBoxBodyButton = document.createElement('div');
   registerBoxBodyButton.classList.add('register-button');

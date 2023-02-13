@@ -40,8 +40,8 @@ export default class ProfilePage {
           <button class="button-profile svg-container"><div class="pen svg"></div>Редактировать</button>
         </div>  
         <div class="toolbar"> 
-          <button class="button-profile-toolbar" onclick="document.querySelector('.page1')?.classList.toggle('hidden3');document.querySelector('.page2')?.classList.toggle('hidden4');">ПРОФИЛЬ</button>
-          <button class="button-profile-toolbar" onclick="document.querySelector('.page2')?.classList.toggle('hidden4');document.querySelector('.page1')?.classList.toggle('hidden3');">НАСТРОЙКИ</button>
+          <button class="button-profile-toolbar profile-toolbar active" onclick="document.querySelector('.settings-toolbar')?.classList.remove('active'); document.querySelector('.profile-toolbar')?.classList.add('active');  document.querySelector('.page1')?.classList.toggle('hidden3'); document.querySelector('.page2')?.classList.toggle('hidden4');">ПРОФИЛЬ</button>
+          <button class="button-profile-toolbar settings-toolbar" onclick="document.querySelector('.profile-toolbar')?.classList.remove('active'); document.querySelector('.settings-toolbar')?.classList.add('active'); document.querySelector('.page1')?.classList.toggle('hidden3'); document.querySelector('.page2')?.classList.toggle('hidden4');">НАСТРОЙКИ</button>
           <button class="button-profile-toolbar svg-container"><div class="exit svg"></div></button>
         </div>
       </div>
@@ -69,7 +69,7 @@ export default class ProfilePage {
               </div>
         </div>
         <div class="card-info row">
-              <div class="bag svg"></div>
+              <div class="bag_blue svg"></div>
               <div class="dark-grey">
                 <h4>Техника</h4>
                 <h6>Сфера деятельности</h6>
