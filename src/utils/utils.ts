@@ -114,7 +114,7 @@ export const getUserData = async () => {
   return JSON.stringify({ message: 'getting user-data error' });
 };
 
-const url = https://ipgeolocation.abstractapi.com/v1/?api_key=27bfb85db8cf4689be8261415948b3dd';
+const url = 'https://ipgeolocation.abstractapi.com/v1/?api_key=27bfb85db8cf4689be8261415948b3dd';
 
 export const httpGetAsync = async () => {
   const apiEndpoint = process.env.API_URL;
