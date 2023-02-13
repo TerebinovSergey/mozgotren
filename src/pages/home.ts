@@ -1,5 +1,6 @@
 import HeaderView from '../components/view/header/headerView';
 import FooterView from '../components/view/footer/footerView';
+import bodyArea from './bodyArea';
 import { getElement } from '../utils/utils';
 import { SessionData } from '../types/types';
 
@@ -21,11 +22,7 @@ export default class HomePage {
 
   static getMainHTML() {
     return `
-    <div class="body-background-shaddow" onclick="document.querySelector('.nav-aside')?.classList.toggle('active'); 
-document.querySelector('.body-background-shaddow')?.classList.toggle('hidden');
-document.querySelector('.open')?.classList.toggle('hidden1');
-document.querySelector('.close')?.classList.toggle('hidden1');
-"></div>
+    <div class="body-background-shaddow" onclick="${bodyArea}"></div>
     <section class="main-header main-background">
     <div class="container">
     <h1 class="main-header-title">

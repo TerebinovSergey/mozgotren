@@ -1,6 +1,9 @@
 import HeaderView from '../components/view/header/headerView';
 import FooterView from '../components/view/footer/footerView';
 import { getElement } from '../utils/utils';
+import renderRulesDescription from './description';
+
+import bodyArea from './bodyArea';
 import { SessionData, DataGames, DataGame } from '../types/types';
 // eslint-disable-next-line global-require
 const json = require('../data/games.json') as DataGames;
@@ -26,11 +29,7 @@ export default class TrenagorsPage {
 
   static getMainHTML() {
     return `
-    <div class="body-background-shaddow" onclick="document.querySelector('.nav-aside')?.classList.toggle('active'); 
-document.querySelector('.body-background-shaddow')?.classList.toggle('hidden');
-document.querySelector('.open')?.classList.toggle('hidden1');
-document.querySelector('.close')?.classList.toggle('hidden1');
-"></div>
+    <div class="body-background-shaddow" onclick="${bodyArea}"></div>
     <div class="container">
       <div class="trenagors-title-wrapper">
         <h2 class="trenagors-title">Тренажеры для ума</h2>
@@ -81,15 +80,16 @@ document.querySelector('.close')?.classList.toggle('hidden1');
           </div>
         </aside>
         <div class="trenagors-container">
-          <a href="/trenagor#slozhenie" class="game-page"><div class="game-wrapper">game slozhenie</div></a>
-          <a href="/trenagor#vychitanie" class="game-page"><div class="game-wrapper">game vychitanie</div></a>
-          <a href="/trenagor#umnozhenie" class="game-page"><div class="game-wrapper">game umnozhenie</div></a>
-          <a href="/trenagor#delenie" class="game-page"><div class="game-wrapper">game delenie</div></a>
-          <a href="/trenagor#arifmetika" class="game-page"><div class="game-wrapper">game arifmetika</div></a>
-          <a href="/trenagor#tablica-shulte" class="game-page"><div class="game-wrapper">game tablica-shulte</div></a>
-          <a href="/trenagor#shulte-alfavit" class="game-page"><div class="game-wrapper">game shulte-alfavit</div></a>
-          <a href="/trenagor#shulte-cvet" class="game-page"><div class="game-wrapper">game shulte-cvet</div></a>
-          <a href="/trenagor#sortirovshchik-cifr" class="game-page"><div class="game-wrapper">game sortirovshchik-cifr</div></a>
+<a href="/trenagor#slozhenie" class="game-page"><div class="game-wrapper">game slozhenie</div></a>
+<a href="/trenagor#vychitanie" class="game-page"><div class="game-wrapper">game vychitanie</div></a>
+<a href="/trenagor#umnozhenie" class="game-page"><div class="game-wrapper">game umnozhenie</div></a>
+<a href="/trenagor#delenie" class="game-page"><div class="game-wrapper">game delenie</div></a>
+<a href="/trenagor#arifmetika" class="game-page"><div class="game-wrapper">game arifmetika</div></a>
+<a href="/trenagor#tablica-shulte" class="game-page"><div class="game-wrapper">game tablica-shulte</div></a>
+<a href="/trenagor#shulte-alfavit" class="game-page"><div class="game-wrapper">game shulte-alfavit</div></a>
+<a href="/trenagor#shulte-cvet" class="game-page"><div class="game-wrapper">game shulte-cvet</div></a>
+<a href="/trenagor#sortirovshchik-cifr" class="game-page"><div class="game-wrapper">game sortirovshchik-cifr</div></a>
+          
         </div>
       </section>
     </div>`;
@@ -119,7 +119,12 @@ document.querySelector('.close')?.classList.toggle('hidden1');
       <p class="card__description">${data.check1}, ${data.check2}, ${data.check3}</p>
       <div class="wrapper_butt">
         <button onclick="document.location.href = '/trenagor#${data.nameGame}';" class="button button_trane">Тренироваться</button>
-      </div>`;
+      </div>
+     
+      <button type="submit" class="button" onclick="${renderRulesDescription}">
+        <span class="">Описание</span>
+      </button>
+    `;
     return gameCard;
   }
 
@@ -134,3 +139,4 @@ document.querySelector('.close')?.classList.toggle('hidden1');
     });
   }
 }
+
