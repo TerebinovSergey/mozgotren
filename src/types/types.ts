@@ -18,6 +18,7 @@ export enum GameNames {
   SortirovshchikSlov = 'sortirovshchik-slov',
   StranaStolica = 'strana-stolica',
   StranaValyta = 'strana-valyta',
+  AngliyskiySlovar = 'angliyskiy-slovar',
 }
 
 export type DataGames = {
@@ -62,6 +63,15 @@ type Currency = {
 
 export type Currencies = {
   currencies: Currency[],
+};
+
+type EnglishWord = {
+  en: string,
+  ru: string,
+};
+
+export type EnglishWords = {
+  words: EnglishWord[],
 };
 
 export type SessionData = {

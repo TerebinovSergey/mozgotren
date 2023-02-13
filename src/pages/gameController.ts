@@ -14,13 +14,7 @@ import SortirovshchikCvetovController from '../games/sortirovshchik-cvetov/Sorti
 import SortirovshchikSlovController from '../games/sortirovshchik-slov/SortirovshchikSlovController';
 import StranaStolicaController from '../games/strana-stolica/StranaStolicaController';
 import StranaValytaController from '../games/strana-valyta/StranaValytaController';
-
-type UpdateStateParameters = {
-  score: number,
-  timeLeft: number,
-  currentLevel: number,
-  levels: number,
-};
+import AngliyskiySlovarController from '../games/angliyskiy-slovar/AngliyskiySlovarController';
 
 type GamesControllers = SlozhenieController |
 VychitanieController |
@@ -34,7 +28,15 @@ SortirovshchikCifrController |
 SortirovshchikCvetovController |
 SortirovshchikSlovController |
 StranaStolicaController |
-StranaValytaController;
+StranaValytaController |
+AngliyskiySlovarController;
+
+type UpdateStateParameters = {
+  score: number,
+  timeLeft: number,
+  currentLevel: number,
+  levels: number,
+};
 
 function getGameConstroller(nameGame: GameNames): GamesControllers {
   let gameController: GamesControllers;
@@ -64,6 +66,8 @@ function getGameConstroller(nameGame: GameNames): GamesControllers {
     gameController = new StranaStolicaController(GameNames.StranaStolica);
   } else if (nameGame === GameNames.StranaValyta) {
     gameController = new StranaValytaController(GameNames.StranaValyta);
+  } else if (nameGame === GameNames.AngliyskiySlovar) {
+    gameController = new AngliyskiySlovarController(GameNames.AngliyskiySlovar);
   } else {
     gameController = new SlozhenieController();
   }
