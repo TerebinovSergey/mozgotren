@@ -12,13 +12,9 @@ import ShulteCvetController from '../games/shulte-cvet/ShulteCvetController';
 import SortirovshchikCifrController from '../games/sortirovshchik-cifr/SortirovshchikCifrController';
 import SortirovshchikCvetovController from '../games/sortirovshchik-cvetov/SortirovshchikCvetovController';
 import SortirovshchikSlovController from '../games/sortirovshchik-slov/SortirovshchikSlovController';
-
-type UpdateStateParameters = {
-  score: number,
-  timeLeft: number,
-  currentLevel: number,
-  levels: number,
-};
+import StranaStolicaController from '../games/strana-stolica/StranaStolicaController';
+import StranaValytaController from '../games/strana-valyta/StranaValytaController';
+import AngliyskiySlovarController from '../games/angliyskiy-slovar/AngliyskiySlovarController';
 
 type GamesControllers = SlozhenieController |
 VychitanieController |
@@ -30,7 +26,17 @@ ShulteAlfavitController |
 ShulteCvetController |
 SortirovshchikCifrController |
 SortirovshchikCvetovController |
-SortirovshchikSlovController;
+SortirovshchikSlovController |
+StranaStolicaController |
+StranaValytaController |
+AngliyskiySlovarController;
+
+type UpdateStateParameters = {
+  score: number,
+  timeLeft: number,
+  currentLevel: number,
+  levels: number,
+};
 
 function getGameConstroller(nameGame: GameNames): GamesControllers {
   let gameController: GamesControllers;
@@ -56,9 +62,16 @@ function getGameConstroller(nameGame: GameNames): GamesControllers {
     gameController = new SortirovshchikCvetovController(GameNames.SortirovshchikCvetov);
   } else if (nameGame === GameNames.SortirovshchikSlov) {
     gameController = new SortirovshchikSlovController(GameNames.SortirovshchikSlov);
+  } else if (nameGame === GameNames.StranaStolica) {
+    gameController = new StranaStolicaController(GameNames.StranaStolica);
+  } else if (nameGame === GameNames.StranaValyta) {
+    gameController = new StranaValytaController(GameNames.StranaValyta);
+  } else if (nameGame === GameNames.AngliyskiySlovar) {
+    gameController = new AngliyskiySlovarController(GameNames.AngliyskiySlovar);
   } else {
     gameController = new SlozhenieController();
   }
+
   return gameController;
 }
 

@@ -13,6 +13,7 @@ export default class SortirovshchikCifrView {
     const gameContainer = getElement(`.game-container-${this.nameGame}`);
     const gameElement = getElement(`.game-${this.nameGame}`, gameContainer);
     gameElement.innerHTML = this.getHTML();
+    this.turnOnDragAndDrop();
   }
 
   getHTML(): string {
@@ -37,6 +38,7 @@ export default class SortirovshchikCifrView {
     item.dataset.answer = answer;
     const itemTitle = document.createElement('span');
     itemTitle.classList.add('sortirovka-answer__value');
+    // item.setAttribute('draggable', 'true');
     itemTitle.textContent = answer;
     item.append(itemTitle);
     return item;

@@ -89,8 +89,8 @@ export class BaseArithmeticClass extends BaseGame {
     return arr.filter((num) => num >= range.min && num <= range.max);
   }
 
-  checkAnswer(answer: number): boolean {
-    const rightAnswer = this.currentAnswer === answer;
+  checkAnswer(answer: string): boolean {
+    const rightAnswer = String(this.currentAnswer) === answer;
     this.updateScore(rightAnswer);
     this.updateLevel(rightAnswer);
     return rightAnswer;

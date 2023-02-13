@@ -81,8 +81,8 @@ export default class Arifmetika extends BaseGame {
     return arr;
   }
 
-  checkAnswer(answer: number): boolean {
-    const result = this.currentAnswer === answer;
+  checkAnswer(answer: string): boolean {
+    const result = String(this.currentAnswer) === answer;
     this.updateScore(result);
     this.updateLevel(result);
     return result;
