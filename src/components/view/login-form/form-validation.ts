@@ -82,7 +82,6 @@ const formValidation = async (e: Event) => {
       };
       try {
         const result = await submitForm(formValues);
-        // console.log(result);
         if (result.type === 'cors') {
           const responseObj = await result.json();
           if (!result.ok) {

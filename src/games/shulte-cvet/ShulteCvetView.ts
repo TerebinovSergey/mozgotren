@@ -35,8 +35,6 @@ export default class ShulteCvet extends SchulteTableView {
     }
   }
 
-  // <i class="fa fa-check" aria-hidden="true"></i>
-
   renderFindValue(value: string) {
     const state = getElement(`.game-container-${this.nameGame}`);
     const findItem = getElement('.game-tab-shulte_color-answer', state);

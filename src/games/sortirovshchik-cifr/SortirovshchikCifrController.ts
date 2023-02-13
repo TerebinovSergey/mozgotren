@@ -49,7 +49,7 @@ export default class SortirovshchikCifrController extends BaseGameController {
       setTimeout(() => {
         this.game.getTask();
         this.renderRightAnswers();
-      }, 200);
+      }, 300);
     }
     this.view.toggleInfo(!start);
   }
@@ -69,7 +69,13 @@ export default class SortirovshchikCifrController extends BaseGameController {
       const element = answerElements[i];
       const rightAnswer = result[i];
       element.classList.add((rightAnswer) ? 'right-answer' : 'wrong-answer');
+      this.additionalChecks(element);
     }
+  }
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  additionalChecks(element: Element): void {
+
   }
 
   private renderMixAnswers(): void {

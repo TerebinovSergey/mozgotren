@@ -14,6 +14,8 @@ export enum GameNames {
   ShulteAlfavit = 'shulte-alfavit',
   ShulteCvet = 'shulte-cvet',
   SortirovshchikCifr = 'sortirovshchik-cifr',
+  SortirovshchikCvetov = 'sortirovshchik-cvetov',
+  SortirovshchikSlov = 'sortirovshchik-slov',
 }
 
 export type DataGames = {
@@ -52,14 +54,29 @@ export type DataGame = {
   categoryId: number,
 };
 
+export type Words = {
+  words: string[],
+};
+
 export type SessionData = {
   message: string,
   status: boolean,
   user: string,
+  email: string,
 };
 
 export type AuthData = {
   username?: string,
   email: string,
   password: string,
+};
+
+export type UserData = {
+  userId: string,
+  oldEmail: string,
+  age: string,
+  regTime: Date,
+  birdthDate?: string,
+  profession?: string
+  accStatus: string,
 };

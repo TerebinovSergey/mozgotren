@@ -3,7 +3,8 @@
   flex-direction: column;
 }
 
-.game-sortirovshchik-cifr {
+.game-sortirovshchik-cifr,
+.game-sortirovshchik-cvetov {
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -40,4 +41,8 @@
 .answer-selected {
   opacity: 0.5;
   background-color: #7bebeb;
+}
+
+.game-sortirovka__btn {
+  min-width: 150px;
 }
