@@ -43,7 +43,6 @@ export default class SortirovshchikCifrController extends BaseGameController {
     const start = bntStart.dataset.startGame === 'true';
     if (start) {
       this.renderMixAnswers();
-      this.view.turnOnDragAndDrop();
     } else {
       this.checkAnswer();
       setTimeout(() => {
@@ -81,6 +80,7 @@ export default class SortirovshchikCifrController extends BaseGameController {
   private renderMixAnswers(): void {
     if (this.game.mixAnswers === undefined) return;
     this.view.rednerAnswers(this.game.mixAnswers);
+    this.view.draggable(true);
   }
 
   private renderRightAnswers() {

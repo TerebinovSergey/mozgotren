@@ -117,8 +117,6 @@ export const getUserData = async () => {
 const url = 'https://ipgeolocation.abstractapi.com/v1/?api_key=27bfb85db8cf4689be8261415948b3dd';
 
 export const httpGetAsync = async () => {
-  const apiEndpoint = process.env.API_URL;
-  const secretKey = process.env.API_KEY;
   try {
     const result = fetch(url, {});
     const response = await result;
