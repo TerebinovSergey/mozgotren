@@ -35,8 +35,8 @@ export function getDataGame(id: number): DataGame {
   return data;
 }
 
-export const baseUrl = 'http://localhost:5000';
-// export const baseUrl = 'https://api.leoniuk.dev';
+// export const baseUrl = 'http://localhost:5000';
+export const baseUrl = 'https://api.leoniuk.dev';
 
 export const submitForm = async (objValues: AuthData) => {
   const path = (Object.keys(objValues).length === 2) ? 'login' : 'registration';
@@ -92,20 +92,17 @@ export const getUserData = async () => {
   return JSON.stringify({ message: 'getting user-data error' });
 };
 
-export const httpGetAsync = () => {
+export const httpGetAsync = async () => {
   const apiEndpoint = process.env.API_URL;
   const secretKey = process.env.API_KEY;
-  const result = fetch(`${apiEndpoint}?api_key=${secretKey}`)
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error(`HTTP error ${response.status}`);
-      }
-      return response.json();
-    })
-    .catch((error) => {
-      console.error(`Fetch error:, ${error}`);
-    });
-  return result;
+  try {
+    const result = fetch(`${apiEndpoint}?api_key=${secretKey}`, {});
+    const response = await result;
+    return await response.json();
+  } catch (error) {
+    console.error(`Fetch error:, ${error}`);
+  }
+  return JSON.stringify({ message: 'IP server no respond' });
 };
 
 // const url = 'https://ipgeolocation.abstractapi.com/v1/?api_key=27bfb85db8cf4689be8261415948b3dd';
