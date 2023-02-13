@@ -2,6 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const path = require("path");
+const Dotenv = require('dotenv-webpack');
 
 const mode = process.env.NODE_ENV || 'development';
 const devMode = mode === 'development';
@@ -48,7 +49,8 @@ module.exports = {
           noErrorOnMissing: true
         }
       ]
-    })
+    }),
+    new Dotenv(),
   ],
   module: {
     rules: [
