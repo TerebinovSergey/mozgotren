@@ -118,6 +118,145 @@
   width: 300px;
   height: 300px;
 }
+.wrapper_butt, wrapper_butt_desc {
+  display: flex;
+  flex-direction: row;
+}
+.button_trane {
+  width: 171px;
+  height: 41px;
+  color: #ffffff;
+  background: #000428;
+  background: -webkit-linear-gradient(315deg, #000428, #0074da);
+  background: linear-gradient(135deg, #000428, #0074da);
+  border: 1px solid #0b0b0b;
+  margin-top: 2rem;
+  border-radius: 0px;
+  box-shadow: 0 6px 5px 0 rgb(0 0 0 / 18%), 0 1px 9px 0 rgb(0 0 0 / 15%);
+  transition: all 0.4s ease-out;
+  display: inline-block;
+  cursor: pointer;
+  margin-right: 5px;
+}
+.button_details {
+width: 121px;
+height: 41px;
+color: #000428;
+background: #ffffff;
+border: 1px solid #0b0b0b;
+margin-top: 2rem;
+border-radius: 0px;
+box-shadow: 0 6px 5px 0 rgb(0 0 0 / 18%), 0 1px 9px 0 rgb(0 0 0 / 15%);
+transition: all 0.4s ease-out;
+display: inline-block;
+cursor: pointer;
+margin-right: 5px;
+transform: translateY(0%);
+}
+.button_trane:hover, .button_trane:active, .button_details:hover, .button_details:active {
+transform: translateY(-10%);
+}
+.button_trane:hover, .button_trane:active {
+opacity: 0.7;
+background: #000428;
+background: -webkit-linear-gradient(315deg, #000428, #0074da);
+background: linear-gradient(135deg, #000428, #0074da);
+}
+.filter__title {
+  padding: 10px;
+}
+.card__img {
+  width: 77%;
+  height: auto;
+  margin: auto;
+}
+.card__img1 {
+ color: #ffffff;
+ transform: translateY(-700%);
+ margin: auto;
+ margin-top: -100px;
+ visibility: hidden;
+ transition: all 1s
+}
+.card__img_block{
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  z-index: 10;
+  overflow: hidden;
+  transition: all 1s;
+}
+
+.card__img_block:hover .card__img1 {
+  visibility: visible;
+  transform: translateY(-50%);
+}
+.card__img_block:hover {
+  opacity: 0.7;
+  background: #000428;
+  background: -webkit-linear-gradient(315deg, #000428, #0074da);
+  background: linear-gradient(135deg, #000428, #0074da);
+}
+
+.card__title, .card__difficult, .card__check {
+  margin-top: 10px;
+  color: #252424c2;
+}
+.card__check, .card__difficult {
+  font-size: 0.9rem;
+  line-height: 1.5rem;
+}
+.card__difficult_block {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.cubes {
+  width: 18px;
+  height: 18px;
+  margin-top: 10px;
+  margin-right: 10px;
+  background-size: cover;
+  background-position: center center;
+  background-image: url('../assets/img/svg/cubes.svg');
+}
+.card__img1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.blog {
+  width: 25px;
+  height: 25px;
+  background-size: cover;
+  background-position: center center;
+  background-image: url('../assets/img/svg/comments.svg');
+  margin: 0;
+  z-index: 101;
+}
+.console {
+    width: 45px;
+    height: 45px;
+    background-size: cover;
+    background-position: center center;
+    background-image: url('../assets/img/svg/games_console.svg');
+    margin: 0;
+    margin-bottom: 30px;
+    z-index: 101;
+}
+.trenagors-title-underline_blue {
+  width: 150px;
+  height: 20px;
+  margin-bottom: 40px;
+  background-size: cover;
+  background-position: center center;
+  background-image: url('../assets/img/line-break-blue.svg');
+}
+
+
 
 @media screen and (max-width: 800px) {
   .trenagors {

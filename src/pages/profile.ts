@@ -18,10 +18,12 @@ export default class ProfilePage {
     main.innerHTML = this.getMainHTML(ssid, userData, userCountry);
     const header = getElement('header');
     header.after(main);
+    ProfilePage.bodyArea();
   }
 
   static getMainHTML(user: SessionData, userData: UserData, userCountry: string) {
     return `
+    <div class="body-background-shaddow"></div>
     <div class="container-profile">
       <div class="profile-title-wrapper">
       <div class="profile-container">
@@ -43,8 +45,8 @@ export default class ProfilePage {
           </div>
         </div>  
         <div class="toolbar"> 
-          <button class="button-profile-toolbar profile-toolbar active" onclick="document.querySelector('.settings-toolbar')?.classList.remove('active'); document.querySelector('.profile-toolbar')?.classList.add('active');  document.querySelector('.page1')?.classList.toggle('hidden3'); document.querySelector('.page2')?.classList.toggle('hidden4');">ПРОФИЛЬ</button>
-          <button class="button-profile-toolbar settings-toolbar" onclick="document.querySelector('.profile-toolbar')?.classList.remove('active'); document.querySelector('.settings-toolbar')?.classList.add('active'); document.querySelector('.page1')?.classList.toggle('hidden3'); document.querySelector('.page2')?.classList.toggle('hidden4');">НАСТРОЙКИ</button>
+          <button class="button-profile-toolbar profile-toolbar active" onclick="document.querySelector('.settings-toolbar')?.classList.remove('active1'); document.querySelector('.profile-toolbar')?.classList.add('active1');  document.querySelector('.page1')?.classList.toggle('hidden3'); document.querySelector('.page2')?.classList.toggle('hidden4');">ПРОФИЛЬ</button>
+          <button class="button-profile-toolbar settings-toolbar" onclick="document.querySelector('.profile-toolbar')?.classList.remove('active1'); document.querySelector('.settings-toolbar')?.classList.add('active1'); document.querySelector('.page1')?.classList.toggle('hidden3'); document.querySelector('.page2')?.classList.toggle('hidden4');">НАСТРОЙКИ</button>
           <button class="button-profile-toolbar svg-container"><div class="exit svg"></div></button>
         </div>
       </div>
@@ -204,5 +206,14 @@ export default class ProfilePage {
       </div>
       <button class="button-profile end" disabled = "true">Сохранить пароль</button>
     </div>`;
+  }
+  static bodyArea(): void {
+    const bodyArea = getElement('.body-background-shaddow');
+    bodyArea.addEventListener('click', () => {
+      document.querySelector('.nav-aside')?.classList.toggle('active');
+      document.querySelector('.body-background-shaddow')?.classList.toggle('hidden');
+      document.querySelector('.open')?.classList.toggle('hidden1');
+      document.querySelector('.close')?.classList.toggle('hidden1');
+    });
   }
 }

@@ -1,9 +1,8 @@
 import HeaderView from '../components/view/header/headerView';
 import FooterView from '../components/view/footer/footerView';
-import { getElement } from '../utils/utils';
+import { getElement, getDataGame } from '../utils/utils';
 import renderRulesDescription from './description';
 
-import bodyArea from './bodyArea';
 import { SessionData, DataGames, DataGame } from '../types/types';
 // eslint-disable-next-line global-require
 const json = require('../data/games.json') as DataGames;
@@ -17,6 +16,8 @@ export default class TrenagorsPage {
     footer.draw();
     TrenagorsPage.renderGames(-1);
     TrenagorsPage.addListenerGroupFilter();
+    TrenagorsPage.bodyArea();
+    TrenagorsPage.buttonDescription();
   }
 
   static drawMain() {
@@ -29,14 +30,12 @@ export default class TrenagorsPage {
 
   static getMainHTML() {
     return `
-    <div class="body-background-shaddow" onclick="${bodyArea}"></div>
+    <div class="body-background-shaddow"></div>
     <div class="container">
       <div class="trenagors-title-wrapper">
         <h2 class="trenagors-title">Тренажеры для ума</h2>
-        <img
-          class="trenagors-title-underline"
-          src="./line-break-blue.svg"
-          alt=""
+        <div
+          class="trenagors-title-underline_blue"
         />
       </div>
       <section class="trenagors">
@@ -112,18 +111,22 @@ export default class TrenagorsPage {
     gameCard.setAttribute('data-game-id', String(data.id));
     gameCard.innerHTML = `
       <div class="card__img_block">
-        <img onclick="document.location.href = '/trenagor#${data.nameGame}';" class="card__img" alt="Умножение" src="${data.logoImg}">
+        <img onclick="document.location.href = '/trenagor#${data.nameGame}';" class="card__img" alt="logo" src="${data.logoImg}">
+        <div class="card__img1">
+          <div class="console"></div>
+          <div class="blog"></div>
+        </div>
       </div>
-      <p class="card__difficult">Сложность: ${data.basicComplexity}</p>
+      <div class="card__difficult_block">
+        <div class="cubes"></div>
+        <p class="card__difficult">Сложность: ${data.basicComplexity}</p>
+      </div>
       <h2 onclick="document.location.href = '/trenagor#${data.nameGame}';" class="card__title">${data.nameGameRu}</h2>
-      <p class="card__description">${data.check1}, ${data.check2}, ${data.check3}</p>
+      <p class="card__check">${data.check1}, ${data.check2}, ${data.check3}</p>
       <div class="wrapper_butt">
-        <button onclick="document.location.href = '/trenagor#${data.nameGame}';" class="button button_trane">Тренироваться</button>
+        <button onclick="document.location.href = '/trenagor#${data.nameGame}';" class="button_trane">Тренироваться</button>
+        <button class="button_details" data-game-id="${data.id}">Описание</button>
       </div>
-     
-      <button type="submit" class="button" onclick="${renderRulesDescription}">
-        <span class="">Описание</span>
-      </button>
     `;
     return gameCard;
   }
@@ -138,5 +141,28 @@ export default class TrenagorsPage {
       this.renderGames(categoryId);
     });
   }
-}
 
+  static bodyArea(): void {
+    const bodyArea = getElement('.body-background-shaddow');
+    bodyArea.addEventListener('click', () => {
+      document.querySelector('.nav-aside')?.classList.toggle('active');
+      document.querySelector('.body-background-shaddow')?.classList.toggle('hidden');
+      document.querySelector('.open')?.classList.toggle('hidden1');
+      document.querySelector('.close')?.classList.toggle('hidden1');
+    });
+  }
+  static buttonDescription(): void {
+    const buttonDesc = document.querySelectorAll('.button_details');
+    console.log(buttonDesc);
+    for (let i = 0; i < buttonDesc.length; i += 1) {
+      const element = buttonDesc[i];
+      if (!(element instanceof HTMLElement)) return;
+      element.addEventListener('click', () => {
+        const gameId = Number(element.dataset.gameId);
+        const dataGame = getDataGame(gameId);
+        console.log(dataGame, gameId);
+        renderRulesDescription(dataGame);
+      });
+    }
+  }
+}
