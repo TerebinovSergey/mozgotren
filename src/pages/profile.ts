@@ -2,6 +2,7 @@ import HeaderView from '../components/view/header/headerView';
 import FooterView from '../components/view/footer/footerView';
 import { getElement } from '../utils/utils';
 import { UserData, SessionData } from '../types/types';
+import { popupVisibility } from '../components/popup-header/popupHeader';
 
 export default class ProfilePage {
   static draw(ssid: SessionData, userData: UserData, userCountry: string): void {
@@ -18,7 +19,8 @@ export default class ProfilePage {
     main.innerHTML = this.getMainHTML(ssid, userData, userCountry);
     const header = getElement('header');
     header.after(main);
-    ProfilePage.bodyArea();
+    // ProfilePage.bodyArea();
+    popupVisibility();
   }
 
   static getMainHTML(user: SessionData, userData: UserData, userCountry: string) {

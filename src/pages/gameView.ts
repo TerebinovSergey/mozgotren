@@ -2,6 +2,7 @@ import HeaderView from '../components/view/header/headerView';
 import FooterView from '../components/view/footer/footerView';
 import { getElement } from '../utils/utils';
 import { SessionData } from '../types/types';
+import { popupVisibility } from '../components/popup-header/popupHeader';
 import './game.css';
 
 type Parameters = {
@@ -71,7 +72,7 @@ export default class GamePage {
     main.innerHTML = this.getMainHTML();
     const header = getElement('header');
     header.after(main);
-    GamePage.bodyArea();
+    popupVisibility();
     GamePage.popapOpen();
   }
 
@@ -180,15 +181,7 @@ export default class GamePage {
       </div>
     </div>`;
   }
-  static bodyArea(): void {
-    const bodyArea = getElement('.body-background-shaddow');
-    bodyArea.addEventListener('click', () => {
-      document.querySelector('.nav-aside')?.classList.toggle('active');
-      document.querySelector('.body-background-shaddow')?.classList.toggle('hidden');
-      document.querySelector('.open')?.classList.toggle('hidden1');
-      document.querySelector('.close')?.classList.toggle('hidden1');
-    });
-  }
+
   static popapOpen(): void {
     const gameRules = getElement('.game-rules');
     gameRules.addEventListener('click', () => {

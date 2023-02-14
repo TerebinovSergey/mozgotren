@@ -2,6 +2,7 @@ import HeaderView from '../components/view/header/headerView';
 import FooterView from '../components/view/footer/footerView';
 import { getElement, getDataGame } from '../utils/utils';
 import renderRulesDescription from './description';
+import { popupVisibility } from '../components/popup-header/popupHeader';
 
 import { SessionData, DataGames, DataGame } from '../types/types';
 // eslint-disable-next-line global-require
@@ -16,7 +17,7 @@ export default class TrenagorsPage {
     footer.draw();
     TrenagorsPage.renderGames(-1);
     TrenagorsPage.addListenerGroupFilter();
-    TrenagorsPage.bodyArea();
+    popupVisibility();
     TrenagorsPage.buttonDescription();
   }
 
@@ -142,15 +143,6 @@ export default class TrenagorsPage {
     });
   }
 
-  static bodyArea(): void {
-    const bodyArea = getElement('.body-background-shaddow');
-    bodyArea.addEventListener('click', () => {
-      document.querySelector('.nav-aside')?.classList.toggle('active');
-      document.querySelector('.body-background-shaddow')?.classList.toggle('hidden');
-      document.querySelector('.open')?.classList.toggle('hidden1');
-      document.querySelector('.close')?.classList.toggle('hidden1');
-    });
-  }
   static buttonDescription(): void {
     const buttonDesc = document.querySelectorAll('.button_details');
     console.log(buttonDesc);
