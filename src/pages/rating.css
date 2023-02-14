@@ -81,12 +81,15 @@ background-image: url("../assets/img/svg/block.svg");
 .king {
   background-image: url("../assets/img/svg/cup-trophy.svg");
 }
+
 .trio {
   background-image: url("../assets/img/svg/shareoutline.svg");
 }
+
 .card__title_rating {
   font-size: 1.1rem;
 }
+
 .container__table {
   width: 100%;
   font-size: 0.85rem;
