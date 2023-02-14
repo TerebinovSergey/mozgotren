@@ -33,12 +33,32 @@ function isImageFile(file: File): Promise<boolean> {
   });
 }
 
-const uploadImage = async (image: File) => {
+const uploadForm = async () => {
   const formData = new FormData();
   const userId = getUserIdFromCookie()[0][1];
-  formData.append('image', image);
+  const userName = (document.getElementById('name') as HTMLInputElement).value;
+  const userProfession = (document.getElementById('job') as HTMLSelectElement).value;
+  const country = (document.getElementById('country') as HTMLInputElement).value;
+  const day = (document.getElementById('day') as HTMLInputElement).value;
+  const month = (document.getElementById('month') as HTMLInputElement).value;
+  const year = (document.getElementById('year') as HTMLInputElement).value;
+  const image = ((document.getElementById('image') as HTMLInputElement).files as FileList)[0];
+
+  let birdthDate = '';
+  if (day.length > 0 && month.length > 0 && year.length > 0) {
+    birdthDate = new Date(+year, +month, +day).toLocaleDateString();
+  }
   formData.append('userId', userId);
-  fetch(`${baseUrl}/upload-image`, {
+  if (userName.length > 0) formData.append('username', userName);
+  if (userProfession.length > 0) formData.append('userProfession', userProfession);
+  if (country.length > 0) formData.append('country', country);
+  if (birdthDate.length > 0) formData.append('birdthDate', birdthDate);
+  if (typeof image !== 'undefined') {
+    if (await isImageFile(image)) {
+      formData.append('image', image);
+    }
+  }
+  fetch(`${baseUrl}/upload-userdata`, {
     method: 'POST',
     body: formData,
   })
@@ -65,18 +85,16 @@ export default class ProfilePage {
 
     const sendButton = document.querySelector('.send-form');
     sendButton?.addEventListener('click', async () => {
-      if (await isImageFile(((document.getElementById('image') as HTMLInputElement).files as FileList)[0])) {
-        uploadImage(((document.getElementById('image') as HTMLInputElement).files as FileList)[0]);
-      } else {
-        console.log('no file');
-      }
+      uploadForm();
     });
 
     (document.getElementById('image') as HTMLInputElement).addEventListener('change', async function handleImage() {
       if (await isImageFile((this.files as FileList)[0])) {
+        (this.nextElementSibling as HTMLElement).style.color = '#008000';
         (this.nextElementSibling as HTMLElement).innerHTML = (this.files as FileList)[0].name;
       } else {
         (this.nextElementSibling as HTMLElement).innerHTML = 'неподдерживаемый формат файла';
+        (this.nextElementSibling as HTMLElement).style.color = '#ff0000';
       }
     });
   }
@@ -88,6 +106,14 @@ export default class ProfilePage {
       }
       return '<img src="./assets/null.jpg">';
     };
+
+    const getAge = () => {
+      if (Date.parse(userData.birdthDate as string) < Date.now()) {
+        return `${Math.floor(Math.abs(Date.now() - Date.parse(userData.birdthDate as string)) / (1000 * 60 * 60 * 24 * 365))}`;
+      }
+      return 'не указано';
+    };
+
     return `
     <div class="container-profile">
       <div class="profile-title-wrapper">
@@ -102,7 +128,7 @@ export default class ProfilePage {
           </div> 
           <hr class="vertical-line" > 
           <div class="profile-info">
-            <div class="profile-text-c"><h6 class="profile-text svg-container"><div class="null svg"></div>Возраст:</h6><span class="age">${userData.age ?? 'не укзано'}</span></div>
+            <div class="profile-text-c"><h6 class="profile-text svg-container"><div class="null svg"></div>Возраст:</h6><span class="age">${getAge()}</span></div>
             <div class="profile-text-c"><h6 class="profile-text svg-container"><div class="bag svg"></div>Сфера деятельности:</h6><span class="job">${userData.profession ?? 'не указано'}</span></div>
             <div class="profile-text-c"><h6 class="profile-text svg-container"><div class="earth svg"></div>Страна:</h6><span class="country">${userCountry}</span></div>
           </div>
@@ -143,7 +169,7 @@ export default class ProfilePage {
         <div class="card-info row">
               <div class="svg"><i class="fa fa-briefcase" aria-hidden="true"></i></div>
               <div class="dark-grey">
-                <h4>Техника</h4>
+                <h4>${userData.profession ?? 'не указано'}</h4>
                 <h5>Сфера деятельности</h5>
               </div>
         </div>
@@ -213,10 +239,10 @@ export default class ProfilePage {
       <h4 class="birth-title">День рождения:</h4>
       <div class="birth-container">
               <div class="input-box">
-                <label for="birthdate">
+                <label for="day">
                   <h5>День</h5>
                 </label>
-                <select id="birthdate">
+                <select id="day">
                   <option></option>
                   <option>1</option>
                   <option>2</option>
@@ -255,23 +281,23 @@ export default class ProfilePage {
                 <label for="month"><h5>Месяц:</h5></label>
                 <select id="month">
                   <option></option>
-                  <option>Январь</option>
-                  <option>Февраль</option>
-                  <option>Март</option>
-                  <option>Апрель</option>
-                  <option>Май</option>
-                  <option>Июнь</option>
-                  <option>Июль</option>
-                  <option>Август</option>
-                  <option>Сентябрь</option>
-                  <option>Октябрь</option>
-                  <option>Ноябрь</option>
-                  <option>Декабрь</option>
+                  <option value="0">Январь</option>
+                  <option value="1">Февраль</option>
+                  <option value="2">Март</option>
+                  <option value="3">Апрель</option>
+                  <option value="4">Май</option>
+                  <option value="5">Июнь</option>
+                  <option value="6">Июль</option>
+                  <option value="7">Август</option>
+                  <option value="8">Сентябрь</option>
+                  <option value="9">Октябрь</option>
+                  <option value="10">Ноябрь</option>
+                  <option value="11">Декабрь</option>
                 </select>
               </div>
               <div class="input-box">
-                <label><h5>Год:</h5></label>
-                <select>
+                <label for="year"><h5>Год:</h5></label>
+                <select id="year">
                   <option></option>
                   <option>1980</option>
                   <option>1981</option>
