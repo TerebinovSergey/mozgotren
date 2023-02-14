@@ -11,7 +11,6 @@ export default class SortirovshchikCifr extends BaseGame {
     this.currenAnswer = this.getRightAnswer();
     this.mixAnswers = this.currenAnswer.map((val) => val);
     shuffle(this.mixAnswers);
-    console.log(this.currenAnswer, this.mixAnswers);
   }
 
   getRightAnswer(): string[] {
@@ -32,7 +31,6 @@ export default class SortirovshchikCifr extends BaseGame {
       this.updateScore(rightAnswer);
       if (!rightAnswer) mistakes = true;
     }
-    console.log(this.rightAnswers, this.wrongAnswers);
     this.updateLevel(!mistakes);
     return check;
   }

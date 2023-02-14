@@ -107,5 +107,9 @@ export default class GameController {
         / (this.gameController.game.wrongAnswers + this.gameController.game.rightAnswers)) * 100);
     }
     percent.textContent = `${scorePercent}%`;
+    const circleBar = document.querySelector('.progress_answer__overlay');
+    if (circleBar && scorePercent > 0) {
+      circleBar.setAttribute('stroke-dashoffset', `${125.664 - (scorePercent / 100) * 125.664}`);
+    }
   }
 }
