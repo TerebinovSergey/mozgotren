@@ -135,7 +135,7 @@
     display: flex;
     z-index: 1200;
   }
-
+  
   .open {
     width: 40px;
     height: 40px;
@@ -158,7 +158,6 @@
   .nav-aside {
     display: flex;
     flex-direction: column;
-
     width: 40vw;
     align-items: flex-start;
     justify-content: flex-start;
@@ -169,7 +168,6 @@
     left: 0;
     top: 0;
     margin: 0;
-
     height: 100%;
     height: calc(100% + 60px);
     height: -moz-calc(100%);
@@ -204,10 +202,14 @@
   }
 
   .hidden {
+    left: 0;
+    top: 0;
+    margin: 0; 
+    height: calc(100% + 60px);
+    height: -moz-calc(100%);
     display: block;
     position: fixed;
     width: 100vw;
-    height: 100vh;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 900;
   }

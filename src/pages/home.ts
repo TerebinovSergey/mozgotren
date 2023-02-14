@@ -17,15 +17,12 @@ export default class HomePage {
     main.innerHTML = this.getMainHTML();
     const header = getElement('header');
     header.after(main);
+    HomePage.bodyArea();
   }
 
   static getMainHTML() {
     return `
-    <div class="body-background-shaddow" onclick="document.querySelector('.nav-aside')?.classList.toggle('active'); 
-document.querySelector('.body-background-shaddow')?.classList.toggle('hidden');
-document.querySelector('.open')?.classList.toggle('hidden1');
-document.querySelector('.close')?.classList.toggle('hidden1');
-"></div>
+    <div class="body-background-shaddow"></div>
     <section class="main-header main-background">
     <div class="container">
     <h1 class="main-header-title">
@@ -430,5 +427,14 @@ document.querySelector('.close')?.classList.toggle('hidden1');
       </div>
     </section>
   </div>`;
+  }
+  static bodyArea(): void {
+    const bodyArea = getElement('.body-background-shaddow');
+    bodyArea.addEventListener('click', () => {
+      document.querySelector('.nav-aside')?.classList.toggle('active');
+      document.querySelector('.body-background-shaddow')?.classList.toggle('hidden');
+      document.querySelector('.open')?.classList.toggle('hidden1');
+      document.querySelector('.close')?.classList.toggle('hidden1');
+    });
   }
 }
