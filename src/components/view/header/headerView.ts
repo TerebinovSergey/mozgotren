@@ -37,10 +37,10 @@ export default class HeaderView {
           </a>
         </li>
         <li class="nav-li-aside">
-          <a class="nav-item-aside" href="/#about-us">Развитие</a>
+          <a class="nav-item-aside" href="/#about-us" onclick="return false">Развитие</a>
         </li>
         <li class="nav-li-aside">
-          <a class="nav-item-aside" href="/#features">Преимущества</a>
+          <a class="nav-item-aside" href="/#features" onclick="return false">Преимущества</a>
         </li>
         <li class="nav-li-aside">
           <a class="nav-item-aside" href="/trenagors">Тренажеры</a>

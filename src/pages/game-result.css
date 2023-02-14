@@ -1,6 +1,8 @@
 .result-container {
+  position: relative;
   display: flex;
   flex-direction: row;
+  column-gap: 40px;
   justify-content: space-between;
   align-items: center;
   width: 250px;
@@ -39,16 +41,18 @@
 }
 
 .percentages-circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 70px;
   height: 70px;
   border-radius: 50%;
   background-color: #7fffd4;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .percentages {
+  position: absolute;
+  left: 30px;
   width: 45px;
   height: 45px;
   border-radius: 50%;
@@ -58,4 +62,8 @@
   vertical-align: middle;
   text-align: center;
   color: #5f9ea0;
+}
+
+.score-percent {
+  font-size: 1rem;
 }

@@ -88,7 +88,7 @@ export default class GamePage {
     </div>`;
   }
 
-  getInformationHTML(): string {
+  private getInformationHTML(): string {
     return `
     <div class="information">
       <hr class="shadow">
@@ -130,12 +130,14 @@ export default class GamePage {
     </div>`;
   }
 
-  getResultHTML(): string {
+  private getResultHTML(): string {
+    // <cicle class="percentages-circle">
+    //    <div class="percentages"><h5 class="score-percent">100%</h5></div>
+    //  </cicle>
     return `
     <div class="result-container">
-      <cicle class="percentages-circle">
-        <div class="percentages"><h5 class="score-percent">100%</h5></div>
-      </cicle>
+      ${this.getCircleBar()}
+      <div class="percentages"><h5 class="score-percent">100%</h5></div>
       <div class="result-container-block">
         <h5 class="results-title">РЕЗУЛЬТАТ:</h5><span class="number big game-total-score">90</span>
         <div class="result-row"><h6 class="results-success">Правильных:</h6><span class="number green rigth-answers">9</span></div>
@@ -144,7 +146,7 @@ export default class GamePage {
     </div>`;
   }
 
-  getGameWrapperHTML(): string {
+  private getGameWrapperHTML(): string {
     return `
     <div class="info-bar">
       <h5 class="intro-p">${this.taskDescription}</h5>
@@ -159,7 +161,7 @@ export default class GamePage {
     <div class="game-${this.nameGame}"></div>`;
   }
 
-  getNavigationHTML(): string {
+  private getNavigationHTML(): string {
     return `
     <div class="navigation">
       <button type="button" class="button-navigation">
@@ -180,6 +182,10 @@ export default class GamePage {
         </button>
       </div>
     </div>`;
+  }
+
+  private getCircleBar() {
+    return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="24.615384615384617 24.615384615384617 49.23076923076923 49.23076923076923" style="transform: rotate(-90deg);"><circle fill="transparent" cx="49.23076923076923" cy="49.23076923076923" r="20" stroke-width="9.230769230769232" stroke-dasharray="125.664" stroke-dashoffset="0" class="progress_answer"></circle><circle fill="transparent" cx="49.23076923076923" cy="49.23076923076923" r="20" stroke-width="9.230769230769232" stroke-dasharray="125.664" stroke-dashoffset="125.664" class="progress_answer__overlay"></circle></svg>';
   }
 
   static popapOpen(): void {

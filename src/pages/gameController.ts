@@ -8,6 +8,7 @@ type UpdateStateParameters = {
   timeLeft: number,
   currentLevel: number,
   levels: number,
+  time: number,
 };
 
 export default class GameController {
@@ -28,7 +29,7 @@ export default class GameController {
     this.addEventListeners();
   }
 
-  start() {
+  private start() {
     this.view.drawGameStart();
     this.gameController.start();
     this.timeoutState = setInterval(() => {
@@ -38,7 +39,7 @@ export default class GameController {
     this.addListenerClose();
   }
 
-  stop() {
+  private stop() {
     clearInterval(this.timeoutState);
     this.view.drawGameResult();
     this.renderResults();
@@ -47,30 +48,30 @@ export default class GameController {
     this.addListenerStart();
   }
 
-  checkGame() {
+  private checkGame() {
     if (this.gameController.game.gameState === GameState.Finished) {
       clearInterval(this.timeoutState);
       this.stop();
     }
   }
 
-  addEventListeners(): void {
+  private addEventListeners(): void {
     this.addListenerStart();
   }
 
-  addListenerStart() {
+  private addListenerStart() {
     const gameContainer = getElement(`.game-container-${this.view.nameGame}`);
     const btnStart = getElement('.btn-start-game', gameContainer);
     btnStart.addEventListener('click', () => this.start());
   }
 
-  addListenerClose() {
+  private addListenerClose() {
     const gameContainer = getElement(`.game-container-${this.view.nameGame}`);
     const btnClose = getElement('.button-close', gameContainer);
     btnClose.addEventListener('click', () => this.stop());
   }
 
-  renderState(parameters: UpdateStateParameters): void {
+  private renderState(parameters: UpdateStateParameters): void {
     const gameContainer = getElement(`.game-container-${this.nameGame}`);
     const timeElement = getElement('.game-time-title', gameContainer);
     timeElement.textContent = String(parameters.timeLeft);
@@ -80,9 +81,17 @@ export default class GameController {
     const maxLevelElement = getElement('.game-max-level-title', gameContainer);
     levelElement.textContent = `${parameters.currentLevel} /`;
     maxLevelElement.textContent = ` ${parameters.levels}`;
+    if (this.gameController.game.gameState === GameState.Play) {
+      const timeLine = getElement('.time-ruler', gameContainer);
+      const timePass = Number(((parameters.timeLeft / parameters.time) * 100).toFixed(2));
+      timeLine.style.background = `linear-gradient(to right,
+        #003969 ${timePass}%,
+        #ff0000 ${timePass}%,
+        #ff0000 100%`;
+    }
   }
 
-  renderResults() {
+  private renderResults() {
     const gameContainer = getElement(`.game-container-${this.nameGame}`);
     const score = getElement('.game-total-score', gameContainer);
     score.textContent = String(this.gameController.game.score);
@@ -98,5 +107,9 @@ export default class GameController {
         / (this.gameController.game.wrongAnswers + this.gameController.game.rightAnswers)) * 100);
     }
     percent.textContent = `${scorePercent}%`;
+    const circleBar = document.querySelector('.progress_answer__overlay');
+    if (circleBar && scorePercent > 0) {
+      circleBar.setAttribute('stroke-dashoffset', `${125.664 - (scorePercent / 100) * 125.664}`);
+    }
   }
 }
