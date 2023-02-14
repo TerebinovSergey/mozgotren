@@ -80,16 +80,6 @@ export default class TrenagorsPage {
           </div>
         </aside>
         <div class="trenagors-container">
-<a href="/trenagor#slozhenie" class="game-page"><div class="game-wrapper">game slozhenie</div></a>
-<a href="/trenagor#vychitanie" class="game-page"><div class="game-wrapper">game vychitanie</div></a>
-<a href="/trenagor#umnozhenie" class="game-page"><div class="game-wrapper">game umnozhenie</div></a>
-<a href="/trenagor#delenie" class="game-page"><div class="game-wrapper">game delenie</div></a>
-<a href="/trenagor#arifmetika" class="game-page"><div class="game-wrapper">game arifmetika</div></a>
-<a href="/trenagor#tablica-shulte" class="game-page"><div class="game-wrapper">game tablica-shulte</div></a>
-<a href="/trenagor#shulte-alfavit" class="game-page"><div class="game-wrapper">game shulte-alfavit</div></a>
-<a href="/trenagor#shulte-cvet" class="game-page"><div class="game-wrapper">game shulte-cvet</div></a>
-<a href="/trenagor#sortirovshchik-cifr" class="game-page"><div class="game-wrapper">game sortirovshchik-cifr</div></a>
-          
         </div>
       </section>
     </div>`;
