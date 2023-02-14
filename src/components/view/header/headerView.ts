@@ -45,6 +45,9 @@ export default class HeaderView {
         <li class="nav-li-aside">
           <a class="nav-item-aside" href="/trenagors">Тренажеры</a>
         </li>
+        <li class="nav-li-aside">
+          <a class="nav-item-aside" href="/rating">Рейтинг</a>
+        </li>
         <li class="nav-li-aside"><span>${user.status ? user.user : ''}</span>
           <a class="nav-item" href="${isUserLink}">${isUser}</a>
         </li>         
@@ -82,6 +85,9 @@ export default class HeaderView {
             </li>
             <li class="nav-li">
               <a class="nav-item" href="/trenagors">Тренажеры</a>
+            </li>
+            <li class="nav-li">
+              <a class="nav-item" href="/rating">Рейтинг</a>
             </li>
             <li class="nav-li"><span>${user.status ? user.user : ''}</span>
               <a class="nav-item" href="${isUserLink}">${isUser}</a>

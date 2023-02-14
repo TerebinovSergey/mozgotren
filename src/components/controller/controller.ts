@@ -1,5 +1,6 @@
 import HomePage from '../../pages/home';
 import TrenagorsPage from '../../pages/trenagors';
+import RatingPage from '../../pages/rating';
 import GameController from '../../pages/gameController';
 import ProfilePage from '../../pages/profile';
 import { GameNames, SessionData } from '../../types/types';
@@ -21,6 +22,11 @@ export default class Controller {
 
   static drawTrenagorsPage(status: SessionData) {
     TrenagorsPage.draw(status);
+    console.log('response from API: ', status);
+  }
+
+  static drawRatingPage(status: SessionData) {
+    RatingPage.draw(status);
     console.log('response from API: ', status);
   }
 
