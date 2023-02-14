@@ -88,7 +88,7 @@ export default class GamePage {
     </div>`;
   }
 
-  getInformationHTML(): string {
+  private getInformationHTML(): string {
     return `
     <div class="information">
       <hr class="shadow">
@@ -130,7 +130,7 @@ export default class GamePage {
     </div>`;
   }
 
-  getResultHTML(): string {
+  private getResultHTML(): string {
     return `
     <div class="result-container">
       <cicle class="percentages-circle">
@@ -144,7 +144,7 @@ export default class GamePage {
     </div>`;
   }
 
-  getGameWrapperHTML(): string {
+  private getGameWrapperHTML(): string {
     return `
     <div class="info-bar">
       <h5 class="intro-p">${this.taskDescription}</h5>
@@ -159,7 +159,7 @@ export default class GamePage {
     <div class="game-${this.nameGame}"></div>`;
   }
 
-  getNavigationHTML(): string {
+  private getNavigationHTML(): string {
     return `
     <div class="navigation">
       <button type="button" class="button-navigation">
