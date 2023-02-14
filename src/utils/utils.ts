@@ -1,9 +1,16 @@
-import { AuthData, DataGame, DataGames } from '../types/types';
+import {
+  AuthData,
+  DataGame,
+  DataGames,
+  UserData,
+} from '../types/types';
 
 // eslint-disable-next-line global-require
 const json = require('../data/games.json') as DataGames;
 
-const getUserIdFromCookie = () => {
+const url = 'https://ipgeolocation.abstractapi.com/v1/?api_key=27bfb85db8cf4689be8261415948b3dd';
+
+export const getUserIdFromCookie = () => {
   const cookiesArray: Array<string[]> = [];
   document.cookie.split('=').join().replace(/ /g, '').split(';')
     .forEach((element: string) => {
@@ -93,10 +100,10 @@ export const getUserData = async () => {
 };
 
 export const httpGetAsync = async () => {
-  const apiEndpoint = process.env.API_URL;
-  const secretKey = process.env.API_KEY;
+  // const apiEndpoint = process.env.API_URL;
+  // const secretKey = process.env.API_KEY;
   try {
-    const result = fetch(`${apiEndpoint}?api_key=${secretKey}`, {});
+    const result = fetch(url, {});
     const response = await result;
     return await response.json();
   } catch (error) {
@@ -105,6 +112,21 @@ export const httpGetAsync = async () => {
   return JSON.stringify({ message: 'IP server no respond' });
 };
 
-// const url = 'https://ipgeolocation.abstractapi.com/v1/?api_key=27bfb85db8cf4689be8261415948b3dd';
+export const sendProfileForm = async (userObject: UserData) => {
+  try {
+    const result = await fetch(`${baseUrl}/update-user`, {
+      method: 'POST',
+      body: JSON.stringify(userObject),
+      credentials: 'include',
+      headers: {
+        'Content-type': 'application/json',
+      },
+    });
+    return await result.json();
+  } catch (error) {
+    console.log({ message: 'update user-data error' });
+  }
+  return JSON.stringify({ message: 'update user-data error' });
+};
 
 export const isUserCheck = await isAuthenticated();
