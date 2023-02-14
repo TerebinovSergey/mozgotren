@@ -63,3 +63,7 @@
   text-align: center;
   color: #5f9ea0;
 }
+
+.score-percent {
+  font-size: 1rem;
+}

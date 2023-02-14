@@ -35,17 +35,24 @@ export function getDataGame(id: number): DataGame {
   return data;
 }
 
-export function shuffle<T>(array: T[]) {
-  if (array.length === 3) {
-    const arraySort = array.sort(() => Math.random() - 0.5);
-    // eslint-disable-next-line no-param-reassign
-    array = Array.from(arraySort);
-  }
-  for (let i = array.length - 1; i > 0; i -= 1) {
-    const j = Math.floor(randomInteger(0, i - 1));
-    // eslint-disable-next-line no-param-reassign
-    [array[i], array[j]] = [array[j], array[i]];
-  }
+export function shuffle<T>(array: T[]): T[] {
+  const currentArr = JSON.stringify(array);
+  let arrSort = Array.from(array);
+  const shuffleArray = (): T[] => {
+    if (arrSort.length === 3) {
+      const arraySort = arrSort.sort(() => Math.random() - 0.5);
+      arrSort = Array.from(arraySort);
+    }
+    for (let i = arrSort.length - 1; i > 0; i -= 1) {
+      const j = Math.floor(randomInteger(0, i - 1));
+      [arrSort[i], arrSort[j]] = [arrSort[j], arrSort[i]];
+    }
+    if (currentArr === JSON.stringify(arrSort)) {
+      return shuffleArray();
+    }
+    return arrSort;
+  };
+  return shuffleArray();
 }
 
 export function getRandomColor(): string {

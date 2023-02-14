@@ -10,7 +10,7 @@ export default class SortirovshchikCifr extends BaseGame {
     this.countAnswers = (this.currentLevel + 2);
     this.currenAnswer = this.getRightAnswer();
     this.mixAnswers = this.currenAnswer.map((val) => val);
-    shuffle(this.mixAnswers);
+    this.mixAnswers = shuffle(this.mixAnswers);
   }
 
   getRightAnswer(): string[] {
