@@ -24,17 +24,7 @@ const routes: Routes = {
     clearPage();
     Controller.drawHomePage(ssid);
   },
-  '/about': () => {
-    document.body.innerHTML = 'About';
-  },
-  '/contact': () => {
-    document.body.innerHTML = 'Contact';
-  },
   '/trenagors': () => {
-    clearPage();
-    Controller.drawTrenagorsPage(ssid);
-  },
-  '/trenagors/1': () => {
     clearPage();
     Controller.drawTrenagorsPage(ssid);
   },
@@ -46,13 +36,8 @@ const routes: Routes = {
       Controller.drawProfilePage(ssid);
     }
   },
-  '/login': () => {
-    loginPage();
-  },
-  '/register': () => {
-    registrationPage();
-  },
-  '/trenagor': () => drawGamePage(GameNames.Vychitanie),
+  '/login': () => loginPage(),
+  '/register': () => registrationPage(),
 };
 
 export default class App {
@@ -63,8 +48,8 @@ export default class App {
 
   static handleLocation() {
     const { pathname, hash } = window.location;
-    if (hash.length > 0) {
-      if (pathname === '/trenagor') drawGamePage(hash.slice(1) as GameNames);
+    if (hash.length > 0 && pathname === '/trenagor') {
+      drawGamePage(hash.slice(1) as GameNames);
     } else {
       routes[pathname]();
     }

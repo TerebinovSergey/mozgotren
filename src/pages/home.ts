@@ -11,6 +11,15 @@ export default class HomePage {
     HomePage.drawMain();
     const footer = new FooterView();
     footer.draw();
+    HomePage.scrollToElement();
+  }
+
+  static scrollToElement() {
+    const { hash } = window.location;
+    if (hash === '') return;
+    const element = document.getElementById(hash.substring(1));
+    if (!element) return;
+    element.scrollIntoView();
   }
 
   static drawMain() {
@@ -51,8 +60,7 @@ export default class HomePage {
       <a class="train-brain" href="/trenagors">Тренировать мозг</a>
     </div>
   </section>
-  <div class="container">
-    <div id="about-us"></div>
+  <div id="about-us" class="container">
     <section class="about-us">
       <div class="main-container">
         <div class="title-wrapper">
@@ -115,9 +123,8 @@ export default class HomePage {
       </div>
     </section>
   </div>
-  <div id="features"></div>
   <section class="benefits-trenagors">
-    <div class="container">
+    <div id="features" class="container">
     <div class="main-container">
       <div class="title-wrapper">
         <h2 class="sub-title sub-title__white benefits__sub-title">ПРЕИМУЩЕСТВА ТРЕНАЖЕРОВ</h2>

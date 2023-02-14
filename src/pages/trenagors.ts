@@ -3,10 +3,21 @@ import FooterView from '../components/view/footer/footerView';
 import { getElement, getDataGame } from '../utils/utils';
 import renderRulesDescription from './description';
 import { popupVisibility } from '../components/popup-header/popupHeader';
-
 import { SessionData, DataGames, DataGame } from '../types/types';
+
 // eslint-disable-next-line global-require
 const json = require('../data/games.json') as DataGames;
+
+function getNumberGamesInCategory(categoryId: number) {
+  let count = 0;
+  for (let i = 0; i < json.games.length; i += 1) {
+    const game = json.games[i];
+    if (categoryId === game.categoryId) {
+      count += 1;
+    }
+  }
+  return count;
+}
 
 export default class TrenagorsPage {
   static draw(status: SessionData): void {
@@ -18,7 +29,7 @@ export default class TrenagorsPage {
     TrenagorsPage.renderGames(-1);
     TrenagorsPage.addListenerGroupFilter();
     popupVisibility();
-    TrenagorsPage.buttonDescription();
+    TrenagorsPage.addListenerbuttonDescription();
   }
 
   static drawMain() {
@@ -48,25 +59,25 @@ export default class TrenagorsPage {
             <div class="filter-item" data-category-id="1">
               <span class="filter-item__group-name">Тренировка памяти</span>
               <div class="filter-item__count-img">
-                <span class="filter-item__count">8</span>
+                <span class="filter-item__count" data-category-id="1">8</span>
               </div>
             </div>
             <div class="filter-item" data-category-id="2">
               <span class="filter-item__group-name">Тренировка внимания</span>
               <div class="filter-item__count-img">
-                <span class="filter-item__count">9</span>
+                <span class="filter-item__count" data-category-id="2">9</span>
               </div>
             </div>
             <div class="filter-item" data-category-id="3">
               <span class="filter-item__group-name">Тренировка мышления</span>
               <div class="filter-item__count-img">
-                <span class="filter-item__count">8</span>
+                <span class="filter-item__count" data-category-id="3">8</span>
               </div>
             </div>
             <div class="filter-item" data-category-id="4">
               <span class="filter-item__group-name">Тренировка эрудиции</span>
               <div class="filter-item__count-img">
-                <span class="filter-item__count">8</span>
+                <span class="filter-item__count" data-category-id="4">8</span>
               </div>
             </div>
             <div class="filter-item" data-category-id="-1">
@@ -74,7 +85,7 @@ export default class TrenagorsPage {
                 >ВСЕ ТРЕНАЖЕРЫ</span
               >
               <div class="filter-item__count-img">
-                <span class="filter-item__count">33</span>
+                <span class="filter-item__count" data-category-id="-1">33</span>
               </div>
             </div>
           </div>
@@ -92,6 +103,25 @@ export default class TrenagorsPage {
       const game = json.games[i];
       if (categoryId === -1 || categoryId === game.categoryId) {
         container.append(this.createGameCard(game));
+      }
+    }
+    TrenagorsPage.renderNumberGamesInCategory();
+  }
+
+  static renderNumberGamesInCategory() {
+    const titles = document.querySelectorAll('.filter-item__count');
+    let totalNumberGames = 0;
+    for (let i = 0; i < titles.length; i += 1) {
+      const title = titles[i];
+      if (title instanceof HTMLSpanElement) {
+        const groupId = Number(title.dataset.categoryId);
+        if (groupId === -1) {
+          title.textContent = String(totalNumberGames);
+        } else {
+          const numberGames = getNumberGamesInCategory(groupId);
+          totalNumberGames += numberGames;
+          title.textContent = String(numberGames);
+        }
       }
     }
   }
@@ -133,16 +163,14 @@ export default class TrenagorsPage {
     });
   }
 
-  static buttonDescription(): void {
+  static addListenerbuttonDescription(): void {
     const buttonDesc = document.querySelectorAll('.button_details');
-    console.log(buttonDesc);
     for (let i = 0; i < buttonDesc.length; i += 1) {
       const element = buttonDesc[i];
       if (!(element instanceof HTMLElement)) return;
       element.addEventListener('click', () => {
         const gameId = Number(element.dataset.gameId);
         const dataGame = getDataGame(gameId);
-        console.log(dataGame, gameId);
         renderRulesDescription(dataGame);
       });
     }

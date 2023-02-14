@@ -256,6 +256,16 @@ margin: 0;
   display: none;
 }
 
+.progress_answer {
+  stroke: #ff000033;
+}
+
+.progress_answer__overlay {
+  stroke: #50a962;
+  z-index: 2;
+  transition: all .6s ease-in-out;
+}
+
 @media screen and (max-width: 900px) {
 
   .game-container {
