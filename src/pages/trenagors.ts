@@ -2,6 +2,7 @@ import HeaderView from '../components/view/header/headerView';
 import FooterView from '../components/view/footer/footerView';
 import { getElement, getDataGame } from '../utils/utils';
 import renderRulesDescription from './description';
+import { popupVisibility } from '../components/popup-header/popupHeader';
 
 import { SessionData, DataGames, DataGame } from '../types/types';
 // eslint-disable-next-line global-require
@@ -16,7 +17,7 @@ export default class TrenagorsPage {
     footer.draw();
     TrenagorsPage.renderGames(-1);
     TrenagorsPage.addListenerGroupFilter();
-    TrenagorsPage.bodyArea();
+    popupVisibility();
     TrenagorsPage.buttonDescription();
   }
 
@@ -79,16 +80,6 @@ export default class TrenagorsPage {
           </div>
         </aside>
         <div class="trenagors-container">
-<a href="/trenagor#slozhenie" class="game-page"><div class="game-wrapper">game slozhenie</div></a>
-<a href="/trenagor#vychitanie" class="game-page"><div class="game-wrapper">game vychitanie</div></a>
-<a href="/trenagor#umnozhenie" class="game-page"><div class="game-wrapper">game umnozhenie</div></a>
-<a href="/trenagor#delenie" class="game-page"><div class="game-wrapper">game delenie</div></a>
-<a href="/trenagor#arifmetika" class="game-page"><div class="game-wrapper">game arifmetika</div></a>
-<a href="/trenagor#tablica-shulte" class="game-page"><div class="game-wrapper">game tablica-shulte</div></a>
-<a href="/trenagor#shulte-alfavit" class="game-page"><div class="game-wrapper">game shulte-alfavit</div></a>
-<a href="/trenagor#shulte-cvet" class="game-page"><div class="game-wrapper">game shulte-cvet</div></a>
-<a href="/trenagor#sortirovshchik-cifr" class="game-page"><div class="game-wrapper">game sortirovshchik-cifr</div></a>
-          
         </div>
       </section>
     </div>`;
@@ -142,15 +133,6 @@ export default class TrenagorsPage {
     });
   }
 
-  static bodyArea(): void {
-    const bodyArea = getElement('.body-background-shaddow');
-    bodyArea.addEventListener('click', () => {
-      document.querySelector('.nav-aside')?.classList.toggle('active');
-      document.querySelector('.body-background-shaddow')?.classList.toggle('hidden');
-      document.querySelector('.open')?.classList.toggle('hidden1');
-      document.querySelector('.close')?.classList.toggle('hidden1');
-    });
-  }
   static buttonDescription(): void {
     const buttonDesc = document.querySelectorAll('.button_details');
     console.log(buttonDesc);

@@ -3,7 +3,7 @@ import { randomInteger } from '../../utils/utils';
 import { Words } from '../../types/types';
 
 // eslint-disable-next-line global-require
-const data = require('./data-words.json') as Words;
+const data = require('../../data/data-words.json') as Words;
 
 export default class SortirovshchikSlov extends SortirovshchikCifr {
   getRightAnswer(): string[] {
