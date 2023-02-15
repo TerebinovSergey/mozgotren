@@ -19,6 +19,7 @@ export enum GameNames {
   StranaStolica = 'strana-stolica',
   StranaValyta = 'strana-valyta',
   AngliyskiySlovar = 'angliyskiy-slovar',
+  CifrovayaMaska = 'cifrovaya-maska',
 }
 
 export type DataGames = {
