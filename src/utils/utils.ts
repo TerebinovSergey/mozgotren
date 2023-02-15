@@ -1,9 +1,14 @@
-import { AuthData, DataGame, DataGames } from '../types/types';
+import {
+  AuthData,
+  DataGame,
+  DataGames,
+  UserData,
+} from '../types/types';
 
 // eslint-disable-next-line global-require
 const dataGames = require('../data/games.json') as DataGames;
 
-const getUserIdFromCookie = () => {
+export const getUserIdFromCookie = () => {
   const cookiesArray: Array<string[]> = [];
   document.cookie.split('=').join().replace(/ /g, '').split(';')
     .forEach((element: string) => {
@@ -132,6 +137,23 @@ export const httpGetAsync = async () => {
     console.error(`Fetch error:, ${error}`);
   }
   return JSON.stringify({ message: 'IP server no respond' });
+};
+
+export const sendProfileForm = async (userObject: UserData) => {
+  try {
+    const result = await fetch(`${baseUrl}/update-user`, {
+      method: 'POST',
+      body: JSON.stringify(userObject),
+      credentials: 'include',
+      headers: {
+        'Content-type': 'application/json',
+      },
+    });
+    return await result.json();
+  } catch (error) {
+    console.log({ message: 'update user-data error' });
+  }
+  return JSON.stringify({ message: 'update user-data error' });
 };
 
 export const isUserCheck = await isAuthenticated();

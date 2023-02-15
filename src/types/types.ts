@@ -103,10 +103,12 @@ export type AuthData = {
 
 export type UserData = {
   userId: string,
-  oldEmail: string,
-  age: string,
-  regTime: Date,
+  oldEmail?: string,
+  age?: string,
+  regTime?: Date,
   birdthDate?: string,
-  profession?: string
-  accStatus: string,
+  profession?: string,
+  country?: string,
+  accStatus?: string,
+  imagePath?: string,
 };
