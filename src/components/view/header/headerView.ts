@@ -61,8 +61,8 @@ export default class HeaderView {
           <span class="header__underline"></span>
         </span>
       </a>
-      <div class="burger-menu" onclick="">
-        <div id="nav-icon1">
+      <div class="burger-menu">
+        <div id="nav-icon">
             <span></span>
             <span></span>
             <span></span>
