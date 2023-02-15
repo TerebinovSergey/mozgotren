@@ -166,7 +166,7 @@ background: linear-gradient(135deg, #000428, #0074da);
   padding: 10px;
 }
 .card__img {
-  width: 77%;
+  width: 90%;
   height: auto;
   margin: auto;
 }
@@ -199,7 +199,6 @@ background: linear-gradient(135deg, #000428, #0074da);
   background: -webkit-linear-gradient(315deg, #000428, #0074da);
   background: linear-gradient(135deg, #000428, #0074da);
 }
-
 .card__title, .card__difficult, .card__check {
   margin-top: 10px;
   color: #252424c2;
@@ -262,19 +261,37 @@ background: linear-gradient(135deg, #000428, #0074da);
   .trenagors {
     flex-direction: column;
   }
+  .trenagors-filter {
+    font-size: 0.9rem;
+  }
 
   .trenagors-container {
     margin: 10px 0 0 0;
     padding: 0;
   }
+  
 }
 
 @media screen and (max-width: 600px) {
+
   .trenagors-card-game {
     width: 90%;
   }
-
+.card__check, .card__difficult, .button_details, .button_trane, .trenagors-filter {
+  font-size: 0.7rem;
+}
   .trenagors-container {
     justify-content: center;
   }
+
+  .card__title {
+    margin: 0;
+  }
+
+  .card__img {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
 }
