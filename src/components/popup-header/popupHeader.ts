@@ -6,7 +6,12 @@ export function popupVisibility(): void {
   bodyArea.addEventListener('click', () => {
     document.querySelector('.nav-aside')?.classList.toggle('active');
     document.querySelector('.body-background-shaddow')?.classList.toggle('hidden');
-    document.querySelector('.open')?.classList.toggle('hidden1');
-    document.querySelector('.close')?.classList.toggle('hidden1');
+    document.querySelector('#nav-icon1')?.classList.toggle('open');
+  });
+  const burgerMenu = getElement('.burger-menu');
+  burgerMenu.addEventListener('click', () => {
+    document.querySelector('.nav-aside')?.classList.toggle('active'); 
+    document.querySelector('.body-background-shaddow')?.classList.toggle('hidden');
+    document.querySelector('#nav-icon1')?.classList.toggle('open');
   });
 }
