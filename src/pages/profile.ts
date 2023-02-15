@@ -218,13 +218,6 @@ export default class ProfilePage {
   }
 
   static getMainHTML(user: SessionData, userData: UserData, userCountry: string) {
-    const getUserImage = () => {
-      if (userData.imagePath !== null) {
-        return `<img src = ${baseUrl}/${userData.imagePath}>`;
-      }
-      return '<img src="./assets/null.jpg">';
-    };
-
     const getAge = () => {
       if (Date.parse(userData.birdthDate as string) < Date.now()) {
         return `${Math.floor(Math.abs(Date.now() - Date.parse(userData.birdthDate as string)) / (1000 * 60 * 60 * 24 * 365))}`;
@@ -239,7 +232,7 @@ export default class ProfilePage {
       <div class="profile-container">
         <div class="profile-info-container ">
           <div class="profile-image">
-          ${getUserImage()}
+        <img src="${baseUrl}/${userData.imagePath}" onerror="javascript:this.src='./assets/null.jpg'"/>
           </div>
           <div class="profile-info">
             <h2 class="profile-title">${user.user}</h2>
