@@ -1,0 +1,30 @@
+.game-feyskontro__btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2px;
+  width: 55px;
+  min-width: 55px;
+  height: 55px;
+  font-size: 35px;
+  background-color: #f5f5f5;
+  box-shadow: 0 3px 1px -2px #00000033, 0 2px 2px 0 #00000024, 0 1px 5px 0 #0000001f;
+  cursor: pointer;
+  transition: all .3s;
+}
+
+.game-feyskontro__btn:hover {
+  box-shadow: 0 3px 1px -4px #00000033, 0 2px 2px 0 #00000024, 0 1px 5px 0 #0000001f;
+  background-color: #edebeb;
+}
+
+.game-feyskontro__btn > .fa::before {
+  color: black !important;
+  font-size: 35px;
+}
+
+.game-feyskontrol {
+  flex-wrap: wrap;
+  margin: auto;
+  max-width: 300px;
+}

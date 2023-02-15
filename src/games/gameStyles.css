@@ -1,6 +1,7 @@
 @import url('./baseArithmeticClass/style.css');
 @import url('./schulte-table/style.css');
 @import url('./sortirovshchik-cifr/style.css');
+@import url('./feyskontrol/style.css');
 
 .wrong-answer {
   background-color: var(--wrong-answer) !important;

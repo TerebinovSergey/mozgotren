@@ -14,6 +14,7 @@ import StranaStolicaController from '../games/strana-stolica/StranaStolicaContro
 import StranaValytaController from '../games/strana-valyta/StranaValytaController';
 import AngliyskiySlovarController from '../games/angliyskiy-slovar/AngliyskiySlovarController';
 import CifrovayaMaskaController from '../games/cifrovaya-maska/CifrovayaMaskaController';
+import FeyskontrolController from '../games/feyskontrol/FeyskontrolController';
 
 export type GameControllers = SlozhenieController |
 VychitanieController |
@@ -29,7 +30,8 @@ SortirovshchikSlovController |
 StranaStolicaController |
 StranaValytaController |
 AngliyskiySlovarController |
-CifrovayaMaskaController;
+CifrovayaMaskaController |
+FeyskontrolController;
 
 export function getGameController(nameGame: GameNames): GameControllers {
   let gameController: GameControllers;
@@ -63,6 +65,8 @@ export function getGameController(nameGame: GameNames): GameControllers {
     gameController = new AngliyskiySlovarController(GameNames.AngliyskiySlovar);
   } else if (nameGame === GameNames.CifrovayaMaska) {
     gameController = new CifrovayaMaskaController(GameNames.CifrovayaMaska);
+  } else if (nameGame === GameNames.Feyskontrol) {
+    gameController = new FeyskontrolController(GameNames.Feyskontrol);
   } else {
     gameController = new SlozhenieController();
   }

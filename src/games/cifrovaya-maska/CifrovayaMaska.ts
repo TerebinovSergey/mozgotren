@@ -23,7 +23,7 @@ export default class CifrovayaMaska extends BaseGame {
     this.countAnswers = this.currentLevel + 2;
     const minRange = Math.floor(this.currentAnswer / 10000) * 10000;
     const maxRange = minRange + 9999;
-    const lastRightDigit = this.currentAnswer.toString().substring(4, 5); // 01234
+    const lastRightDigit = this.currentAnswer.toString().substring(4, 5);
     const middleDigit = this.currentAnswer.toString().substring(2, 3);
     const setAnswers = new Set<number>();
     while (setAnswers.size < this.countAnswers - 1) {

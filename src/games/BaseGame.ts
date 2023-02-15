@@ -54,7 +54,6 @@ export class BaseGame {
   stop(): void {
     clearInterval(this.timeoutTimer);
     this.gameState = GameState.Finished;
-    console.log('stop');
   }
 
   resetGameStats(): void {
