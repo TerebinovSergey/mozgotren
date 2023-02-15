@@ -1,13 +1,5 @@
 import { BaseGame } from '../BaseGame';
-import { randomInteger } from '../../utils/utils';
-
-function shuffle(array: string[]) {
-  for (let i = array.length - 1; i > 0; i -= 1) {
-    const j = Math.floor(randomInteger(0, i - 1)); // случайный индекс от 0 до i
-    // eslint-disable-next-line no-param-reassign
-    [array[i], array[j]] = [array[j], array[i]];
-  }
-}
+import { randomInteger, shuffle } from '../../utils/utils';
 
 export default class SortirovshchikCifr extends BaseGame {
   currenAnswer: string[] | undefined;
@@ -18,8 +10,7 @@ export default class SortirovshchikCifr extends BaseGame {
     this.countAnswers = (this.currentLevel + 2);
     this.currenAnswer = this.getRightAnswer();
     this.mixAnswers = this.currenAnswer.map((val) => val);
-    shuffle(this.mixAnswers);
-    console.log(this.currenAnswer, this.mixAnswers);
+    this.mixAnswers = shuffle(this.mixAnswers);
   }
 
   getRightAnswer(): string[] {
@@ -38,14 +29,9 @@ export default class SortirovshchikCifr extends BaseGame {
       const rightAnswer = this.currenAnswer[i] === answer[i];
       check.push(rightAnswer);
       this.updateScore(rightAnswer);
-      // this.updateAnswerCount(rightAnswer);
       if (!rightAnswer) mistakes = true;
     }
-    console.log(this.rightAnswers, this.wrongAnswers);
-    // this.updateScore(!mistakes);
-    // if (!mistakes) this.updateScore(true);
     this.updateLevel(!mistakes);
-    // this.updateScore(!mistakes);
     return check;
   }
 }

@@ -1,9 +1,23 @@
 import HeaderView from '../components/view/header/headerView';
 import FooterView from '../components/view/footer/footerView';
-import { getElement } from '../utils/utils';
+import { getElement, getDataGame } from '../utils/utils';
+import renderRulesDescription from './description';
+import { popupVisibility } from '../components/popup-header/popupHeader';
 import { SessionData, DataGames, DataGame } from '../types/types';
+
 // eslint-disable-next-line global-require
 const json = require('../data/games.json') as DataGames;
+
+function getNumberGamesInCategory(categoryId: number) {
+  let count = 0;
+  for (let i = 0; i < json.games.length; i += 1) {
+    const game = json.games[i];
+    if (categoryId === game.categoryId) {
+      count += 1;
+    }
+  }
+  return count;
+}
 
 export default class TrenagorsPage {
   static draw(status: SessionData): void {
@@ -14,6 +28,8 @@ export default class TrenagorsPage {
     footer.draw();
     TrenagorsPage.renderGames(-1);
     TrenagorsPage.addListenerGroupFilter();
+    popupVisibility();
+    TrenagorsPage.addListenerbuttonDescription();
   }
 
   static drawMain() {
@@ -26,18 +42,12 @@ export default class TrenagorsPage {
 
   static getMainHTML() {
     return `
-    <div class="body-background-shaddow" onclick="document.querySelector('.nav-aside')?.classList.toggle('active'); 
-document.querySelector('.body-background-shaddow')?.classList.toggle('hidden');
-document.querySelector('.open')?.classList.toggle('hidden1');
-document.querySelector('.close')?.classList.toggle('hidden1');
-"></div>
+    <div class="body-background-shaddow"></div>
     <div class="container">
       <div class="trenagors-title-wrapper">
         <h2 class="trenagors-title">Тренажеры для ума</h2>
-        <img
-          class="trenagors-title-underline"
-          src="./line-break-blue.svg"
-          alt=""
+        <div
+          class="trenagors-title-underline_blue"
         />
       </div>
       <section class="trenagors">
@@ -49,25 +59,25 @@ document.querySelector('.close')?.classList.toggle('hidden1');
             <div class="filter-item" data-category-id="1">
               <span class="filter-item__group-name">Тренировка памяти</span>
               <div class="filter-item__count-img">
-                <span class="filter-item__count">8</span>
+                <span class="filter-item__count" data-category-id="1">8</span>
               </div>
             </div>
             <div class="filter-item" data-category-id="2">
               <span class="filter-item__group-name">Тренировка внимания</span>
               <div class="filter-item__count-img">
-                <span class="filter-item__count">9</span>
+                <span class="filter-item__count" data-category-id="2">9</span>
               </div>
             </div>
             <div class="filter-item" data-category-id="3">
               <span class="filter-item__group-name">Тренировка мышления</span>
               <div class="filter-item__count-img">
-                <span class="filter-item__count">8</span>
+                <span class="filter-item__count" data-category-id="3">8</span>
               </div>
             </div>
             <div class="filter-item" data-category-id="4">
               <span class="filter-item__group-name">Тренировка эрудиции</span>
               <div class="filter-item__count-img">
-                <span class="filter-item__count">8</span>
+                <span class="filter-item__count" data-category-id="4">8</span>
               </div>
             </div>
             <div class="filter-item" data-category-id="-1">
@@ -75,21 +85,12 @@ document.querySelector('.close')?.classList.toggle('hidden1');
                 >ВСЕ ТРЕНАЖЕРЫ</span
               >
               <div class="filter-item__count-img">
-                <span class="filter-item__count">33</span>
+                <span class="filter-item__count" data-category-id="-1">33</span>
               </div>
             </div>
           </div>
         </aside>
         <div class="trenagors-container">
-          <a href="/trenagor#slozhenie" class="game-page"><div class="game-wrapper">game slozhenie</div></a>
-          <a href="/trenagor#vychitanie" class="game-page"><div class="game-wrapper">game vychitanie</div></a>
-          <a href="/trenagor#umnozhenie" class="game-page"><div class="game-wrapper">game umnozhenie</div></a>
-          <a href="/trenagor#delenie" class="game-page"><div class="game-wrapper">game delenie</div></a>
-          <a href="/trenagor#arifmetika" class="game-page"><div class="game-wrapper">game arifmetika</div></a>
-          <a href="/trenagor#tablica-shulte" class="game-page"><div class="game-wrapper">game tablica-shulte</div></a>
-          <a href="/trenagor#shulte-alfavit" class="game-page"><div class="game-wrapper">game shulte-alfavit</div></a>
-          <a href="/trenagor#shulte-cvet" class="game-page"><div class="game-wrapper">game shulte-cvet</div></a>
-          <a href="/trenagor#sortirovshchik-cifr" class="game-page"><div class="game-wrapper">game sortirovshchik-cifr</div></a>
         </div>
       </section>
     </div>`;
@@ -104,6 +105,25 @@ document.querySelector('.close')?.classList.toggle('hidden1');
         container.append(this.createGameCard(game));
       }
     }
+    TrenagorsPage.renderNumberGamesInCategory();
+  }
+
+  static renderNumberGamesInCategory() {
+    const titles = document.querySelectorAll('.filter-item__count');
+    let totalNumberGames = 0;
+    for (let i = 0; i < titles.length; i += 1) {
+      const title = titles[i];
+      if (title instanceof HTMLSpanElement) {
+        const groupId = Number(title.dataset.categoryId);
+        if (groupId === -1) {
+          title.textContent = String(totalNumberGames);
+        } else {
+          const numberGames = getNumberGamesInCategory(groupId);
+          totalNumberGames += numberGames;
+          title.textContent = String(numberGames);
+        }
+      }
+    }
   }
 
   static createGameCard(data: DataGame): HTMLDivElement {
@@ -112,14 +132,23 @@ document.querySelector('.close')?.classList.toggle('hidden1');
     gameCard.setAttribute('data-game-id', String(data.id));
     gameCard.innerHTML = `
       <div class="card__img_block">
-        <img onclick="document.location.href = '/trenagor#${data.nameGame}';" class="card__img" alt="Умножение" src="${data.logoImg}">
+        <img onclick="document.location.href = '/trenagor#${data.nameGame}';" class="card__img" alt="logo" src="${data.logoImg}">
+        <div class="card__img1">
+          <div class="console"></div>
+          <div class="blog"></div>
+        </div>
       </div>
-      <p class="card__difficult">Сложность: ${data.basicComplexity}</p>
+      <div class="card__difficult_block">
+        <div class="cubes"></div>
+        <p class="card__difficult">Сложность: ${data.basicComplexity}</p>
+      </div>
       <h2 onclick="document.location.href = '/trenagor#${data.nameGame}';" class="card__title">${data.nameGameRu}</h2>
-      <p class="card__description">${data.check1}, ${data.check2}, ${data.check3}</p>
+      <p class="card__check">${data.check1}, ${data.check2}, ${data.check3}</p>
       <div class="wrapper_butt">
-        <button onclick="document.location.href = '/trenagor#${data.nameGame}';" class="button button_trane">Тренироваться</button>
-      </div>`;
+        <button onclick="document.location.href = '/trenagor#${data.nameGame}';" class="button_trane">Тренироваться</button>
+        <button class="button_details" data-game-id="${data.id}">Описание</button>
+      </div>
+    `;
     return gameCard;
   }
 
@@ -132,5 +161,18 @@ document.querySelector('.close')?.classList.toggle('hidden1');
       const categoryId = Number(group.dataset.categoryId);
       this.renderGames(categoryId);
     });
+  }
+
+  static addListenerbuttonDescription(): void {
+    const buttonDesc = document.querySelectorAll('.button_details');
+    for (let i = 0; i < buttonDesc.length; i += 1) {
+      const element = buttonDesc[i];
+      if (!(element instanceof HTMLElement)) return;
+      element.addEventListener('click', () => {
+        const gameId = Number(element.dataset.gameId);
+        const dataGame = getDataGame(gameId);
+        renderRulesDescription(dataGame);
+      });
+    }
   }
 }

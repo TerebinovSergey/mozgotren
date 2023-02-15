@@ -3,19 +3,22 @@ import { GameNames } from '../../types/types';
 
 export default class SortirovshchikCifrView {
   nameGame: GameNames;
-  constructor(nameGame: GameNames) {
+  objectSort: string;
+  constructor(nameGame: GameNames, objectSort: string = 'чисел') {
     this.nameGame = nameGame;
+    this.objectSort = objectSort;
   }
 
   draw(): void {
     const gameContainer = getElement(`.game-container-${this.nameGame}`);
     const gameElement = getElement(`.game-${this.nameGame}`, gameContainer);
     gameElement.innerHTML = this.getHTML();
+    this.turnOnDragAndDrop();
   }
 
   getHTML(): string {
     return `<div class="game-task-sortirovka">
-      <h4 class="game-sortirovka__title">Запомните порядок чисел</h4>
+      <h4 class="game-sortirovka__title">Запомните порядок ${this.objectSort}</h4>
       <div class="game-sortirovka-answers">
       </div>
       <button class="btn-answer game-sortirovka__btn" data-start-game="true">ЗАПОМНИЛ</button>
@@ -29,12 +32,13 @@ export default class SortirovshchikCifrView {
     answers.forEach((answer) => answersList.append(this.createAnswerItem(answer)));
   }
 
-  private createAnswerItem(answer: string): HTMLDivElement {
+  createAnswerItem(answer: string): HTMLDivElement {
     const item = document.createElement('div');
     item.classList.add('game-sortirovka-answer');
     item.dataset.answer = answer;
     const itemTitle = document.createElement('span');
     itemTitle.classList.add('sortirovka-answer__value');
+    // item.setAttribute('draggable', 'true');
     itemTitle.textContent = answer;
     item.append(itemTitle);
     return item;
@@ -44,7 +48,7 @@ export default class SortirovshchikCifrView {
     const title = getElement('.game-sortirovka__title');
     const btn = getElement('.game-sortirovka__btn');
     btn.dataset.startGame = (start) ? 'true' : 'false';
-    title.textContent = (start) ? 'Запомните порядок чисел' : 'Восстановите порядок чисел';
+    title.textContent = (start) ? `Запомните порядок ${this.objectSort}` : `Восстановите порядок ${this.objectSort}`;
     btn.textContent = (start) ? 'ЗАПОМНИЛ' : 'ПРОВЕРИТЬ';
   }
 

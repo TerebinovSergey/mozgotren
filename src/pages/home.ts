@@ -2,6 +2,7 @@ import HeaderView from '../components/view/header/headerView';
 import FooterView from '../components/view/footer/footerView';
 import { getElement } from '../utils/utils';
 import { SessionData } from '../types/types';
+import { popupVisibility } from '../components/popup-header/popupHeader';
 
 export default class HomePage {
   static draw(status: SessionData): void {
@@ -10,6 +11,15 @@ export default class HomePage {
     HomePage.drawMain();
     const footer = new FooterView();
     footer.draw();
+    HomePage.scrollToElement();
+  }
+
+  static scrollToElement() {
+    const { hash } = window.location;
+    if (hash === '') return;
+    const element = document.getElementById(hash.substring(1));
+    if (!element) return;
+    element.scrollIntoView();
   }
 
   static drawMain() {
@@ -17,15 +27,12 @@ export default class HomePage {
     main.innerHTML = this.getMainHTML();
     const header = getElement('header');
     header.after(main);
+    popupVisibility();
   }
 
   static getMainHTML() {
     return `
-    <div class="body-background-shaddow" onclick="document.querySelector('.nav-aside')?.classList.toggle('active'); 
-document.querySelector('.body-background-shaddow')?.classList.toggle('hidden');
-document.querySelector('.open')?.classList.toggle('hidden1');
-document.querySelector('.close')?.classList.toggle('hidden1');
-"></div>
+    <div class="body-background-shaddow"></div>
     <section class="main-header main-background">
     <div class="container">
     <h1 class="main-header-title">
@@ -53,8 +60,7 @@ document.querySelector('.close')?.classList.toggle('hidden1');
       <a class="train-brain" href="/trenagors">Тренировать мозг</a>
     </div>
   </section>
-  <div class="container">
-    <div id="about-us"></div>
+  <div id="about-us" class="container">
     <section class="about-us">
       <div class="main-container">
         <div class="title-wrapper">
@@ -117,9 +123,8 @@ document.querySelector('.close')?.classList.toggle('hidden1');
       </div>
     </section>
   </div>
-  <div id="features"></div>
   <section class="benefits-trenagors">
-    <div class="container">
+    <div id="features" class="container">
     <div class="main-container">
       <div class="title-wrapper">
         <h2 class="sub-title sub-title__white benefits__sub-title">ПРЕИМУЩЕСТВА ТРЕНАЖЕРОВ</h2>

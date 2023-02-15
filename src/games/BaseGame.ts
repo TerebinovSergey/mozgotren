@@ -60,7 +60,7 @@ export class BaseGame {
     this.score = 0;
     this.rightAnswers = 0;
     this.wrongAnswers = 0;
-    this.currentLevel = 2;
+    this.currentLevel = 1;
     clearInterval(this.timeoutTimer);
   }
 
@@ -68,8 +68,7 @@ export class BaseGame {
     if (increase) {
       this.score += this.complexity * this.currentLevel;
     } else {
-      const coefficient = (this.currentLevel > 1) ? 2 : 1;
-      const decreaseScore = (this.complexity * this.currentLevel) / coefficient;
+      const decreaseScore = (this.complexity * this.currentLevel) / 2;
       this.score = Math.max(this.score - decreaseScore, 0);
     }
     this.updateAnswerCount(increase);

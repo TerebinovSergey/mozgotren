@@ -43,13 +43,12 @@ export default class SortirovshchikCifrController extends BaseGameController {
     const start = bntStart.dataset.startGame === 'true';
     if (start) {
       this.renderMixAnswers();
-      this.view.turnOnDragAndDrop();
     } else {
       this.checkAnswer();
       setTimeout(() => {
         this.game.getTask();
         this.renderRightAnswers();
-      }, 200);
+      }, 300);
     }
     this.view.toggleInfo(!start);
   }
@@ -69,12 +68,19 @@ export default class SortirovshchikCifrController extends BaseGameController {
       const element = answerElements[i];
       const rightAnswer = result[i];
       element.classList.add((rightAnswer) ? 'right-answer' : 'wrong-answer');
+      this.additionalChecks(element);
     }
+  }
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  additionalChecks(element: Element): void {
+
   }
 
   private renderMixAnswers(): void {
     if (this.game.mixAnswers === undefined) return;
     this.view.rednerAnswers(this.game.mixAnswers);
+    this.view.draggable(true);
   }
 
   private renderRightAnswers() {

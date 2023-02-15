@@ -8,13 +8,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 300px;
   font-size:max(min(3rem, 8vw), 1.2rem);;
 }
 
 .game-answer-options {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .btn-answer {
@@ -33,4 +33,22 @@
 .btn-answer:hover {
   background-color: #3879ae;
   border-color: #3879ae;
+}
+
+.btn-comparison {
+  font-size:  max(min(1rem, 3vw), 0.8rem);
+  min-width: 100px;
+}
+
+.base-game-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: calc(630px - 35px - 35px - 20px);
+}
+
+@media screen and (max-width: 505px) {
+  .btn-comparison {
+    width: 45%;
+  }
 }

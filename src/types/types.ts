@@ -14,6 +14,11 @@ export enum GameNames {
   ShulteAlfavit = 'shulte-alfavit',
   ShulteCvet = 'shulte-cvet',
   SortirovshchikCifr = 'sortirovshchik-cifr',
+  SortirovshchikCvetov = 'sortirovshchik-cvetov',
+  SortirovshchikSlov = 'sortirovshchik-slov',
+  StranaStolica = 'strana-stolica',
+  StranaValyta = 'strana-valyta',
+  AngliyskiySlovar = 'angliyskiy-slovar',
 }
 
 export type DataGames = {
@@ -26,6 +31,20 @@ export type DataGame = {
   check1: string,
   check2: string,
   check3: string,
+  descriptionp1: string,
+  descriptionp2?: string,
+  descriptionp3?: string,
+  questionp1: string,
+  questionp2?: string,
+  questionp3?: string,
+  questionp4?: string,
+  questionp5?: string,
+  questionp6?: string,
+  rulesp1: string,
+  rulesp2?: string,
+  rulesp3?: string,
+  rulesp4?: string,
+  rulesp5?: string,
   basicComplexity: number,
   koefficient?: number,
   category: string,
@@ -36,6 +55,37 @@ export type DataGame = {
   logoImg: string,
   taskDescription: string,
   categoryId: number,
+};
+
+export type Words = {
+  words: string[],
+};
+
+type Country = {
+  country: string,
+  capital: string,
+};
+
+export type Countries = {
+  countries: Country[],
+};
+
+type Currency = {
+  country: string,
+  currency: string,
+};
+
+export type Currencies = {
+  currencies: Currency[],
+};
+
+type EnglishWord = {
+  en: string,
+  ru: string,
+};
+
+export type EnglishWords = {
+  words: EnglishWord[],
 };
 
 export type SessionData = {

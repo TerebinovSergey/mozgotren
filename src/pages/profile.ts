@@ -6,6 +6,7 @@ import {
   getUserIdFromCookie,
 } from '../utils/utils';
 import { UserData, SessionData } from '../types/types';
+import { popupVisibility } from '../components/popup-header/popupHeader';
 
 function isImageFile(file: File): Promise<boolean> {
   return new Promise((resolve, reject) => {
@@ -144,6 +145,8 @@ export default class ProfilePage {
     main.innerHTML = this.getMainHTML(ssid, userData, userCountry);
     const header = getElement('header');
     header.after(main);
+    // ProfilePage.bodyArea();
+    popupVisibility();
 
     const sendButton = document.querySelector('.send-form');
     sendButton?.addEventListener('click', async () => {
@@ -230,6 +233,7 @@ export default class ProfilePage {
     };
 
     return `
+    <div class="body-background-shaddow"></div>
     <div class="container-profile">
       <div class="profile-title-wrapper">
       <div class="profile-container">
@@ -499,5 +503,14 @@ export default class ProfilePage {
       <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
       <h1>Ваши данные обновлены...</h1>
     </div>`;
+  }
+  static bodyArea(): void {
+    const bodyArea = getElement('.body-background-shaddow');
+    bodyArea.addEventListener('click', () => {
+      document.querySelector('.nav-aside')?.classList.toggle('active');
+      document.querySelector('.body-background-shaddow')?.classList.toggle('hidden');
+      document.querySelector('.open')?.classList.toggle('hidden1');
+      document.querySelector('.close')?.classList.toggle('hidden1');
+    });
   }
 }

@@ -14,8 +14,11 @@ export default class BaseArithmeticView {
 
   getHTML(): string {
     return `
-    <div class="game-task"></div>
-    <div class="game-answer-options"></div>`;
+    <div class="base-game-wrapper">
+      <div></div>
+      <div class="game-task"></div>
+      <div class="game-answer-options"></div>
+    </div>`;
   }
 
   updateTask(task: string): void {
@@ -24,7 +27,7 @@ export default class BaseArithmeticView {
     taskElement.textContent = task;
   }
 
-  updateAnswers(answers: number[]): void {
+  updateAnswers(answers: number[] | string[]): void {
     const state = getElement(`.game-container-${this.nameGame}`);
     const answersElement = getElement('.game-answer-options', state);
     answersElement.innerHTML = '';

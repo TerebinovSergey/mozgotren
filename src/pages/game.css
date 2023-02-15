@@ -240,6 +240,31 @@ margin: 0;
   background-position: center center;
   background-image: url("../assets/img/svg/open-letter.svg");
 }
+.popap {
+  display: flex;
+  background-color: aqua;
+  width: 60%;
+  left: 0;
+  top: 0;
+  margin: 0; 
+  height: calc(100% + 60px);
+  height: -moz-calc(100%);
+  justify-content: center;
+  align-items: flex-start;
+}
+.hidden_popap {
+  display: none;
+}
+
+.progress_answer {
+  stroke: #ff000033;
+}
+
+.progress_answer__overlay {
+  stroke: #50a962;
+  z-index: 2;
+  transition: all .6s ease-in-out;
+}
 
 @media screen and (max-width: 900px) {
 
@@ -252,10 +277,12 @@ margin: 0;
     width: 100vw;
     margin: 0;
     margin-bottom: 10px;
+    border-top: none;
   }
 
   .navigation{
-    margin-top: -0.8px;
+    /* margin-top: -0.8px; */
+    border-top: none;
     box-shadow: 0 2px 4px -1px rgb(0 0 0 / 20%), 0 4px 5px 0 rgb(0 0 0 / 14%), 0 1px 10px 0 rgb(0 0 0 / 12%);
   }
 
@@ -274,4 +301,3 @@ margin: 0;
   }
 
 }
-
