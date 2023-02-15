@@ -8,7 +8,7 @@ import {
 // eslint-disable-next-line global-require
 const dataGames = require('../data/games.json') as DataGames;
 
-const getUserIdFromCookie = () => {
+export const getUserIdFromCookie = () => {
   const cookiesArray: Array<string[]> = [];
   document.cookie.split('=').join().replace(/ /g, '').split(';')
     .forEach((element: string) => {
