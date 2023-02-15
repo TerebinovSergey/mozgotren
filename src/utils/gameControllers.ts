@@ -15,6 +15,7 @@ import StranaValytaController from '../games/strana-valyta/StranaValytaControlle
 import AngliyskiySlovarController from '../games/angliyskiy-slovar/AngliyskiySlovarController';
 import CifrovayaMaskaController from '../games/cifrovaya-maska/CifrovayaMaskaController';
 import FeyskontrolController from '../games/feyskontrol/FeyskontrolController';
+import LishneeChisloController from '../games/lishnee-chislo/LishneeChisloController';
 
 export type GameControllers = SlozhenieController |
 VychitanieController |
@@ -67,6 +68,8 @@ export function getGameController(nameGame: GameNames): GameControllers {
     gameController = new CifrovayaMaskaController(GameNames.CifrovayaMaska);
   } else if (nameGame === GameNames.Feyskontrol) {
     gameController = new FeyskontrolController(GameNames.Feyskontrol);
+  } else if (nameGame === GameNames.LishneeChislo) {
+    gameController = new LishneeChisloController(GameNames.LishneeChislo);
   } else {
     gameController = new SlozhenieController();
   }

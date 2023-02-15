@@ -3,9 +3,10 @@ import FeyskontrolView from './FeyskontrolView';
 import { getElement } from '../../utils/utils';
 import { GameState, GameNames } from '../../types/types';
 import BaseGameController from '../BaseGameController';
+import LishneeChislo from '../lishnee-chislo/LishneeChislo';
 
 export default class FeyskontrolController extends BaseGameController {
-  game: Feyskontrol;
+  game: Feyskontrol | LishneeChislo;
   view: FeyskontrolView;
 
   constructor(nameGame: GameNames) {

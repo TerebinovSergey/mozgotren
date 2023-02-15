@@ -1,16 +1,21 @@
 import { BaseGame } from '../BaseGame';
 import { randomInteger } from '../../utils/utils';
 
-export default class FeyskontrolView extends BaseGame {
-  readonly currentAnswer: number = 1;
+export default class LishneeChislo extends BaseGame {
+  private currentAnswer: number = 0;
   private countAnswers = 0;
   constructor() {
-    super(16);
+    super(17);
   }
 
   getTask(): number[] {
-    this.countAnswers = this.currentLevel + 4;
-    const arr: number[] = new Array(this.countAnswers - 1).fill(0);
+    this.countAnswers = this.currentLevel + 10;
+    this.currentAnswer = randomInteger(10000, 99999);
+    let wrongAnswer = randomInteger(10000, 99999);
+    do {
+      wrongAnswer = randomInteger(10000, 99999);
+    } while (this.currentAnswer === wrongAnswer);
+    const arr: number[] = new Array(this.countAnswers - 1).fill(wrongAnswer);
     this.addRightAnswer(arr);
     return arr;
   }
