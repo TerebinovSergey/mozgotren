@@ -48,7 +48,8 @@
 }
 
 @media screen and (max-width: 505px) {
-  .btn-comparison {
+  .btn-comparison,
+  .btn-answer {
     width: 45%;
   }
 }
