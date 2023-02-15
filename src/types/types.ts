@@ -57,7 +57,8 @@ export type UserData = {
   age?: string,
   regTime?: Date,
   birdthDate?: string,
-  profession?: string
+  profession?: string,
+  country?: string,
   accStatus?: string,
   imagePath?: string,
 };

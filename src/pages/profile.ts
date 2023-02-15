@@ -33,9 +33,28 @@ function isImageFile(file: File): Promise<boolean> {
   });
 }
 
+const checkPassword = () => {
+  if ((document.getElementById('first-password') as HTMLInputElement).value
+    === (document.getElementById('second-password') as HTMLInputElement).value) {
+    return true;
+  }
+  const message = document.createElement('div');
+  message.classList.add('alarm-password');
+  message.innerHTML = 'проверьте Ваш пароль';
+  const secondPassword = (document.getElementById('second-password') as HTMLInputElement);
+  secondPassword.type = 'text';
+  secondPassword.append(message);
+  setTimeout(() => {
+    secondPassword.type = 'password';
+    message.remove();
+  }, 2000);
+  return false;
+};
+
 const uploadForm = async () => {
   const formData = new FormData();
   const userId = getUserIdFromCookie()[0][1];
+  const successForm = document.querySelector('.form-success');
   const userName = (document.getElementById('name') as HTMLInputElement).value;
   const userProfession = (document.getElementById('job') as HTMLSelectElement).value;
   const country = (document.getElementById('country') as HTMLInputElement).value;
@@ -53,18 +72,61 @@ const uploadForm = async () => {
   if (userProfession.length > 0) formData.append('userProfession', userProfession);
   if (country.length > 0) formData.append('country', country);
   if (birdthDate.length > 0) formData.append('birdthDate', birdthDate);
-  if (typeof image !== 'undefined') {
-    if (await isImageFile(image)) {
-      formData.append('image', image);
+  if (typeof image !== 'undefined' && await isImageFile(image)) {
+    formData.append('image', image);
+    console.log(image);
+  }
+
+  if ((userName.length > 0)
+    || (userProfession.length > 0)
+    || (country.length > 0)
+    || (birdthDate.length > 0)
+    || (typeof image !== 'undefined' && await isImageFile(image))) {
+    fetch(`${baseUrl}/upload-userdata`, {
+      method: 'POST',
+      body: formData,
+    })
+      .then((response) => response.json())
+      .then((result) => {
+        console.log(result);
+        (successForm as HTMLElement).style.display = 'flex';
+        setTimeout(() => {
+          (successForm as HTMLElement).style.display = 'none';
+          window.location.href = './profile';
+        }, 2500);
+      })
+      .catch((error) => console.error(error));
+  } else {
+    const message = (document.querySelector('.form-success') as HTMLElement);
+    message.children[0].classList.replace('fa-thumbs-o-up', 'fa-check-square-o');
+    message.style.display = 'flex';
+    message.children[1].innerHTML = 'Введите Ваши данные';
+    setTimeout(() => {
+      message.style.display = 'none';
+    }, 2000);
+  }
+};
+
+const updatePassword = async () => {
+  if (checkPassword()) {
+    const password = { password: `${(document.getElementById('first-password') as HTMLInputElement).value}` };
+    const userId = Object.fromEntries(getUserIdFromCookie());
+    const formData = { ...userId, ...password };
+    try {
+      const result = await fetch(`${baseUrl}/update-password`, {
+        method: 'POST',
+        body: JSON.stringify(formData),
+        credentials: 'include',
+        headers: {
+          'Content-type': 'application/json',
+        },
+      });
+      return await result.json();
+    } catch (error) {
+      return JSON.stringify({ message: 'update password error' });
     }
   }
-  fetch(`${baseUrl}/upload-userdata`, {
-    method: 'POST',
-    body: formData,
-  })
-    .then((response) => response.text())
-    .then((result) => console.log(result))
-    .catch((error) => console.error(error));
+  return JSON.stringify({ message: 'update password error' });
 };
 
 export default class ProfilePage {
@@ -95,6 +157,59 @@ export default class ProfilePage {
       } else {
         (this.nextElementSibling as HTMLElement).innerHTML = 'неподдерживаемый формат файла';
         (this.nextElementSibling as HTMLElement).style.color = '#ff0000';
+      }
+    });
+
+    (document.querySelector('.edit') as HTMLElement).addEventListener('click', function handleButton() {
+      if (this.children[1].innerHTML.trim() === 'Настройки') {
+        this.children[1].innerHTML = 'Профиль';
+      } else {
+        this.children[1].innerHTML = 'Настройки';
+      }
+      document.querySelector('.profile-toolbar')?.classList.toggle('active');
+      document.querySelector('.settings-toolbar')?.classList.toggle('active');
+      document.querySelector('.page1')?.classList.toggle('hidden3');
+      document.querySelector('.page2')?.classList.toggle('hidden4');
+    });
+
+    (document.querySelector('.settings-toolbar') as HTMLElement).addEventListener('click', function handleButton() {
+      this.previousElementSibling?.classList.remove('active');
+      this.classList.add('active');
+      document.querySelector('.page1')?.classList.toggle('hidden3');
+      document.querySelector('.page2')?.classList.toggle('hidden4');
+      (document.querySelector('.edit') as HTMLElement).children[1].innerHTML = 'Профиль';
+    });
+
+    (document.querySelector('.profile-toolbar') as HTMLElement).addEventListener('click', function handleButton() {
+      this.nextElementSibling?.classList.remove('active');
+      this.classList.add('active');
+      document.querySelector('.page1')?.classList.toggle('hidden3');
+      document.querySelector('.page2')?.classList.toggle('hidden4');
+      (document.querySelector('.edit') as HTMLElement).children[1].innerHTML = 'Настройки';
+    });
+
+    (document.querySelector('.quit') as HTMLElement).addEventListener('click', () => {
+      window.document.cookie = 'ssid=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+      window.location.href = '/';
+    });
+
+    (document.querySelector('.check-password') as HTMLElement).addEventListener('click', async () => {
+      const successForm = document.querySelector('.form-success');
+      const message = await updatePassword();
+      console.log(typeof message);
+      if (message.message.length > 0) {
+        (successForm as HTMLElement).style.display = 'flex';
+        (successForm?.children[1] as HTMLElement).innerHTML = 'Пароль успешно обновлен';
+        setTimeout(() => {
+          (successForm as HTMLElement).style.display = 'none';
+          window.location.href = './profile';
+        }, 2500);
+      }
+    });
+
+    (document.querySelector('.second-password') as HTMLInputElement).addEventListener('input', function handlePasswordLength() {
+      if (this.value.length > 5 && checkPassword()) {
+        (document.querySelector('.check-password') as HTMLInputElement).disabled = false;
       }
     });
   }
@@ -130,17 +245,34 @@ export default class ProfilePage {
           <div class="profile-info">
             <div class="profile-text-c"><h6 class="profile-text svg-container"><div class="null svg"></div>Возраст:</h6><span class="age">${getAge()}</span></div>
             <div class="profile-text-c"><h6 class="profile-text svg-container"><div class="bag svg"></div>Сфера деятельности:</h6><span class="job">${userData.profession ?? 'не указано'}</span></div>
-            <div class="profile-text-c"><h6 class="profile-text svg-container"><div class="earth svg"></div>Страна:</h6><span class="country">${userCountry}</span></div>
+            <div class="profile-text-c"><h6 class="profile-text svg-container"><div class="earth svg"></div>Вход из:</h6><span class="country">${userCountry}</span></div>
           </div>
           <div class="profile-info__buttons">
-            <button class="button-profile svg-container"><div class="svg"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></div>Редактировать</button>
-            <button class="button-profile svg-container"><div class="svg"><i class="fa fa-sign-out" aria-hidden="true"></i></div>Выход</button>
+            <button class="button-profile svg-container edit">
+              <div class="svg">
+                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+              </div>
+              <div>
+                Настройки
+              </div>
+          </button>
+          <button class="button-profile svg-container quit">
+            <div class="svg">
+              <i class="fa fa-sign-out" aria-hidden="true"></i>
+            </div>
+            <div>
+              Выход
+            </div>
+          </button>
           </div>
         </div>  
         <div class="toolbar"> 
-          <button class="button-profile-toolbar profile-toolbar active" onclick="document.querySelector('.settings-toolbar')?.classList.remove('active'); document.querySelector('.profile-toolbar')?.classList.add('active');  document.querySelector('.page1')?.classList.toggle('hidden3'); document.querySelector('.page2')?.classList.toggle('hidden4');">ПРОФИЛЬ</button>
-          <button class="button-profile-toolbar settings-toolbar" onclick="document.querySelector('.profile-toolbar')?.classList.remove('active'); document.querySelector('.settings-toolbar')?.classList.add('active'); document.querySelector('.page1')?.classList.toggle('hidden3'); document.querySelector('.page2')?.classList.toggle('hidden4');">НАСТРОЙКИ</button>
-          <button class="button-profile-toolbar svg-container"><div class="exit svg"></div></button>
+          <button class="button-profile-toolbar profile-toolbar active">
+             ПРОФИЛЬ
+          </button>
+          <button class="button-profile-toolbar settings-toolbar">
+            НАСТРОЙКИ
+          </button>
         </div>
       </div>
       <div class="profile-info-form-container page1">
@@ -182,6 +314,13 @@ export default class ProfilePage {
               </div>
         </div>
         <div class="card-info row">
+          <div class="svg"><i class="fa fa-globe" aria-hidden="true"></i></div>
+            <div class="dark-grey">
+            <h4>${userData.country ?? 'не указано'}</h4>
+          <h5>Страна</h5>
+          </div>
+        </div>
+        <div class="card-info row">
               <div class="svg"><i class="fa fa-star" aria-hidden="true"></i></div>
               <div class="dark-grey">
                 <h4>${userData.accStatus ?? 'Базовый'}</h4>
@@ -207,7 +346,7 @@ export default class ProfilePage {
       <h4 class="birth-title">Персональная информация</h4>
       <div class="input-box">
          <label for="name"><h5>Имя</h5></label>
-         <input id="name" type="text" class="input-name" value="${user.user ?? 'укажите Ваше имя'}">
+         <input id="name" type="text" class="input-name">
       </div>
       <div class="input-box">
           <label for="email-didabled"><h5>Email</h5></label>
@@ -348,13 +487,17 @@ export default class ProfilePage {
       <h4 class="birth-title">Изменить пароль:</h4>
       <div class="input-box hover" data-title="Длина пароля должна быть не меньше 8 символов, содержать цифры и буквы нижнего и верхнего регистра">
               <label><h5>Новый пароль</h5></label>
-              <input type="password">
+              <input type="password" id="first-password" class="first-password">
       </div>
       <div class="input-box">
               <label><h5>Повторите пароль</h5></label>
-              <input type="password">
+              <input type="password" id="second-password" class="second-password">
       </div>
-      <button class="button-profile end" disabled = "true">Сохранить пароль</button>
+      <button class="button-profile end check-password" disabled="true">Сохранить пароль</button>
+    </div>
+    <div class="form-success">
+      <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+      <h1>Ваши данные обновлены...</h1>
     </div>`;
   }
 }

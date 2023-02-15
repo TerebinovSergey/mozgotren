@@ -1,10 +1,12 @@
 .profile-title-wrapper {
+  position: relative;
   width: 100%;
   min-height: calc(100vh - 66px - 54px);
   background-color: #eee;
   padding: 10px;
   margin: 0;
   border: none;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 .profile-container {
@@ -171,7 +173,12 @@ select {
 
 .dark-grey h2 {
   text-transform: capitalize;
-  font-weight: 900;
+  font-weight: 400;
+}
+
+.dark-grey h4 {
+  text-transform: capitalize;
+  font-weight: 400;
 }
 
 label {
@@ -512,6 +519,38 @@ option {
     margin-right: 100px;
   }
 
+}
+
+.form-success {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background: rgba(240, 224, 224, 0.6);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+  border-radius: 10px;
+  font-size: 30px;
+}
+
+.form-success h1 {
+  text-align: center;
+}
+
+.form-success i {
+  margin-bottom: 20px;
+}
+
+.form-success .fa::before {
+  font-size: 110px;
+  color: #008000;
 }
 
 @media screen and (max-width: 1000px) {
