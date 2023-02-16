@@ -1,3 +1,4 @@
+/* eslint-disable no-cond-assign */
 import HeaderView from '../components/view/header/headerView';
 import FooterView from '../components/view/footer/footerView';
 import { getElement } from '../utils/utils';
@@ -12,6 +13,20 @@ type Parameters = {
   check3: string,
   complexity: number,
   nameGameRu: string,
+  descriptionp1: string,
+  descriptionp2?: string,
+  descriptionp3?: string,
+  questionp1: string,
+  questionp2?: string,
+  questionp3?: string,
+  questionp4?: string,
+  questionp5?: string,
+  questionp6?: string,
+  rulesp1: string,
+  rulesp2?: string,
+  rulesp3?: string,
+  rulesp4?: string,
+  rulesp5?: string,
   logo: string,
   levels: number;
   taskDescription: string,
@@ -22,6 +37,20 @@ export default class GamePage {
   check1: string;
   check2: string;
   check3: string;
+  descriptionp1: string;
+  descriptionp2?: string;
+  descriptionp3?: string;
+  questionp1: string;
+  questionp2?: string;
+  questionp3?: string;
+  questionp4?: string;
+  questionp5?: string;
+  questionp6?: string;
+  rulesp1: string;
+  rulesp2?: string;
+  rulesp3?: string;
+  rulesp4?: string;
+  rulesp5?: string;
   complexity: number;
   nameGameRu: string;
   logo: string;
@@ -33,6 +62,20 @@ export default class GamePage {
     this.check1 = param.check1;
     this.check2 = param.check2;
     this.check3 = param.check3;
+    this.descriptionp1 = param.descriptionp1;
+    this.descriptionp2 = param.descriptionp2;
+    this.descriptionp3 = param.descriptionp3;
+    this.questionp1 = param.questionp1;
+    this.questionp2 = param.questionp2;
+    this.questionp3 = param.questionp3;
+    this.questionp4 = param.questionp4;
+    this.questionp5 = param.questionp5;
+    this.questionp6 = param.questionp6;
+    this.rulesp1 = param.rulesp1;
+    this.rulesp2 = param.rulesp2;
+    this.rulesp3 = param.rulesp3;
+    this.rulesp4 = param.rulesp4;
+    this.rulesp5 = param.rulesp5;
     this.complexity = param.complexity;
     this.nameGameRu = param.nameGameRu;
     this.logo = param.logo;
@@ -79,6 +122,39 @@ export default class GamePage {
   private getMainHTML(): string {
     return `
     <div class="body-background-shaddow"></div>
+    <div class="body-background-shaddow-description"></div>
+    <div class="popap hidden_popap">
+      <div class="close"></div>
+      <div class="container__description">
+        <h3 class="card__description_title uppercase">${this.nameGameRu}</h3>
+        <div class="container__description">
+          <p class="card__description">${this.descriptionp1}</p>
+          <p class="card__description">${this.descriptionp2}</p>
+          <p class="card__description">${this.descriptionp3}</p>
+          <p class="card__description uppercase"><strong>Что тренирует ${this.nameGameRu}</strong></h3>
+          <p class="card__description">${this.questionp1}</p>
+          <p class="card__description">${this.questionp2}</p>
+          <p class="card__description">${this.questionp3}</p>
+          <p class="card__description">${this.questionp4}</p>
+          <p class="card__description">${this.questionp5}</p>
+          <p class="card__description">${this.questionp6}</p>
+          <p class="card__description uppercase"><strong>Правила:</strong></h3>
+          <p class="card__description">${this.rulesp1}</p>
+          <p class="card__description">${this.rulesp2}</p>
+          <p class="card__description">${this.rulesp3}</p>
+          <p class="card__description">${this.rulesp4}</p>
+          <p class="card__description">${this.rulesp5}</p>
+          <h3 class="card__description uppercase"><strong>Начисление очков</strong></h3>
+          <p class="card__description">Формула начисления баллов за правильный ответ выглядит так:</p>
+          <p class="card__description">Ваша сумма очков + КС*Уровень</p>
+          <p class="card__description">КС – коэффициент сложности, он зависит от настроек сложности выбранных до начала теста, эту цифру вы сможете увидеть в верхнем левом углу рабочего поля. При усложнении настроек повышается коэффициент сложности.</p>
+          <p class="card__description">Уровень – это не постоянная величина, в начале тренировки он имеет минимальное значение и растет на одну позицию с каждым правильным ответом. При неправильном ответе, уровень стает ниже на позицию.</p>
+          <p class="card__description">Формула вычитания баллов за неправильный ответ выглядит так:</p>
+          <p class="card__description">Ваша сумма очков – (КС*Уровень)/2</p>
+          <p class="card__description">При этом в минусовые значения сумма очков не заходит.</p>
+        </div>
+      </div>
+    </div>
     <div class="game-container game-container-${this.nameGame}">
       <div class="game-container-wrapper">
         ${this.getNavigationHTML()}
@@ -120,7 +196,6 @@ export default class GamePage {
         <h5>Правила игры</h5>
         <div class="question"></div>
       </a>
-      <div class="popap hidden_popap"></div>
       <h5> Пригласите друзей на тренировку: </h5>
       <ul class="link-container">
         <li class="link-item"><a href="https://www.facebook.com/"><div class="facebook"></div></a></li>
@@ -192,7 +267,17 @@ export default class GamePage {
     const gameRules = getElement('.game-rules');
     gameRules.addEventListener('click', () => {
       document.querySelector('.popap')?.classList.toggle('hidden_popap');
-      document.querySelector('.body-background-shaddow')?.classList.toggle('hidden');
+      document.querySelector('.body-background-shaddow-description')?.classList.toggle('hidden_desc');
+    });
+    const gameRulesArea = getElement('.body-background-shaddow-description');
+    gameRulesArea.addEventListener('click', () => {
+      document.querySelector('.popap')?.classList.toggle('hidden_popap');
+      document.querySelector('.body-background-shaddow-description')?.classList.toggle('hidden_desc');
+    });
+    const close = getElement('.close');
+    close.addEventListener('click', () => {
+      document.querySelector('.popap')?.classList.toggle('hidden_popap');
+      document.querySelector('.body-background-shaddow-description')?.classList.toggle('hidden_desc');
     });
   }
 }

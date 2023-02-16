@@ -1,22 +1,18 @@
-import { BaseArithmeticClass } from './BaseArithmeticClass';
-import BaseArithmeticView from './BaseArithmeticView';
+import Feyskontrol from './Feyskontrol';
+import FeyskontrolView from './FeyskontrolView';
 import { getElement } from '../../utils/utils';
 import { GameState, GameNames } from '../../types/types';
 import BaseGameController from '../BaseGameController';
-import Arifmetika from '../arifmetika/Arifmetika';
-import { StranaStolica } from '../strana-stolica/StranaStolica';
-import CifrovayaMaska from '../cifrovaya-maska/CifrovayaMaska';
+import LishneeChislo from '../lishnee-chislo/LishneeChislo';
 
-type GameTypes = BaseArithmeticClass | Arifmetika | StranaStolica | CifrovayaMaska;
-
-export default class BaseArithmeticController extends BaseGameController {
-  game: GameTypes;
-  view: BaseArithmeticView;
+export default class FeyskontrolController extends BaseGameController {
+  game: Feyskontrol | LishneeChislo;
+  view: FeyskontrolView;
 
   constructor(nameGame: GameNames) {
     super();
-    this.view = new BaseArithmeticView(nameGame);
-    this.game = new BaseArithmeticClass('+', 6);
+    this.view = new FeyskontrolView(nameGame);
+    this.game = new Feyskontrol();
   }
 
   start(): void {
@@ -39,14 +35,18 @@ export default class BaseArithmeticController extends BaseGameController {
 
   private addAnswerListeners(): void {
     const gameContainer = getElement(`.game-container-${this.game.nameGame}`);
-    const answers = getElement('.game-answer-options', gameContainer);
+    const answers = getElement('.game-task', gameContainer);
     answers.addEventListener('click', (event) => this.checkAnswer(event));
   }
 
   checkAnswer(event: MouseEvent): void {
     if (this.game.gameState !== GameState.Play) return;
-    const { target } = event;
-    if (!(target instanceof HTMLButtonElement)) return;
+    let { target } = event;
+    if (!(target instanceof HTMLElement)) return;
+    if (!target.classList.contains('game-gray-button')) {
+      target = target.closest('.game-gray-button');
+      if (!(target instanceof HTMLElement)) return;
+    }
     const result = this.game.checkAnswer(target.dataset.answer ?? '');
     target.classList.add((result) ? 'right-answer' : 'wrong-answer');
     setTimeout(() => this.updateState(), 200);
@@ -55,8 +55,7 @@ export default class BaseArithmeticController extends BaseGameController {
   async updateState(): Promise<void> {
     if (this.game.gameState === GameState.Play) {
       const task = this.game.getTask();
-      this.view.updateTask(task.task);
-      this.view.updateAnswers(task.answers);
+      this.view.updateTask(task);
     }
   }
 }

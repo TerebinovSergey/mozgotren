@@ -37,10 +37,10 @@ export default class HeaderView {
           </a>
         </li>
         <li class="nav-li-aside">
-          <a class="nav-item-aside" href="/#about-us" onclick="return false">Развитие</a>
+          <a class="nav-item-aside" href="/#about-us">Развитие</a>
         </li>
         <li class="nav-li-aside">
-          <a class="nav-item-aside" href="/#features" onclick="return false">Преимущества</a>
+          <a class="nav-item-aside" href="/#features">Преимущества</a>
         </li>
         <li class="nav-li-aside">
           <a class="nav-item-aside" href="/trenagors">Тренажеры</a>
@@ -61,15 +61,13 @@ export default class HeaderView {
           <span class="header__underline"></span>
         </span>
       </a>
-      <div class="burger-menu" onclick="document.querySelector('.nav-aside')?.classList.toggle('active'); 
-      document.querySelector('.body-background-shaddow')?.classList.toggle('hidden');
-      document.querySelector('.open')?.classList.toggle('hidden1');
-      document.querySelector('.close')?.classList.toggle('hidden1');
-      ">
-         <svg class="open" alt="open"></svg>
-         <svg class="close hidden1" alt="close"></svg>
+      <div class="burger-menu">
+        <div id="nav-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
       </div>
-
         <nav class="nav">
           <ul class="nav-ul">
             <li class="nav-li">

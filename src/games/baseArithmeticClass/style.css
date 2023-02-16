@@ -44,11 +44,12 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: calc(630px - 35px - 35px - 20px);
+  height: calc(700px - 35px - 35px - 20px);
 }
 
 @media screen and (max-width: 505px) {
-  .btn-comparison {
+  .btn-comparison,
+  .btn-answer {
     width: 45%;
   }
 }
