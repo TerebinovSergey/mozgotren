@@ -43,8 +43,8 @@ export default class FeyskontrolController extends BaseGameController {
     if (this.game.gameState !== GameState.Play) return;
     let { target } = event;
     if (!(target instanceof HTMLElement)) return;
-    if (!target.classList.contains('game-feyskontro__btn')) {
-      target = target.closest('.game-feyskontro__btn');
+    if (!target.classList.contains('game-gray-button')) {
+      target = target.closest('.game-gray-button');
       if (!(target instanceof HTMLElement)) return;
     }
     const result = this.game.checkAnswer(target.dataset.answer ?? '');

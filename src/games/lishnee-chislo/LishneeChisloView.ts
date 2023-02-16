@@ -20,7 +20,7 @@ export default class FeyskontrolView {
     </div>`;
   }
 
-  updateTask(answers: number[]): void {
+  updateTask(answers: string[]): void {
     const state = getElement(`.game-container-${this.nameGame}`);
     const taskElement = getElement('.game-task', state);
     taskElement.innerHTML = '';

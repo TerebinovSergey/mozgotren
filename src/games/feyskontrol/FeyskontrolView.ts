@@ -20,7 +20,7 @@ export default class FeyskontrolView {
     </div>`;
   }
 
-  updateTask(answers: number[]): void {
+  updateTask(answers: string[]): void {
     const state = getElement(`.game-container-${this.nameGame}`);
     const taskElement = getElement('.game-task', state);
     taskElement.innerHTML = '';
@@ -29,13 +29,13 @@ export default class FeyskontrolView {
       wrapper.classList.add('game-gray-button');
       const answerElem = document.createElement('i');
       answerElem.classList.add('fa');
-      if (answer === 1) {
+      if (answer === '1') {
         answerElem.classList.add('fa-frown-o');
       } else {
         answerElem.classList.add('fa-smile-o');
       }
       answerElem.ariaHidden = 'true';
-      wrapper.setAttribute('data-answer', String(answer));
+      wrapper.setAttribute('data-answer', answer);
       wrapper.append(answerElem);
       taskElement.append(wrapper);
     });

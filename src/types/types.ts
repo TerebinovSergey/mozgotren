@@ -22,6 +22,7 @@ export enum GameNames {
   CifrovayaMaska = 'cifrovaya-maska',
   Feyskontrol = 'feyskontrol',
   LishneeChislo = 'lishnee-chislo',
+  LishneeSlovo = 'lishnee-slovo',
 }
 
 export type DataGames = {
@@ -80,6 +81,11 @@ type Currency = {
 
 export type Currencies = {
   currencies: Currency[],
+};
+
+type FixedArray = Array<[string, string]>;
+export type LishneeSlovoT = {
+  words: FixedArray[],
 };
 
 type EnglishWord = {
