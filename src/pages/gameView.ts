@@ -184,7 +184,6 @@ export default class GamePage {
   private getSettingsGameHTML(): string {
     return `
     <div class="form-container">
-      <hr class="separator">
       <button class="button btn-start-game">
         <span class="">Начать тренировку</span>
       </button>
