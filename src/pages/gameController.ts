@@ -1,5 +1,5 @@
 import GamePage from './gameView';
-import { getElement } from '../utils/utils';
+import { getElement, getDataGame } from '../utils/utils';
 import { GameControllers, getGameController } from '../utils/gameControllers';
 import { GameState, GameNames, SessionData } from '../types/types';
 
@@ -20,7 +20,8 @@ export default class GameController {
   constructor(nameGame: GameNames) {
     this.nameGame = nameGame;
     this.gameController = getGameController(nameGame);
-    this.view = new GamePage({ ...this.gameController.game });
+    const gameData = getDataGame(this.gameController.game.id);
+    this.view = new GamePage({ ...gameData });
   }
 
   draw(status: SessionData): void {
@@ -101,7 +102,7 @@ export default class GameController {
     errors.textContent = String(this.gameController.game.wrongAnswers);
     const percent = getElement('.score-percent', gameContainer);
     let scorePercent = this.gameController.game.wrongAnswers
-    + this.gameController.game.rightAnswers;
+      + this.gameController.game.rightAnswers;
     if (scorePercent > 0) {
       scorePercent = Math.ceil((this.gameController.game.rightAnswers
         / (this.gameController.game.wrongAnswers + this.gameController.game.rightAnswers)) * 100);

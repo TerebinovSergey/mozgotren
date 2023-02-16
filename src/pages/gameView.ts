@@ -2,51 +2,25 @@
 import HeaderView from '../components/view/header/headerView';
 import FooterView from '../components/view/footer/footerView';
 import { getElement } from '../utils/utils';
-import { SessionData } from '../types/types';
+import { SessionData, DataGame } from '../types/types';
 import { popupVisibility } from '../components/popup-header/popupHeader';
 import './game.css';
-
-type Parameters = {
-  nameGame: string,
-  check1: string,
-  check2: string,
-  check3: string,
-  complexity: number,
-  nameGameRu: string,
-  descriptionp1: string,
-  descriptionp2?: string,
-  descriptionp3?: string,
-  questionp1: string,
-  questionp2?: string,
-  questionp3?: string,
-  questionp4?: string,
-  questionp5?: string,
-  questionp6?: string,
-  rulesp1: string,
-  rulesp2?: string,
-  rulesp3?: string,
-  rulesp4?: string,
-  rulesp5?: string,
-  logo: string,
-  levels: number;
-  taskDescription: string,
-};
 
 export default class GamePage {
   nameGame: string;
   check1: string;
   check2: string;
   check3: string;
-  descriptionp1: string;
+  descriptionp1?: string;
   descriptionp2?: string;
   descriptionp3?: string;
-  questionp1: string;
+  questionp1?: string;
   questionp2?: string;
   questionp3?: string;
   questionp4?: string;
   questionp5?: string;
   questionp6?: string;
-  rulesp1: string;
+  rulesp1?: string;
   rulesp2?: string;
   rulesp3?: string;
   rulesp4?: string;
@@ -57,7 +31,7 @@ export default class GamePage {
   levels: number;
   taskDescription: string;
 
-  constructor(param: Parameters) {
+  constructor(param: DataGame) {
     this.nameGame = param.nameGame;
     this.check1 = param.check1;
     this.check2 = param.check2;
@@ -76,9 +50,9 @@ export default class GamePage {
     this.rulesp3 = param.rulesp3;
     this.rulesp4 = param.rulesp4;
     this.rulesp5 = param.rulesp5;
-    this.complexity = param.complexity;
+    this.complexity = param.basicComplexity;
     this.nameGameRu = param.nameGameRu;
-    this.logo = param.logo;
+    this.logo = param.logoImg;
     this.levels = param.levels;
     this.taskDescription = param.taskDescription;
   }

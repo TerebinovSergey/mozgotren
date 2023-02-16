@@ -1,5 +1,5 @@
 import { GameState, DataGame, GameNames } from '../types/types';
-import { getDataGame } from '../utils/utils';
+import { getDataGame, getUserIdFromCookie, sendResult } from '../utils/utils';
 
 // eslint-disable-next-line import/prefer-default-export
 export class BaseGame {
@@ -21,20 +21,6 @@ export class BaseGame {
   readonly check1: string;
   readonly check2: string;
   readonly check3: string;
-  readonly descriptionp1: string;
-  readonly descriptionp2?: string;
-  readonly descriptionp3?: string;
-  readonly questionp1: string;
-  readonly questionp2?: string;
-  readonly questionp3?: string;
-  readonly questionp4?: string;
-  readonly questionp5?: string;
-  readonly questionp6?: string;
-  readonly rulesp1: string;
-  readonly rulesp2?: string;
-  readonly rulesp3?: string;
-  readonly rulesp4?: string;
-  readonly rulesp5?: string;
   readonly taskDescription: string;
 
   constructor(id: number) {
@@ -53,20 +39,6 @@ export class BaseGame {
     this.check1 = data.check1;
     this.check2 = data.check2;
     this.check3 = data.check3;
-    this.descriptionp1 = data.descriptionp1;
-    this.descriptionp2 = data.descriptionp2;
-    this.descriptionp3 = data.descriptionp3;
-    this.questionp1 = data.questionp1;
-    this.questionp2 = data.questionp2;
-    this.questionp3 = data.questionp3;
-    this.questionp4 = data.questionp4;
-    this.questionp5 = data.questionp5;
-    this.questionp6 = data.questionp6;
-    this.rulesp1 = data.rulesp1;
-    this.rulesp2 = data.rulesp2;
-    this.rulesp3 = data.rulesp3;
-    this.rulesp4 = data.rulesp4;
-    this.rulesp5 = data.rulesp5;
     this.nameGameRu = data.nameGameRu;
     this.nameGame = data.nameGame;
     this.logo = data.logoImg ?? '';
@@ -79,9 +51,22 @@ export class BaseGame {
     this.startTimer();
   }
 
-  stop(): void {
+  async stop(): Promise<void> {
+    if (this.gameState === GameState.Finished) return;
+    const userId = getUserIdFromCookie()[0][1];
     clearInterval(this.timeoutTimer);
     this.gameState = GameState.Finished;
+    if (this.rightAnswers === 0 && this.wrongAnswers === 0) return;
+    const result = await sendResult({
+      userId,
+      gameId: this.id,
+      score: this.score,
+      time: this.time - this.timeLeft,
+      date: new Date(),
+      rightAnswers: this.rightAnswers,
+      wrongAnswers: this.wrongAnswers,
+    });
+    console.log(await result);
   }
 
   resetGameStats(): void {
