@@ -70,8 +70,8 @@ export function getRandomColor(): string {
   return `#${color}`;
 }
 
-export const baseUrl = 'http://localhost:5000';
-// export const baseUrl = 'https://api.leoniuk.dev';
+// export const baseUrl = 'http://localhost:5000';
+export const baseUrl = 'https://api.leoniuk.dev';
 
 export const submitForm = async (objValues: AuthData) => {
   const path = (Object.keys(objValues).length === 2) ? 'login' : 'registration';
