@@ -1,5 +1,6 @@
 .container__rating_main {
   min-height: calc(100vh - 66px - 54px);
+  
 }
 .rating-filter {
   width: 100%;
@@ -19,12 +20,12 @@
   vertical-align: middle;
 }
 .rating-card {
-  width: 19.5%;
-  height: 200px;
+  width: 24.25%;
+  height: 300px;
   color: rgba(0,0,0,.87);
-  margin: 0.25%;
   display: block;
   outline: none;
+  margin-bottom: 10px;
   text-decoration: none;
   transition-property: box-shadow, opacity;
   overflow-wrap: break-word;
@@ -38,8 +39,10 @@
   margin-top: 20px;
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
   margin: auto;
   width: 95%;
+  max-width: 1280px;
 }
 .filter-item-rating {
   height: 40px;
@@ -163,45 +166,61 @@ u {
   transition: all .6s;
 }
 u:hover {
-  color: red;
+  color: #bb19db;
 }
 .filter-item__black {
   display: block;
 }
-
-
-@media screen and (max-width: 1200px) {
-
-  .rating-card {
-    width: 24.25%;
-  }
-
+.rating__throphy_1, .rating__throphy_2, .rating__throphy_3 {
+  width: 40px;
+  height: 40px;
+  margin: 10px;
+  margin-bottom: 0;
+  background-size: cover;
+  background-position: center center;
 }
-@media screen and (max-width: 1100px) {
+
+.rating__throphy_1 {
+  background-image: url("../assets/img/svg/trophy-1.svg");
+}
+.rating__throphy_2 {
+  background-image: url("../assets/img/svg/trophy-2.svg");
+}
+.rating__throphy_3 {
+  background-image: url("../assets/img/svg/trophy-3.svg");
+}
+
+@media screen and (max-width: 1300px) {
 
   .rating-card {
     width: 32.33%;
   }
 
 }
-
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1000px) {
 
   .rating-card {
     width: 48.5%;
+  }
+
+}
+
+@media screen and (max-width: 700px) {
+
+  .rating-card {
+    width: 97%;
   }
   .filter-item__black {
     display: none;
   }
 
 }
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 370px) {
   
-  .rating-card {
-    width: 97%;
-  }
   .rating-container {
-    width: 85%;
+    width: 95%;
   }
-
+  .rating-card {
+    width: 100%;
+  }
 }

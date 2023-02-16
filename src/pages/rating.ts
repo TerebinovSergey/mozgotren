@@ -102,16 +102,19 @@ export default class RatingPage {
           <td class="container__table_col rating__number">1</td>
           <td class="container__table_col rating__name">name1</td>
           <td class="container__table_col rating__score">score1</td>
+          <td class="container__table_col rating__throphy_1"></td>
         </tr>
         <tr class="container__table_row">
           <td class="container__table_col rating__number">2</td>
           <td class="container__table_col rating__name">name2</td>
           <td class="container__table_col rating__score">score2</td>
+          <td class="container__table_col rating__throphy_2"></td>
         </tr>
         <tr class="container__table_row">
           <td class="container__table_col rating__number">3</td>
           <td class="container__table_col rating__name">name3</td>
           <td class="container__table_col rating__score">score3</td>
+          <td class="container__table_col rating__throphy_3"></td>
         </tr>
       </table>
       <div class="wrapper_butt_rating">

@@ -103,25 +103,47 @@ export default class GamePage {
         <h3 class="card__description_title uppercase">${this.nameGameRu}</h3>
         <div class="container__description">
           <p class="card__description">${this.descriptionp1}</p>
-          <p class="card__description">${this.descriptionp2}</p>
-          <p class="card__description">${this.descriptionp3}</p>
+  ${
+  this.descriptionp2 !== undefined ? `<p class="card__description">${this.descriptionp2}</p>` : ''
+}
+  ${
+  this.descriptionp3 !== undefined ? `<p class="card__description">${this.descriptionp3}</p>` : ''
+}
           <p class="card__description uppercase"><strong>Что тренирует ${this.nameGameRu}</strong></h3>
           <p class="card__description">${this.questionp1}</p>
-          <p class="card__description">${this.questionp2}</p>
-          <p class="card__description">${this.questionp3}</p>
-          <p class="card__description">${this.questionp4}</p>
-          <p class="card__description">${this.questionp5}</p>
-          <p class="card__description">${this.questionp6}</p>
+          ${
+  this.questionp2 !== undefined ? `<p class="card__description">${this.questionp2}</p>` : ''
+}
+          ${
+  this.questionp3 !== undefined ? `<p class="card__description">${this.questionp3}</p>` : ''
+}
+          ${
+  this.questionp4 !== undefined ? `<p class="card__description">${this.questionp4}</p>` : ''
+}
+          ${
+  this.questionp5 !== undefined ? `<p class="card__description">${this.questionp5}</p>` : ''
+}
+          ${
+  this.questionp6 !== undefined ? `<p class="card__description">${this.questionp6}</p>` : ''
+}
           <p class="card__description uppercase"><strong>Правила:</strong></h3>
           <p class="card__description">${this.rulesp1}</p>
-          <p class="card__description">${this.rulesp2}</p>
-          <p class="card__description">${this.rulesp3}</p>
-          <p class="card__description">${this.rulesp4}</p>
-          <p class="card__description">${this.rulesp5}</p>
+          ${
+  this.rulesp2 !== undefined ? `<p class="card__description">${this.rulesp2}</p>` : ''
+}
+            ${
+  this.rulesp3 !== undefined ? `<p class="card__description">${this.rulesp3}</p>` : ''
+}
+          ${
+  this.rulesp4 !== undefined ? `<p class="card__description">${this.rulesp4}</p>` : ''
+}
+            ${
+  this.rulesp5 !== undefined ? `<p class="card__description">${this.rulesp5}</p>` : ''
+}
           <h3 class="card__description uppercase"><strong>Начисление очков</strong></h3>
           <p class="card__description">Формула начисления баллов за правильный ответ выглядит так:</p>
           <p class="card__description">Ваша сумма очков + КС*Уровень</p>
-          <p class="card__description">КС – коэффициент сложности, он зависит от настроек сложности выбранных до начала теста, эту цифру вы сможете увидеть в верхнем левом углу рабочего поля. При усложнении настроек повышается коэффициент сложности.</p>
+          <p class="card__description">КС – коэффициент сложности.</p>
           <p class="card__description">Уровень – это не постоянная величина, в начале тренировки он имеет минимальное значение и растет на одну позицию с каждым правильным ответом. При неправильном ответе, уровень стает ниже на позицию.</p>
           <p class="card__description">Формула вычитания баллов за неправильный ответ выглядит так:</p>
           <p class="card__description">Ваша сумма очков – (КС*Уровень)/2</p>
@@ -166,7 +188,7 @@ export default class GamePage {
       <button class="button btn-start-game">
         <span class="">Начать тренировку</span>
       </button>
-      <a class="game-rules" href="#">
+      <a class="game-rules">
         <h5>Правила игры</h5>
         <div class="question"></div>
       </a>

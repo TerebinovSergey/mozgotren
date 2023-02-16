@@ -56,7 +56,13 @@ padding: 30px;
   background-position: center center;
   background-image: url("../assets/img/svg/checkbox.svg");
 }
-
+.link-blue {
+  text-decoration: none;
+  color: #1074c7;
+}
+.link-blue:hover {
+  color: red;
+}
 
 @media screen and (max-width: 800px) {
 
