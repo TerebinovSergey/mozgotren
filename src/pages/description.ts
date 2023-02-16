@@ -62,12 +62,14 @@ function renderRulesDescription(game: DataGame) {
     containerDescription,
   );
 
-  const Description1 = createElemDOM(
-    'p',
-    'card__description',
-    game.descriptionp1,
-  );
-  containerDescription.append(Description1);
+  if (game.descriptionp1 !== undefined) {
+    const Description1 = createElemDOM(
+      'p',
+      'card__description',
+      game.descriptionp1,
+    );
+    containerDescription.append(Description1);
+  }
 
   if (game.descriptionp2 !== undefined) {
     const Description2 = createElemDOM(
@@ -93,12 +95,15 @@ function renderRulesDescription(game: DataGame) {
     `Что тренирует ${game.nameGameRu}:`,
   );
   containerDescription.append(titleQuestion);
-  const Questionp1 = createElemDOM(
-    'p',
-    'card__description',
-    game.questionp1,
-  );
-  containerDescription.append(Questionp1);
+
+  if (game.questionp1 !== undefined) {
+    const Questionp1 = createElemDOM(
+      'p',
+      'card__description',
+      game.questionp1,
+    );
+    containerDescription.append(Questionp1);
+  }
 
   if (game.questionp2 !== undefined) {
     const Questionp2 = createElemDOM(
@@ -154,12 +159,15 @@ function renderRulesDescription(game: DataGame) {
   );
 
   containerDescription.append(titleRules);
-  const Rulesp1 = createElemDOM(
-    'p',
-    'card__description',
-    game.rulesp1,
-  );
-  containerDescription.append(Rulesp1);
+
+  if (game.rulesp1 !== undefined) {
+    const Rulesp1 = createElemDOM(
+      'p',
+      'card__description',
+      game.rulesp1,
+    );
+    containerDescription.append(Rulesp1);
+  }
 
   if (game.rulesp2 !== undefined) {
     const Rulesp2 = createElemDOM(
