@@ -259,6 +259,9 @@ function renderRulesDescription(game: DataGame) {
   const container = getElement('.trenagors-container');
   container.innerHTML = '';
   container.append(fragment);
+  const popap = getElement('.popap');
+  popap.innerHTML = '';
+  popap.append(fragment);
 }
 
 export default renderRulesDescription;

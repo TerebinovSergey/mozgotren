@@ -32,42 +32,39 @@ export default class RatingPage {
   static getMainHTML() {
     return `
     <div class="body-background-shaddow"></div>
+    <div class="body-background-shaddow-description"></div>
     <div class="container__rating_main">
       <div class="rating-title-wrapper">
-      
-      <section class="rating">      
-      <aside class="rating-filter">
-      <div class="categories-rating">
-         
-         <div class="filter-item-rating" data-category-id="-1">
-           <div class="block"></div>
-           <span class="filter-item__black">ВСЕ</span>
-        </div>
-        <div class="filter-item-rating" data-category-id="1">
-          <div class="discette"></div>
-          <span class="filter-item__black">Память</span>
-        </div>
-        <div class="filter-item-rating" data-category-id="2">
-          <div class="loupe"></div>
-          <span class="filter-item__black">Внимание</span>
-        </div>
-        <div class="filter-item-rating" data-category-id="3">
-          <div class="trio"></div>
-          <span class="filter-item__black">Мышление</span>
-        </div>
-        <div class="filter-item-rating" data-category-id="4">
-          <div class="prof"></div>
-          <span class="filter-item__black">Эрудиция</span>
-        </div>
-        <div class="filter-item-rating">
-          <div class="king"></div>
-          <span class="filter-item__black">Зал славы</span>
-        </div>
-      </div>
-    </aside>
-
-        <div class="rating-container">
-        </div>
+        <section class="rating">      
+          <aside class="rating-filter">
+            <div class="categories-rating">
+              <div class="filter-item-rating" data-category-id="-1">
+                <div class="block"></div>
+                <span class="filter-item__black">ВСЕ</span>
+              </div>
+            <div class="filter-item-rating" data-category-id="1">
+               <div class="discette"></div>
+              <span class="filter-item__black">Память</span>
+            </div>
+            <div class="filter-item-rating" data-category-id="2">
+              <div class="loupe"></div>
+              <span class="filter-item__black">Внимание</span>
+            </div>
+            <div class="filter-item-rating" data-category-id="3">
+              <div class="trio"></div>
+              <span class="filter-item__black">Мышление</span>
+            </div>
+            <div class="filter-item-rating" data-category-id="4">
+              <div class="prof"></div>
+              <span class="filter-item__black">Эрудиция</span>
+            </div>
+            <div class="filter-item-rating">
+              <div class="king"></div>
+              <span class="filter-item__black">Зал славы</span>
+            </div>
+          </div>
+        </aside>
+        <div class="rating-container"></div>
       </section>
     </div>`;
   }
