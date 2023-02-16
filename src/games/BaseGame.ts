@@ -1,5 +1,5 @@
 import { GameState, DataGame, GameNames } from '../types/types';
-import { getDataGame } from '../utils/utils';
+import { getDataGame, getUserIdFromCookie, sendResult } from '../utils/utils';
 
 // eslint-disable-next-line import/prefer-default-export
 export class BaseGame {
@@ -51,9 +51,22 @@ export class BaseGame {
     this.startTimer();
   }
 
-  stop(): void {
+  async stop(): Promise<void> {
+    if (this.gameState === GameState.Finished) return;
+    const userId = getUserIdFromCookie()[0][1];
     clearInterval(this.timeoutTimer);
     this.gameState = GameState.Finished;
+    if (this.rightAnswers === 0 && this.wrongAnswers === 0) return;
+    const result = await sendResult({
+      userId,
+      gameId: this.id,
+      score: this.score,
+      time: this.time - this.timeLeft,
+      date: new Date(),
+      rightAnswers: this.rightAnswers,
+      wrongAnswers: this.wrongAnswers,
+    });
+    console.log(await result);
   }
 
   resetGameStats(): void {

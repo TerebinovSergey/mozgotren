@@ -3,6 +3,7 @@ import {
   DataGame,
   DataGames,
   UserData,
+  DataRating,
 } from '../types/types';
 
 // eslint-disable-next-line global-require
@@ -69,8 +70,8 @@ export function getRandomColor(): string {
   return `#${color}`;
 }
 
-// export const baseUrl = 'http://localhost:5000';
-export const baseUrl = 'https://api.leoniuk.dev';
+export const baseUrl = 'http://localhost:5000';
+// export const baseUrl = 'https://api.leoniuk.dev';
 
 export const submitForm = async (objValues: AuthData) => {
   const path = (Object.keys(objValues).length === 2) ? 'login' : 'registration';
@@ -170,4 +171,34 @@ export const createElemDOM = (
 
   if (inner.length > 0) node.innerHTML = inner;
   return node;
+};
+
+export const sendResult = async (params: DataRating) => {
+  console.log(params);
+  try {
+    const result = await fetch(`${baseUrl}/send-result`, {
+      method: 'POST',
+      body: JSON.stringify(params),
+      credentials: 'include',
+      headers: {
+        'Content-type': 'application/json',
+      },
+    });
+    return await result.json();
+  } catch (error) {
+    console.log({ message: 'send game data error' });
+  }
+  return JSON.stringify({ message: 'send game data error' });
+};
+
+export const getAllGamesRating = async () => {
+  try {
+    const result = await fetch(`${baseUrl}/ratings`, {
+      method: 'GET',
+    });
+    return await result.json();
+  } catch (error) {
+    console.log({ message: 'get all games rating error' });
+  }
+  return JSON.stringify({ message: 'get all games rating error' });
 };

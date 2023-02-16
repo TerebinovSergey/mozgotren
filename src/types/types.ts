@@ -112,3 +112,13 @@ export type UserData = {
   accStatus?: string,
   imagePath?: string,
 };
+
+export type DataRating = {
+  userId: string,
+  gameId: number,
+  score: number,
+  time: number,
+  date: Date,
+  rightAnswers: number,
+  wrongAnswers: number,
+};

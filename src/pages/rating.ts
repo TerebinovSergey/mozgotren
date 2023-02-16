@@ -1,12 +1,14 @@
 import HeaderView from '../components/view/header/headerView';
 import FooterView from '../components/view/footer/footerView';
-import { getElement, getDataGame } from '../utils/utils';
+import { getElement, getDataGame, getAllGamesRating } from '../utils/utils';
 import renderRulesDescription from './description';
 import { popupVisibility } from '../components/popup-header/popupHeader';
-
 import { SessionData, DataGames, DataGame } from '../types/types';
 // eslint-disable-next-line global-require
 const json = require('../data/games.json') as DataGames;
+
+const rating = await getAllGamesRating();
+console.log(rating);
 
 export default class RatingPage {
   static draw(status: SessionData): void {
