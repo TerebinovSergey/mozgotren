@@ -7,8 +7,10 @@ import { SessionData, DataGames, DataGame } from '../types/types';
 // eslint-disable-next-line global-require
 const json = require('../data/games.json') as DataGames;
 
-const rating = await getAllGamesRating();
-console.log(rating);
+async function getGameRatings() {
+  const rating = await getAllGamesRating();
+  console.log(rating);
+}
 
 export default class RatingPage {
   static draw(status: SessionData): void {
@@ -21,6 +23,7 @@ export default class RatingPage {
     RatingPage.addListenerGroupFilter();
     popupVisibility();
     RatingPage.buttonDescription();
+    getGameRatings();
   }
 
   static drawMain() {
@@ -135,14 +138,12 @@ export default class RatingPage {
 
   static buttonDescription(): void {
     const buttonDesc = document.querySelectorAll('.button_details');
-    console.log(buttonDesc);
     for (let i = 0; i < buttonDesc.length; i += 1) {
       const element = buttonDesc[i];
       if (!(element instanceof HTMLElement)) return;
       element.addEventListener('click', () => {
         const gameId = Number(element.dataset.gameId);
         const dataGame = getDataGame(gameId);
-        console.log(dataGame, gameId);
         renderRulesDescription(dataGame);
       });
     }
