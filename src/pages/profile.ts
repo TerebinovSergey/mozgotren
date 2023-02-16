@@ -163,24 +163,11 @@ export default class ProfilePage {
       }
     });
 
-    (document.querySelector('.edit') as HTMLElement).addEventListener('click', function handleButton() {
-      if (this.children[1].innerHTML.trim() === 'Настройки') {
-        this.children[1].innerHTML = 'Профиль';
-      } else {
-        this.children[1].innerHTML = 'Настройки';
-      }
-      document.querySelector('.profile-toolbar')?.classList.toggle('active');
-      document.querySelector('.settings-toolbar')?.classList.toggle('active');
-      document.querySelector('.page1')?.classList.toggle('hidden3');
-      document.querySelector('.page2')?.classList.toggle('hidden4');
-    });
-
     (document.querySelector('.settings-toolbar') as HTMLElement).addEventListener('click', function handleButton() {
       this.previousElementSibling?.classList.remove('active');
       this.classList.add('active');
       document.querySelector('.page1')?.classList.toggle('hidden3');
       document.querySelector('.page2')?.classList.toggle('hidden4');
-      (document.querySelector('.edit') as HTMLElement).children[1].innerHTML = 'Профиль';
     });
 
     (document.querySelector('.profile-toolbar') as HTMLElement).addEventListener('click', function handleButton() {
@@ -188,7 +175,6 @@ export default class ProfilePage {
       this.classList.add('active');
       document.querySelector('.page1')?.classList.toggle('hidden3');
       document.querySelector('.page2')?.classList.toggle('hidden4');
-      (document.querySelector('.edit') as HTMLElement).children[1].innerHTML = 'Настройки';
     });
 
     (document.querySelector('.quit') as HTMLElement).addEventListener('click', () => {
@@ -245,14 +231,7 @@ export default class ProfilePage {
             <div class="profile-text-c"><h6 class="profile-text svg-container"><div class="earth svg"></div>Вход из:</h6><span class="country">${userCountry}</span></div>
           </div>
           <div class="profile-info__buttons">
-            <button class="button-profile svg-container edit">
-              <div class="svg">
-                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-              </div>
-              <div>
-                Настройки
-              </div>
-          </button>
+
           <button class="button-profile svg-container quit">
             <div class="svg">
               <i class="fa fa-sign-out" aria-hidden="true"></i>
