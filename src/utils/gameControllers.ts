@@ -13,6 +13,10 @@ import SortirovshchikSlovController from '../games/sortirovshchik-slov/Sortirovs
 import StranaStolicaController from '../games/strana-stolica/StranaStolicaController';
 import StranaValytaController from '../games/strana-valyta/StranaValytaController';
 import AngliyskiySlovarController from '../games/angliyskiy-slovar/AngliyskiySlovarController';
+import CifrovayaMaskaController from '../games/cifrovaya-maska/CifrovayaMaskaController';
+import FeyskontrolController from '../games/feyskontrol/FeyskontrolController';
+import LishneeChisloController from '../games/lishnee-chislo/LishneeChisloController';
+import LishneeSlovoController from '../games/lishnee-slovo/LishneeSlovoController';
 
 export type GameControllers = SlozhenieController |
 VychitanieController |
@@ -27,7 +31,10 @@ SortirovshchikCvetovController |
 SortirovshchikSlovController |
 StranaStolicaController |
 StranaValytaController |
-AngliyskiySlovarController;
+AngliyskiySlovarController |
+CifrovayaMaskaController |
+FeyskontrolController |
+LishneeSlovoController;
 
 export function getGameController(nameGame: GameNames): GameControllers {
   let gameController: GameControllers;
@@ -59,6 +66,14 @@ export function getGameController(nameGame: GameNames): GameControllers {
     gameController = new StranaValytaController(GameNames.StranaValyta);
   } else if (nameGame === GameNames.AngliyskiySlovar) {
     gameController = new AngliyskiySlovarController(GameNames.AngliyskiySlovar);
+  } else if (nameGame === GameNames.CifrovayaMaska) {
+    gameController = new CifrovayaMaskaController(GameNames.CifrovayaMaska);
+  } else if (nameGame === GameNames.Feyskontrol) {
+    gameController = new FeyskontrolController(GameNames.Feyskontrol);
+  } else if (nameGame === GameNames.LishneeChislo) {
+    gameController = new LishneeChisloController(GameNames.LishneeChislo);
+  } else if (nameGame === GameNames.LishneeSlovo) {
+    gameController = new LishneeSlovoController(GameNames.LishneeSlovo);
   } else {
     gameController = new SlozhenieController();
   }

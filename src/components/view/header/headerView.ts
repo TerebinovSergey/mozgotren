@@ -40,7 +40,7 @@ export default class HeaderView {
           <a class="nav-item-aside" href="/#about-us">Развитие</a>
         </li>
         <li class="nav-li-aside">
-          <a class="nav-item-aside" href="/#features" onclick="return false">Преимущества</a>
+          <a class="nav-item-aside" href="/#features">Преимущества</a>
         </li>
         <li class="nav-li-aside">
           <a class="nav-item-aside" href="/trenagors">Тренажеры</a>
