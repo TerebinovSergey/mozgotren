@@ -166,7 +166,7 @@ export default class GamePage {
       <button class="button btn-start-game">
         <span class="">Начать тренировку</span>
       </button>
-      <a class="game-rules" href="#">
+      <a class="game-rules">
         <h5>Правила игры</h5>
         <div class="question"></div>
       </a>

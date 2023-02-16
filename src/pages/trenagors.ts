@@ -1,6 +1,6 @@
 import HeaderView from '../components/view/header/headerView';
 import FooterView from '../components/view/footer/footerView';
-import { getElement, getDataGame } from '../utils/utils';
+import { getElement } from '../utils/utils';
 import renderRulesDescription from './description';
 import { popupVisibility } from '../components/popup-header/popupHeader';
 import { SessionData, DataGames, DataGame } from '../types/types';
@@ -29,7 +29,6 @@ export default class TrenagorsPage {
     TrenagorsPage.renderGames(-1);
     TrenagorsPage.addListenerGroupFilter();
     popupVisibility();
-    TrenagorsPage.addListenerbuttonDescription();
   }
 
   static drawMain() {
@@ -102,7 +101,9 @@ export default class TrenagorsPage {
     for (let i = 0; i < json.games.length; i += 1) {
       const game = json.games[i];
       if (categoryId === -1 || categoryId === game.categoryId) {
-        container.append(this.createGameCard(game));
+        const gameCard = this.createGameCard(game);
+        container.append(gameCard);
+        gameCard.addEventListener('click', () => renderRulesDescription(game));
       }
     }
     TrenagorsPage.renderNumberGamesInCategory();
@@ -161,18 +162,5 @@ export default class TrenagorsPage {
       const categoryId = Number(group.dataset.categoryId);
       this.renderGames(categoryId);
     });
-  }
-
-  static addListenerbuttonDescription(): void {
-    const buttonDesc = document.querySelectorAll('.button_details');
-    for (let i = 0; i < buttonDesc.length; i += 1) {
-      const element = buttonDesc[i];
-      if (!(element instanceof HTMLElement)) return;
-      element.addEventListener('click', () => {
-        const gameId = Number(element.dataset.gameId);
-        const dataGame = getDataGame(gameId);
-        renderRulesDescription(dataGame);
-      });
-    }
   }
 }
