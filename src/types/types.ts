@@ -130,4 +130,13 @@ export type DataRating = {
   date: Date,
   rightAnswers: number,
   wrongAnswers: number,
+  user?: AuthData[],
+};
+
+export type WrongAnswer = {
+  message: string,
+};
+
+export type RatingsT = {
+  result: DataRating[];
 };

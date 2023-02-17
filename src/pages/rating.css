@@ -19,12 +19,15 @@
   vertical-align: middle;
 }
 .rating-card {
-  width: 19.5%;
-  height: 200px;
+  width: 24.25%;
+  height: 300px;
   color: rgba(0,0,0,.87);
-  margin: 0.25%;
   display: block;
   outline: none;
+  margin-left: 0.25%;
+  margin-right: 0.25%;
+  margin-top: 5px;
+  margin-bottom: 5px;
   text-decoration: none;
   transition-property: box-shadow, opacity;
   overflow-wrap: break-word;
@@ -38,8 +41,10 @@
   margin-top: 20px;
   display: flex;
   flex-wrap: wrap;
+  justify-content: flex-start;
   margin: auto;
   width: 95%;
+  max-width: 1280px;
 }
 .filter-item-rating {
   height: 40px;
@@ -158,15 +163,27 @@ height: 65px;
 .card__rating_title p {
   font-size: 0.8rem;
 }
-u {
-  cursor: pointer;
-  transition: all .6s;
-}
-u:hover {
-  color: red;
-}
 .filter-item__black {
   display: block;
+}
+
+.rating__throphy_1, .rating__throphy_2, .rating__throphy_3 {
+  width: 40px;
+  height: 40px;
+  margin: 10px;
+  margin-bottom: 0;
+  background-size: cover;
+  background-position: center center;
+}
+
+.rating__throphy_1 {
+  background-image: url("../assets/img/svg/trophy-1.svg");
+}
+.rating__throphy_2 {
+  background-image: url("../assets/img/svg/trophy-2.svg");
+}
+.rating__throphy_3 {
+  background-image: url("../assets/img/svg/trophy-3.svg");
 }
 
 

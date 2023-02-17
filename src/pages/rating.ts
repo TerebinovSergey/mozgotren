@@ -1,32 +1,35 @@
 import HeaderView from '../components/view/header/headerView';
 import FooterView from '../components/view/footer/footerView';
-import { getElement, getDataGame, getAllGamesRating } from '../utils/utils';
+import { getElement, getDataGame, getUserIdFromCookie } from '../utils/utils';
 import renderRulesDescription from './description';
 import { popupVisibility } from '../components/popup-header/popupHeader';
 import { SessionData, DataGames, DataGame } from '../types/types';
+import Ratings from '../components/ratings/ratings';
 // eslint-disable-next-line global-require
 const json = require('../data/games.json') as DataGames;
 
-async function getGameRatings() {
-  const rating = await getAllGamesRating();
-  console.log(rating);
-}
+/* async function getGameRatings() {
+  const rat = new Ratings();
+  rat.read();
+} */
 
 export default class RatingPage {
-  static draw(status: SessionData): void {
+  ratings: Ratings | undefined;
+
+  draw(status: SessionData): void {
     const header = new HeaderView();
     header.draw(status);
-    RatingPage.drawMain();
+    this.drawMain();
     const footer = new FooterView();
     footer.draw();
-    RatingPage.renderGames(-1);
-    RatingPage.addListenerGroupFilter();
+    this.renderGames(-1);
+    this.addListenerGroupFilter();
     popupVisibility();
-    RatingPage.buttonDescription();
-    getGameRatings();
+    this.buttonDescription();
+    // getGameRatings();
   }
 
-  static drawMain() {
+  drawMain() {
     const main = document.createElement('main');
     main.classList.add('rating-main');
     main.innerHTML = this.getMainHTML();
@@ -34,7 +37,7 @@ export default class RatingPage {
     header.after(main);
   }
 
-  static getMainHTML() {
+  getMainHTML() {
     return `
     <div class="body-background-shaddow"></div>
     <div class="body-background-shaddow-description"></div>
@@ -74,18 +77,43 @@ export default class RatingPage {
     </div>`;
   }
 
-  static renderGames(categoryId: number) {
+  async renderGames(categoryId: number) {
+    if (this.ratings === undefined) {
+      this.ratings = new Ratings();
+      await this.ratings.read();
+    }
     const container = getElement('.rating-container');
     container.innerHTML = '';
     for (let i = 0; i < json.games.length; i += 1) {
       const game = json.games[i];
       if (categoryId === -1 || categoryId === game.categoryId) {
-        container.append(this.createGameCard(game));
+        // eslint-disable-next-line no-await-in-loop
+        const gameCard = await this.createGameCard(game);
+        container.append(gameCard);
       }
     }
   }
 
-  static createGameCard(data: DataGame): HTMLDivElement {
+  async createGameCard(data: DataGame): Promise<HTMLDivElement> {
+    type User = {
+      score: number | string,
+      userName: string,
+    };
+    const userId = getUserIdFromCookie()[0][1];
+    const position = this.ratings?.getUserPositionByGame(data.id, userId);
+    const userPosition = (position === 0 || position === undefined) ? '' : position;
+    const gameRat = this.ratings?.bestGameResults?.get(data.id);
+    const arr: User[] = [];
+    console.log(gameRat);
+    if (gameRat === undefined) {
+      arr.push({ userName: '', score: '' });
+      arr.push({ userName: '', score: '' });
+      arr.push({ userName: '', score: '' });
+    } else {
+      arr.push({ userName: gameRat[0]?.userName ?? '', score: gameRat[0]?.score ?? '' });
+      arr.push({ userName: gameRat[1]?.userName ?? '', score: gameRat[1]?.score ?? '' });
+      arr.push({ userName: gameRat[2]?.userName ?? '', score: gameRat[2]?.score ?? '' });
+    }
     const gameCard = document.createElement('div');
     gameCard.classList.add('rating-card');
     gameCard.setAttribute('data-game-id', String(data.id));
@@ -94,24 +122,27 @@ export default class RatingPage {
         <div class="game-logo" style="background-image: url(${data.logoImg})"></div>
         <div class="block-col">
           <h2 onclick="document.location.href = '/rating#${data.nameGame}';" class="card__title_rating">${data.nameGameRu}</h2>
-          <p>Ваше место в рейтинге: <span><u>Показать</u></span></p>
+          <p>Ваше место в рейтинге: <span>${userPosition}</span></p>
         </div>
       </div>
       <table class="container__table">
         <tr class="container__table_row">
           <td class="container__table_col rating__number">1</td>
-          <td class="container__table_col rating__name">name1</td>
-          <td class="container__table_col rating__score">score1</td>
+          <td class="container__table_col rating__name">${arr[0].userName}</td>
+          <td class="container__table_col rating__score">${arr[0].score}</td>
+          <td class="container__table_col rating__throphy_1"></td>
         </tr>
         <tr class="container__table_row">
           <td class="container__table_col rating__number">2</td>
-          <td class="container__table_col rating__name">name2</td>
-          <td class="container__table_col rating__score">score2</td>
+          <td class="container__table_col rating__name">${arr[1].userName}</td>
+          <td class="container__table_col rating__score">${arr[1].score}</td>
+          <td class="container__table_col rating__throphy_2"></td>
         </tr>
         <tr class="container__table_row">
           <td class="container__table_col rating__number">3</td>
-          <td class="container__table_col rating__name">name3</td>
-          <td class="container__table_col rating__score">score3</td>
+          <td class="container__table_col rating__name">${arr[2].userName}</td>
+          <td class="container__table_col rating__score">${arr[2].score}</td>
+          <td class="container__table_col rating__throphy_3"></td>
         </tr>
       </table>
       <div class="wrapper_butt_rating">
@@ -122,7 +153,7 @@ export default class RatingPage {
     return gameCard;
   }
 
-  static addListenerGroupFilter(): void {
+  addListenerGroupFilter(): void {
     const filter = getElement('.categories-rating');
     filter.addEventListener('click', (event) => {
       if (!(event.target instanceof HTMLElement)) return;
@@ -133,7 +164,7 @@ export default class RatingPage {
     });
   }
 
-  static buttonDescription(): void {
+  buttonDescription(): void {
     const buttonDesc = document.querySelectorAll('.button_details');
     for (let i = 0; i < buttonDesc.length; i += 1) {
       const element = buttonDesc[i];
