@@ -5,6 +5,10 @@
   text-decoration: none;
 }
 
+.header {
+  min-height: 66px;
+}
+
 .logo-img {
   margin-right: 10px;
   width: max(min(46px, 2vw), 24px);
@@ -337,6 +341,10 @@
     font-size: 12px;
     font-family: 'Source Sans Pro', sans-serif;
   }
+
+  .header {
+    padding-top: 10px;
+  }
 }
 
 
@@ -350,15 +358,6 @@
     padding: 0 4px;
   }
 }
-
-/* @media screen and (max-width: 560px) { */
-
-  /* .nav-wrapper,
-  .nav-ul {
-    justify-content: end;
-  } */
-
-/* } */
 
 @media screen and (max-width: 400px) {
 

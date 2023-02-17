@@ -8,10 +8,16 @@ import Ratings from '../components/ratings/ratings';
 // eslint-disable-next-line global-require
 const json = require('../data/games.json') as DataGames;
 
-/* async function getGameRatings() {
-  const rat = new Ratings();
-  rat.read();
-} */
+function formatTime(seconds: number): string {
+  const hours = Math.floor(seconds / 60 / 60);
+  const minutes = Math.floor(seconds / 60) - (hours * 60);
+  const sec = seconds % 60;
+  return [
+    hours.toString().padStart(2, '0'),
+    minutes.toString().padStart(2, '0'),
+    sec.toString().padStart(2, '0'),
+  ].join(' : ');
+}
 
 export default class RatingPage {
   ratings: Ratings | undefined;
@@ -43,37 +49,39 @@ export default class RatingPage {
     <div class="body-background-shaddow-description"></div>
     <div class="container__rating_main">
       <div class="rating-title-wrapper">
-        <section class="rating">      
+        <section class="rating">
           <aside class="rating-filter">
-            <div class="categories-rating">
-              <div class="filter-item-rating" data-category-id="-1">
-                <div class="block"></div>
-                <span class="filter-item__black">ВСЕ</span>
+            <div class="container">
+              <div class="categories-rating">
+                <div class="filter-item-rating" data-category-id="-1">
+                  <div class="block"></div>
+                  <span class="filter-item__black">ВСЕ</span>
+                </div>
+              <div class="filter-item-rating" data-category-id="1">
+                <div class="discette"></div>
+                <span class="filter-item__black">Память</span>
               </div>
-            <div class="filter-item-rating" data-category-id="1">
-               <div class="discette"></div>
-              <span class="filter-item__black">Память</span>
+              <div class="filter-item-rating" data-category-id="2">
+                <div class="loupe"></div>
+                <span class="filter-item__black">Внимание</span>
+              </div>
+              <div class="filter-item-rating" data-category-id="3">
+                <div class="trio"></div>
+                <span class="filter-item__black">Мышление</span>
+              </div>
+              <div class="filter-item-rating" data-category-id="4">
+                <div class="prof"></div>
+                <span class="filter-item__black">Эрудиция</span>
+              </div>
+              <div class="filter-item-rating" data-category-id="fame">
+                <div class="king"></div>
+                <span class="filter-item__black">Зал славы</span>
+              </div>
             </div>
-            <div class="filter-item-rating" data-category-id="2">
-              <div class="loupe"></div>
-              <span class="filter-item__black">Внимание</span>
-            </div>
-            <div class="filter-item-rating" data-category-id="3">
-              <div class="trio"></div>
-              <span class="filter-item__black">Мышление</span>
-            </div>
-            <div class="filter-item-rating" data-category-id="4">
-              <div class="prof"></div>
-              <span class="filter-item__black">Эрудиция</span>
-            </div>
-            <div class="filter-item-rating">
-              <div class="king"></div>
-              <span class="filter-item__black">Зал славы</span>
-            </div>
-          </div>
-        </aside>
-        <div class="rating-container"></div>
-      </section>
+          </aside>
+          <div class="rating-container"></div>
+        </section>
+      </div>
     </div>`;
   }
 
@@ -104,7 +112,6 @@ export default class RatingPage {
     const userPosition = (position === 0 || position === undefined) ? '' : position;
     const gameRat = this.ratings?.bestGameResults?.get(data.id);
     const arr: User[] = [];
-    console.log(gameRat);
     if (gameRat === undefined) {
       arr.push({ userName: '', score: '' });
       arr.push({ userName: '', score: '' });
@@ -153,14 +160,50 @@ export default class RatingPage {
     return gameCard;
   }
 
+  private async renderHallOfFame() {
+    const container = getElement('.rating-container');
+    const totalUserResults = this.ratings?.totalUserResults;
+    let tableRow = '';
+    if (totalUserResults) {
+      let i = 1;
+      totalUserResults.forEach((rating) => {
+        tableRow += `
+          <tr>
+            <td class="table-ratings__place">${i}.</td>
+            <td class="table-ratings__user" colspan="2">${rating.userName}</td>
+            <td class="table-ratings__time">${formatTime(rating.time)}</td>
+            <td class="table-ratings__score">${rating.score}</td>
+          </tr>`;
+        i += 1;
+      });
+    }
+    container.innerHTML = `
+    <table class="table-ratings">
+      <thead>
+        <tr>
+          <th colspan="3">Пользователь</th>
+          <th>Время</th>
+          <th>Очки</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${tableRow}
+      </tbody>
+    </table>`;
+  }
+
   addListenerGroupFilter(): void {
     const filter = getElement('.categories-rating');
     filter.addEventListener('click', (event) => {
       if (!(event.target instanceof HTMLElement)) return;
       const group = event.target.closest('.filter-item-rating');
       if (!(group instanceof HTMLElement)) return;
-      const categoryId = Number(group.dataset.categoryId);
-      this.renderGames(categoryId);
+      const { categoryId } = group.dataset;
+      if (categoryId === 'fame') {
+        this.renderHallOfFame();
+      } else {
+        this.renderGames(Number(categoryId));
+      }
     });
   }
 

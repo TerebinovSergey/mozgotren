@@ -25,7 +25,6 @@ export default class Ratings {
       });
       const allRatings = await result.json() as RatingsT;
       this.gameResults = allRatings.result;
-      console.log(this.gameResults);
       await this.saveUserResults();
       this.saveBestGameResults();
       this.saveTotalUserResults();
@@ -54,7 +53,6 @@ export default class Ratings {
         this.userResult.push(user);
       }
     });
-    console.log(this.userResult, 'UserRatingI');
   }
 
   async saveBestGameResults() {
@@ -75,7 +73,6 @@ export default class Ratings {
     groupGame.forEach((userRat) => {
       userRat.sort((a, b) => b.score - a.score);
     });
-    console.log(groupGame);
     this.bestGameResults = groupGame;
   }
 
@@ -91,7 +88,6 @@ export default class Ratings {
       }
     });
     userTotalRat.sort((a, b) => b.score - a.score);
-    console.log(userTotalRat, 'saveTotalUserResults');
     this.totalUserResults = userTotalRat;
   }
 
