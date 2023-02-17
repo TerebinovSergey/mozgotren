@@ -256,11 +256,36 @@ background: linear-gradient(135deg, #000428, #0074da);
 }
 
 
+@media screen and (max-width: 1060px) {
+
+  .card__img_block:hover .card__img1 {
+    transform: translateY(-40%);
+  }
+
+}
+
+@media screen and (max-width: 980px) {
+
+  .card__img_block:hover .card__img1 {
+    transform: translateY(-30%);
+  }
+
+}
+
+@media screen and (max-width: 900px) {
+
+  .card__img_block:hover .card__img1 {
+    transform: translateY(-13%);
+  }
+
+}
 
 @media screen and (max-width: 800px) {
+
   .trenagors {
     flex-direction: column;
   }
+
   .trenagors-filter {
     font-size: 0.9rem;
   }
@@ -269,20 +294,37 @@ background: linear-gradient(135deg, #000428, #0074da);
     margin: 10px 0 0 0;
     padding: 0;
   }
+  .card__img_block:hover .card__img1 {
+    transform: translateY(-30%);
+  }
   
+}
+
+@media screen and (max-width: 650px) {
+
+  .card__img_block:hover .card__img1 {
+    transform: translateY(-20%);
+  }
+
 }
 
 @media screen and (max-width: 600px) {
 
-  .trenagors-card-game {
-    width: 90%;
-  }
+.trenagors-card-game {
+  width: 90%;
+}
+
 .card__check, .card__difficult, .button_details, .button_trane, .trenagors-filter {
   font-size: 0.7rem;
 }
-  .trenagors-container {
-    justify-content: center;
-  }
+
+.card__img_block:hover .card__img1 {
+  transform: translateY(-60%);
+}
+
+.trenagors-container {
+  justify-content: center;
+}
 
   .card__title {
     margin: 0;
@@ -292,6 +334,15 @@ background: linear-gradient(135deg, #000428, #0074da);
     width: 100%;
     margin-left: 0;
     margin-right: 0;
+  }
+
+}
+
+
+@media screen and (max-width: 400px) {
+
+  .card__img_block:hover .card__img1 {
+    transform: translateY(-40%);
   }
 
 }

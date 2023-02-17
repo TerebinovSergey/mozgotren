@@ -18,6 +18,7 @@ import FeyskontrolController from '../games/feyskontrol/FeyskontrolController';
 import LishneeChisloController from '../games/lishnee-chislo/LishneeChisloController';
 import LishneeSlovoController from '../games/lishnee-slovo/LishneeSlovoController';
 import BooksController from '../games/books/booksController';
+import StranaFlagController from '../games/strana-flag/StranaFlagController';
 
 export type GameControllers = SlozhenieController |
 VychitanieController |
@@ -36,7 +37,8 @@ AngliyskiySlovarController |
 CifrovayaMaskaController |
 FeyskontrolController |
 LishneeSlovoController |
-BooksController;
+BooksController |
+StranaFlagController;
 
 export function getGameController(nameGame: GameNames): GameControllers {
   let gameController: GameControllers;
@@ -78,6 +80,8 @@ export function getGameController(nameGame: GameNames): GameControllers {
     gameController = new LishneeSlovoController(GameNames.LishneeSlovo);
   } else if (nameGame === GameNames.BookAuther) {
     gameController = new BooksController(GameNames.BookAuther);
+  } else if (nameGame === GameNames.StranaFlag) {
+    gameController = new StranaFlagController(GameNames.StranaFlag);
   } else {
     gameController = new SlozhenieController();
   }

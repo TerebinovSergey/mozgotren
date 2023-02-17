@@ -18,13 +18,13 @@ export enum GameNames {
   SortirovshchikSlov = 'sortirovshchik-slov',
   StranaStolica = 'strana-stolica',
   StranaValyta = 'strana-valyta',
-  StranaFlag = 'strana-flag',
   AngliyskiySlovar = 'angliyskiy-slovar',
   CifrovayaMaska = 'cifrovaya-maska',
   Feyskontrol = 'feyskontrol',
   LishneeChislo = 'lishnee-chislo',
   LishneeSlovo = 'lishnee-slovo',
   BookAuther = 'book-auther',
+  StranaFlag = 'strana-flag',
 }
 
 export type DataGames = {
@@ -91,8 +91,8 @@ export type Currencies = {
   currencies: Currency[],
 };
 type Flag = {
-  col1: string,
-  col2: string,
+  flag: string,
+  country: string,
 };
 
 export type Flags = {

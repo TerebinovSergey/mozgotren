@@ -1,16 +1,16 @@
-import { BookAuther } from './books';
-import BooksView from './booksView';
+import { StranaFlag } from './StranaFlag';
+import StranaFlagView from './StranaFlagView';
 import { GameNames, GameState } from '../../types/types';
 import BaseArithmeticController from '../baseArithmeticClass/BaseArithmeticController';
 
-export default class BooksController extends BaseArithmeticController {
-  game: BookAuther;
-  view: BooksView;
+export default class StranaFlagController extends BaseArithmeticController {
+  game: StranaFlag;
+  view: StranaFlagView;
 
   constructor(nameGame: GameNames) {
     super(nameGame);
-    this.view = new BooksView(nameGame);
-    this.game = new BookAuther(20);
+    this.view = new StranaFlagView(nameGame);
+    this.game = new StranaFlag(19);
   }
 
   checkAnswer(event: MouseEvent): void {
