@@ -230,9 +230,8 @@ export default class ProfilePage {
             <div class="profile-text-c"><h6 class="profile-text svg-container"><div class="bag svg"></div>Сфера деятельности:</h6><span class="job">${userData.profession ?? 'не указано'}</span></div>
             <div class="profile-text-c"><h6 class="profile-text svg-container"><div class="earth svg"></div>Вход из:</h6><span class="country">${userCountry}</span></div>
           </div>
-          <div class="profile-info__buttons">
-
-          <button class="button-profile svg-container quit">
+          <div id="buttons" class="profile-info__buttons">
+          <button id="quit" class="button-profile svg-container quit">
             <div class="svg">
               <i class="fa fa-sign-out" aria-hidden="true"></i>
             </div>
