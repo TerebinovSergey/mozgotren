@@ -53,9 +53,9 @@ export class BaseGame {
 
   async stop(): Promise<void> {
     if (this.gameState === GameState.Finished) return;
+    this.gameState = GameState.Finished;
     const userId = getUserIdFromCookie()[0][1];
     clearInterval(this.timeoutTimer);
-    this.gameState = GameState.Finished;
     if (this.rightAnswers === 0 && this.wrongAnswers === 0) return;
     const result = await sendResult({
       userId,
@@ -106,8 +106,12 @@ export class BaseGame {
     this.timeLeft = this.time;
     this.timeoutTimer = setInterval(() => {
       this.timeLeft -= 1;
-      this.gameState = (this.timeLeft > 0) ? GameState.Play : GameState.Finished;
-      if (this.gameState !== GameState.Play) clearInterval(this.timeoutTimer);
+      if (this.timeLeft <= 0) {
+        clearInterval(this.timeoutTimer);
+        this.stop();
+      } else {
+        this.gameState = GameState.Play;
+      }
     }, 1000);
   }
 }

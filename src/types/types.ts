@@ -72,13 +72,16 @@ type Country = {
   country: string,
   capital: string,
 };
+
 export type Countries = {
   countries: Country[],
 };
+
 type Book = {
   author: string,
   book: string,
 };
+
 export type Books = {
   books: Book[],
 };
@@ -155,6 +158,7 @@ export type DataRating = {
   date: Date,
   rightAnswers: number,
   wrongAnswers: number,
+  user?: AuthData[],
 };
 
 export type WrongAnswer = {

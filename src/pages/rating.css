@@ -178,6 +178,7 @@ height: 65px;
 .filter-item__black {
   display: block;
 }
+
 .rating__throphy_1, .rating__throphy_2, .rating__throphy_3 {
   width: 40px;
   height: 40px;
@@ -250,7 +251,7 @@ height: 65px;
 }
 
 .popap.ratings-popup {
-  margin-left: 10vw;
+  margin-left: 0;
   padding: 10px;
   max-width: 420px;
   width: 80vw;
@@ -259,7 +260,6 @@ height: 65px;
 .ratings-popup-container {
   align-items: center;
 }
-
 
 @media screen and (max-width: 1330px) {
 
@@ -271,12 +271,11 @@ height: 65px;
 @media screen and (max-width: 992px) {
 
   .rating-card {
-    width: 97%;
+    width: 48.5%;
   }
   .filter-item__black {
     display: none;
   }
-
 }
 
 @media screen and (max-width: 640px) {

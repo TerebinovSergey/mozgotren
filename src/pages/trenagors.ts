@@ -28,7 +28,6 @@ export default class TrenagorsPage {
     footer.draw();
     TrenagorsPage.renderGames(-1);
     TrenagorsPage.addListenerGroupFilter();
-    TrenagorsPage.addListenerDescription();
     popupVisibility();
   }
 
@@ -107,6 +106,7 @@ export default class TrenagorsPage {
       }
     }
     TrenagorsPage.renderNumberGamesInCategory();
+    TrenagorsPage.addListenerDescription();
   }
 
   static renderNumberGamesInCategory() {

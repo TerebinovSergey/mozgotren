@@ -256,20 +256,25 @@ export default class GamePage {
   }
 
   static popapOpen(): void {
-    const gameRules = getElement('.game-rules');
-    gameRules.addEventListener('click', () => {
-      document.querySelector('.popap')?.classList.toggle('hidden_popap');
-      document.querySelector('.body-background-shaddow-description')?.classList.toggle('hidden_desc');
-    });
+    GamePage.addListenerBtnGameRules();
     const gameRulesArea = getElement('.body-background-shaddow-description');
     gameRulesArea.addEventListener('click', () => {
-      document.querySelector('.popap')?.classList.toggle('hidden_popap');
-      document.querySelector('.body-background-shaddow-description')?.classList.toggle('hidden_desc');
+      console.log('gameRulesArea');
+      getElement('.popap').classList.toggle('hidden_popap');
+      getElement('.body-background-shaddow-description').classList.toggle('hidden_desc');
     });
     const close = getElement('.close');
     close.addEventListener('click', () => {
-      document.querySelector('.popap')?.classList.toggle('hidden_popap');
-      document.querySelector('.body-background-shaddow-description')?.classList.toggle('hidden_desc');
+      getElement('.popap').classList.toggle('hidden_popap');
+      getElement('.body-background-shaddow-description').classList.toggle('hidden_desc');
+    });
+  }
+
+  static addListenerBtnGameRules(): void {
+    const gameRules = getElement('.game-rules');
+    gameRules.addEventListener('click', () => {
+      getElement('.popap').classList.toggle('hidden_popap');
+      getElement('.body-background-shaddow-description').classList.toggle('hidden_desc');
     });
   }
 }
