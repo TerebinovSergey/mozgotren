@@ -26,7 +26,8 @@ export default class Controller {
   }
 
   static drawRatingPage(status: SessionData) {
-    RatingPage.draw(status);
+    const rating = new RatingPage();
+    rating.draw(status);
     console.log('response from API: ', status);
   }
 

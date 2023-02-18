@@ -4,6 +4,8 @@ import {
   DataGames,
   UserData,
   DataRating,
+  WrongAnswer,
+  RatingsT,
 } from '../types/types';
 
 // eslint-disable-next-line global-require
@@ -184,11 +186,12 @@ export const sendResult = async (params: DataRating) => {
         'Content-type': 'application/json',
       },
     });
-    return await result.json();
+    return await result.json() as DataRating;
   } catch (error) {
     console.log({ message: 'send game data error' });
   }
-  return JSON.stringify({ message: 'send game data error' });
+  const mistake: WrongAnswer = { message: 'send game data error' };
+  return mistake;
 };
 
 export const getAllGamesRating = async () => {
@@ -196,9 +199,9 @@ export const getAllGamesRating = async () => {
     const result = await fetch(`${baseUrl}/ratings`, {
       method: 'GET',
     });
-    return await result.json();
+    return await result.json() as RatingsT;
   } catch (error) {
-    console.log({ message: 'get all games rating error' });
+    const mistake: WrongAnswer = { message: 'get all games rating error' };
+    return mistake;
   }
-  return JSON.stringify({ message: 'get all games rating error' });
 };
