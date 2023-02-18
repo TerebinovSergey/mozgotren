@@ -23,6 +23,9 @@ export enum GameNames {
   Feyskontrol = 'feyskontrol',
   LishneeChislo = 'lishnee-chislo',
   LishneeSlovo = 'lishnee-slovo',
+  BookAuther = 'book-auther',
+  StranaFlag = 'strana-flag',
+  QuoteAuther = 'citata-auther',
 }
 
 export type DataGames = {
@@ -69,9 +72,23 @@ type Country = {
   country: string,
   capital: string,
 };
-
 export type Countries = {
   countries: Country[],
+};
+type Book = {
+  author: string,
+  book: string,
+};
+export type Books = {
+  books: Book[],
+};
+
+type Quote = {
+  text: string,
+  author: string,
+};
+export type Quotes = {
+  quotes: Quote[],
 };
 
 type Currency = {
@@ -81,6 +98,14 @@ type Currency = {
 
 export type Currencies = {
   currencies: Currency[],
+};
+type Flag = {
+  flag: string,
+  country: string,
+};
+
+export type Flags = {
+  flags: Flag[],
 };
 
 type FixedArray = Array<[string, string]>;
@@ -130,7 +155,6 @@ export type DataRating = {
   date: Date,
   rightAnswers: number,
   wrongAnswers: number,
-  user?: AuthData[],
 };
 
 export type WrongAnswer = {

@@ -1,0 +1,525 @@
+{ "flags": [
+  
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/af.svg",
+    "country": "Афганистан"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/ad.svg",
+    "country": "Андрорра"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/ao.svg",
+    "country": "Ангола"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/ar.svg",
+    "country": "Аргентина"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/am.svg",
+    "country": "Армения"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/au.svg",
+    "country": "Австралия"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/at.svg",
+    "country": "Австрия"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/az.svg",
+    "country": "Азербайджан"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/bh.svg",
+    "country": "Бахрейн"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/bd.svg",
+    "country": "Бангладеш"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/by.svg",
+    "country": "Беларусь"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/be.svg",
+    "country": "Бельгия"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/ba.svg",
+    "country": "Босния и Герцеговина"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/bw.svg",
+    "country": "Ботсвана"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/br.svg",
+    "country": "Бразилия"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/bg.svg",
+    "country": "Болгария"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/kh.svg",
+    "country": "Камбоджа"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/cm.svg",
+    "country": "Камерун"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/ca.svg",
+    "country": "Канада"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/td.svg",
+    "country": "Чад"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/cl.svg",
+    "country": "Чили"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/cn.svg",
+    "country": "Китай"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/co.svg",
+    "country": "Колумбия"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/cu.svg",
+    "country": "Куба"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/cy.svg",
+    "country": "Кипр"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/cz.svg",
+    "country": "Чехия"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/dk.svg",
+    "country": "Дания"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/dm.svg",
+    "country": "Доминикана"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/ec.svg",
+    "country": "Эквадор"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/eg.svg",
+    "country": "Египт"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/ee.svg",
+    "country": "Эстония"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/et.svg",
+    "country": "Эфиопия"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/fj.svg",
+    "country": "Фиджи"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/fi.svg",
+    "country": "Финляндия"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/fr.svg",
+    "country": "Франция"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/ga.svg",
+    "country": "Габон"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/gm.svg",
+    "country": "Гамбия"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/ge.svg",
+    "country": "Грузия"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/de.svg",
+    "country": "Германия"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/gi.svg",
+    "country": "Гибралтар"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/gr.svg",
+    "country": "Греция"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/gl.svg",
+    "country": "Гренландия"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/gd.svg",
+    "country": "Гренада"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/gp.svg",
+    "country": "Гваделупа"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/gu.svg",
+    "country": "Гуам"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/gt.svg",
+    "country": "Гватемала"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/gn.svg",
+    "country": "Гвинея"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/ht.svg",
+    "country": "Гаити"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/hn.svg",
+    "country": "Гондурас"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/hk.svg",
+    "country": "Гон Конг"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/hu.svg",
+    "country": "Венгрия"
+  },
+
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/is.svg",
+    "country": "Исландия"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/in.svg",
+    "country": "Индия"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/id.svg",
+    "country": "Индонезия"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/ir.svg",
+    "country": "Иран"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/iq.svg",
+    "country": "Ирак"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/ie.svg",
+    "country": "Ирландия"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/il.svg",
+    "country": "Израэль"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/it.svg",
+    "country": "Италия"
+  },
+
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/jm.svg",
+    "country": "Ямайка"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/jp.svg",
+    "country": "Япония"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/jo.svg",
+    "country": "Иордания"
+  },
+
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/kz.svg",
+    "country": "Казахстан"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/ke.svg",
+    "country": "Кения"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/kw.svg",
+    "country": "Кувейт"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/kg.svg",
+    "country": "Киргизтан"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/lv.svg",
+    "country": "Латвия"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/lr.svg",
+    "country": "Либерия"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/li.svg",
+    "country": "Лихтенштейн"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/lu.svg",
+    "country": "Люксембург"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/mg.svg",
+    "country": "Мадагаскар"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/my.svg",
+    "country": "Малайзия"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/mv.svg",
+    "country": "Мальдивы"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/ml.svg",
+    "country": "Мали"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/mt.svg",
+    "country": "Мальта"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/mx.svg",
+    "country": "Мексика"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/md.svg",
+    "country": "Республика Молдова"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/mc.svg",
+    "country": "Монако"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/mn.svg",
+    "country": "Монголия"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/ma.svg",
+    "country": "Морокко"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/mz.svg",
+    "country": "Мозамбик"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/na.svg",
+    "country": "Намибия"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/np.svg",
+    "country": "Непал"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/nl.svg",
+    "country": "Нидерланды"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/nz.svg",
+    "country": "Новая Зеландия"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/ni.svg",
+    "country": "Никарагуа"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/ng.svg",
+    "country": "Нигерия"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/no.svg",
+    "country": "Норвегия"
+  },
+
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/om.svg",
+    "country": "Оман"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/pk.svg",
+    "country": "Пакистан"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/pa.svg",
+    "country": "Панама"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/py.svg",
+    "country": "Парагвай"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/pe.svg",
+    "country": "Перу"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/ph.svg",
+    "country": "Филлипины"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/pl.svg",
+    "country": "Польша"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/pt.svg",
+    "country": "Португалия"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/pr.svg",
+    "country": "Пуэрте Рико"
+  },
+
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/qa.svg",
+    "country": "Катар"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/ro.svg",
+    "country": "Румыния"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/ru.svg",
+    "country": "Россия"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/sm.svg",
+    "country": "Сан Марино"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/sa.svg",
+    "country": "Саудовская Аравия"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/sn.svg",
+    "country": "Сенегал"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/sc.svg",
+    "country": "Сейшеллы"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/sg.svg",
+    "country": "Сингапур"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/sk.svg",
+    "country": "Словакия"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/si.svg",
+    "country": "Словения"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/so.svg",
+    "country": "Сомали"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/es.svg",
+    "country": "Испания"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/lk.svg",
+    "country": "Шри-Ланка"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/sd.svg",
+    "country": "Судан"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/se.svg",
+    "country": "Швеция"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/ch.svg",
+    "country": "Швейцария"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/sy.svg",
+    "country": "Сирия"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/tj.svg",
+    "country": "Таджикистан"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/th.svg",
+    "country": "Тайланд"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/tn.svg",
+    "country": "Тунис"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/tr.svg",
+    "country": "Турция"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/tm.svg",
+    "country": "Туркменистан"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/ua.svg",
+    "country": "Украина"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/gb.svg",
+    "country": "Великобритания"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/us.svg",
+    "country": "США"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/uy.svg",
+    "country": "Уругвай"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/uz.svg",
+    "country": "Узбекистан"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/ve.svg",
+    "country": "Венесуэлла"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/vn.svg",
+    "country": "Вьетнам"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/ye.svg",
+    "country": "Йемен"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/zm.svg",
+    "country": "Замбия"
+  },
+  {
+    "flag": "https://flagicons.lipis.dev/flags/4x3/zw.svg",
+    "country": "Зимбабве"
+  }
+]
+}

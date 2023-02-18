@@ -9,7 +9,7 @@ function renderRulesDescription(game: DataGame) {
   const img = createElemDOM('img', 'card__img');
   if (img instanceof HTMLImageElement) {
     img.alt = game.nameGameRu;
-    img.src = game.image;
+    img.src = game.logoImg;
   }
   const containerCheck = createElemDOM('div', 'container__check');
   const containerCheckRow1 = createElemDOM('div', 'container__check_row');
@@ -228,7 +228,7 @@ function renderRulesDescription(game: DataGame) {
   const Score3 = createElemDOM(
     'p',
     'card__description',
-    'КС – коэффициент сложности, он зависит от настроек сложности выбранных до начала теста, эту цифру вы сможете увидеть в верхнем левом углу рабочего поля. При усложнении настроек повышается коэффициент сложности.',
+    'КС – коэффициент сложности.',
   );
   containerDescription.append(Score3);
 
@@ -267,9 +267,6 @@ function renderRulesDescription(game: DataGame) {
   const container = getElement('.trenagors-container');
   container.innerHTML = '';
   container.append(fragment);
-  const popap = getElement('.popap');
-  popap.innerHTML = '';
-  popap.append(fragment);
 }
 
 export default renderRulesDescription;

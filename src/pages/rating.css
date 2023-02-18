@@ -1,5 +1,6 @@
 .container__rating_main {
   min-height: calc(100vh - 66px - 54px);
+  
 }
 .rating-filter {
   width: 100%;
@@ -27,6 +28,10 @@
   border: 1px #eeeeee thin;
   color: #000000de;
   outline: none;
+  margin-left: 0.25%;
+  margin-right: 0.25%;
+  margin-top: 5px;
+  margin-bottom: 5px;
   text-decoration: none;
   transition-property: box-shadow, opacity;
   overflow-wrap: break-word;
@@ -169,8 +174,17 @@ height: 65px;
 .card__rating_title p {
   font-size: 0.8rem;
 }
+
 .filter-item__black {
   display: block;
+}
+.rating__throphy_1, .rating__throphy_2, .rating__throphy_3 {
+  width: 40px;
+  height: 40px;
+  margin: 10px;
+  margin-bottom: 0;
+  background-size: cover;
+  background-position: center center;
 }
 
 .rating__throphy_1, .rating__throphy_2, .rating__throphy_3 {
@@ -252,19 +266,19 @@ height: 65px;
   .rating-card {
     width: 32%;
   }
-
 }
 
 @media screen and (max-width: 992px) {
 
   .rating-card {
-    width: 48.5%;
+    width: 97%;
   }
   .filter-item__black {
     display: none;
   }
 
 }
+
 @media screen and (max-width: 640px) {
   
   .rating-card {
