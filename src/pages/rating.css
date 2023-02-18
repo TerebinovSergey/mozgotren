@@ -1,5 +1,6 @@
 .container__rating_main {
   min-height: calc(100vh - 66px - 54px);
+  
 }
 .rating-filter {
   width: 100%;
@@ -27,6 +28,10 @@
   border: 1px #eeeeee thin;
   color: #000000de;
   outline: none;
+  margin-left: 0.25%;
+  margin-right: 0.25%;
+  margin-top: 5px;
+  margin-bottom: 5px;
   text-decoration: none;
   transition-property: box-shadow, opacity;
   overflow-wrap: break-word;
@@ -259,6 +264,14 @@ height: 65px;
 
   .rating-card {
     width: 48.5%;
+  }
+
+}
+
+@media screen and (max-width: 700px) {
+
+  .rating-card {
+    width: 97%;
   }
   .filter-item__black {
     display: none;
