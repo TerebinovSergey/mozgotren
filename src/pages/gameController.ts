@@ -112,5 +112,6 @@ export default class GameController {
     if (circleBar && scorePercent > 0) {
       circleBar.setAttribute('stroke-dashoffset', `${125.664 - (scorePercent / 100) * 125.664}`);
     }
+    GamePage.addListenerBtnGameRules();
   }
 }

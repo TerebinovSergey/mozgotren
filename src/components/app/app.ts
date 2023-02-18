@@ -32,10 +32,6 @@ const routes: Routes = {
     clearPage();
     Controller.drawRatingPage(ssid);
   },
-  '/trenagors/1': () => {
-    clearPage();
-    Controller.drawTrenagorsPage(ssid);
-  },
   '/profile': () => {
     if (!(ssid.status)) {
       window.location.href = '/';

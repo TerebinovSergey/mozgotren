@@ -1,31 +1,33 @@
 import { getElement } from '../../utils/utils';
 
+// eslint-disable-next-line import/prefer-default-export
 export function popupVisibility(): void {
   const bodyArea = getElement('.body-background-shaddow');
   bodyArea.addEventListener('click', () => {
-    document.querySelector('.nav-aside')?.classList.toggle('active');
-    document.querySelector('.body-background-shaddow')?.classList.toggle('hidden');
-    document.querySelector('#nav-icon')?.classList.toggle('open');
+    getElement('.nav-aside')?.classList.toggle('active');
+    getElement('.body-background-shaddow')?.classList.toggle('hidden');
+    getElement('#nav-icon')?.classList.toggle('open');
   });
   const burgerMenu = getElement('.burger-menu');
   burgerMenu.addEventListener('click', () => {
-    document.querySelector('.nav-aside')?.classList.toggle('active');
-    document.querySelector('.body-background-shaddow')?.classList.toggle('hidden');
-    document.querySelector('#nav-icon')?.classList.toggle('open');
+    getElement('.nav-aside')?.classList.toggle('active');
+    getElement('.body-background-shaddow')?.classList.toggle('hidden');
+    getElement('#nav-icon')?.classList.toggle('open');
   });
 }
 
-export function popupVisibilityDescription(): void {
+/* export function popupVisibilityDescription(): void {
+  console.log('popupVisibilityDescription');
   const bodyAreaDesc = getElement('.body-background-shaddow-description');
   bodyAreaDesc.addEventListener('click', () => {
-    document.querySelector('.nav-aside')?.classList.toggle('active');
-    document.querySelector('.body-background-shaddow')?.classList.toggle('hidden-desc');
-    document.querySelector('#nav-icon')?.classList.toggle('open');
+    getElement('.nav-aside')?.classList.toggle('active');
+    getElement('.body-background-shaddow')?.classList.toggle('hidden-desc');
+    getElement('#nav-icon')?.classList.toggle('open');
   });
   const burgerMenu = getElement('.burger-menu');
   burgerMenu.addEventListener('click', () => {
-    document.querySelector('.nav-aside')?.classList.toggle('active');
-    document.querySelector('.body-background-shaddow')?.classList.toggle('hidden-desc');
-    document.querySelector('#nav-icon')?.classList.toggle('open');
+    getElement('.nav-aside')?.classList.toggle('active');
+    getElement('.body-background-shaddow')?.classList.toggle('hidden-desc');
+    getElement('#nav-icon')?.classList.toggle('open');
   });
-}
+} */

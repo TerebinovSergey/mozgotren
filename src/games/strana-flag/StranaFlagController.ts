@@ -14,7 +14,6 @@ export default class StranaFlagController extends BaseArithmeticController {
   }
 
   checkAnswer(event: MouseEvent): void {
-    console.log(event);
     if (this.game.gameState !== GameState.Play) return;
     const { target } = event;
     if (!(target instanceof HTMLElement)) return;
