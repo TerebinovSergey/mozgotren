@@ -38,6 +38,7 @@ export default class RatingPage {
     main.innerHTML = this.getMainHTML();
     const header = getElement('header');
     header.after(main);
+    this.addListenerPopupControll();
   }
 
   getMainHTML() {
@@ -47,7 +48,6 @@ export default class RatingPage {
     <div class="popap hidden_popap ratings-popup">
       <div class="close"></div>
       <div class="container__description ratings-popup-container">
-        for test
       </div>
     </div>
     <div class="container__rating_main">
@@ -255,6 +255,9 @@ export default class RatingPage {
         getElement('.body-background-shaddow-description').classList.toggle('hidden_desc');
       });
     }
+  }
+
+  addListenerPopupControll() {
     const gameRulesArea = getElement('.body-background-shaddow-description');
     gameRulesArea.addEventListener('click', () => {
       getElement('.popap').classList.toggle('hidden_popap');

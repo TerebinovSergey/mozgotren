@@ -2,6 +2,7 @@ import { DataGame } from '../types/types';
 import { getElement, createElemDOM } from '../utils/utils';
 
 function renderRulesDescription(game: DataGame) {
+  document.location.hash = game.nameGame;
   const fragment = createElemDOM('div', 'fragment');
   const card = createElemDOM('div', 'card card_single');
   const title = createElemDOM('h3', 'card__description_title uppercase', `Тренажер: ${game.nameGameRu}`);
