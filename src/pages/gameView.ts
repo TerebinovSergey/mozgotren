@@ -3,7 +3,7 @@ import HeaderView from '../components/view/header/headerView';
 import FooterView from '../components/view/footer/footerView';
 import { getElement } from '../utils/utils';
 import { SessionData, DataGame } from '../types/types';
-import { popupVisibility } from '../components/popup-header/popupHeader';
+import popupVisibility from '../components/popup-header/popupHeader';
 import './game.css';
 
 export default class GamePage {

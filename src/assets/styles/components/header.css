@@ -365,9 +365,17 @@
     flex-wrap: wrap;
     height: auto;
   }
-
+  
   .nav-item {
     padding: 4px;
+  }
+  
+  .nav-aside {
+    width: 270px;
+  }
+  
+  .nav__title-aside {
+   font-size: 1.2rem;
   }
 
 }
