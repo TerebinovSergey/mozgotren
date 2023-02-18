@@ -25,6 +25,7 @@ export enum GameNames {
   LishneeSlovo = 'lishnee-slovo',
   BookAuther = 'book-auther',
   StranaFlag = 'strana-flag',
+  QuoteAuther = 'citata-auther',
 }
 
 export type DataGames = {
@@ -75,11 +76,19 @@ export type Countries = {
   countries: Country[],
 };
 type Book = {
-  col1: string,
-  col2: string,
+  author: string,
+  book: string,
 };
 export type Books = {
   books: Book[],
+};
+
+type Quote = {
+  text: string,
+  author: string,
+};
+export type Quotes = {
+  quotes: Quote[],
 };
 
 type Currency = {

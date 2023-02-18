@@ -1,16 +1,16 @@
 import { BaseGame } from '../BaseGame';
 import { randomInteger } from '../../utils/utils';
-import { Books } from '../../types/types';
+import { Quotes } from '../../types/types';
 
 // eslint-disable-next-line global-require
-const booksData = require('../../data/books.json') as Books;
+const quotesData = require('../../data/quotes.json') as Quotes;
 
 export type ComparisonTask = {
   task: string,
   answers: string[],
 };
 
-export class BookAuther extends BaseGame {
+export class QuoteAuther extends BaseGame {
   readonly countAnswers = 4;
   currentAnswer: string = '';
   taskStack: number[] = [];
@@ -23,16 +23,16 @@ export class BookAuther extends BaseGame {
   }
 
   getRandomTask(): string {
-    let bookInd = -1;
+    let quoteInd = -1;
     do {
-      bookInd = randomInteger(0, booksData.books.length - 1);
+      quoteInd = randomInteger(0, quotesData.quotes.length - 1);
     }
-    while (this.isTaskWas(bookInd));
+    while (this.isTaskWas(quoteInd));
 
-    this.taskStack.push(bookInd);
-    const book = booksData.books[bookInd];
-    this.currentAnswer = book.author;
-    return book.book;
+    this.taskStack.push(quoteInd);
+    const quote = quotesData.quotes[quoteInd];
+    this.currentAnswer = quote.author;
+    return quote.text;
   }
 
   isTaskWas(countryIndex: number): boolean {
@@ -45,9 +45,9 @@ export class BookAuther extends BaseGame {
     const answers = new Set<string>();
     answers.add(this.currentAnswer);
     while (answers.size < this.countAnswers) {
-      const bookInd = randomInteger(0, booksData.books.length - 1);
-      const book = booksData.books[bookInd];
-      answers.add(book.author);
+      const quoteInd = randomInteger(0, quotesData.quotes.length - 1);
+      const quote = quotesData.quotes[quoteInd];
+      answers.add(quote.author);
     }
     answers.delete(this.currentAnswer);
     const arrAnswers = Array.from(answers);
