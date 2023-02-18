@@ -39,7 +39,6 @@
   transition: box-shadow .28s cubic-bezier(.4,0,.2,1);
   will-change: box-shadow;
   box-shadow: 0 3px 1px -2px #00000033, 0 2px 2px 0 #00000024, 0 1px 5px 0 #0000001f;
-}
 
 .rating-card:hover {
   box-shadow: 0 1px 5px 3px #00000033;
@@ -174,8 +173,18 @@ height: 65px;
 .card__rating_title p {
   font-size: 0.8rem;
 }
+
 .filter-item__black {
   display: block;
+}
+
+.rating__throphy_1, .rating__throphy_2, .rating__throphy_3 {
+  width: 40px;
+  height: 40px;
+  margin: 10px;
+  margin-bottom: 0;
+  background-size: cover;
+  background-position: center center;
 }
 
 .rating__throphy_1, .rating__throphy_2, .rating__throphy_3 {
@@ -251,24 +260,40 @@ height: 65px;
   align-items: center;
 }
 
+@media screen and (max-width: 1330px) {
+
+  .rating-card {
+    width: 32%;
+  }
+}
+
+.table-ratings__popup {
+  min-width: 220px;
+  max-width: 400px;
+  width: 72vw;
+  font-size: max(min(1rem, 2vw), 0.7rem);
+}
+
+.popap.ratings-popup {
+  margin-left: 10vw;
+  padding: 10px;
+  max-width: 420px;
+  width: 80vw;
+}
+
+.ratings-popup-container {
+  align-items: center;
+}
+
 
 @media screen and (max-width: 1330px) {
 
   .rating-card {
     width: 32%;
   }
-
 }
 
 @media screen and (max-width: 992px) {
-
-  .rating-card {
-    width: 48.5%;
-  }
-
-}
-
-@media screen and (max-width: 700px) {
 
   .rating-card {
     width: 97%;
@@ -276,8 +301,8 @@ height: 65px;
   .filter-item__black {
     display: none;
   }
-
 }
+
 @media screen and (max-width: 640px) {
   
   .rating-card {
