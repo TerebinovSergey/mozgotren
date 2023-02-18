@@ -3,6 +3,7 @@ import FooterView from '../components/view/footer/footerView';
 import { getElement } from '../utils/utils';
 import { SessionData } from '../types/types';
 import popupVisibility from '../components/popup-header/popupHeader';
+import sliderTestimonials from '../components/controller/slider';
 
 export default class HomePage {
   static draw(status: SessionData): void {
@@ -27,6 +28,7 @@ export default class HomePage {
     main.innerHTML = this.getMainHTML();
     const header = getElement('header');
     header.after(main);
+    sliderTestimonials();
     popupVisibility();
   }
 
@@ -34,32 +36,57 @@ export default class HomePage {
     return `
     <div class="body-background-shaddow"></div>
     <section class="main-header main-background">
-    <div class="container">
-    <h1 class="main-header-title">
-    <span class="underline"></span>
-    <div class="title-link title-main">
-      <span>M</span>
-      <span>O</span>
-      <span>Z</span>
-      <span>G</span>
-      <span>O</span>
-      <span>T</span>
-      <span>R</span>
-      <span>E</span>
-      <span>N</span>
-    </div>
-    <span class="underline"></span>
-    </h1>
-      <p class="main-header-trenagors paragraph">
-        Тренажеры для мозга.<br />Тренировка памяти,<br />внимания и
-        мышления.
-      </p>
-      <p class="main-header-brain paragraph">
-        ЗАСТАВЬ СВОЙ МОЗГ РАБОТАТЬ БЫСТРЕЕ!
-      </p>
-      <a class="train-brain" href="/trenagors">Тренировать мозг</a>
-    </div>
-  </section>
+      <div class="ocean">
+        <div class="bubble bubble--1"></div>
+        <div class="bubble bubble--2"></div>
+        <div class="bubble bubble--3"></div>
+        <div class="bubble bubble--4"></div>
+        <div class="bubble bubble--5"></div>
+        <div class="bubble bubble--6"></div>
+        <div class="bubble bubble--7"></div>
+        <div class="bubble bubble--8"></div>
+        <div class="bubble bubble--9"></div>
+        <div class="bubble bubble--10"></div>
+        <div class="bubble bubble--11"></div>
+        <div class="bubble bubble--12"></div>
+        <div id="octocat"></div>
+        <div class="container-home">
+          <div class="container-title-home">
+            <h1 class="main-header-title">
+              <span class="underline"></span>
+              <div class="title-link title-main">
+                 <span>M</span>
+                 <span>O</span>
+                 <span>Z</span>
+                 <span>G</span>
+                 <span>O</span>
+                 <span>T</span>
+                 <span>R</span>
+                 <span>E</span>
+                 <span>N</span>
+              </div>
+              <span class="underline"></span>
+            </h1>
+            <p class="main-header-trenagors paragraph">
+               Тренажеры для мозга.<br />Тренировка памяти,<br />внимания и
+                мышления.
+            </p>
+            <p class="main-header-brain paragraph">
+              ЗАСТАВЬ СВОЙ МОЗГ РАБОТАТЬ БЫСТРЕЕ!
+            </p>
+            <a class="train-brain" href="/trenagors">Тренировать мозг</a>
+          </div>
+          <div class="container-slider">
+            <div class="slider">
+              <div class="slider-item item1"></div>
+              <div class="slider-item item2"></div>
+              <div class="slider-item item3"></div>
+            </div>
+            <input class="range" type="range" min="0" max="2" multiple="" onchange="sliderTestimonials()" value="0" name="range" step="1">
+          </div>
+        </div>
+      </div>
+    </section>
   <div id="about-us" class="container">
     <section class="about-us">
       <div class="main-container">
@@ -120,6 +147,7 @@ export default class HomePage {
             </p>
           </div>
         </div>
+      </div>
       </div>
     </section>
   </div>
