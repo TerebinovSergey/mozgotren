@@ -84,6 +84,7 @@ export class BaseGame {
       const decreaseScore = (this.complexity * this.currentLevel) / 2;
       this.score = Math.max(this.score - decreaseScore, 0);
     }
+    this.score = Math.floor(this.score);
     this.updateAnswerCount(increase);
   }
 

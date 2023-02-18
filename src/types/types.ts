@@ -156,3 +156,11 @@ export type DataRating = {
   rightAnswers: number,
   wrongAnswers: number,
 };
+
+export type WrongAnswer = {
+  message: string,
+};
+
+export type RatingsT = {
+  result: DataRating[];
+};

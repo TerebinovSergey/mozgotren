@@ -1,6 +1,6 @@
 import HeaderView from '../components/view/header/headerView';
 import FooterView from '../components/view/footer/footerView';
-import { getElement, getDataGame } from '../utils/utils';
+import { getDataGame, getElement } from '../utils/utils';
 import renderRulesDescription from './description';
 import { popupVisibility } from '../components/popup-header/popupHeader';
 import { SessionData, DataGames, DataGame } from '../types/types';
@@ -28,8 +28,8 @@ export default class TrenagorsPage {
     footer.draw();
     TrenagorsPage.renderGames(-1);
     TrenagorsPage.addListenerGroupFilter();
+    TrenagorsPage.addListenerDescription();
     popupVisibility();
-    TrenagorsPage.addListenerbuttonDescription();
   }
 
   static drawMain() {
@@ -102,7 +102,8 @@ export default class TrenagorsPage {
     for (let i = 0; i < json.games.length; i += 1) {
       const game = json.games[i];
       if (categoryId === -1 || categoryId === game.categoryId) {
-        container.append(this.createGameCard(game));
+        const gameCard = this.createGameCard(game);
+        container.append(gameCard);
       }
     }
     TrenagorsPage.renderNumberGamesInCategory();
@@ -163,15 +164,15 @@ export default class TrenagorsPage {
     });
   }
 
-  static addListenerbuttonDescription(): void {
-    const buttonDesc = document.querySelectorAll('.button_details');
-    for (let i = 0; i < buttonDesc.length; i += 1) {
-      const element = buttonDesc[i];
-      if (!(element instanceof HTMLElement)) return;
-      element.addEventListener('click', () => {
-        const gameId = Number(element.dataset.gameId);
-        const dataGame = getDataGame(gameId);
-        renderRulesDescription(dataGame);
+  static addListenerDescription(): void {
+    const descriptionBtns = document.querySelectorAll('.button_details');
+    for (let i = 0; i < descriptionBtns.length; i += 1) {
+      const btn = descriptionBtns[i];
+      if (!(btn instanceof HTMLElement)) return;
+      btn.addEventListener('click', () => {
+        const gameId = Number(btn.dataset.gameId);
+        const game = getDataGame(gameId);
+        renderRulesDescription(game);
       });
     }
   }
