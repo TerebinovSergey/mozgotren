@@ -336,6 +336,10 @@ export default class ProfilePage {
               <option>Бухгалтерия</option>
               <option>Техника</option>
               <option>Образование</option>
+              <option>Торговля</option>
+              <option>Госслужба</option>
+              <option>Наука</option>
+              <option>Сфера услуг</option>
             </select>
       </div>
       <div class="input-box">
