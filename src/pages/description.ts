@@ -9,7 +9,7 @@ function renderRulesDescription(game: DataGame) {
   const img = createElemDOM('img', 'card__img');
   if (img instanceof HTMLImageElement) {
     img.alt = game.nameGameRu;
-    img.src = game.image;
+    img.src = game.logoImg;
   }
   const containerCheck = createElemDOM('div', 'container__check');
   const containerCheckRow1 = createElemDOM('div', 'container__check_row');

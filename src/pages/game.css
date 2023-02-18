@@ -286,6 +286,24 @@ margin: 0;
   transition: all .6s ease-in-out;
 }
 
+.flag-button {
+height: 150px;
+box-shadow: 0 2px 4px -1px rgb(0 0 0 / 20%), 0 4px 5px 0 rgb(0 0 0 / 14%), 0 1px 10px 0 rgb(0 0 0 / 12%);
+}
+
+.flag-button-img {
+width: 100px;
+height: 75px;
+display: block;
+margin: auto;
+box-shadow: 0 2px 4px -1px rgb(0 0 0 / 20%), 0 4px 5px 0 rgb(0 0 0 / 14%), 0 1px 10px 0 rgb(0 0 0 / 12%);
+}
+
+.game-task {
+  text-align: center;
+  margin: auto;
+}
+
 @media screen and (max-width: 900px) {
 
   .game-container {
@@ -303,7 +321,6 @@ margin: 0;
   }
 
   .navigation{
-    /* margin-top: -0.8px; */
     border-top: none;
     box-shadow: 0 2px 4px -1px rgb(0 0 0 / 20%), 0 4px 5px 0 rgb(0 0 0 / 14%), 0 1px 10px 0 rgb(0 0 0 / 12%);
   }
@@ -311,10 +328,13 @@ margin: 0;
 }
 
 @media screen and (max-width: 700px) {
+
   .card__description_title {
     font-size: max(min(1rem, 5vw), 0.7rem);
   }
+
 }
+
 @media screen and (max-width: 600px) {
 
   .text {
@@ -323,6 +343,7 @@ margin: 0;
 }
 
 @media screen and (max-width: 600px) {
+  
   .check-container {
     display: none;
   }
