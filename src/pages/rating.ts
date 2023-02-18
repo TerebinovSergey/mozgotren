@@ -103,7 +103,7 @@ export default class RatingPage {
         container.append(gameCard);
       }
     }
-    this.addListenerShowGameRatings();
+    await this.addListenerShowGameRatings();
   }
 
   async createGameCard(data: DataGame): Promise<HTMLDivElement> {

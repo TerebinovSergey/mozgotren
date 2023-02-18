@@ -1,6 +1,6 @@
 import HeaderView from '../components/view/header/headerView';
 import FooterView from '../components/view/footer/footerView';
-import { getElement } from '../utils/utils';
+import { getDataGame, getElement } from '../utils/utils';
 import renderRulesDescription from './description';
 import { popupVisibility } from '../components/popup-header/popupHeader';
 import { SessionData, DataGames, DataGame } from '../types/types';
@@ -28,6 +28,7 @@ export default class TrenagorsPage {
     footer.draw();
     TrenagorsPage.renderGames(-1);
     TrenagorsPage.addListenerGroupFilter();
+    TrenagorsPage.addListenerDescription();
     popupVisibility();
   }
 
@@ -103,7 +104,6 @@ export default class TrenagorsPage {
       if (categoryId === -1 || categoryId === game.categoryId) {
         const gameCard = this.createGameCard(game);
         container.append(gameCard);
-        gameCard.addEventListener('click', () => renderRulesDescription(game));
       }
     }
     TrenagorsPage.renderNumberGamesInCategory();
@@ -162,5 +162,18 @@ export default class TrenagorsPage {
       const categoryId = Number(group.dataset.categoryId);
       this.renderGames(categoryId);
     });
+  }
+
+  static addListenerDescription(): void {
+    const descriptionBtns = document.querySelectorAll('.button_details');
+    for (let i = 0; i < descriptionBtns.length; i += 1) {
+      const btn = descriptionBtns[i];
+      if (!(btn instanceof HTMLElement)) return;
+      btn.addEventListener('click', () => {
+        const gameId = Number(btn.dataset.gameId);
+        const game = getDataGame(gameId);
+        renderRulesDescription(game);
+      });
+    }
   }
 }
