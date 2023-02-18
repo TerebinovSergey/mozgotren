@@ -6,7 +6,7 @@ import {
   getUserIdFromCookie,
 } from '../utils/utils';
 import { UserData, SessionData } from '../types/types';
-import { popupVisibility } from '../components/popup-header/popupHeader';
+import popupVisibility from '../components/popup-header/popupHeader';
 
 function isImageFile(file: File): Promise<boolean> {
   return new Promise((resolve, reject) => {
