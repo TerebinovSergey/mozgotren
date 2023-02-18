@@ -228,6 +228,25 @@ height: 65px;
   width: 20%;
 }
 
+.table-ratings__popup {
+  min-width: 220px;
+  max-width: 400px;
+  width: 72vw;
+  font-size: max(min(1rem, 2vw), 0.7rem);
+}
+
+.popap.ratings-popup {
+  margin-left: 10vw;
+  padding: 10px;
+  max-width: 420px;
+  width: 80vw;
+}
+
+.ratings-popup-container {
+  align-items: center;
+}
+
+
 @media screen and (max-width: 1330px) {
 
   .rating-card {

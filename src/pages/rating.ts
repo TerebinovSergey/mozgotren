@@ -1,7 +1,6 @@
 import HeaderView from '../components/view/header/headerView';
 import FooterView from '../components/view/footer/footerView';
-import { getElement, getDataGame, getUserIdFromCookie } from '../utils/utils';
-import renderRulesDescription from './description';
+import { getDataGame, getElement, getUserIdFromCookie } from '../utils/utils';
 import { popupVisibility } from '../components/popup-header/popupHeader';
 import { SessionData, DataGames, DataGame } from '../types/types';
 import Ratings from '../components/ratings/ratings';
@@ -31,8 +30,6 @@ export default class RatingPage {
     this.renderGames(-1);
     this.addListenerGroupFilter();
     popupVisibility();
-    this.buttonDescription();
-    // getGameRatings();
   }
 
   drawMain() {
@@ -47,6 +44,12 @@ export default class RatingPage {
     return `
     <div class="body-background-shaddow"></div>
     <div class="body-background-shaddow-description"></div>
+    <div class="popap hidden_popap ratings-popup">
+      <div class="close"></div>
+      <div class="container__description ratings-popup-container">
+        for test
+      </div>
+    </div>
     <div class="container__rating_main">
       <div class="rating-title-wrapper">
         <section class="rating">
@@ -100,6 +103,7 @@ export default class RatingPage {
         container.append(gameCard);
       }
     }
+    this.addListenerShowGameRatings();
   }
 
   async createGameCard(data: DataGame): Promise<HTMLDivElement> {
@@ -128,7 +132,7 @@ export default class RatingPage {
       <div class="card__rating_title">
         <div class="game-logo" style="background-image: url(${data.logoImg})"></div>
         <div class="block-col">
-          <h2 onclick="document.location.href = '/rating#${data.nameGame}';" class="card__title_rating">${data.nameGameRu}</h2>
+          <h2 class="card__title_rating">${data.nameGameRu}</h2>
           <p>Ваше место в рейтинге: <span>${userPosition}</span></p>
         </div>
       </div>
@@ -192,6 +196,38 @@ export default class RatingPage {
     </table>`;
   }
 
+  private async renderUserRatingByGame(gameId: number) {
+    const gameRat = this.ratings?.bestGameResults?.get(gameId);
+    const dataGame = getDataGame(gameId);
+    const container = getElement('.container__description');
+    let tableRow = '';
+    if (gameRat) {
+      let i = 1;
+      gameRat.forEach((rating) => {
+        tableRow += `
+          <tr>
+            <td class="table-ratings__place">${i}.</td>
+            <td class="table-ratings__user" colspan="2">${rating.userName}</td>
+            <td class="table-ratings__score">${rating.score}</td>
+          </tr>`;
+        i += 1;
+      });
+    }
+    container.innerHTML = `
+    <h3>${dataGame.nameGameRu}</h3>
+    <table class="table-ratings table-ratings__popup">
+      <thead>
+        <tr>
+          <th colspan="3">Пользователь</th>
+          <th>Очки</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${tableRow}
+      </tbody>
+    </table>`;
+  }
+
   addListenerGroupFilter(): void {
     const filter = getElement('.categories-rating');
     filter.addEventListener('click', (event) => {
@@ -207,16 +243,27 @@ export default class RatingPage {
     });
   }
 
-  buttonDescription(): void {
-    const buttonDesc = document.querySelectorAll('.button_details');
-    for (let i = 0; i < buttonDesc.length; i += 1) {
-      const element = buttonDesc[i];
-      if (!(element instanceof HTMLElement)) return;
-      element.addEventListener('click', () => {
-        const gameId = Number(element.dataset.gameId);
-        const dataGame = getDataGame(gameId);
-        renderRulesDescription(dataGame);
+  async addListenerShowGameRatings(): Promise<void> {
+    const resultBtns = document.querySelectorAll('.button_rating_show');
+    for (let i = 0; i < resultBtns.length; i += 1) {
+      const btn = resultBtns[i];
+      if (!(btn instanceof HTMLElement)) return;
+      btn.addEventListener('click', () => {
+        const gameId = Number(btn.dataset.gameId);
+        this.renderUserRatingByGame(gameId);
+        getElement('.popap').classList.toggle('hidden_popap');
+        getElement('.body-background-shaddow-description').classList.toggle('hidden_desc');
       });
     }
+    const gameRulesArea = getElement('.body-background-shaddow-description');
+    gameRulesArea.addEventListener('click', () => {
+      getElement('.popap').classList.toggle('hidden_popap');
+      getElement('.body-background-shaddow-description').classList.toggle('hidden_desc');
+    });
+    const close = getElement('.close');
+    close.addEventListener('click', () => {
+      getElement('.popap').classList.toggle('hidden_popap');
+      getElement('.body-background-shaddow-description').classList.toggle('hidden_desc');
+    });
   }
 }

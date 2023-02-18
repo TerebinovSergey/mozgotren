@@ -180,9 +180,6 @@ export default class GamePage {
   }
 
   private getResultHTML(): string {
-    // <cicle class="percentages-circle">
-    //    <div class="percentages"><h5 class="score-percent">100%</h5></div>
-    //  </cicle>
     return `
     <div class="result-container">
       ${this.getCircleBar()}

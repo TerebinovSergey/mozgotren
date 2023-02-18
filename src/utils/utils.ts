@@ -195,18 +195,13 @@ export const sendResult = async (params: DataRating) => {
 };
 
 export const getAllGamesRating = async () => {
-  const result = await fetch(`${baseUrl}/ratings`, {
-    method: 'GET',
-  });
-  return await result.json() as RatingsT;
-  /* try {
+  try {
     const result = await fetch(`${baseUrl}/ratings`, {
       method: 'GET',
     });
-    return await result.json() as DataRating;
+    return await result.json() as RatingsT;
   } catch (error) {
-    // console.log({ message: 'get all games rating error' });
     const mistake: WrongAnswer = { message: 'get all games rating error' };
     return mistake;
-  } */
+  }
 };
