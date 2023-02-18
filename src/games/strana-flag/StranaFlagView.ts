@@ -14,7 +14,6 @@ export default class StranaFlagView extends BaseArithmeticView {
       answerImgElem.alt = 'flag';
       answerElem.append(answerImgElem);
       answerElem.classList.add('btn-answer', 'btn-comparison', 'flag-button');
-
       answerElem.setAttribute('data-answer', String(answer));
       answersElement.append(answerElem);
     });

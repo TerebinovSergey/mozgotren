@@ -14,11 +14,16 @@ export default class StranaFlagController extends BaseArithmeticController {
   }
 
   checkAnswer(event: MouseEvent): void {
+    console.log(event);
     if (this.game.gameState !== GameState.Play) return;
     const { target } = event;
-    if (!(target instanceof HTMLButtonElement)) return;
-    const result = this.game.checkAnswer(String(target.dataset.answer));
-    target.classList.add((result) ? 'right-answer' : 'wrong-answer');
+    if (!(target instanceof HTMLElement)) return;
+    let btnAnswer = target;
+    if (target instanceof HTMLImageElement) {
+      btnAnswer = target.closest('.btn-answer') ?? target;
+    }
+    const result = this.game.checkAnswer(String(btnAnswer.dataset.answer));
+    btnAnswer.classList.add((result) ? 'right-answer' : 'wrong-answer');
     setTimeout(() => this.updateState(), 200);
   }
 
