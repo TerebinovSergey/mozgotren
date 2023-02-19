@@ -59,6 +59,8 @@
   height: 20px;
   border-radius: 50%;
   background: linear-gradient(135deg, #2b3a65 0%, #314377 34%, #3e75a7 75%);
+  background: linear-gradient(135deg, #000428, #0074da);
+  box-shadow: 2px 2px 12px #0000004d;
   color: white;
   font-size: 12px;
   transition: all 0.5s ease-out;

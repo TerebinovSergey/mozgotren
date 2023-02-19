@@ -130,7 +130,7 @@
   position: fixed;
   width: 100vw;
   background-color: rgba(0, 0, 0, 0.5);
-  z-index: 900;
+  z-index: 5000;
 }
 @media screen and (max-width: 900px) {
 
@@ -365,9 +365,17 @@
     flex-wrap: wrap;
     height: auto;
   }
-
+  
   .nav-item {
     padding: 4px;
+  }
+  
+  .nav-aside {
+    width: 270px;
+  }
+  
+  .nav__title-aside {
+   font-size: 1.2rem;
   }
 
 }
