@@ -3,6 +3,7 @@ import FooterView from '../components/view/footer/footerView';
 import { getElement } from '../utils/utils';
 import { SessionData } from '../types/types';
 import popupVisibility from '../components/popup-header/popupHeader';
+import './console';
 
 export default class HomePage {
   static draw(status: SessionData): void {
