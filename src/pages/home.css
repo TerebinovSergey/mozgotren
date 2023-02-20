@@ -5,8 +5,8 @@
 
 .main-header {
   padding: 50px 0;
-  display: flex;
-  flex-direction: column;
+  /* display: flex;
+  flex-direction: column; */
   align-items: center;
   width: 100%;
   font-weight: bold;
@@ -14,6 +14,225 @@
   line-height: 1.7;
   letter-spacing: 1px;
   text-align: center;
+  height: 100vh;
+}
+.container-home {
+  margin: 0 auto;
+  max-width: 1280px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content:space-around;
+  margin: auto;
+}
+#octocat {
+  height: 300px;
+  width: 200px;
+  /* background: url(https://codinhood.com/static/9a146dac647e7129fa173acc0b0d437f/299c1/octocat.png) left center; */
+  animation: animateSprite 15s steps(1) infinite, swim 15s ease-in-out infinite;
+  position: absolute;
+  right: -200px;
+  top: 50%;
+  margin-top: -150px;
+  z-index: 100;
+}
+
+
+@keyframes animateSprite {
+  0% {
+    background-position: -600px; /* Starting position moving left sprite */
+  }
+  20% {
+    background-position: 0px; /* Straight on sprite */
+  }
+  25% {
+    background-position: -200px; /* Moving up sprite */
+  }
+  35% {
+    background-position: -400px; /* Moving right sprite */
+  }
+  40% {
+    background-position: -400px;
+  }
+  50% {
+    background-position: -200px;  /* Moving up sprite */
+  }
+  60% {
+    background-position: -0px; /* Straight on sprite */
+  }
+  67% {
+    background-position: -600px; /* Moving up sprite */
+  }
+
+  100% {
+    background-position: -600px;
+  }
+}
+
+@keyframes swim {
+  0% {
+    transform: translate(0, 0); /* Starting position */
+  }
+  20% {
+    transform: translate(calc(-50vw - 100px), 0); /* Animate to center of screen */
+  }
+  25% {
+    transform: translate(calc(-50vw - 100px), 0); /* Stay at the center for 1 second */
+  }
+  35% {
+    transform: translate(calc(-50vw - 100px), -20vh); /* Animate up for 2 seconds */
+  }
+  50% {
+    transform: translate(-25vw, 15vh); /* Animate bottom right for 3 seconds */
+  }
+  60% {
+    transform: translate(-25vw, -20vh); /* Animate up at right of the screen */
+  }
+  67% {
+    transform: translate(-25vw, -20vh);
+  }
+
+  100% {
+    transform: translate(calc(-100vw - 300px), 0); /* Animate past left past the screen */
+  }
+}
+.ocean {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.bubble {
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  position: absolute;
+  background-color: white;
+  bottom: -30px;
+  opacity: 0.2;
+  animation: bubble 15s ease-in-out infinite,
+    sideWays 4s ease-in-out infinite alternate;
+}
+
+@keyframes bubble {
+  0% {
+    transform: translateY(0%);
+    opacity: 0.06;
+  }
+  100% {
+    transform: translateY(-120vh);
+  }
+}
+
+@keyframes sideWays {
+  0% {
+    margin-left: 0px;
+  }
+  100% {
+    margin-left: 200px;
+  }
+}
+
+.bubble--1 {
+  left: 10%;
+  animation-delay: 0.5s;
+  animation-duration: 16s;
+  opacity: 0.2;
+}
+
+.bubble--2 {
+  width: 15px;
+  height: 15px;
+  left: 40%;
+  animation-delay: 1s;
+  animation-duration: 10s;
+  opacity: 0.1;
+}
+
+.bubble--3 {
+  width: 10px;
+  height: 10px;
+  left: 30%;
+  animation-delay: 5s;
+  animation-duration: 20s;
+  opacity: 0.3;
+}
+
+.bubble--4 {
+  width: 25px;
+  height: 25px;
+  left: 40%;
+  animation-delay: 8s;
+  animation-duration: 17s;
+  opacity: 0.2;
+}
+
+.bubble--5 {
+  width: 30px;
+  height: 30px;
+  left: 60%;
+  animation-delay: 10s;
+  animation-duration: 15s;
+  opacity: 0.1;
+}
+
+.bubble--6 {
+  width: 10px;
+  height: 10px;
+  left: 80%;
+  animation-delay: 3s;
+  animation-duration: 30s;
+  opacity: 0.4;
+}
+
+.bubble--7 {
+  width: 15px;
+  height: 15px;
+  left: 90%;
+  animation-delay: -7s;
+  animation-duration: 25s;
+  opacity: 0.3;
+}
+
+.bubble--9 {
+  width: 20px;
+  height: 20px;
+  left: 50%;
+  bottom: 30px;
+  animation-delay: -5s;
+  animation-duration: 19s;
+  opacity: 0.2;
+}
+
+.bubble--10 {
+  width: 40px;
+  height: 40px;
+  left: 30%;
+  bottom: 30px;
+  animation-delay: -21s;
+  animation-duration: 16s;
+  opacity: 0.3;
+}
+
+.bubble--11 {
+  width: 30px;
+  height: 30px;
+  left: 60%;
+  bottom: 30px;
+  animation-delay: -13.75s;
+  animation-duration: 20s;
+  opacity: 0.3;
+}
+
+.bubble--11 {
+  width: 25px;
+  height: 25px;
+  left: 90%;
+  bottom: 30px;
+  animation-delay: -10.5s;
+  animation-duration: 19s;
+  opacity: 0.3;
 }
 
 .main-header-title {
@@ -109,7 +328,79 @@
 .main-header-brain {
   color: white;
 }
+.container-slider {
+  flex-wrap: nowrap;
+  width: 320px;
+  overflow: hidden;
+}
+.slider {
+  width: 960px;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  transition: transform 1s ease-in-out;
+}
 
+.slider-item {
+  width: 320px;
+  height: 650px;
+  background-size: cover;
+  background-position: center center;
+}
+.item1 {
+  background-image: url('../assets/img/memory.png');
+}
+.item2 {
+  background-image: url('../assets/img/attention.png');
+}
+.item3 {
+  background-image: url('../assets/img/mind.png');
+}
+ 
+.range {
+  width: 90px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border-radius: 5px;
+  margin: 21px auto 0;
+  margin-bottom: 31px;
+  display: block;
+  border: none;
+  /* border: 1px rgba(254, 189, 171, 0.7411764706) solid; */
+  }
+  
+  .range::-webkit-slider-runnable-track {
+  border-radius: 5px;
+  height: 7px;
+  background-color: #ffffff;
+  }
+  
+  .range::-webkit-slider-thumb {
+  background: #111c3e;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 25px;
+  height: 7px;
+  -webkit-appearance: none;
+  margin-left: 1px;
+  }
+  
+  .range::-moz-range-track {
+  border-radius: 5px;
+  height: 7px;
+  background-color: #ffffff;
+  }
+  
+  .range::-moz-range-thumb {
+  background: #111c3e;
+  border-radius: 5px;
+  width: 25px;
+  height: 7px;
+  cursor: pointer;
+  }
+  
 .train-brain {
   margin: 10px;
   padding: 5px 20px;
@@ -181,7 +472,7 @@
   height: 100px;
   border-radius: 50%;
   background: linear-gradient(135deg, #2b3a65 0%, #314377 34%, #3e75a7 75%);
-  background: linear-gradient(90deg, #000428, #0074da);
+  /* background: linear-gradient(90deg, #000428, #0074da); */
   box-shadow: 0 10px 10px #0000004d;
 }
 
@@ -281,7 +572,7 @@ blockquote {
 .benefits-trenagors {
   padding: 20px 0 40px;
   background: linear-gradient(135deg, #2b3a65 0%, #314377 34%, #3e75a7 75%);
-  background: linear-gradient(90deg, #000428, #0074da);
+  /* background: linear-gradient(90deg, #000428, #0074da); */
   color: #ffffff;
 }
 
@@ -309,6 +600,20 @@ blockquote {
   border-radius: 50%;
   box-shadow: 0 10px 10px #0000004d;
   background: #0000006b;
+  outline: 2px solid;
+  outline-color: transparent;
+}
+.benefits-item:hover .benefits-img-container {
+  outline: 2px dashed #ffffff;
+  box-shadow: 0 0 0 2px transparent;
+  animation: 1s animateBorder ease infinite;
+}
+
+@keyframes animateBorder {
+  to {
+    outline-color: #314377;
+    box-shadow: 0 0 0 2px #ffffff;
+  }
 }
 
 .benefits-wrapper {
