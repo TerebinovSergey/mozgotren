@@ -3,7 +3,7 @@ import FooterView from '../components/view/footer/footerView';
 import { getElement } from '../utils/utils';
 import { SessionData } from '../types/types';
 import popupVisibility from '../components/popup-header/popupHeader';
-import sliderTestimonials from '../components/controller/slider';
+import sliderTitle from '../components/sliders/sliders';
 
 export default class HomePage {
   static draw(status: SessionData): void {
@@ -28,7 +28,7 @@ export default class HomePage {
     main.innerHTML = this.getMainHTML();
     const header = getElement('header');
     header.after(main);
-    sliderTestimonials();
+    sliderTitle();
     popupVisibility();
   }
 
