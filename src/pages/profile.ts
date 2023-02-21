@@ -5,8 +5,14 @@ import {
   baseUrl,
   getUserIdFromCookie,
 } from '../utils/utils';
-import { UserData, SessionData } from '../types/types';
+import {
+  UserData,
+  SessionData,
+  DataGames,
+} from '../types/types';
 import { popupVisibility } from '../components/popup-header/popupHeader';
+// eslint-disable-next-line global-require
+const dataGames = require('../data/games.json') as DataGames;
 
 function isImageFile(file: File): Promise<boolean> {
   return new Promise((resolve, reject) => {
@@ -204,11 +210,27 @@ export default class ProfilePage {
   }
 
   static getMainHTML(user: SessionData, userData: UserData, userCountry: string) {
+    console.log(
+      user,
+      userData,
+      userCountry,
+    );
     const getAge = () => {
-      if (Date.parse(userData.birdthDate as string) < Date.now()) {
-        return `${Math.floor(Math.abs(Date.now() - Date.parse(userData.birdthDate as string)) / (1000 * 60 * 60 * 24 * 365))}`;
+      if (Date.parse(userData.userObj.birdthDate as string) < Date.now()) {
+        return `${Math.floor(Math.abs(Date.now() - Date.parse(userData.userObj.birdthDate as string)) / (1000 * 60 * 60 * 24 * 365))}`;
       }
       return 'не указано';
+    };
+
+    console.log(dataGames.games);
+    const getPrefferedGame = () => {
+      if (userData.prefferedGameId > 0) {
+        const gameId = dataGames.games.findIndex((elem) => elem.id === userData.prefferedGameId);
+        if (gameId > -1) {
+          return dataGames.games[gameId].nameGameRu;
+        }
+      }
+      return 'Мемори';
     };
 
     return `
@@ -218,7 +240,7 @@ export default class ProfilePage {
       <div class="profile-container">
         <div class="profile-info-container ">
           <div class="profile-image">
-        <img src="${baseUrl}/${userData.imagePath}" onerror="javascript:this.src='./assets/null.jpg'"/>
+        <img src="${baseUrl}/${userData.userObj.imagePath}" onerror="javascript:this.src='./assets/null.jpg'"/>
           </div>
           <div class="profile-info">
             <h2 class="profile-title">${user.user}</h2>
@@ -227,7 +249,7 @@ export default class ProfilePage {
           <hr class="vertical-line" > 
           <div class="profile-info">
             <div class="profile-text-c"><h6 class="profile-text svg-container"><div class="null svg"></div>Возраст:</h6><span class="age">${getAge()}</span></div>
-            <div class="profile-text-c"><h6 class="profile-text svg-container"><div class="bag svg"></div>Сфера деятельности:</h6><span class="job">${userData.profession ?? 'не указано'}</span></div>
+            <div class="profile-text-c"><h6 class="profile-text svg-container"><div class="bag svg"></div>Сфера деятельности:</h6><span class="job">${userData.userObj.profession ?? 'не указано'}</span></div>
             <div class="profile-text-c"><h6 class="profile-text svg-container"><div class="earth svg"></div>Вход из:</h6><span class="country">${userCountry}</span></div>
           </div>
           <div class="profile-info__buttons">
@@ -270,14 +292,14 @@ export default class ProfilePage {
         <div class="card-info row">
               <div class="svg"><i class="fa fa-birthday-cake" aria-hidden="true"></i></div>
               <div class="dark-grey">
-                <h4>${userData.birdthDate ?? 'не указано'}</h4>
+                <h4>${userData.userObj.birdthDate ?? 'не указано'}</h4>
                 <h5>День рождения</h6>
               </div>
         </div>
         <div class="card-info row">
               <div class="svg"><i class="fa fa-briefcase" aria-hidden="true"></i></div>
               <div class="dark-grey">
-                <h4>${userData.profession ?? 'не указано'}</h4>
+                <h4>${userData.userObj.profession ?? 'не указано'}</h4>
                 <h5>Сфера деятельности</h5>
               </div>
         </div>
@@ -285,35 +307,35 @@ export default class ProfilePage {
         <div class="card-info row">
               <div class="svg"><i class="fa fa-calendar-check-o" aria-hidden="true"></i></div>
               <div class="dark-grey">
-                <h4>${userData.regTime?.toString().slice(0, 10).replace(/-/g, ' ')}</h4>
+                <h4>${userData.userObj.regTime?.toString().slice(0, 10).replace(/-/g, ' ')}</h4>
                 <h5>Дата регистрации</h5>
               </div>
         </div>
         <div class="card-info row">
           <div class="svg"><i class="fa fa-globe" aria-hidden="true"></i></div>
             <div class="dark-grey">
-            <h4>${userData.country ?? 'не указано'}</h4>
+            <h4>${userData.userObj.country ?? 'не указано'}</h4>
           <h5>Страна</h5>
           </div>
         </div>
         <div class="card-info row">
               <div class="svg"><i class="fa fa-star" aria-hidden="true"></i></div>
               <div class="dark-grey">
-                <h4>${userData.accStatus ?? 'Базовый'}</h4>
+                <h4>${userData.userObj.accStatus ?? 'Базовый'}</h4>
                 <h5>Статус аккаунта</h5>
               </div>
         </div>
         <div class="card-info row">
               <div class="svg"><i class="fa fa-battery-half" aria-hidden="true"></i></div>
               <div class="dark-grey">
-                <h4>10</h4>
+                <h4>${userData.gamesCounter ?? '0'}</h4>
                 <h5>Кол-во тренировок</h5>
               </div>
         </div>
         <div class="card-info row">
               <div class="svg"><i class="fa fa-heart" aria-hidden="true"></i></div>
               <div class="dark-grey">
-                <h4>Мемори</h4>
+                <h4>${getPrefferedGame()}</h4>
                 <h5>Любимый тренажер</h5>
               </div>
         </div>
