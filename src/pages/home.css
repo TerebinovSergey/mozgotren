@@ -5,8 +5,8 @@
 
 .main-header {
   padding: 50px 0;
-  /* display: flex;
-  flex-direction: column; */
+  display: flex;
+  flex-direction: column;
   align-items: center;
   width: 100%;
   font-weight: bold;
@@ -15,6 +15,7 @@
   letter-spacing: 1px;
   text-align: center;
   height: 100vh;
+  overflow: hidden;
 }
 .container-home {
   margin: 0 auto;
@@ -100,7 +101,7 @@
   position: relative;
   width: 100vw;
   height: 100vh;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .bubble {
@@ -329,12 +330,13 @@
   color: white;
 }
 .container-slider {
+  display: block;
   flex-wrap: nowrap;
-  width: 320px;
+  width: 250px;
   overflow: hidden;
 }
 .slider {
-  width: 960px;
+  width: 750px;
   margin: auto;
   display: flex;
   flex-direction: row;
@@ -343,8 +345,8 @@
 }
 
 .slider-item {
-  width: 320px;
-  height: 650px;
+  width: 250px;
+  height: 500px;
   background-size: cover;
   background-position: center center;
 }
@@ -374,11 +376,11 @@
   .range::-webkit-slider-runnable-track {
   border-radius: 5px;
   height: 7px;
-  background-color: #ffffff;
+  background-color: #ffffff2c;
   }
   
   .range::-webkit-slider-thumb {
-  background: #111c3e;
+  background: #ffffff;
   border-radius: 5px;
   cursor: pointer;
   width: 25px;
@@ -400,7 +402,10 @@
   height: 7px;
   cursor: pointer;
   }
-  
+  .transform {
+    transition: all ease-out 1s;
+    cursor: pointer;
+  }
 .train-brain {
   margin: 10px;
   padding: 5px 20px;
@@ -575,7 +580,82 @@ blockquote {
   /* background: linear-gradient(90deg, #000428, #0074da); */
   color: #ffffff;
 }
+.benefits-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.benefits-trio-item {
+  display: flex;
+  flex-direction: column;
+}
+.container-slider-vertical {
+  display: block;
+  flex-wrap: nowrap;
+  width: 250px;
+  height: 520px;
+  overflow: hidden;
+  margin: 20px;
+}
+.slider-vertical {
+  height: 3120px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-around; */
+  transition: transform 1s ease-in-out;
+}
 
+.slider-vertical-item {
+  width: 250px;
+  height: 520px;
+  background-size: cover;
+  background-position: center center;
+}
+.slide1 {
+  background-image: url("../assets/img/slide1.png");
+}
+.slide2 {
+  background-image: url("../assets/img/slide2.png");
+}
+.slide3 {
+  background-image: url("../assets/img/slide3.png");
+}
+.slide4 {
+  background-image: url("../assets/img/slide4.png");
+}
+.slide5 {
+  background-image: url("../assets/img/slide5.png");
+}
+.slide6 {
+  background-image: url("../assets/img/slide6.png");
+}
+.opacity {
+  animation: rightmove 1s ease-in-out backwards;
+  -webkit-animation: rightmove 1s ease-in-out backwards;
+  }
+  /* Chrome, Safari, Opera */
+  @-webkit-keyframes rightmove {
+  0% {
+    transform: translateY(0%);
+     opacity: 1;
+  }
+  15% {
+    transform: translateY(50%);
+     opacity: 0.9;
+  }
+  25% {
+    transform: translateY(25%);
+     opacity: 0.7;
+  }
+  50% {
+    transform: translateY(10%);
+     opacity: 0.5;
+  }
+  75% {
+  transform: translateY(0%);
+   opacity: 0;
+  }
+}
 .sub-title {
   padding: 40px 0 10px;
   text-align: center;
@@ -616,7 +696,7 @@ blockquote {
   }
 }
 
-.benefits-wrapper {
+/* .benefits-wrapper {
   margin-top: 40px;
   padding-bottom: 20px;
   display: grid;
@@ -625,7 +705,7 @@ blockquote {
   justify-items: center;
   align-items: start;
   transition: all .5s;
-}
+} */
 
 .benefits-item {
   padding: 10px;
@@ -634,9 +714,11 @@ blockquote {
   height: 100%;
   transition: all .3s;
   cursor: pointer;
+  background: transparent;
+  border: none;
 }
 
-.benefits-item:hover {
+.benefits-item:hover, .benefits-item-active {
   box-shadow: 0 8px 17px 0 #00000033, 0 6px 20px 0 #00000030;
 }
 
@@ -655,6 +737,27 @@ blockquote {
   font-size: 1.3rem;
   letter-spacing: 0.1em;
   font-weight: 400;
+}
+
+@media screen and (max-width: 1200px) { 
+
+  .benefits-wrapper {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+}
+
+@media screen and (max-width: 900px) {
+
+.container-slider {
+  display: none;
+}
+.main-header {
+  height: 60vh;
+ }
+
 }
 
 @media screen and (max-width: 800px) {

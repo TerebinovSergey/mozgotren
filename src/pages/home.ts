@@ -3,7 +3,9 @@ import FooterView from '../components/view/footer/footerView';
 import { getElement } from '../utils/utils';
 import { SessionData } from '../types/types';
 import popupVisibility from '../components/popup-header/popupHeader';
-import sliderTitle from '../components/sliders/sliders';
+import {
+  sliderTitle, sliderTitleTimeout, sliderVertical, sliderVerticalTimeout,
+} from '../components/sliders/sliders';
 
 export default class HomePage {
   static draw(status: SessionData): void {
@@ -29,7 +31,10 @@ export default class HomePage {
     const header = getElement('header');
     header.after(main);
     sliderTitle();
+    sliderTitleTimeout();
     popupVisibility();
+    sliderVertical();
+    sliderVerticalTimeout();
   }
 
   static getMainHTML() {
@@ -159,77 +164,94 @@ export default class HomePage {
         <img class="under-img" src="./assets/line-break-white.svg" alt="" />
       </div>
       <div class="benefits-wrapper">
-        <div class="benefits-item">
-          <div class="benefits-description">
-            <h3 class="benefits-title">Доступны онлайн</h3>
-            <p class="benefits-paragraph paragraph">
-              Не нужно скачивать и устанавливать дополнительных приложений.
-              Тренажеры доступны с любого устройства.
-            </p>
-          </div>
-          <div class="benefits-img-container">
-            <i class="fa fa-globe fa-white" aria-hidden="true"></i>
+        <div class="benefits-trio-item">
+          <button class="benefits-item move1">
+            <div class="benefits-description">
+              <h3 class="benefits-title">Доступны онлайн</h3>
+              <p class="benefits-paragraph paragraph">
+                Не нужно скачивать и устанавливать дополнительных приложений.
+                Тренажеры доступны с любого устройства.
+              </p>
+            </div>
+            <div class="benefits-img-container">
+              <i class="fa fa-globe fa-white" aria-hidden="true"></i>
+            </div>
+          </button>
+          <button class="benefits-item move2">
+            <div class="benefits-description">
+              <h3 class="benefits-title">Гибки в использовании</h3>
+              <p class="benefits-paragraph paragraph">
+                Вы сами решаете когда вам нужно заниматься и на каких именно
+                онлайн тренажерах для развития ума.
+              </p>
+            </div>
+            <div class="benefits-img-container">
+              <i class="fa fa-random fa-white" aria-hidden="true"></i>
+            </div>
+          </button>
+          <button class="benefits-item move3">
+            <div class="benefits-description">
+              <h3 class="benefits-title">Экономят время</h3>
+              <p class="benefits-paragraph paragraph">
+                Для тренировки мозга не нужно много времени. Достаточно 10-20
+               минут каждый день в любое доступное для вас время.
+              </p>
+            </div>
+            <div class="benefits-img-container">
+              <i class="fa fa-clock-o fa-white" aria-hidden="true"></i>
+            </div>
+          </button>
+        </div>
+        <div class="benefits-trio-item">
+          <div class="container-slider-vertical">
+            <div class="slider-vertical">
+              <div class="slider-vertical-item slide1"></div>
+              <div class="slider-vertical-item slide2"></div>
+              <div class="slider-vertical-item slide3"></div>
+              <div class="slider-vertical-item slide4"></div>
+              <div class="slider-vertical-item slide5"></div>
+              <div class="slider-vertical-item slide6"></div>
+            </div>
           </div>
         </div>
-        <div class="benefits-item">
-          <div class="benefits-description">
-            <h3 class="benefits-title">Гибки в использовании</h3>
-            <p class="benefits-paragraph paragraph">
-              Вы сами решаете когда вам нужно заниматься и на каких именно
-              онлайн тренажерах для развития ума.
-            </p>
-          </div>
-          <div class="benefits-img-container">
-            <i class="fa fa-random fa-white" aria-hidden="true"></i>
-          </div>
-        </div>
-        <div class="benefits-item">
-          <div class="benefits-description">
-            <h3 class="benefits-title">Экономят время</h3>
-            <p class="benefits-paragraph paragraph">
-              Для тренировки мозга не нужно много времени. Достаточно 10-20
-              минут каждый день в любое доступное для вас время.
-            </p>
-          </div>
-          <div class="benefits-img-container">
-            <i class="fa fa-clock-o fa-white" aria-hidden="true"></i>
-          </div>
-        </div>
-        <div class="benefits-item">
-          <div class="benefits-description">
-            <h3 class="benefits-title">Видны результаты</h3>
-            <p class="benefits-paragraph paragraph">
-              Все результаты тренировок фиксируются и вы сможете легко
-              отслеживать свои достижения.
-            </p>
-          </div>
-          <div class="benefits-img-container">
-            <i class="fa fa-line-chart fa-white" aria-hidden="true"></i>
-          </div>
-        </div>
-        <div class="benefits-item">
-          <div class="benefits-description">
-            <h3 class="benefits-title">Просты в использовании</h3>
-            <p class="benefits-paragraph paragraph">
-              Все тренажеры очень просты в использовании. Вы сможете начать
-              тренироваться мгновенно.
-            </p>
-          </div>
-          <div class="benefits-img-container">
-            <i class="fa fa-check fa-white" aria-hidden="true"></i>
-          </div>
-        </div>
-        <div class="benefits-item">
-          <div class="benefits-description">
-            <h3 class="benefits-title">Можно бесплатно</h3>
-            <p class="benefits-paragraph paragraph">
-              Можно выполнять упражнения для тренировки мозга совершенно
-              бесплатно. Только с некоторыми ограничениями.
-            </p>
-          </div>
-          <div class="benefits-img-container">
-            <i class="fa fa-gift fa-white" aria-hidden="true"></i>
-          </div>
+        <div class="benefits-trio-item">
+           <button class="benefits-item move4">
+              <div class="benefits-description">
+                <h3 class="benefits-title">Видны результаты</h3>
+                <p class="benefits-paragraph paragraph">
+                  Все результаты тренировок фиксируются и вы сможете легко
+                  отслеживать свои достижения.
+                </p>
+              </div>
+              <div class="benefits-img-container">
+                 <i class="fa fa-line-chart fa-white" aria-hidden="true"></i>
+              </div>
+            </button>
+            <button class="benefits-item move5">
+              <div class="benefits-description">
+                <h3 class="benefits-title">Просты в использовании</h3>
+                <p class="benefits-paragraph paragraph">
+                   Все тренажеры очень просты в использовании. Вы сможете начать
+                   тренироваться мгновенно.
+                </p>
+              </div>
+              <div class="benefits-img-container">
+                <i class="fa fa-check fa-white" aria-hidden="true"></i>
+              </div>
+            </button>
+            <button class="benefits-item move6">
+              <div class="benefits-description">
+                  <h3 class="benefits-title">Можно бесплатно</h3>
+                  <p class="benefits-paragraph paragraph">
+                    Можно выполнять упражнения для тренировки мозга совершенно
+                    бесплатно. Только с некоторыми ограничениями.
+                  </p>
+              </div>
+              <div class="benefits-img-container">
+                <i class="fa fa-gift fa-white" aria-hidden="true"></i>
+              </div>
+              </button>
+            </div>
         </div>
       </div>
     </div>

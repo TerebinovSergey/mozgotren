@@ -32,7 +32,6 @@ a {
 
 .main-background {
   background: linear-gradient(90deg, #2b3a65 0%, #314377 34%, #3e75a7 75%);
-  /* background: linear-gradient(90deg, #000428, #0074da); */
   color: white;
 }
 
