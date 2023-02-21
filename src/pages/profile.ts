@@ -5,8 +5,16 @@ import {
   baseUrl,
   getUserIdFromCookie,
 } from '../utils/utils';
-import { UserData, SessionData } from '../types/types';
-import { popupVisibility } from '../components/popup-header/popupHeader';
+import {
+  UserData,
+  SessionData,
+  DataGame,
+  DataGames,
+} from '../types/types';
+import popupVisibility from '../components/popup-header/popupHeader';
+
+// eslint-disable-next-line global-require
+const dataGames = require('../data/games.json') as DataGames;
 
 function isImageFile(file: File): Promise<boolean> {
   return new Promise((resolve, reject) => {
@@ -75,7 +83,6 @@ const uploadForm = async () => {
   if (birdthDate.length > 0) formData.append('birdthDate', birdthDate);
   if (typeof image !== 'undefined' && await isImageFile(image)) {
     formData.append('image', image);
-    console.log(image);
   }
 
   if ((userName.length > 0)
@@ -88,8 +95,7 @@ const uploadForm = async () => {
       body: formData,
     })
       .then((response) => response.json())
-      .then((result) => {
-        console.log(result);
+      .then(() => {
         (successForm as HTMLElement).style.display = 'flex';
         setTimeout(() => {
           (successForm as HTMLElement).style.display = 'none';
@@ -185,7 +191,6 @@ export default class ProfilePage {
     (document.querySelector('.check-password') as HTMLElement).addEventListener('click', async () => {
       const successForm = document.querySelector('.form-success');
       const message = await updatePassword();
-      console.log(typeof message);
       if (message.message.length > 0) {
         (successForm as HTMLElement).style.display = 'flex';
         (successForm?.children[1] as HTMLElement).innerHTML = 'Пароль успешно обновлен';
@@ -204,16 +209,22 @@ export default class ProfilePage {
   }
 
   static getMainHTML(user: SessionData, userData: UserData, userCountry: string) {
-    console.log(
-      user,
-      userData,
-      userCountry,
-    );
     const getAge = () => {
       if (Date.parse(userData.userObj.birdthDate as string) < Date.now()) {
         return `${Math.floor(Math.abs(Date.now() - Date.parse(userData.userObj.birdthDate as string)) / (1000 * 60 * 60 * 24 * 365))}`;
       }
       return 'не указано';
+    };
+
+    const getPrefferedGame = () => {
+      if (userData.prefferedGameId > 0) {
+        const gameId = dataGames.games
+          .findIndex((elem: DataGame) => elem.id === userData.prefferedGameId);
+        if (gameId > -1) {
+          return dataGames.games[gameId].nameGameRu;
+        }
+      }
+      return 'Мемори';
     };
 
     return `
