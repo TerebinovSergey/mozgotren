@@ -5,14 +5,8 @@ import {
   baseUrl,
   getUserIdFromCookie,
 } from '../utils/utils';
-import {
-  UserData,
-  SessionData,
-  DataGames,
-} from '../types/types';
+import { UserData, SessionData } from '../types/types';
 import { popupVisibility } from '../components/popup-header/popupHeader';
-// eslint-disable-next-line global-require
-const dataGames = require('../data/games.json') as DataGames;
 
 function isImageFile(file: File): Promise<boolean> {
   return new Promise((resolve, reject) => {
@@ -220,17 +214,6 @@ export default class ProfilePage {
         return `${Math.floor(Math.abs(Date.now() - Date.parse(userData.userObj.birdthDate as string)) / (1000 * 60 * 60 * 24 * 365))}`;
       }
       return 'не указано';
-    };
-
-    console.log(dataGames.games);
-    const getPrefferedGame = () => {
-      if (userData.prefferedGameId > 0) {
-        const gameId = dataGames.games.findIndex((elem) => elem.id === userData.prefferedGameId);
-        if (gameId > -1) {
-          return dataGames.games[gameId].nameGameRu;
-        }
-      }
-      return 'Мемори';
     };
 
     return `
