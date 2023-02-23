@@ -349,7 +349,7 @@
   background-image: url('../assets/img/memory.png');
 }
 .item2 {
-  background-image: url('../assets/img/attention.png');
+  background-image: url('../assets/img/attention1.png');
 }
 .item3 {
   background-image: url('../assets/img/mind.png');
@@ -776,7 +776,7 @@ blockquote {
 }
 
 @media screen and (max-width: 1500px) { 
-  
+
   .main-container {
     margin: 0 auto;
     width: 80%;
