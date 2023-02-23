@@ -3,9 +3,7 @@ import FooterView from '../components/view/footer/footerView';
 import { getElement } from '../utils/utils';
 import { SessionData } from '../types/types';
 import popupVisibility from '../components/popup-header/popupHeader';
-import {
-  sliderTitle, sliderTitleTimeout, sliderVertical, sliderVerticalTimeout,
-} from '../components/sliders/sliders';
+import { sliderTitleTimeout, sliderVerticalTimeout } from '../components/sliders/sliders';
 
 export default class HomePage {
   static draw(status: SessionData): void {
@@ -30,10 +28,8 @@ export default class HomePage {
     main.innerHTML = this.getMainHTML();
     const header = getElement('header');
     header.after(main);
-    sliderTitle();
     sliderTitleTimeout();
     popupVisibility();
-    sliderVertical();
     sliderVerticalTimeout();
   }
 
