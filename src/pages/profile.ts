@@ -434,7 +434,36 @@ export default class ProfilePage {
                 <label for="year"><h5>Год:</h5></label>
                 <select id="year">
                   <option></option>
-                  <option>1980</option>
+                  <option>1950</option>
+                  <option>1951</option>
+                  <option>1952</option>
+                  <option>1953</option>
+                  <option>1954</option>
+                  <option>1955</option>
+                  <option>1956</option>
+                  <option>1957</option>
+                  <option>1958</option>
+                  <option>1959</option>
+                  <option>1960</option>
+                  <option>1961</option>
+                  <option>1962</option>
+                  <option>1963</option>
+                  <option>1964</option>
+                  <option>1965</option>
+                  <option>1966</option>
+                  <option>1967</option>
+                  <option>1968</option>
+                  <option>1969</option>
+                  <option>1970</option>
+                  <option>1971</option>
+                  <option>1972</option>
+                  <option>1973</option>
+                  <option>1974</option>
+                  <option>1975</option>
+                  <option>1976</option>
+                  <option>1977</option>
+                  <option>1978</option>
+                  <option>1979</option>
                   <option>1981</option>
                   <option>1982</option>
                   <option>1983</option>
