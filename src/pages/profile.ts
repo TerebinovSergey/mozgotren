@@ -5,8 +5,16 @@ import {
   baseUrl,
   getUserIdFromCookie,
 } from '../utils/utils';
-import { UserData, SessionData } from '../types/types';
+import {
+  UserData,
+  SessionData,
+  DataGame,
+  DataGames,
+} from '../types/types';
 import popupVisibility from '../components/popup-header/popupHeader';
+
+// eslint-disable-next-line global-require
+const dataGames = require('../data/games.json') as DataGames;
 
 function isImageFile(file: File): Promise<boolean> {
   return new Promise((resolve, reject) => {
@@ -75,7 +83,6 @@ const uploadForm = async () => {
   if (birdthDate.length > 0) formData.append('birdthDate', birdthDate);
   if (typeof image !== 'undefined' && await isImageFile(image)) {
     formData.append('image', image);
-    console.log(image);
   }
 
   if ((userName.length > 0)
@@ -88,8 +95,7 @@ const uploadForm = async () => {
       body: formData,
     })
       .then((response) => response.json())
-      .then((result) => {
-        console.log(result);
+      .then(() => {
         (successForm as HTMLElement).style.display = 'flex';
         setTimeout(() => {
           (successForm as HTMLElement).style.display = 'none';
@@ -185,7 +191,6 @@ export default class ProfilePage {
     (document.querySelector('.check-password') as HTMLElement).addEventListener('click', async () => {
       const successForm = document.querySelector('.form-success');
       const message = await updatePassword();
-      console.log(typeof message);
       if (message.message.length > 0) {
         (successForm as HTMLElement).style.display = 'flex';
         (successForm?.children[1] as HTMLElement).innerHTML = 'Пароль успешно обновлен';
@@ -205,10 +210,21 @@ export default class ProfilePage {
 
   static getMainHTML(user: SessionData, userData: UserData, userCountry: string) {
     const getAge = () => {
-      if (Date.parse(userData.birdthDate as string) < Date.now()) {
-        return `${Math.floor(Math.abs(Date.now() - Date.parse(userData.birdthDate as string)) / (1000 * 60 * 60 * 24 * 365))}`;
+      if (Date.parse(userData.userObj.birdthDate as string) < Date.now()) {
+        return `${Math.floor(Math.abs(Date.now() - Date.parse(userData.userObj.birdthDate as string)) / (1000 * 60 * 60 * 24 * 365))}`;
       }
       return 'не указано';
+    };
+
+    const getPrefferedGame = () => {
+      if (userData.prefferedGameId > 0) {
+        const gameId = dataGames.games
+          .findIndex((elem: DataGame) => elem.id === userData.prefferedGameId);
+        if (gameId > -1) {
+          return dataGames.games[gameId].nameGameRu;
+        }
+      }
+      return 'Мемори';
     };
 
     return `
@@ -218,7 +234,7 @@ export default class ProfilePage {
       <div class="profile-container">
         <div class="profile-info-container ">
           <div class="profile-image">
-        <img src="${baseUrl}/${userData.imagePath}" onerror="javascript:this.src='./assets/null.jpg'"/>
+        <img src="${baseUrl}/${userData.userObj.imagePath}" onerror="javascript:this.src='./assets/null.jpg'"/>
           </div>
           <div class="profile-info">
             <h2 class="profile-title">${user.user}</h2>
@@ -227,7 +243,7 @@ export default class ProfilePage {
           <hr class="vertical-line" > 
           <div class="profile-info">
             <div class="profile-text-c"><h6 class="profile-text svg-container"><div class="null svg"></div>Возраст:</h6><span class="age">${getAge()}</span></div>
-            <div class="profile-text-c"><h6 class="profile-text svg-container"><div class="bag svg"></div>Сфера деятельности:</h6><span class="job">${userData.profession ?? 'не указано'}</span></div>
+            <div class="profile-text-c"><h6 class="profile-text svg-container"><div class="bag svg"></div>Сфера деятельности:</h6><span class="job">${userData.userObj.profession ?? 'не указано'}</span></div>
             <div class="profile-text-c"><h6 class="profile-text svg-container"><div class="earth svg"></div>Вход из:</h6><span class="country">${userCountry}</span></div>
           </div>
           <div class="profile-info__buttons">
@@ -270,14 +286,14 @@ export default class ProfilePage {
         <div class="card-info row">
               <div class="svg"><i class="fa fa-birthday-cake" aria-hidden="true"></i></div>
               <div class="dark-grey">
-                <h4>${userData.birdthDate ?? 'не указано'}</h4>
+                <h4>${userData.userObj.birdthDate ?? 'не указано'}</h4>
                 <h5>День рождения</h6>
               </div>
         </div>
         <div class="card-info row">
               <div class="svg"><i class="fa fa-briefcase" aria-hidden="true"></i></div>
               <div class="dark-grey">
-                <h4>${userData.profession ?? 'не указано'}</h4>
+                <h4>${userData.userObj.profession ?? 'не указано'}</h4>
                 <h5>Сфера деятельности</h5>
               </div>
         </div>
@@ -285,35 +301,35 @@ export default class ProfilePage {
         <div class="card-info row">
               <div class="svg"><i class="fa fa-calendar-check-o" aria-hidden="true"></i></div>
               <div class="dark-grey">
-                <h4>${userData.regTime?.toString().slice(0, 10).replace(/-/g, ' ')}</h4>
+                <h4>${userData.userObj.regTime?.toString().slice(0, 10).replace(/-/g, ' ')}</h4>
                 <h5>Дата регистрации</h5>
               </div>
         </div>
         <div class="card-info row">
           <div class="svg"><i class="fa fa-globe" aria-hidden="true"></i></div>
             <div class="dark-grey">
-            <h4>${userData.country ?? 'не указано'}</h4>
+            <h4>${userData.userObj.country ?? 'не указано'}</h4>
           <h5>Страна</h5>
           </div>
         </div>
         <div class="card-info row">
               <div class="svg"><i class="fa fa-star" aria-hidden="true"></i></div>
               <div class="dark-grey">
-                <h4>${userData.accStatus ?? 'Базовый'}</h4>
+                <h4>${userData.userObj.accStatus ?? 'Базовый'}</h4>
                 <h5>Статус аккаунта</h5>
               </div>
         </div>
         <div class="card-info row">
               <div class="svg"><i class="fa fa-battery-half" aria-hidden="true"></i></div>
               <div class="dark-grey">
-                <h4>10</h4>
+                <h4>${userData.gamesCounter ?? '0'}</h4>
                 <h5>Кол-во тренировок</h5>
               </div>
         </div>
         <div class="card-info row">
               <div class="svg"><i class="fa fa-heart" aria-hidden="true"></i></div>
               <div class="dark-grey">
-                <h4>Мемори</h4>
+                <h4>${getPrefferedGame()}</h4>
                 <h5>Любимый тренажер</h5>
               </div>
         </div>
@@ -336,6 +352,10 @@ export default class ProfilePage {
               <option>Бухгалтерия</option>
               <option>Техника</option>
               <option>Образование</option>
+              <option>Торговля</option>
+              <option>Госслужба</option>
+              <option>Наука</option>
+              <option>Сфера услуг</option>
             </select>
       </div>
       <div class="input-box">
@@ -414,7 +434,36 @@ export default class ProfilePage {
                 <label for="year"><h5>Год:</h5></label>
                 <select id="year">
                   <option></option>
-                  <option>1980</option>
+                  <option>1950</option>
+                  <option>1951</option>
+                  <option>1952</option>
+                  <option>1953</option>
+                  <option>1954</option>
+                  <option>1955</option>
+                  <option>1956</option>
+                  <option>1957</option>
+                  <option>1958</option>
+                  <option>1959</option>
+                  <option>1960</option>
+                  <option>1961</option>
+                  <option>1962</option>
+                  <option>1963</option>
+                  <option>1964</option>
+                  <option>1965</option>
+                  <option>1966</option>
+                  <option>1967</option>
+                  <option>1968</option>
+                  <option>1969</option>
+                  <option>1970</option>
+                  <option>1971</option>
+                  <option>1972</option>
+                  <option>1973</option>
+                  <option>1974</option>
+                  <option>1975</option>
+                  <option>1976</option>
+                  <option>1977</option>
+                  <option>1978</option>
+                  <option>1979</option>
                   <option>1981</option>
                   <option>1982</option>
                   <option>1983</option>

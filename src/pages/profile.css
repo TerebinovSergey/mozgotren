@@ -1,3 +1,8 @@
+.container-profile {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
 .profile-title-wrapper {
   position: relative;
   width: 100%;
@@ -22,6 +27,7 @@
   background-color: #fff;
   border-bottom: 1px solid var(--gray-color);
   border: thin solid rgba(0, 0, 0, .12);
+  ;
 }
 
 .profile-info__buttons {
@@ -129,7 +135,7 @@
   opacity: 0.6;
 }
 
-.active1 {
+.active {
   color: #01579b;
   border-bottom: solid 2px #01579b;
 }
@@ -151,8 +157,9 @@
   font-size: 1.1em;
 }
 
-.input-box {
-  margin: 20px 200px;
+.input-box,
+.input-file {
+  margin: 20px 50px;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -177,7 +184,6 @@ select {
 }
 
 .dark-grey h4 {
-  text-transform: capitalize;
   font-weight: 400;
 }
 
@@ -213,28 +219,33 @@ option {
 }
 
 .birth-title {
-  margin: 0 200px;
+  margin: 0 50px;
 }
 
 .birth-container {
+  width: 90%;
+  margin: 0 50px;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 .birth-container .input-box {
-  margin-right: 10px;
-  margin-left: 10px;
+  width: 100%;
 }
 
 .birth-container select {
-  width: 20vw;
+  width: 100%;
 }
 
 .input-file {
   position: relative;
   display: inline-block;
   cursor: pointer;
+}
+
+.input-file .input-box {
+  width: 90%;
 }
 
 .input-file-text,
@@ -245,7 +256,7 @@ option {
   display: block;
   float: left;
   box-sizing: border-box;
-  width: 60vw;
+  width: 100%;
   border-radius: 6px;
   border: 1px solid #ddd;
 }
@@ -377,7 +388,7 @@ option {
 }
 
 .end {
-  margin-right: 200px;
+  margin-right: 50px;
   align-self: end;
 }
 
@@ -401,7 +412,6 @@ option {
 
 .svg {
   display: flex;
-  width: 30px;
   justify-content: center;
   align-items: center;
   margin-right: 10px;
@@ -503,23 +513,7 @@ option {
   display: none;
 }
 
-@media screen and (max-width: 1450px) {
 
-  .end {
-    margin-right: 200px;
-  }
-
-  .input-box,
-  .birth-title {
-    margin-left: 100px;
-    margin-right: 100px;
-  }
-
-  .end {
-    margin-right: 100px;
-  }
-
-}
 
 .form-success {
   display: none;
@@ -551,6 +545,18 @@ option {
 .form-success .fa::before {
   font-size: 110px;
   color: #008000;
+}
+
+@media screen and (max-width: 1450px) {
+
+  .end {
+    margin-right: 200px;
+  }
+
+  .end {
+    margin-right: 100px;
+  }
+
 }
 
 @media screen and (max-width: 1000px) {
@@ -604,6 +610,10 @@ option {
     color: rgba(0, 0, 0, .8);
   }
 
+  .birth-container {
+    margin: 0 10px;
+  }
+
   .birth-container>.input-box {
     display: flex;
     justify-content: center;
@@ -611,8 +621,7 @@ option {
 
   .input-box,
   .birth-title {
-    margin-left: 30px;
-    margin-right: 30px;
+    margin: 20px 10px;
     width: 90%;
   }
 
@@ -622,6 +631,17 @@ option {
 
   .svg-container:last-child {
     margin: 10px 0;
+    width: 90%;
+  }
+
+  #buttons {
+    align-items: center;
+    width: 100%;
+  }
+
+  #quit {
+    width: 20%;
+    margin: 0;
   }
 }
 
@@ -633,11 +653,21 @@ option {
 
   .input-logo {
     margin-bottom: 0;
+    width: 100%;
   }
 
   .button-profile.end {
     align-self: center;
     margin: 0 0 10px 0;
+  }
+
+  #buttons {
+    width: 100%;
+    align-items: center;
+  }
+
+  #quit {
+    width: 40%;
   }
 }
 
@@ -665,6 +695,15 @@ option {
     margin-left: 10px;
     margin-right: 10px;
   }
+
+  #buttons {
+    align-items: center;
+    width: 100%;
+  }
+
+  #quit {
+    width: 50%;
+  }
 }
 
 @media screen and (max-width: 400px) {
@@ -682,5 +721,6 @@ option {
 
   .input-logo {
     margin-bottom: 0;
+    width: 100%;
   }
 }
