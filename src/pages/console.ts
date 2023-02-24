@@ -211,9 +211,7 @@ const scoreList = [
   },
 ];
 
-const list = scoreList.filter((el) => el.score !== null);
-
-const sum = list.reduce((accumulator, object) => accumulator + Number(object.score), 0);
+const sum = scoreList.reduce((accumulator, object) => accumulator + Number(object.score), 0);
 
 const resultScore = Object.values(scoreList.map((el) => [
   el.id, el.name, el.score, ';', '\n',
