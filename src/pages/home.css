@@ -10,7 +10,7 @@
   letter-spacing: 1px;
   text-align: center;
   height: 100vh;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 .container-home {
   margin: 0 auto;
