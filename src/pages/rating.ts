@@ -95,23 +95,27 @@ export default class RatingPage {
     }
     const container = getElement('.rating-container');
     container.innerHTML = '';
-    for (let i = 0; i < json.games.length; i += 1) {
-      const game = json.games[i];
+    const userInfo = getUserIdFromCookie();
+    const userId = (userInfo.length > 0) ? userInfo[0][1] : '';
+    const gamesPlayed = this.ratings.getUserGamesPlayed(userId);
+    json.games.forEach((val) => gamesPlayed.add(val.id));
+    const games = Array.from(gamesPlayed);
+    for (let i = 0; i < games.length; i += 1) {
+      const game = getDataGame(games[i]);
       if (categoryId === -1 || categoryId === game.categoryId) {
         // eslint-disable-next-line no-await-in-loop
-        const gameCard = await this.createGameCard(game);
+        const gameCard = await this.createGameCard(game, userId);
         container.append(gameCard);
       }
     }
     await this.addListenerShowGameRatings();
   }
 
-  async createGameCard(data: DataGame): Promise<HTMLDivElement> {
+  async createGameCard(data: DataGame, userId: string): Promise<HTMLDivElement> {
     type User = {
       score: number | string,
       userName: string,
     };
-    const userId = getUserIdFromCookie()[0][1];
     const position = this.ratings?.getUserPositionByGame(data.id, userId);
     const userPosition = (position === 0 || position === undefined) ? '' : position;
     const gameRat = this.ratings?.bestGameResults?.get(data.id);
