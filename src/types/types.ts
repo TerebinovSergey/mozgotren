@@ -138,7 +138,7 @@ export type AuthData = {
   password: string,
 };
 
-export type UserData = {
+export type UserObj = {
   userId: string,
   oldEmail?: string,
   age?: string,
@@ -148,6 +148,12 @@ export type UserData = {
   country?: string,
   accStatus?: string,
   imagePath?: string,
+};
+
+export type UserData = {
+  gamesCounter: number,
+  prefferedGameId: number,
+  userObj: UserObj,
 };
 
 export type DataRating = {

@@ -42,6 +42,7 @@ const routes: Routes = {
   },
   '/login': () => loginPage(),
   '/register': () => registrationPage(),
+  '/404': () => { clearPage(); Controller.draw404Page(); },
 };
 
 export default class App {
@@ -55,7 +56,11 @@ export default class App {
     if (hash.length > 0 && pathname === '/trenagor') {
       drawGamePage(hash.slice(1) as GameNames);
     } else {
-      routes[pathname]();
+      try {
+        routes[pathname]();
+      } catch {
+        routes['/404']();
+      }
     }
   }
 }
