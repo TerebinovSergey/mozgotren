@@ -8,6 +8,9 @@ const currenciesData = require('../../data/currencies.json') as Currencies;
 export default class StranaValyta extends StranaStolica {
   getRandomTask(): string {
     let countryInd = -1;
+    if (this.taskStack.length >= currenciesData.currencies.length - 1) {
+      this.taskStack = [];
+    }
     do {
       countryInd = randomInteger(0, currenciesData.currencies.length - 1);
     }

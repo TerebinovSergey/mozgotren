@@ -24,6 +24,9 @@ export class BookAuther extends BaseGame {
 
   getRandomTask(): string {
     let bookInd = -1;
+    if (this.taskStack.length >= booksData.books.length - 1) {
+      this.taskStack = [];
+    }
     do {
       bookInd = randomInteger(0, booksData.books.length - 1);
     }
