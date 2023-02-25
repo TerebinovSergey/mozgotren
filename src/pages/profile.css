@@ -55,7 +55,7 @@
   align-items: stretch;
   background-color: #fff;
   margin: 10px 30px;
-  padding: 20px 30px;
+  padding: 10px 30px;
   overflow: hidden;
   border: thin solid rgba(0, 0, 0, .12);
 }
@@ -415,6 +415,7 @@ option {
   justify-content: center;
   align-items: center;
   margin-right: 10px;
+  max-width: 30px;
 }
 
 .svg>.fa::before {
@@ -500,20 +501,22 @@ option {
   color: #000000;
 }
 
+h2.dark-grey {
+  margin-top: 25px;
+}
+
 .dark-grey h5 {
   color: #999999;
 }
 
 .row {
-  margin: 15px;
+  margin: 10px 15px;
 }
 
 .hidden3,
 .hidden4 {
   display: none;
 }
-
-
 
 .form-success {
   display: none;
@@ -640,8 +643,9 @@ option {
   }
 
   #quit {
-    width: 20%;
+    width: 100%;
     margin: 0;
+    padding: 0 20px;
   }
 }
 
@@ -664,10 +668,6 @@ option {
   #buttons {
     width: 100%;
     align-items: center;
-  }
-
-  #quit {
-    width: 40%;
   }
 }
 
@@ -699,10 +699,6 @@ option {
   #buttons {
     align-items: center;
     width: 100%;
-  }
-
-  #quit {
-    width: 50%;
   }
 }
 
