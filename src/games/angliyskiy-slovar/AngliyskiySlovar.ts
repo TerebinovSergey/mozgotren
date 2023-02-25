@@ -8,6 +8,9 @@ const wordsData = require('../../data/englishWords.json') as EnglishWords;
 export default class AngliyskiySlovar extends StranaStolica {
   getRandomTask(): string {
     let countryInd = -1;
+    if (this.taskStack.length >= wordsData.words.length - 1) {
+      this.taskStack = [];
+    }
     do {
       countryInd = randomInteger(0, wordsData.words.length - 1);
     }

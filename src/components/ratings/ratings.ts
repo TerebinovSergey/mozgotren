@@ -98,4 +98,15 @@ export default class Ratings {
     const result = gameRat.findIndex((val) => val.userId === userId);
     return (result < 0) ? 0 : result + 1;
   }
+
+  getUserGamesPlayed(userId: string) {
+    const games = new Set<number>();
+    if (userId === '') return games;
+    this.gameResults.forEach((value) => {
+      if (value.score > 0 && value.userId === userId) {
+        games.add(value.gameId);
+      }
+    });
+    return games;
+  }
 }
