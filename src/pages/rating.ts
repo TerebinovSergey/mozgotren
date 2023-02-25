@@ -82,7 +82,7 @@ export default class RatingPage {
               </div>
             </div>
           </aside>
-          <div class="rating-container"></div>
+          <div class="rating-container rating-flex"></div>
         </section>
       </div>
     </div>`;
@@ -234,14 +234,17 @@ export default class RatingPage {
 
   addListenerGroupFilter(): void {
     const filter = getElement('.categories-rating');
+    const ratingContainer = getElement('.rating-container');
     filter.addEventListener('click', (event) => {
       if (!(event.target instanceof HTMLElement)) return;
       const group = event.target.closest('.filter-item-rating');
       if (!(group instanceof HTMLElement)) return;
       const { categoryId } = group.dataset;
       if (categoryId === 'fame') {
+        ratingContainer.classList.remove('rating-flex');
         this.renderHallOfFame();
       } else {
+        ratingContainer.classList.add('rating-flex');
         this.renderGames(Number(categoryId));
       }
     });
