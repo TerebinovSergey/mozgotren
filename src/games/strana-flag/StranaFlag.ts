@@ -24,6 +24,9 @@ export class StranaFlag extends BaseGame {
 
   getRandomTask(): string {
     let countryInd = -1;
+    if (this.taskStack.length >= countriesData.flags.length - 1) {
+      this.taskStack = [];
+    }
     do {
       countryInd = randomInteger(0, countriesData.flags.length - 1);
     }

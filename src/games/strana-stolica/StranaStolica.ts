@@ -12,7 +12,7 @@ export type ComparisonTask = {
 
 export class StranaStolica extends BaseGame {
   readonly countAnswers = 4;
-  currentAnswer: string = '';
+  currentAnswer = '';
   taskStack: number[] = [];
 
   getTask(): ComparisonTask {
@@ -24,6 +24,9 @@ export class StranaStolica extends BaseGame {
 
   getRandomTask(): string {
     let countryInd = -1;
+    if (this.taskStack.length >= countriesData.countries.length - 1) {
+      this.taskStack = [];
+    }
     do {
       countryInd = randomInteger(0, countriesData.countries.length - 1);
     }

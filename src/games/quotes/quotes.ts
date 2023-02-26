@@ -24,11 +24,13 @@ export class QuoteAuther extends BaseGame {
 
   getRandomTask(): string {
     let quoteInd = -1;
+    if (this.taskStack.length >= quotesData.quotes.length - 1) {
+      this.taskStack = [];
+    }
     do {
       quoteInd = randomInteger(0, quotesData.quotes.length - 1);
     }
     while (this.isTaskWas(quoteInd));
-
     this.taskStack.push(quoteInd);
     const quote = quotesData.quotes[quoteInd];
     this.currentAnswer = quote.author;
