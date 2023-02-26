@@ -97,6 +97,7 @@ export default class GamePage {
     return `
     <div class="body-background-shaddow"></div>
     <div class="body-background-shaddow-description"></div>
+    <div class="container-popap">
     <div class="popap hidden_popap">
       <div class="close"></div>
       <div class="container__description">
@@ -151,6 +152,7 @@ export default class GamePage {
         </div>
       </div>
     </div>
+    </div>
     <div class="game-container game-container-${this.nameGame}">
       <div class="game-container-wrapper">
         ${this.getNavigationHTML()}
@@ -163,7 +165,6 @@ export default class GamePage {
   private getInformationHTML(): string {
     return `
     <div class="information">
-      <hr class="shadow">
       <div class="information-container">
         <div class="info-title-container">
           <div class="game-logo" style="background-image: url(${this.logo})"></div>
@@ -184,6 +185,7 @@ export default class GamePage {
   private getSettingsGameHTML(): string {
     return `
     <div class="form-container">
+    <div class="form-container-wrap">
       <button class="button btn-start-game">
         <span class="">Начать тренировку</span>
       </button>
@@ -191,12 +193,15 @@ export default class GamePage {
         <h5>Правила игры</h5>
         <div class="question"></div>
       </a>
+      </div>
+      <div class="form-container-wrap">
       <h5> Пригласите друзей на тренировку: </h5>
       <ul class="link-container">
         <li class="link-item"><a href="https://www.facebook.com/"><div class="facebook"></div></a></li>
         <li class="link-item"><a href="https://ok.ru/"><div class="odnoklassniki"></div></a></li>
         <li class="link-item"><a href="https://https://login.microsoftonline.com/"><div class="open-letter"></div></a></li>
       </ul>
+      </div>
     </div>`;
   }
 

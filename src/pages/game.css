@@ -6,6 +6,7 @@
   max-width: 100vw;
   min-height: calc(100vh - 66px - 54px);
   background: #f5f5f5;
+  background: #5f8e950e;
   display: flex;
   padding: 0;
   margin: 0;
@@ -24,18 +25,21 @@
 
 .button {
   background-color: rgb(0, 57, 105);
-  border-color: rgb(0, 57, 105);
+  /* border-color: rgb(0, 57, 105); */
+  border: none;
   text-transform: uppercase;
   color: white;
   height: 44px;
   min-width: 78px;
   padding: 0 19.5555555556px;
-  box-shadow: 0 2px 4px -1px rgb(0 0 0 / 20%), 0 4px 5px 0 rgb(0 0 0 / 14%), 0 1px 10px 0 rgb(0 0 0 / 12%);
+  /* box-shadow: 0 2px 4px -1px rgb(0 0 0 / 20%), 0 4px 5px 0 rgb(0 0 0 / 14%), 0 1px 10px 0 rgb(0 0 0 / 12%); */
   transition: all .3s;
   cursor: pointer;
 }
-.button:hover {
+.button:hover, .button:active {
   box-shadow: 5px 5px 10px 2px #0000004d;
+  opacity: 0.8;
+  box-shadow: 0 2px 4px -1px rgb(0 0 0 / 20%), 0 4px 5px 0 rgb(0 0 0 / 14%), 0 1px 10px 0 rgb(0 0 0 / 12%);
 }
 
 .button-navigation {
@@ -57,11 +61,14 @@
 }
 
 .navigation {
-  background-color: #2e2e2e;
+  /* background-color: #2e2e2e;
+  background-color: #293658;
+  background-color: #299299a8; */
+  background: linear-gradient(0deg, #5f8e959f 0%, #299299a8 75%);
   box-shadow: 0 2px 4px -1px rgb(0 0 0 / 20%), 0 4px 5px 0 rgb(0 0 0 / 14%), 0 1px 10px 0 rgb(0 0 0 / 12%);
   display: flex;
   flex-direction: row;
-  height: 35px;
+  height: 45px;
   justify-content: space-between;
 }
 
@@ -75,7 +82,9 @@
   text-align: center;
   border-bottom: 1px solid var(--gray-color);
   background: #eee;
+  background: linear-gradient(0deg, #5f8e959f 0%, #3e74a7ce 75%);
   color: rgba(0,0,0,.6);
+  color: #ffffff;
   display: flex;
   flex-direction: column;
   z-index: 1;
@@ -92,6 +101,7 @@
   display: flex;
   flex-direction: row;
   transition: all 0.6s;
+  margin-top: 20px;
 }
 
 .game-rules:hover {
@@ -104,7 +114,7 @@
 }
 
 .grey {
-  color: var(--gray-color);
+  color: white;
   margin-left: 5px;
 }
 
@@ -115,6 +125,7 @@
   background-position: center center;
   background-image: url("../assets/img/thumb_arifmetika.jpg");
   border-radius: 50px;
+  border: 1.5px solid #ffffff;
   margin-right: 10px;
 }
 
@@ -156,6 +167,7 @@
 
 .game-title {
   color: black;
+  color: #ffffff;
 }
 
 .shadow {
@@ -190,8 +202,14 @@ margin: 0;
   height: 50%;
   justify-content: space-around;
   align-items: center;
+  margin: auto;
 }
-
+.form-container-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .game-difficult-container {
   display: flex;
   flex-direction: column;
@@ -208,6 +226,7 @@ margin: 0;
 .link-container {
   display: flex;
   flex-direction: row;
+  margin-top: 20px;
 }
 
 .link-item {
@@ -240,20 +259,25 @@ margin: 0;
   background-position: center center;
   background-image: url("../assets/img/svg/open-letter.svg");
 }
+.container-popap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .popap {
   display: flex;
   flex-direction: column;
   background-color: white;
   width: 60%;
   position: fixed;
-  top: 0;
-  height: 100%;
-  margin-left: 20%;
+  top: 1.5%;
+  height: 97%;
   overflow: scroll;
   justify-content: flex-start;
   align-items: flex-start;
   z-index: 5100;
   padding: 20px;
+  padding-top: 30px;
   -ms-overflow-style: none;
   overflow: -moz-scrollbars-none;
 }
@@ -265,7 +289,7 @@ margin: 0;
   width: 16px;
   height: 16px;
   position: absolute;
-  top: 5px;
+  top: 15px;
   bottom: 5px;
   align-self: flex-end;
   background-size: cover;
@@ -332,6 +356,9 @@ box-shadow: 0 2px 4px -1px rgb(0 0 0 / 20%), 0 4px 5px 0 rgb(0 0 0 / 14%), 0 1px
   .card__description_title {
     font-size: max(min(1rem, 5vw), 0.7rem);
   }
+  .check-container {
+    display: none;
+  }
 
 }
 
@@ -342,13 +369,6 @@ box-shadow: 0 2px 4px -1px rgb(0 0 0 / 20%), 0 4px 5px 0 rgb(0 0 0 / 14%), 0 1px
   }
 }
 
-@media screen and (max-width: 600px) {
-  
-  .check-container {
-    display: none;
-  }
-
-}
 
 @media screen and (max-width: 500px) {
 

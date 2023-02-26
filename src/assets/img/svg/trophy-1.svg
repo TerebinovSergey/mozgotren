@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
-	 viewBox="0 0 496 496" xml:space="preserve">
+	 viewBox="0 0 440 400" xml:space="preserve">
 <g>
 	<path style="fill:#FFCD50;" d="M350.4,0H145.6c-8,0-14.4,4-14.4,12s6.4,12,14.4,12l0,0c2.4,72,8,194.4,69.6,225.6
 		c-1.6,1.6-2.4,4-2.4,6.4c0,3.2,2.4,6.4,7.2,8.8c-4.8,2.4-7.2,5.6-7.2,8.8c0,5.6,8.8,10.4,20.8,12.8c-0.8,24-0.8,49.6-0.8,73.6H200
@@ -21,14 +21,5 @@
 	<polygon style="fill:#EAAD34;" points="344,60 251.2,59.2 145.6,24 344,24 	"/>
 	<polygon style="fill:#EAAD34;" points="254.4,274.4 189.6,211.2 188.8,185.6 268,237.6 	"/>
 	<polygon style="fill:#EAAD34;" points="260.8,100.8 152,56 152,40 272.8,60.8 	"/>
-	
-		<rect x="214.488" y="92.191" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 348.3754 360.6835)" style="fill:#EAAD34;" width="68.799" height="32"/>
-	<polygon style="fill:#EAAD34;" points="284.8,225.6 234.4,175.2 259.2,154.4 307.2,202.4 	"/>
 </g>
-
-<polygon style="fill:#CE3838;" points="315.2,480 180.8,480 189.6,384 306.4,384 "/>
-<polygon style="fill:#A31A1A;" points="315.2,480.8 230.4,442.4 189.6,384 306.4,384 "/>
-<rect x="208" y="408" style="fill:#EAE9DA;" width="80" height="48"/>
-<polyline style="fill:#D8D5BA;" points="208,408 288,408 288,456 "/>
-<rect x="160" y="472" style="fill:#8C1111;" width="176" height="24"/>
 </svg>

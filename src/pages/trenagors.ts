@@ -44,11 +44,7 @@ export default class TrenagorsPage {
     <div class="body-background-shaddow"></div>
     <div class="container">
       <div class="trenagors-title-wrapper">
-        <h2 class="trenagors-title">Тренажеры для ума</h2>
-        <div
-          class="trenagors-title-underline_blue"
-        />
-      </div>
+
       <section class="trenagors">
         <aside class="trenagors-filter">
           <div class="categories-trenagors filter">
@@ -89,7 +85,16 @@ export default class TrenagorsPage {
             </div>
           </div>
         </aside>
+
+      <div class="trenagors-container-wrap">
+      <h2 class="trenagors-title">Тренажеры для ума</h2>
+      <div
+        class="trenagors-title-underline_blue"
+      />
+    </div>
         <div class="trenagors-container">
+
+        </div>
         </div>
       </section>
     </div>`;

@@ -8,7 +8,6 @@ export default class HeaderView {
     document.body.prepend(header);
   }
 
-  // eslint-disable-next-line class-methods-use-this
   private getHeaderHTML(
     user: {
       message: string,

@@ -265,10 +265,9 @@
 .main-header-trenagors {
   margin-top: 65px;
 }
-/* .title-link .title-main {} */
+
   .title-link::before {
     content: '';
-    /* position: absolute; */
     height: 100%;
     width: 100%;
     border-width: 2px 0;
@@ -466,7 +465,9 @@
   justify-content: center;
   align-items: center;
 }
-
+.trenagors-for-brain {
+  margin-bottom: 30px;
+ }
 .about-us-categories {
   display: flex;
   justify-content: space-between;
@@ -582,13 +583,13 @@ blockquote {
 .improve-wpapper-img {
   display: flex;
   justify-content: center;
-  align-items: start;
+  align-items: center;
   width: 50%;
 }
 
 .improve-description__info {
   display: flex;
-  margin-top: 10px;
+  margin-top: 30px;
 }
 
 .info__img {
@@ -764,7 +765,7 @@ blockquote {
 .benefits-paragraph {
   font-size: 1rem;
   color: #ffffff;
-  text-align: justify;
+  text-align: left;
 }
 
 .benefits-title {

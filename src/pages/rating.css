@@ -1,13 +1,18 @@
 .container__rating_main {
   min-height: calc(100vh - 66px - 54px);
-  
+  background-color: #5f8e950e;
+  padding-bottom: 40px;
 }
 .rating-filter {
   width: 100%;
-  height: 40px;
+  height: 60px;
   color: #fefefe;
   caret-color: #fefefe;
-  background-color: #299299e0;
+  /* background-color: #299299e0; */
+  background: linear-gradient(90deg, #2b3a65 0%, #314377 34%, #3e75a7 75%);
+  background: linear-gradient(0deg, #5f8e959f 0%, #3e74a7ce 75%);
+  background: linear-gradient(0deg, #5f8e959f 0%, #299299a8 75%);
+  
 }
 
 .categories-rating {
@@ -16,8 +21,6 @@
   justify-content: space-between;
   text-align: center;
   align-items: center;
-  line-height: 40px;
-  vertical-align: middle;
 }
 
 .rating-card {
@@ -26,9 +29,10 @@
   justify-content: space-between;
   width: 80%;
   min-width: 300px;
-  height: 300px;
+  height: 400px;
   border: 1px #eeeeee thin;
   color: #000000de;
+  background-color: #fff;
   outline: none;
   text-decoration: none;
   transition-property: box-shadow, opacity;
@@ -66,7 +70,7 @@
 }
 
 .filter-item-rating {
-  height: 40px;
+  height: 60px;
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -111,7 +115,7 @@ background-image: url("../assets/img/svg/block.svg");
 }
 
 .card__title_rating {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
 }
 
 .container__table {
@@ -123,6 +127,7 @@ background-image: url("../assets/img/svg/block.svg");
 .container__table_row {
   margin-bottom: 5px;
   display: flex;
+  height: 60px;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
@@ -144,8 +149,8 @@ background-image: url("../assets/img/svg/block.svg");
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
-  padding: 8px;
-  height: 44px;
+  padding: 15px;
+  height: 80px;
   border: 1px #eee solid;
   border-radius: 0px;
 }
@@ -156,6 +161,7 @@ background-image: url("../assets/img/svg/block.svg");
   border-radius: 0px;
   transition: all .6s;
   cursor: pointer;
+  font-size: 1rem;
 }
 .button_rating {
   background-color: #01579b;
@@ -177,14 +183,17 @@ flex-direction: row;
 justify-content: center;
 align-items: center;
 background: rgb(231, 231, 231);
-height: 65px;
+background: #5f8e9533;
+background: linear-gradient(0deg, #5f8e959f 0%, #3e74a7ce 75%);
+color: #fff;
+height: 80px;
 }
 .block-col {
   display: flex;
   flex-direction: column;
 }
 .card__rating_title p {
-  font-size: 0.8rem;
+  font-size: 1rem;
 }
 
 .filter-item__black {
@@ -192,8 +201,8 @@ height: 65px;
 }
 
 .rating__throphy_1, .rating__throphy_2, .rating__throphy_3 {
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
   margin-bottom: 0;
   background-size: cover;
   background-position: center center;
@@ -283,5 +292,9 @@ height: 65px;
   .filter-item__black {
     display: none;
   }
+  .loupe, .discette, .block, .king, .prof, .trio {
+    margin-right: 0px;
+  }
+
 }
 
