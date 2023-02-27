@@ -25,7 +25,6 @@
 
 .button {
   background-color: rgb(0, 57, 105);
-  /* border-color: rgb(0, 57, 105); */
   border: none;
   text-transform: uppercase;
   color: white;
@@ -50,20 +49,13 @@
   align-items: center;
   color: white;
   border: none;
-  cursor: pointer;
   transition: all .6s;
   padding-left: 10px;
   padding-right: 10px;
-}
-
-.button-navigation:hover {
-  background: rgba(214, 214, 214, 0.3);
+  cursor: auto;
 }
 
 .navigation {
-  /* background-color: #2e2e2e;
-  background-color: #293658;
-  background-color: #299299a8; */
   background: linear-gradient(0deg, #5f8e959f 0%, #299299a8 75%);
   box-shadow: 0 2px 4px -1px rgb(0 0 0 / 20%), 0 4px 5px 0 rgb(0 0 0 / 14%), 0 1px 10px 0 rgb(0 0 0 / 12%);
   display: flex;
@@ -102,6 +94,7 @@
   flex-direction: row;
   transition: all 0.6s;
   margin-top: 20px;
+  cursor: pointer;
 }
 
 .game-rules:hover {
@@ -171,10 +164,10 @@
 }
 
 .shadow {
-box-shadow: 0 2px 4px -1px rgb(0 0 0 / 20%), 0 4px 5px 0 rgb(0 0 0 / 14%), 0 1px 10px 0 rgb(0 0 0 / 12%);
-width: 100%;
-height: 1px;
-margin: 0;
+  box-shadow: 0 2px 4px -1px rgb(0 0 0 / 20%), 0 4px 5px 0 rgb(0 0 0 / 14%), 0 1px 10px 0 rgb(0 0 0 / 12%);
+  width: 100%;
+  height: 1px;
+  margin: 0;
 }
 
 .check-container {
@@ -199,17 +192,19 @@ margin: 0;
 .form-container {
   display: flex;
   flex-direction: column;
-  height: 50%;
-  justify-content: space-around;
+  height: 35%;
+  justify-content: space-between;
   align-items: center;
   margin: auto;
 }
+
 .form-container-wrap {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
+
 .game-difficult-container {
   display: flex;
   flex-direction: column;
@@ -311,16 +306,16 @@ margin: 0;
 }
 
 .flag-button {
-height: 150px;
-box-shadow: 0 2px 4px -1px rgb(0 0 0 / 20%), 0 4px 5px 0 rgb(0 0 0 / 14%), 0 1px 10px 0 rgb(0 0 0 / 12%);
+  height: 150px;
+  box-shadow: 0 2px 4px -1px rgb(0 0 0 / 20%), 0 4px 5px 0 rgb(0 0 0 / 14%), 0 1px 10px 0 rgb(0 0 0 / 12%);
 }
 
 .flag-button-img {
-width: 100px;
-height: 75px;
-display: block;
-margin: auto;
-box-shadow: 0 2px 4px -1px rgb(0 0 0 / 20%), 0 4px 5px 0 rgb(0 0 0 / 14%), 0 1px 10px 0 rgb(0 0 0 / 12%);
+  width: 100px;
+  height: 75px;
+  display: block;
+  margin: auto;
+  box-shadow: 0 2px 4px -1px rgb(0 0 0 / 20%), 0 4px 5px 0 rgb(0 0 0 / 14%), 0 1px 10px 0 rgb(0 0 0 / 12%);
 }
 
 .game-task {
@@ -337,11 +332,6 @@ box-shadow: 0 2px 4px -1px rgb(0 0 0 / 20%), 0 4px 5px 0 rgb(0 0 0 / 14%), 0 1px
 
   .game-container-wrapper {
     width: 100vw;
-    margin: 0;
-    margin-bottom: 10px;
-    border-top: none;
-    border-left: none;
-    border-right: none;
   }
 
   .navigation{
@@ -356,6 +346,7 @@ box-shadow: 0 2px 4px -1px rgb(0 0 0 / 20%), 0 4px 5px 0 rgb(0 0 0 / 14%), 0 1px
   .card__description_title {
     font-size: max(min(1rem, 5vw), 0.7rem);
   }
+
   .check-container {
     display: none;
   }
@@ -372,18 +363,16 @@ box-shadow: 0 2px 4px -1px rgb(0 0 0 / 20%), 0 4px 5px 0 rgb(0 0 0 / 14%), 0 1px
 
 @media screen and (max-width: 500px) {
 
-.popap {
-width: 76%;
-margin-left: 12%;
-}
-
+  .popap {
+    width: 76%;
+    margin-left: 12%;
+  }
 }
 
 @media screen and (max-width: 400px) {
 
-.close {
-  height: 12px;
-  width: 12px;
-}
-
+  .close {
+    height: 12px;
+    width: 12px;
+  }
 }

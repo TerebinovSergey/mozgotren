@@ -8,7 +8,6 @@
   height: 60px;
   color: #fefefe;
   caret-color: #fefefe;
-  /* background-color: #299299e0; */
   background: linear-gradient(90deg, #2b3a65 0%, #314377 34%, #3e75a7 75%);
   background: linear-gradient(0deg, #5f8e959f 0%, #3e74a7ce 75%);
   background: linear-gradient(0deg, #5f8e959f 0%, #299299a8 75%);
@@ -150,7 +149,7 @@ background-image: url("../assets/img/svg/block.svg");
   justify-content: flex-end;
   align-items: center;
   padding: 15px;
-  height: 80px;
+  height: 65px;
   border: 1px #eee solid;
   border-radius: 0px;
 }
@@ -178,15 +177,16 @@ background-image: url("../assets/img/svg/block.svg");
   background-color: #b3d4fc49;
 }
 .card__rating_title {
-display: flex;
-flex-direction: row;
-justify-content: center;
-align-items: center;
-background: rgb(231, 231, 231);
-background: #5f8e9533;
-background: linear-gradient(0deg, #5f8e959f 0%, #3e74a7ce 75%);
-color: #fff;
-height: 80px;
+  padding: 0 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background: #e7e7e7;
+  background: #5f8e9533;
+  background: linear-gradient(0deg, #5f8e959f 0%, #3e74a7ce 75%);
+  color: #000000;
+  height: 80px;
 }
 .block-col {
   display: flex;

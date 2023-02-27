@@ -100,9 +100,7 @@ const formValidation = async (e: Event) => {
           (document.querySelector('.login-box__msg') as HTMLElement).style.color = '#ff0000';
           (document.querySelector('.login-box__msg') as HTMLElement).innerHTML = 'Нет соединения с сервером';
         }
-      } catch (err) {
-        console.log({ message: 'server don\'t send data' });
-      }
+      } catch (err) { /* empty */ }
     }
   } else {
     checkName((inputTypesAndValuesArray[0] as HTMLInputElement).value);

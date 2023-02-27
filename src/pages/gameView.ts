@@ -264,7 +264,6 @@ export default class GamePage {
     GamePage.addListenerBtnGameRules();
     const gameRulesArea = getElement('.body-background-shaddow-description');
     gameRulesArea.addEventListener('click', () => {
-      console.log('gameRulesArea');
       getElement('.popap').classList.toggle('hidden_popap');
       getElement('.body-background-shaddow-description').classList.toggle('hidden_desc');
     });
