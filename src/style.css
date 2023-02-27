@@ -1,0 +1,14 @@
+@import url('./assets/styles/main.css');
+@import url('./assets/styles/components/header.css');
+@import url('./assets/styles/components/footer.css');
+@import url('./pages/home.css');
+@import url('./pages/trenagors.css');
+@import url('./pages/game.css');
+@import url('./pages/game-start.css');
+@import url('./pages/game-result.css');
+@import url('./pages/profile.css');
+@import url('./games/gameStyles.css');
+@import url('./pages/description.css');
+@import url('./pages/rating.css');
+@import url('./pages/404-style.css');
+

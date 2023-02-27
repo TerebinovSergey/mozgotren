@@ -1,0 +1,48 @@
+.game-container-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.game-sortirovshchik-cifr,
+.game-sortirovshchik-cvetov {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.game-task-sortirovka {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  font-size: max(min(1.2rem, 8vw), 1rem);
+}
+
+.game-sortirovka-answer {
+  margin: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 50px;
+  border-radius: 4px;
+  background-color: #f5f5f5;
+  box-shadow: 0 3px 1px -2px #00000033, 0 2px 2px 0 #00000024, 0 1px 5px 0 #0000001f;
+  font-weight: 500;
+  cursor: move;
+  user-select: none;
+}
+
+.game-sortirovka-answers {
+  margin: 40px 0;
+}
+
+.answer-selected {
+  opacity: 0.5;
+  background-color: #7bebeb;
+}
+
+.game-sortirovka__btn {
+  min-width: 150px;
+}
