@@ -168,7 +168,7 @@
   box-shadow: 0 6px 5px 0 rgb(0 0 0 / 18%), 0 1px 9px 0 rgb(0 0 0 / 15%);
 }
 .button_trane:hover, .button_trane:active {
-  pacity: 0.7;
+  opacity: 0.7;
 }
 .filter__title {
   padding: 10px;
