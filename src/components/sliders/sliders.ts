@@ -1,4 +1,3 @@
-/* eslint-disable no-promise-executor-return */
 import { getElement } from '../../utils/utils';
 
 export function sliderTitleTimeout(): void {
@@ -15,7 +14,7 @@ export function sliderTitleTimeout(): void {
     image1.classList.remove('move-right-1', 'move-right-2');
     image3.classList.remove('move-right-2');
     image3.classList.add('move-right-1');
-    await new Promise((e) => setTimeout(e, 500));
+    await new Promise((e) => { setTimeout(e, 500); });
     mainSlide.innerHTML = '';
     mainSlide.append(image1);
     range.value = '0';
@@ -23,7 +22,7 @@ export function sliderTitleTimeout(): void {
     image2.classList.remove('move-right-2', 'move-right-1');
     image1.classList.remove('move1');
     image1.classList.add('move-right-2');
-    await new Promise((e) => setTimeout(e, 500));
+    await new Promise((e) => { setTimeout(e, 500); });
   }
   async function moveSlide2() {
     mainSlide.innerHTML = '';
@@ -32,7 +31,7 @@ export function sliderTitleTimeout(): void {
     image3.classList.remove('move-right-1', 'move-right-2');
     image1.classList.remove('move-right-2');
     image1.classList.add('move-right-1');
-    await new Promise((e) => setTimeout(e, 500));
+    await new Promise((e) => { setTimeout(e, 500); });
     mainSlide.innerHTML = '';
     mainSlide.append(image2);
     range.value = '1';
@@ -40,7 +39,7 @@ export function sliderTitleTimeout(): void {
     image1.classList.remove('move-right-2', 'move-right-1');
     image2.classList.remove('move-right-1');
     image2.classList.add('move-right-2');
-    await new Promise((e) => setTimeout(e, 500));
+    await new Promise((e) => { setTimeout(e, 500); });
   }
   async function moveSlide3() {
     mainSlide.innerHTML = '';
@@ -49,7 +48,7 @@ export function sliderTitleTimeout(): void {
     image1.classList.remove('move-right-1', 'move-right-2');
     image2.classList.remove('move-right-2');
     image2.classList.add('move-right-1');
-    await new Promise((e) => setTimeout(e, 500));
+    await new Promise((e) => { setTimeout(e, 500); });
     mainSlide.innerHTML = '';
     mainSlide.append(image3);
     range.value = '2';
@@ -57,25 +56,25 @@ export function sliderTitleTimeout(): void {
     image2.classList.remove('move-right-2', 'move-right-1');
     image3.classList.remove('move-right-1');
     image3.classList.add('move-right-2');
-    await new Promise((e) => setTimeout(e, 500));
+    await new Promise((e) => { setTimeout(e, 500); });
   }
 
-  let isPause1 = false as boolean;
-  let isPause2 = false as boolean;
-  let isPause3 = false as boolean;
+  let isPause1 = false;
+  let isPause2 = false;
+  let isPause3 = false;
 
   async function moveSlideInt() {
     if (!isPause1) {
       moveSlide1();
-      await new Promise((e) => setTimeout(e, 5000));
+      await new Promise((e) => { setTimeout(e, 5000); });
     }
     if (!isPause2) {
       moveSlide2();
-      await new Promise((e) => setTimeout(e, 5000));
+      await new Promise((e) => { setTimeout(e, 5000); });
     }
     if (!isPause3) {
       moveSlide3();
-      await new Promise((e) => setTimeout(e, 5000));
+      await new Promise((e) => { setTimeout(e, 5000); });
     }
   }
 
@@ -87,31 +86,31 @@ export function sliderTitleTimeout(): void {
     if (range.value === '0') {
       isPause1 = true; isPause2 = true; isPause3 = true;
       moveSlide1();
-      await new Promise((e) => setTimeout(e, 5000));
+      await new Promise((e) => { setTimeout(e, 5000); });
       isPause2 = false;
-      await new Promise((e) => setTimeout(e, 5000));
+      await new Promise((e) => { setTimeout(e, 5000); });
       isPause3 = false;
-      await new Promise((e) => setTimeout(e, 5000));
+      await new Promise((e) => { setTimeout(e, 5000); });
       isPause1 = false;
     }
     if (range.value === '1') {
       isPause1 = true; isPause2 = true; isPause3 = true;
       moveSlide2();
-      await new Promise((e) => setTimeout(e, 5000));
+      await new Promise((e) => { setTimeout(e, 5000); });
       isPause3 = false;
-      await new Promise((e) => setTimeout(e, 5000));
+      await new Promise((e) => { setTimeout(e, 5000); });
       isPause1 = false;
-      await new Promise((e) => setTimeout(e, 5000));
+      await new Promise((e) => { setTimeout(e, 5000); });
       isPause2 = false;
     }
     if (range.value === '2') {
       isPause1 = true; isPause2 = true; isPause3 = true;
       moveSlide3();
-      await new Promise((e) => setTimeout(e, 5000));
+      await new Promise((e) => { setTimeout(e, 5000); });
       isPause1 = false;
-      await new Promise((e) => setTimeout(e, 5000));
+      await new Promise((e) => { setTimeout(e, 5000); });
       isPause2 = false;
-      await new Promise((e) => setTimeout(e, 5000));
+      await new Promise((e) => { setTimeout(e, 5000); });
       isPause3 = false;
     }
   });
@@ -231,17 +230,17 @@ export function sliderVerticalTimeout(): void {
 
   async function moveSlideInt() {
     move1();
-    await new Promise((e) => setTimeout(e, 5000));
+    await new Promise((e) => { setTimeout(e, 5000); });
     move2();
-    await new Promise((e) => setTimeout(e, 5000));
+    await new Promise((e) => { setTimeout(e, 5000); });
     move3();
-    await new Promise((e) => setTimeout(e, 5000));
+    await new Promise((e) => { setTimeout(e, 5000); });
     move4();
-    await new Promise((e) => setTimeout(e, 5000));
+    await new Promise((e) => { setTimeout(e, 5000); });
     move5();
-    await new Promise((e) => setTimeout(e, 5000));
+    await new Promise((e) => { setTimeout(e, 5000); });
     move6();
-    await new Promise((e) => setTimeout(e, 5000));
+    await new Promise((e) => { setTimeout(e, 5000); });
   }
   button1.addEventListener('click', move1);
   button2.addEventListener('click', move2);

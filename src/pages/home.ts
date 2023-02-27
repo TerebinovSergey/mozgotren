@@ -4,6 +4,7 @@ import { getElement } from '../utils/utils';
 import { SessionData } from '../types/types';
 import popupVisibility from '../components/popup-header/popupHeader';
 import { sliderTitleTimeout, sliderVerticalTimeout } from '../components/sliders/sliders';
+import './console';
 
 export default class HomePage {
   static draw(status: SessionData): void {
