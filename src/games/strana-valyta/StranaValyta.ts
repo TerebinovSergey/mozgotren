@@ -19,7 +19,6 @@ export default class StranaValyta extends StranaStolica {
     this.taskStack.push(countryInd);
     const contry = currenciesData.currencies[countryInd];
     this.currentAnswer = contry.currency;
-    console.log(contry.currency);
     return contry.country;
   }
 

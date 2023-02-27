@@ -13,29 +13,24 @@ const userCountry = (await httpGetAsync()).country;
 export default class Controller {
   static drawHomePage(status: SessionData): void {
     HomePage.draw(status);
-    console.log('response from API: ', status);
   }
 
   static drawProfilePage(ssid: SessionData): void {
     ProfilePage.draw(ssid, userData, userCountry);
-    console.log('response from API: ', ssid, userData, userCountry);
   }
 
   static drawTrenagorsPage(status: SessionData): void {
     TrenagorsPage.draw(status);
-    console.log('response from API: ', status);
   }
 
   static drawRatingPage(status: SessionData): void {
     const rating = new RatingPage();
     rating.draw(status);
-    console.log('response from API: ', status);
   }
 
   static drawGamePage(nameGame: GameNames, status: SessionData): void {
     const gameController = new GameController(nameGame);
     gameController.draw(status);
-    console.log('response from API: ', status);
   }
 
   static draw404Page(): void {

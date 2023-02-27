@@ -176,7 +176,6 @@ export const createElemDOM = (
 };
 
 export const sendResult = async (params: DataRating) => {
-  console.log(params);
   try {
     const result = await fetch(`${baseUrl}/send-result`, {
       method: 'POST',
